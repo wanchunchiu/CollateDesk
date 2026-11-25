@@ -2407,12 +2407,11 @@ const HELP_STEPS=[
  ["設定版本","上方分頁就是各版本。按「版本屬性」填全名、類型、年代、館藏地，或從 CSV 一次匯入；缺的版本用「＋ 新增版本」補上。"],
  ["貼上書影","點某個版本分頁，按 Ctrl＋V 貼上該版的書頁圖（也可拖放或點虛線框選檔）。一個版本可以有多頁。"],
  ["切字","側欄「版面切分」→「一鍵 1→2→3」，依序找出正文區塊、行、字框。不準的框用「字框工具」新增、刪除、拖移或拉角縮放。"],
- ["對齊字序","選本段第一個字的框，按「★ 設為段落起點」。中間若錯位，選那個框指定「此框＝第 N 字」（錨點），之後自動順延。"],
+ ["對齊字序","選本段第一個字的框，按「設為段落起點」。中間若錯位，選那個框指定「此框＝第 N 字」（錨點），之後自動順延。"],
  ["逐字標注","點字框打開放大鏡，填「實際字」，選類型：異文、異體字、訛字、脫字、衍字、不確定，或自訂類型。"],
  ["產生對照表","按「對照表 ▶」：底本逐字為列、各版為欄，每格是字圖＋實際字。在「校勘記」欄修改草稿。"],
- ["匯出成果","對照表上方「⬇ 匯出」→ Word、PDF；「校勘記」→ 匯出校勘記。「🌿 分支圖」可下載 SVG／PNG。"],
- ["續校下一段","一段校完，按側欄「⏭ 續校下一段」：沿用版本設定開新專案，並帶入各版最後一頁超出本段的字框。"],
- ["保住資料","資料只存在這個瀏覽器裡。請定期按「💾 備份全部專案」，把檔案放到雲端硬碟；換電腦或換瀏覽器時，用「匯入專案」選備份檔即可還原。"]];
+ ["匯出成果","對照表上方「匯出 ▾」→ Word、PDF；「校勘記 ▾」→ 匯出校勘記。「分支圖」可下載 SVG／PNG。"],
+ ["保住資料","資料只存在這個瀏覽器裡。請定期按專案列的「備份全部專案」，把檔案放到雲端硬碟；換電腦或換瀏覽器時，用「匯入專案」選備份檔即可還原。"]];
 function citeText(kind){const a=ABOUT;const v=APP_VERSION;const d=new Date();
  const url=a.doi?("https://doi.org/"+a.doi):(a.site||a.repo);const en=a.authorEn.replace(/^(\S+)\s+(\S+)$/,"$2, $1");const ini=a.authorEn.replace(/^(\S+)\s+(\S+)$/,(m,g,f)=>f+", "+g.split("-").map(x=>x[0]+".").join("-"));
  const zhD=`${d.getFullYear()}年${d.getMonth()+1}月${d.getDate()}日`,enD=d.toLocaleDateString("en-US",{year:"numeric",month:"long",day:"numeric"});
@@ -2774,7 +2773,6 @@ const HELP_I18N={
  ["一字ずつ標記する","字枠をクリックして拡大鏡を開き、「実際の字」を入力し、種類（異文・異体字・訛字・脱字・衍字・不確定・独自の種類）を選びます。"],
  ["対照表を作る","「対照表を作成 ▶」：底本の字が行、各版本が列になり、各セルに字の画像と実際の字が入ります。「校勘記」列で下書きを直します。"],
  ["書き出す","対照表の「⬇ 書き出し」→ Word・PDF。「校勘記 ▾」→ 校勘記を書き出し。「🌿 分岐図」は SVG／PNG で保存できます。"],
- ["次の段へ続ける","一段終わったら、サイドバー「⏭ 次の段へ続ける」：同じ版本設定で新しいプロジェクトを作り、各版の最終ページのうち本段を超える字枠を引き継ぎます。"],
  ["データを守る","データはこのブラウザにのみ保存されます。定期的に「💾 全プロジェクトをバックアップ」し、ファイルをクラウドなどに置いてください。別の端末やブラウザでは「プロジェクトを読み込み」でバックアップを選べば復元できます。"]],
  tour:"各機能が画面のどこにあるかは、サイドバー「検索とヘルプ」→「✨ ガイドツアー」で確認できます。",
  about:`<h3>対勘室｜CollateDesk</h3><p class="hsub">字単位書影対勘ワークベンチ — <i>Character-Level Textual Collation with Source Images</i></p>
@@ -2793,7 +2791,6 @@ const HELP_I18N={
  ["Mark each character","Click a box to open the magnifier, enter the actual character and choose a type: variant reading, variant form, error, omission, addition, uncertain, or a custom type."],
  ["Build the table","\"Build table ▶\": base characters as rows, versions as columns, each cell a glyph image plus the actual character. Edit the drafts in the notes column."],
  ["Export","Table toolbar \"⬇ Export\" → Word, PDF; \"Notes ▾\" → export notes. \"🌿 Branch graph\" saves SVG / PNG."],
- ["Continue to the next section","When a section is done, sidebar \"⏭ Continue to next section\" opens a new project with the same versions and carries over boxes on each version's last page beyond this section."],
  ["Keep your data safe","Data lives only in this browser. Regularly use \"💾 Back up all projects\" and keep the file in cloud storage; on another computer or browser, \"Import project\" restores it."]],
  tour:"To see where each feature sits on screen, use sidebar \"Search & help\" → \"✨ Tour\".",
  about:`<h3>CollateDesk (對勘室)</h3><p class="hsub"><i>Character-Level Textual Collation with Source Images</i></p>
@@ -2812,7 +2809,6 @@ const HELP_I18N={
  ["Jedes Zeichen markieren","Rahmen anklicken, um die Lupe zu öffnen, das tatsächliche Zeichen eingeben und einen Typ wählen: Variante, Schreibvariante, Fehler, Auslassung, Zusatz, unsicher oder einen eigenen Typ."],
  ["Tabelle erstellen","„Tabelle ▶“: Grundtextzeichen als Zeilen, Versionen als Spalten, jede Zelle ein Glyphenbild mit dem tatsächlichen Zeichen. Die Entwürfe in der Apparatspalte bearbeiten."],
  ["Exportieren","Tabellenleiste „⬇ Export“ → Word, PDF; „Apparat ▾“ → Apparat exportieren. Das „🌿 Verzweigungsdiagramm“ lässt sich als SVG / PNG speichern."],
- ["Weiter zum nächsten Abschnitt","Ist ein Abschnitt fertig, öffnet „⏭ Weiter zum nächsten Abschnitt“ in der Seitenleiste ein neues Projekt mit denselben Versionen und übernimmt die Rahmen auf der letzten Seite jeder Version, die über den Abschnitt hinausreichen."],
  ["Daten sichern","Die Daten liegen nur in diesem Browser. Regelmäßig „💾 Alle Projekte sichern“ nutzen und die Datei in einem Cloudspeicher ablegen; auf einem anderen Computer oder Browser stellt „Projekt importieren“ sie wieder her."]],
  tour:"Wo jede Funktion auf dem Bildschirm liegt, zeigt Seitenleiste „Suche & Hilfe“ → „✨ Rundgang“.",
  about:`<h3>CollateDesk (對勘室)</h3><p class="hsub"><i>Character-Level Textual Collation with Source Images</i></p>
@@ -2831,7 +2827,6 @@ const HELP_I18N={
  ["Marquer chaque caractère","Cliquez sur un cadre pour ouvrir la loupe, saisissez le caractère réel et choisissez un type : variante, forme variante, faute, omission, ajout, incertain, ou un type personnalisé."],
  ["Créer le tableau","« Tableau ▶ » : caractères du texte de base en lignes, versions en colonnes, chaque cellule une image du glyphe avec le caractère réel. Modifiez les brouillons dans la colonne de l'apparat."],
  ["Exporter","Barre du tableau « ⬇ Exporter » → Word, PDF ; « Apparat ▾ » → exporter l'apparat. Le « 🌿 Graphe des branches » s'enregistre en SVG / PNG."],
- ["Passer à la section suivante","Une section terminée, « ⏭ Passer à la section suivante » dans la barre latérale ouvre un nouveau projet avec les mêmes versions et reprend les cadres de la dernière page de chaque version qui dépassent la section."],
  ["Protéger vos données","Les données ne vivent que dans ce navigateur. Utilisez régulièrement « 💾 Sauvegarder tous les projets » et gardez le fichier dans un stockage en ligne ; sur un autre ordinateur ou navigateur, « Importer un projet » le restaure."]],
  tour:"Pour voir où se trouve chaque fonction à l'écran, utilisez dans la barre latérale « Recherche et aide » → « ✨ Visite guidée ».",
  about:`<h3>CollateDesk (對勘室)</h3><p class="hsub"><i>Character-Level Textual Collation with Source Images</i></p>
