@@ -766,7 +766,6 @@ body.tx-washi,body.tx-washi header{background-color:oklch(from var(--paper) calc
  </details>
  <details class="sbg" data-g="help"><summary>查詢與說明</summary>
  <button class="btn" id="charBtn">🔍 字搜尋（各版畫廊）</button>
- <button class="btn" id="rulesBtn">📖 講義規範</button>
  <button class="btn" id="demoBtn" title="開啟示範專案：《釋迦方志》序，各版書影已切好字框並對齊">開啟示範</button>
 <button class="btn" id="tourBtn" title="逐步聚光介紹各功能（快速鍵 ?）">✨ 導覽</button>
  </details>
@@ -844,38 +843,7 @@ body.tx-washi,body.tx-washi header{background-color:oklch(from var(--paper) calc
  </div>
 </div>
 
-<div id="rules" style="position:fixed;inset:0;background:oklch(from var(--ink) calc(l - 0.023) max(0, calc(c - 0.005)) calc(h + 0.0) / .88);z-index:54;display:none;align-items:flex-start;justify-content:center;overflow:auto;padding:30px 10px">
- <div style="background:var(--paper);border:2px solid var(--accent);border-radius:10px;width:min(860px,94vw);overflow:hidden">
-  <div style="padding:10px 16px;background:oklch(from var(--bar) calc(l + 0.050) max(0, calc(c + 0.011)) calc(h + 2.6));color:var(--paper);display:flex;gap:10px;align-items:center;position:sticky;top:0"><b style="letter-spacing:.1em">講義規範整理（4/22「版本・訳注校勘の説明」）</b><span style="flex:1"></span><button class="btn" onclick="document.getElementById('rules').style.display='none'">關閉 ✕</button></div>
-  <div style="padding:16px 22px;font-size:15px;line-height:1.9;color:var(--ink)">
-   <h3 style="color:var(--accent);margin:6px 0">一、底本與對校本</h3>
-   <p style="margin:4px 0">底本＝<b>大正藏</b>（以高麗再雕本為底本；部分自明本組入須注意）。對校本九種，依編號：<br>
-   <b>1剛</b>(金剛寺)　<b>2七</b>(七寺)　<b>3興</b>(興聖寺)｜<b>4初</b>(高麗初雕)　<b>5趙</b>(趙城金藏)　<b>6再</b>(高麗再雕＝大正底本)｜<b>7毘</b>(毘盧＝大正「宮」)　<b>8思</b>(思溪＝大正「宋」)　<b>9磧</b>(磧砂)</p>
-   <h3 style="color:var(--accent);margin:14px 0 6px">二、校勘略號併用順序（#2）</h3>
-   <p style="margin:4px 0;font-size:17px"><b>剛・七・興・初・趙・再・毘・思・磧・大正</b>（版本間用中點「・」）</p>
-   <h3 style="color:var(--accent);margin:14px 0 6px">三、採用／不採用的寫法（#3）與原則（#4）</h3>
-   <ul style="margin:4px 0;padding-left:22px">
-    <li>採用的字用<b>「　」</b>標示，後接採此讀法的版本（依併用順序）；接著加「<b>；</b>」，再列不採用的字。<b>越靠後＝越不可採</b>。</li>
-    <li><b>原則採古寫本（剛・七・興）的字</b>；古寫本的字<b>意義不通</b>時，改採他本。</li>
-    <li><b>異體字（同字不同形）也出校</b>：不同寫法分組各繫版本，採用的字形放最前；打不出的字形<b>剪原圖貼上</b>。</li>
-   </ul>
-   <p style="margin:6px 0;background:oklch(from var(--paper) calc(l + 0.026) max(0, calc(c - 0.003)) calc(h + 2.6));border:1px solid var(--line);border-radius:6px;padding:8px 12px;font-size:14px">
-   實例（講義 p7–8）：<br>「于」剛・七・興・毘・思・磧；「乎」初・再・趙・大 —— 採古寫本「于」<br>「序」思●・磧；「序一」初・趙・再・毘 —— 古寫系不通，改採「序」<br>「弘」剛・七・興・初・趙・再・思・磧；「引」毘<br>「道」剛・七・興・初・趙・再；「導」毘・思・磧</p>
-   <h3 style="color:var(--accent);margin:14px 0 6px">四、特殊符號</h3>
-   <ul style="margin:4px 0;padding-left:22px">
-    <li><b>大正●</b>＝大正藏本文（訂正前誤字照錄）；<b>□●</b>＝大正藏校勘有誤；<b>〔□〕</b>＝訂正後正字。</li>
-    <li><b>〔なし〕</b>＝該版無此字；判讀不能 → 剪原圖貼上（如金剛寺本）。</li>
-   </ul>
-   <h3 style="color:var(--accent);margin:14px 0 6px">五、句讀與引文（#5・#6）</h3>
-   <ul style="margin:4px 0;padding-left:22px">
-    <li>原文句讀只用三種：<b>，　。　：</b>（不用 ；「」！？）。</li>
-    <li>原文中的<b>引文</b>用<b>『　』</b>標示首尾（「」不用於引文）。</li>
-   </ul>
-   <h3 style="color:var(--accent);margin:14px 0 6px">六、本工具對應</h3>
-   <p style="margin:4px 0;font-size:14px">異文＝<span style="color:oklch(from var(--accent) calc(l + 0.086) max(0, calc(c + 0.060)) calc(h - 4.4));font-weight:700">紅</span>、異體＝<span style="color:oklch(from var(--ok) calc(l + 0.041) max(0, calc(c + 0.042)) calc(h - 13.7));font-weight:700">綠</span>、不確定＝<span style="color:#7a3fb5;font-weight:700">紫</span>。格內選單可標：異體字、異體詞、訛字、異文、脫字、衍字、不確定，以及「＋自訂…」的類型。<b>脫字</b>＝此版缺此字，其後的框自動往後對齊一格；<b>衍字</b>＝此框是多出的字，不佔底本字序、掛在前一字下方，其後的框往前對齊一格（兩者都只影響到下一個錨點為止）。「校勘記」欄草稿已依併用順序分組、組間自動加「；」（第一組＝採用、越後越不可採），例外時手動調整；「匯出校勘記」採用你改過的內容。</p>
-  </div>
- </div>
-</div>
+<div id="rules" hidden></div>
 
 <div id="synopsis" style="position:fixed;inset:0;background:oklch(from var(--ink) calc(l + 0.013) max(0, calc(c + 0.001)) calc(h + 0.0));z-index:53;display:none;flex-direction:column">
  <div style="padding:8px 16px;background:oklch(from var(--bar) calc(l + 0.050) max(0, calc(c + 0.011)) calc(h + 2.6));color:var(--paper);display:flex;gap:12px;align-items:center;border-bottom:2px solid var(--accent)">
@@ -2105,7 +2073,7 @@ function rebaseRepair(){if(state._rebaseFix)return;state._rebaseFix=1;const char
   if(SIGS.some(([s])=>{const t=getTrans(s,e.r);return t&&t.c===cur&&t.t!=='var'&&t.t!=='word';}))rebaseChar(e.r,e.base,cur);});save();}
 
 /* ---------- 對照表欄位：寬度記憶、隱藏、調換順序 ---------- */
-const EXN={br:"分支",app:"大正校勘",read:"音讀",note:"校勘記（講義格式・可改）"};
+const EXN={br:"分支",app:"大正校勘",read:"音讀",note:"校勘記（可改）"};
 function exOrder(){const d=["br","app","read","note"];let o=(state.exOrder||[]).filter(k=>d.includes(k));d.forEach(k=>{if(!o.includes(k))o.push(k);});return o;}
 function exShown(k){return k==="br"?showBrCol:k==="app"?showAppCol:k==="read"?showReadCol:showNoteCol;}
 function exSet(k,on){if(k==="br")showBrCol=on;else if(k==="app")showAppCol=on;else if(k==="read")showReadCol=on;else showNoteCol=on;
@@ -2321,7 +2289,7 @@ async function exportWordDoc(){const chars=passageChars();buildCov();const cell=
  mht+='--'+B+'--';
  const blob=new Blob([mht],{type:'application/msword'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='對照表.doc';a.click();}
 document.getElementById("charBtn").onclick=()=>{document.getElementById("charsearch").style.display="flex";renderCharSearch();};
-document.getElementById("rulesBtn").onclick=()=>{document.getElementById("rules").style.display="flex";};
+(document.getElementById("rulesBtn")||{}).onclick=()=>{document.getElementById("rules").style.display="flex";};
 document.getElementById("csClose").onclick=()=>document.getElementById("charsearch").style.display="none";
 document.getElementById("csGo").onclick=renderCharSearch;
 document.getElementById("csSize").onchange=renderCharSearch;
@@ -2717,7 +2685,6 @@ v0.9.0・資料只存在本機|v0.9.0・データはこの端末にのみ保存|
 尚未做過完整備份|まだ完全バックアップをしていません|No full backup yet
 查詢與說明|検索とヘルプ|Search & help
 🔍 字搜尋（各版畫廊）|🔍 字の検索（各版ギャラリー）|🔍 Find a character (gallery)
-📖 講義規範|📖 講義の規範|📖 Handout conventions
 📘 操作步驟|📘 操作手順|📘 Steps
 從建專案到匯出的操作步驟|プロジェクト作成から書き出しまでの手順|Steps from creating a project to exporting
 ℹ 關於與引用|ℹ 概要と引用|ℹ About & cite
@@ -2855,7 +2822,7 @@ Word 輸出縮放|Word 出力の倍率|Word export scale
 分支|分岐|Branch
 大正校勘|大正校勘|Taishō
 音讀|音読|Reading
-校勘記（講義格式・可改）|校勘記（講義形式・編集可）|Notes (handout style, editable)
+校勘記（可改）|校勘記（講義形式・編集可）|Notes (handout style, editable)
 引用與連結|引用とリンク|Cite & links
 引用對勘室|対勘室の引用|Citing CollateDesk
 在論文或報告中使用對勘室時，請引用：|論文や報告で対勘室を使った場合は、次のように引用してください：|If you use CollateDesk in a paper or report, please cite:
