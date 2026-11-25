@@ -4237,11 +4237,9 @@ document.addEventListener("keydown",e=>{if(e.key==="Escape"&&!P.hidden&&!documen
 <script>
 (function(){const b=document.getElementById("psgFold"),pk=document.getElementById("psgPeek"),ta=document.getElementById("passage");if(!b||!ta)return;
  function set(f,save){document.body.classList.toggle("psgFolded",f);b.textContent=f?"展開":"收合";pk.hidden=!f;if(f){const t=ta.value.replace(/\s+/g,"");pk.textContent=t.length?t.slice(0,60)+(t.length>60?"…":"")+`（${t.length} 字）`:"（尚未貼入）";}
-  if(save)try{localStorage.setItem("bikan_psgFold",f?"1":"0");}catch(e){}}
+}
  b.onclick=()=>set(!document.body.classList.contains("psgFolded"),true);
- let pref=null;try{pref=localStorage.getItem("bikan_psgFold");}catch(e){}
- function started(){try{return Object.values(state.versions).some(v=>v.pages&&v.pages.length);}catch(e){return false;}}
- setTimeout(()=>{set(pref==="1"||(pref===null&&started()),false);},400);
+ setTimeout(()=>{set(false,false);},400);   // 每次開啟都先展開；收合只在這次使用中有效
 })();
 </script>
 <script>{const l=document.getElementById("tourLink");if(l)l.onclick=()=>document.getElementById("tourBtn").click();}</script>
