@@ -665,7 +665,7 @@ body.tx-washi,body.tx-washi header{background-color:oklch(from var(--paper) calc
  <div>
   <h1 class="t1">對勘室｜CollateDesk</h1>
   <div class="tagline" style="margin:2px 0 6px;color:oklch(from var(--accent) calc(l - 0.049) max(0, calc(c - 0.039)) calc(h + 15.6));font-size:15px;letter-spacing:.08em">字級書影對勘工作臺<span style="display:block;font-size:12px;letter-spacing:.02em;color:oklch(from var(--muted) calc(l + 0.031) max(0, calc(c + 0.014)) calc(h - 2.8));font-style:italic">Character-Level Textual Collation with Source Images</span></div>
-  <div class="hlinks"><a data-help="steps">📘 操作步驟</a><a data-help="about">ℹ 關於對勘室</a><a data-help="cite">❝ 引用</a><label class="langpick" title="語言／言語／Language"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.6 2.7 3.9 5.7 3.9 9s-1.3 6.3-3.9 9c-2.6-2.7-3.9-5.7-3.9-9S9.4 5.7 12 3z"/></svg><select id="langSel" aria-label="Language"><option value="zh">中</option><option value="ja">日</option><option value="en">英</option><option value="de">德</option><option value="fr">法</option></select></label><span id="appVer" style="color:oklch(from var(--muted) calc(l + 0.031) max(0, calc(c + 0.014)) calc(h - 2.8));font-size:12px" title="資料只存在這個瀏覽器裡；請定期備份全部專案"></span></div>
+  <div class="hlinks"><a id="tourLink" title="逐步聚光介紹各功能（快速鍵 ?）">✨ 導覽</a><a data-help="steps">📘 操作步驟</a><a data-help="about">ℹ 關於對勘室</a><a data-help="cite">❝ 引用</a><label class="langpick" title="語言／言語／Language"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.6 2.7 3.9 5.7 3.9 9s-1.3 6.3-3.9 9c-2.6-2.7-3.9-5.7-3.9-9S9.4 5.7 12 3z"/></svg><select id="langSel" aria-label="Language"><option value="zh">中</option><option value="ja">日</option><option value="en">英</option><option value="de">德</option><option value="fr">法</option></select></label><span id="appVer" style="color:oklch(from var(--muted) calc(l + 0.031) max(0, calc(c + 0.014)) calc(h - 2.8));font-size:12px" title="資料只存在這個瀏覽器裡；請定期備份全部專案"></span></div>
  </div>
 </header>
 
@@ -768,7 +768,7 @@ body.tx-washi,body.tx-washi header{background-color:oklch(from var(--paper) calc
  <details class="sbg" data-g="help"><summary>查詢與說明</summary>
  <button class="btn" id="charBtn">🔍 字搜尋（各版畫廊）</button>
  <button class="btn" id="demoBtn" title="建立一個示範專案：兩個版本、十四個字，已切好字框並對齊">開啟示範</button>
-<button class="btn" id="tourBtn" title="逐步聚光介紹各功能（快速鍵 ?）">✨ 導覽</button>
+<button class="btn" id="tourBtn" hidden title="逐步聚光介紹各功能（快速鍵 ?）">✨ 導覽</button>
  </details>
 </div>
 <div class="hintbar" hidden>提示：選取字框後，可拖<b>任一角</b>縮放（可上下重疊）、拖框身移動、方向鍵微調、Delete 刪除。側欄「選取框」可指定此框對應第幾字（錨點），之後自動順延。</div>
@@ -2749,6 +2749,7 @@ Word 輸出縮放|Word 出力の倍率|Word export scale|Maßstab für Word-Expo
 已儲存版本屬性。|版本属性を保存しました。|Version attributes saved.|Versionsangaben gespeichert.|Fiche des versions enregistrée.
 在論文或報告中使用對勘室時，請引用你實際使用的版本（版本號在畫面右上角）。檢索日期會自動填今天。|論文や報告で対勘室を使った場合は、実際に使った版を引用してください（版番号は画面右上）。閲覧日は今日の日付が自動で入ります。|If you use CollateDesk in a paper or report, cite the version you actually used (shown at the top right). The access date is filled in with today.|Wenn Sie CollateDesk in einem Aufsatz oder Bericht verwenden, zitieren Sie die tatsächlich benutzte Version (oben rechts angezeigt). Das Abrufdatum wird mit dem heutigen Datum ausgefüllt.|Si vous utilisez CollateDesk dans un article ou un rapport, citez la version effectivement utilisée (indiquée en haut à droite). La date de consultation est remplie avec la date du jour.
 貼上底本正文（例如《大正藏》）。全段字序以這裡為準，各版本依此逐字對齊；標點不影響對齊。|底本の本文を貼ります（例：『大正蔵』）。全体の字順はここが基準で、各版本はこれに一字ずつ揃えます。句読点は揃え方に影響しません。|Paste the base text (e.g. from the Taishō). Its character order is the reference every version is aligned to; punctuation does not affect alignment.|Grundtext einfügen (z. B. aus dem Taishō). Seine Zeichenfolge ist der Bezug, an dem jede Version ausgerichtet wird; Interpunktion beeinflusst die Ausrichtung nicht.|Collez le texte de base (p. ex. depuis le Taishō). Son ordre des caractères sert de référence à l'alignement de chaque version ; la ponctuation n'influe pas sur l'alignement.
+✨ 導覽|✨ ツアー|✨ Tour|✨ Rundgang|✨ Visite guidée
 `;
 const HELP_I18N={
  ja:{steps:[
@@ -4209,4 +4210,5 @@ document.addEventListener("keydown",e=>{if(e.key==="Escape"&&!P.hidden&&!documen
  setTimeout(()=>{set(pref==="1"||(pref===null&&started()),false);},400);
 })();
 </script>
+<script>{const l=document.getElementById("tourLink");if(l)l.onclick=()=>document.getElementById("tourBtn").click();}</script>
 </body></html>
