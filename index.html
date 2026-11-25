@@ -710,7 +710,7 @@ body.tx-washi,body.tx-washi header{background-color:oklch(from var(--paper) calc
 <div class="bar">
  <div class="sbsave"><b id="curName">—</b>
  <div id="backupNag"></div>
- <button class="btn" id="linkFile">🔗 連結自動存檔</button>
+ <button class="btn" id="linkFile" title="選一個電腦上的檔案（例如放在 Dropbox），之後每次修改都自動存進去；資料就不只在瀏覽器裡。只支援 Chrome、Edge。">🔗 自動存到電腦檔案</button>
  <span id="fileStat" style="font-size:12px;color:var(--gold);margin:0 4px">未連結</span>
  <span id="saveStat" style="font-size:12px;color:oklch(from var(--line) calc(l + 0.050) max(0, calc(c + 0.019)) calc(h + 70.9));margin:0 6px">自動儲存中…</span>
  </div>
@@ -1920,7 +1920,7 @@ document.addEventListener("keydown",e=>{
 document.getElementById("expProj").onclick=()=>{const blob=new Blob([JSON.stringify(state)],{type:"application/json"});const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="對勘室專案.json";a.click();};
 document.getElementById("saveImgs").onclick=async()=>{let n=0;for(let vi=0;vi<SIGS.length;vi++){const s=SIGS[vi][0],v=state.versions[s];
   for(let pi=0;pi<v.pages.length;pi++){const a=document.createElement("a");a.href=v.pages[pi].img;a.download=`${vi+1}_${s}_p${pi+1}.png`;document.body.appendChild(a);a.click();a.remove();n++;await new Promise(r=>setTimeout(r,250));}}
-  alert(n?`已另存 ${n} 張原始頁圖 PNG 到下載資料夾。\n（這只是圖檔備份，不是存進度；存進度請用「🔗 連結自動存檔」。）`:"尚無圖檔");};
+  alert(n?`已另存 ${n} 張原始頁圖 PNG 到下載資料夾。\n（這只是圖檔備份，不是存進度；存進度請用「🔗 自動存到電腦檔案」。）`:"尚無圖檔");};
 document.getElementById("impProj").onclick=()=>document.getElementById("fileProj").click();
 document.getElementById("fileProj").onchange=e=>{const f=e.target.files[0];e.target.value="";if(!f)return;const r=new FileReader();r.onload=async()=>{let s;try{s=JSON.parse(r.result);}catch(err){alert("匯入失敗：檔案不是有效的 JSON（"+err+"）");return;}
   if(s&&s.format==="collatedesk-backup"){await restoreBackup(s);return;}
@@ -2420,7 +2420,7 @@ function openHelp(tab){let d=document.getElementById("helpDlg");if(d)d.remove();
   <p><b>它看的是影像，不是轉錄後的文字。</b>每一個字框就是一張單字切圖：異體、補刻、刻工換手，這些在編碼裡消失的訊息，都留在圖上。工具只負責把形放到眼前；異文、異體、要不要出校，判斷留給讀的人。</p>
   <h4>主要功能</h4><ul><li>書影自動切字（區塊→行→字），可逐框修正</li><li>依閱讀順序與錨點，把字框對齊到底本字序</li><li>逐字標注異文、異體、訛字、脫字、衍字與自訂類型</li><li>對照表、校勘記草稿、異文分支圖；匯出 Word、講義、PDF、SVG</li><li>版本屬性（年代、類型、館藏地…）、續校下一段、完整備份</li></ul>
   <h4>資料在哪裡</h4><p>所有專案、書影與校勘都只存在使用者自己的瀏覽器裡，不會上傳到任何伺服器。請定期「💾 備份全部專案」。對勘功能可離線使用；「查詢網站」按鈕需要連網。</p>
-  <h4>建議環境</h4><p>桌上型或筆記型電腦，Chrome 或 Edge，畫面寬度 1280px 以上。Safari、Firefox 可以使用，但不支援「連結自動存檔」，且 Safari 可能在網站 7 天未使用後清除資料。</p>
+  <h4>建議環境</h4><p>桌上型或筆記型電腦，Chrome 或 Edge，畫面寬度 1280px 以上。Safari、Firefox 可以使用，但不支援「自動存到電腦檔案」，且 Safari 可能在網站 7 天未使用後清除資料。</p>
   <p class="hnote">版本 ${APP_VERSION}・作者 ${esc(a.author)}（${esc(a.authorEn)}）</p></section>
  <section data-p="cite"><h3>引用對勘室</h3><p>在論文或報告中使用對勘室時，請引用你實際使用的版本（版本號在畫面右上角）。檢索日期會自動填今天。</p>
   ${[["中文","zh"],["English（Chicago）","en"],["APA","apa"],["BibTeX","bib"]].map(([t,k])=>`<div class="hcite"><div class="hct"><b>${t}</b><button class="btn" data-copy="${k}">📋 複製</button></div><pre>${esc(citeText(k))}</pre></div>`).join("")}
@@ -2562,7 +2562,8 @@ v0.9.0・資料只存在本機|v0.9.0・データはこの端末にのみ保存|
 頁圖標大正校勘|画像に大正校勘を表示|Taishō notes on image
 在頁圖的字框上標出大正藏校勘註|画像の字枠に大正蔵の校勘注を表示|Mark Taishō apparatus notes on the boxes
 專案檔與備份|プロジェクトファイルとバックアップ|Project files & backup
-🔗 連結自動存檔|🔗 自動保存ファイルに接続|🔗 Link auto-save file
+🔗 自動存到電腦檔案|🔗 PC のファイルに自動保存|🔗 Auto-save to a file on this computer
+選一個電腦上的檔案（例如放在 Dropbox），之後每次修改都自動存進去；資料就不只在瀏覽器裡。只支援 Chrome、Edge。|PC 上のファイル（Dropbox 内など）を選ぶと、以後の変更が自動でそこに保存されます。ブラウザだけに頼らずにすみます。Chrome・Edge のみ対応。|Pick a file on your computer (e.g. in Dropbox); every change is then saved to it automatically, so your work is not only in the browser. Chrome and Edge only.
 未連結|未接続|Not linked
 已自動儲存 ✓|自動保存済み ✓|Saved ✓
 已就緒（自動儲存開啟）|準備完了（自動保存オン）|Ready (auto-save on)
