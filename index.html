@@ -665,7 +665,7 @@ body.tx-washi,body.tx-washi header{background-color:oklch(from var(--paper) calc
  <div>
   <h1 class="t1">對勘室｜CollateDesk</h1>
   <div class="tagline" style="margin:2px 0 6px;color:oklch(from var(--accent) calc(l - 0.049) max(0, calc(c - 0.039)) calc(h + 15.6));font-size:15px;letter-spacing:.08em">字級書影對勘工作臺<span style="display:block;font-size:12px;letter-spacing:.02em;color:oklch(from var(--muted) calc(l + 0.031) max(0, calc(c + 0.014)) calc(h - 2.8));font-style:italic">Character-Level Textual Collation with Source Images</span></div>
-  <div class="hlinks"><a data-help="steps">📘 操作步驟</a><a data-help="about">ℹ 關於對勘室</a><a data-help="cite">❝ 引用</a><label class="langpick" title="語言／言語／Language"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.6 2.7 3.9 5.7 3.9 9s-1.3 6.3-3.9 9c-2.6-2.7-3.9-5.7-3.9-9S9.4 5.7 12 3z"/></svg><select id="langSel" aria-label="Language"><option value="zh">中</option><option value="ja">日</option><option value="en">英</option></select></label><span id="appVer" style="color:oklch(from var(--muted) calc(l + 0.031) max(0, calc(c + 0.014)) calc(h - 2.8));font-size:12px" title="資料只存在這個瀏覽器裡；請定期備份全部專案"></span></div>
+  <div class="hlinks"><a data-help="steps">📘 操作步驟</a><a data-help="about">ℹ 關於對勘室</a><a data-help="cite">❝ 引用</a><label class="langpick" title="語言／言語／Language"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.6 2.7 3.9 5.7 3.9 9s-1.3 6.3-3.9 9c-2.6-2.7-3.9-5.7-3.9-9S9.4 5.7 12 3z"/></svg><select id="langSel" aria-label="Language"><option value="zh">中</option><option value="ja">日</option><option value="en">英</option><option value="de">德</option><option value="fr">法</option></select></label><span id="appVer" style="color:oklch(from var(--muted) calc(l + 0.031) max(0, calc(c + 0.014)) calc(h - 2.8));font-size:12px" title="資料只存在這個瀏覽器裡；請定期備份全部專案"></span></div>
  </div>
 </header>
 
@@ -2434,320 +2434,321 @@ function openHelp(tab){let d=document.getElementById("helpDlg");if(d)d.remove();
  try{localStorage.setItem("bikan_seenHelp","1");}catch(e){}}
 {const v=document.getElementById("appVer");if(v)v.textContent="v"+APP_VERSION+"・資料只存在本機";}
 document.querySelectorAll("[data-help]").forEach(a=>a.onclick=e=>{e.preventDefault();openHelp(a.dataset.help);});
-const I18N_RAW=`字級書影對勘工作臺|字単位書影対勘ワークベンチ|∅
-📘 操作步驟|📘 操作手順|📘 Steps
-ℹ 關於對勘室|ℹ 対勘室について|ℹ About
-❝ 引用|❝ 引用|❝ Cite
-v0.9.0・資料只存在本機|v0.9.0・データはこの端末にのみ保存|v0.9.0 · Data stays on this device
-資料只存在這個瀏覽器裡；請定期備份全部專案|データはこのブラウザにのみ保存されます。定期的に全プロジェクトをバックアップしてください|Data is stored only in this browser. Back up all projects regularly.
-點下方版本分頁，直接|下の版本タブを選び、|Pick a version tab below, then
-貼上該版的書頁大圖（或拖放／選檔）。逐頁自動切字、可手動修框，再對齊到校定本文，最後一鍵排成對照表。|でその版の書影を貼り付けます（ドラッグ＆ドロップ／ファイル選択も可）。ページごとに自動で字を切り出し、枠を手直しして校定本文に揃え、最後に対照表を作ります。|to paste that version's page image (or drag & drop / choose a file). Characters are cut automatically page by page; adjust boxes, align them to the base text, then build the comparison table.
-大圖顯示高度（各頁等高・放大；Ctrl＋滾輪縮放）：|画像の高さ（Ctrl＋ホイールで拡大）：|Image height (Ctrl+wheel zooms):
-對勘|対勘|Collate
-訓讀|訓読|Kundoku
-地圖|地図|Map
-專案|プロジェクト|Project
-切換不同文本的對勘專案|対勘プロジェクトを切り替え|Switch collation project
-＋ 新專案|＋ 新規プロジェクト|＋ New project
-新增一個對勘專案（另一個文本）|新しい対勘プロジェクト（別の本文）を作成|Create a new collation project (another text)
-改名|名前を変更|Rename
-替目前專案改名|現在のプロジェクト名を変更|Rename the current project
-刪除專案|プロジェクトを削除|Delete project
-刪除目前專案|現在のプロジェクトを削除|Delete the current project
-（每個專案各有自己的底本、版本與頁圖）|（プロジェクトごとに底本・版本・書影を持ちます）|(each project has its own base text, versions and page images)
-只顯示略號|略号のみ表示|Sigla only
-顯示全名|正式名を表示|Full names
-切換版本分頁的顯示方式|版本タブの表示方法を切り替え|Toggle how version tabs are shown
-版本屬性|版本情報|Version info
-各版本的全名、類型（寫本／刻本／抄本…）、系統、年代、出土地、館藏地、編號、筆記；可從 CSV 或其他專案匯入|各版本の正式名・種別（写本／刊本／抄本…）・系統・年代・出土地・所蔵・番号・メモ。CSV や他のプロジェクトから取り込めます|Full name, type (manuscript / woodblock / copy…), lineage, date, provenance, holding, shelfmark and notes for each version; import from CSV or another project
-＋ 新增版本|＋ 版本を追加|＋ Add version
-新增一個版本（自訂略號與名稱）|版本を追加（略号と名称を指定）|Add a version (choose siglum and name)
-－ 刪除此版本|－ この版本を削除|－ Delete this version
-刪除目前選中的版本及其所有頁面|選択中の版本とその全ページを削除|Delete the selected version and all its pages
-＋ 新增頁|＋ ページを追加|＋ Add page
-為目前版本新增一頁（選圖／貼圖也可）|現在の版本にページを追加（画像の選択・貼り付けも可）|Add a page to this version (choose or paste an image)
-－ 刪除末頁|－ 最終ページを削除|－ Delete last page
-刪除目前版本的最後一頁（可從右欄『↩ 復原刪頁』救回）|現在の版本の最終ページを削除（右欄「↩ 削除を戻す」で復元可）|Delete this version's last page (restore with "↩ Undo delete" in the sidebar)
-版本一覽|版本一覧|All versions
-各版本第一頁書影、系統與大約時代，整頁並列（Esc 關閉）|各版本の第1ページ・系統・おおよその年代を一覧（Esc で閉じる）|First page, lineage and approximate date of every version side by side (Esc to close)
-產生對照表 ▶|対照表を作成 ▶|Build table ▶
-對照表 ▶|対照表 ▶|Table ▶
-把所有版本依底本字序排成對照表|全版本を底本の字順に並べて対照表にする|Arrange all versions by base-text order into a comparison table
-提示：選取字框後，可拖|ヒント：字枠を選択したら|Tip: after selecting a box, drag 
-任一角|四隅のどれか| any corner 
-縮放（可上下重疊）、拖框身移動、方向鍵微調、Delete 刪除。側欄「選取框」可指定此框對應第幾字（錨點），之後自動順延。|で拡大縮小（上下の重なり可）、枠本体のドラッグで移動、矢印キーで微調整、Delete で削除。サイドバー「選択中の枠」で、この枠が何字目かを指定（アンカー）すると、以降は自動で順送りされます。|to resize (overlap allowed), drag the box to move, arrow keys to nudge, Delete to remove. In the sidebar's "Selected box" you can pin this box to character N (anchor); following boxes continue from there.
-在此|ここで|Here, press
-貼上頁面大圖，或點此選檔／拖放圖片|ページ画像を貼り付け、またはクリックしてファイル選択／画像をドロップ|to paste a page image, or click to choose / drop an image
-校定本文（底本）|校定本文（底本）|Base text (collated)
-載入範例底本（彥琮傳）|サンプル底本（彦琮伝）を読み込む|Load sample base text (Yancong zhuan)
-把本文換成內建的《續高僧傳・彥琮傳》範例底本（會先確認）|本文を内蔵の『続高僧伝・彦琮伝』サンプルに置き換え（確認あり）|Replace the text with the built-in sample from the Xu gaoseng zhuan (asks first)
-全段字序以這裡為準，各版本都依此逐字對齊。先貼入底本（如《大正藏》）正文，校勘完成後再改為最後採用的文字。標點不影響對齊。|この本文の字順が基準になり、各版本はこれに一字ずつ揃えられます。まず底本（『大正蔵』など）の本文を貼り、校勘が終わったら最終的に採用する本文に直してください。句読点は揃え方に影響しません。|Every version is aligned character by character to this text. Paste the base text (e.g. the Taishō) first; once collation is done, change it to your adopted reading. Punctuation does not affect alignment.
-字框工具|字枠ツール|Box tools
-選取／移動|選択／移動|Select / move
-選取、移動、縮放字框；空白處拖曳＝框選多個|字枠を選択・移動・拡大縮小。空白をドラッグすると複数選択|Select, move and resize boxes; drag on empty space to select several
-新增字框|字枠を追加|Add box
-新增字框：在字的中心點一下＝以那一點為中心放一個一般大小的框；按住拖曳＝自己畫框的範圍|字枠を追加：字の中心をクリックすると標準サイズの枠を置き、ドラッグすると範囲を自分で描きます|Add box: click a character's centre for a standard box, or drag to draw your own
-刪除字框|字枠を削除|Delete box
-點一下字框就刪掉|クリックした字枠を削除|Click a box to delete it
-↩ 復原刪頁|↩ 削除したページを戻す|↩ Undo page delete
-復原最近刪掉的頁面|最後に削除したページを戻す|Restore the most recently deleted page
-版面切分|レイアウト分割|Layout
-書寫方向|書字方向|Writing direction
-此版本的書寫方向：決定偵測行、切字與閱讀順序|この版本の書字方向：行検出・字切り・読み順を決めます|Writing direction of this version: decides line detection, cutting and reading order
-直書（右→左）|縦書き（右→左）|Vertical (right→left)
-橫書（左→右）|横書き（左→右）|Horizontal (left→right)
-範圍|範囲|Scope
-本頁|このページ|This page
-本版全部|この版本すべて|Whole version
-區塊|ブロック|Blocks
-自動找正文區塊|本文ブロックを自動検出|Find text block
-自動找出正文區塊（字最密的那一塊）。已手動畫的正文區塊不會被覆蓋|本文ブロック（字が最も密な領域）を自動検出。手で描いた本文ブロックは上書きしません|Detect the main text block (densest area). Hand-drawn text blocks are kept
-編輯區塊|ブロック編集|Edit blocks
-編輯區塊：空白處拖曳＝畫新區塊（類型依下方選單）；點區塊＝選取，可拖移、拉四角縮放；Delete 刪除|ブロック編集：空白をドラッグで新規（種類は下のメニュー）、クリックで選択、ドラッグで移動、四隅で拡大縮小、Delete で削除|Edit blocks: drag on empty space to draw (type from the menu below); click to select, drag to move, corners to resize; Delete removes
-類型|種類|Type
-正文|本文|Main text
-標題／品題|標題／品題|Title
-夾注／雙行小字|割注|Interlinear note
-天頭批注|頭注|Upper-margin note
-地腳|脚注|Lower margin
-版心／頁碼／卷次|版心／丁付／巻次|Block centre / folio / fascicle
-章節標記|章節標識|Section mark
-註記|注記|Label
-頁碼／卷次／章節|丁付／巻次／章節|Folio / fascicle / section
-標題也進對勘|標題も対勘する|Collate titles too
-偵測行|行を検出|Detect lines
-在正文區塊內找出每一行（藍色虛線）。沒有正文區塊會先自動找|本文ブロック内の各行を検出（青い破線）。本文ブロックがなければ先に自動検出|Find each line inside the text block (blue dashed). Finds the block first if needed
-編輯行|行を編集|Edit lines
-編輯行：空白處拖曳＝框選範圍變成行（框一行寬就是一行，框多行自動分行，範圍內原有的行被取代）；點行＝選取，可拖移、拉四角縮放；Delete 刪除|行の編集：空白をドラッグした範囲を行にします（1行幅なら1行、複数行なら自動で分割し、範囲内の既存の行は置き換え）。クリックで選択、ドラッグで移動、四隅で拡大縮小、Delete で削除|Edit lines: drag a range to make lines (one column wide = one line; wider is split automatically, replacing lines inside); click to select, drag to move, corners to resize; Delete removes
-行框加寬・左右|行枠を左右に広げる|Widen lines (L/R)
-行框加長・上下|行枠を上下に伸ばす|Lengthen lines (T/B)
-行框左右各加寬幾 px：改數字就即時套用到範圍內全部行（負數＝變窄；Ctrl+Z 可還原）|行枠を左右に何 px 広げるか。数値を変えると範囲内の全行に即反映（負数で狭く。Ctrl+Z で戻せます）|Pixels to widen each line on both sides; applies at once to all lines in scope (negative narrows; Ctrl+Z undoes)
-行框上下各加長幾 px：改數字就即時套用到範圍內全部行（負數＝縮短；Ctrl+Z 可還原）|行枠を上下に何 px 伸ばすか。数値を変えると範囲内の全行に即反映（負数で短く。Ctrl+Z で戻せます）|Pixels to lengthen each line at top and bottom; applies at once (negative shortens; Ctrl+Z undoes)
-行內切字|行内で字を切る|Cut characters
-在每一行裡切字；行內原有的字框會被取代。沒有行會先自動偵測|各行の中で字を切り出します。行内の既存の字枠は置き換わります。行がなければ先に自動検出|Cut characters within each line, replacing existing boxes. Detects lines first if needed
-每行字數|1行の字数|Chars per line
-寫本留空|写本は空欄|Blank for MSS
-寫本請留空；刻本行款固定時填|写本は空欄のまま。刊本で行格が一定なら入力|Leave blank for manuscripts; fill in for prints with a fixed layout
-字框外擴・上下|字枠の余白・上下|Box padding (T/B)
-字框外擴・左右|字枠の余白・左右|Box padding (L/R)
-字框上下各多包幾 px：改數字就即時套用到範圍內全部字框（負數＝內縮；Ctrl+Z 可還原）|字枠の上下に何 px 余白を取るか。範囲内の全字枠に即反映（負数で縮小。Ctrl+Z で戻せます）|Extra pixels above and below each box; applies at once to all boxes in scope (negative shrinks; Ctrl+Z undoes)
-字框左右各多包幾 px：改數字就即時套用到範圍內全部字框（負數＝內縮；Ctrl+Z 可還原）|字枠の左右に何 px 余白を取るか。範囲内の全字枠に即反映（負数で縮小。Ctrl+Z で戻せます）|Extra pixels left and right of each box; applies at once (negative shrinks; Ctrl+Z undoes)
-一鍵 1→2→3|ワンクリック 1→2→3|One click 1→2→3
-依序執行 1 區塊 → 2 行 → 3 字（已有正文區塊就沿用）|1 ブロック → 2 行 → 3 字 を順に実行（既存の本文ブロックはそのまま使用）|Run 1 blocks → 2 lines → 3 characters (keeps an existing text block)
-刪除選取的區塊／行|選択したブロック／行を削除|Delete selected block / line
-刪除選取的區塊或行（也可按 Delete）|選択したブロックまたは行を削除（Delete キーでも可）|Delete the selected block or line (or press Delete)
-✕ 清除重來|✕ クリアしてやり直す|✕ Clear and restart
-把範圍內的區塊、行、字框全部清掉，回到剛貼上圖的狀態（Ctrl+Z 可還原）|範囲内のブロック・行・字枠をすべて消去し、画像を貼った直後の状態に戻します（Ctrl+Z で戻せます）|Remove all blocks, lines and boxes in scope, back to the freshly pasted image (Ctrl+Z undoes)
-↶ 還原上一步|↶ 元に戻す|↶ Undo
-還原上一步（Ctrl+Z）；還原後可再按一次偵測|ひとつ前に戻す（Ctrl+Z）。戻した後に再検出できます|Undo the last step (Ctrl+Z); you can re-run detection afterwards
-刻本：等距網格|刊本：等間隔グリッド|Prints: even grid
-直行數|行数|Columns
-刻本用：版面直行數|刊本用：版面の行数|For prints: number of columns
-如22|例：22|e.g. 22
-▦ 等距網格切割（本版）|▦ 等間隔グリッドで分割（この版本）|▦ Cut by even grid (this version)
-在正文區塊（沒有就用紙面）內等距切成「直行數 × 每行字數」|本文ブロック（なければ紙面）を「行数 × 1行の字数」に等分|Split the text block (or the page) evenly into columns × characters per line
-顯示與對齊|表示と整列|Display & alignment
-放大＋|拡大＋|Zoom in ＋
-縮小－|縮小－|Zoom out －
-直書對應▶|縦書き本文▶|Vertical text ▶
-全框＋|全枠＋|All boxes ＋
-全框－|全枠－|All boxes －
-所有框上下左右各外擴 2px|全字枠を上下左右に 2px 広げる|Grow every box by 2px on all sides
-所有框各內縮 2px|全字枠を 2px 縮める|Shrink every box by 2px
-對齊起點字#|開始字番号|Start at char #
-黑白加強|白黒強調|Contrast
-底圖黑白加強：0＝原圖；往右越黑白分明（只影響畫面顯示，不改原圖、不影響切字）|画像の白黒強調：0＝原画像。右へ行くほどくっきり（表示のみで、原画像や字切りには影響しません）|Contrast boost: 0 = original; further right is starker (display only; never changes the image or cutting)
-顯示字框|字枠を表示|Show boxes
-快速鍵 B|ショートカット B|Shortcut B
-顯示基準字|基準字を表示|Show base chars
-顯示編號|番号を表示|Show numbers
-頁圖標大正校勘|画像に大正校勘を表示|Taishō notes on image
-在頁圖的字框上標出大正藏校勘註|画像の字枠に大正蔵の校勘注を表示|Mark Taishō apparatus notes on the boxes
-專案檔與備份|プロジェクトファイルとバックアップ|Project files & backup
-🔗 自動存到電腦檔案|🔗 PC のファイルに自動保存|🔗 Auto-save to a file on this computer
-選一個電腦上的檔案（例如放在 Dropbox），之後每次修改都自動存進去；資料就不只在瀏覽器裡。只支援 Chrome、Edge。|PC 上のファイル（Dropbox 内など）を選ぶと、以後の変更が自動でそこに保存されます。ブラウザだけに頼らずにすみます。Chrome・Edge のみ対応。|Pick a file on your computer (e.g. in Dropbox); every change is then saved to it automatically, so your work is not only in the browser. Chrome and Edge only.
-未連結|未接続|Not linked
-已自動儲存 ✓|自動保存済み ✓|Saved ✓
-已就緒（自動儲存開啟）|準備完了（自動保存オン）|Ready (auto-save on)
-匯出原圖（PNG）|原画像を書き出し（PNG）|Export images (PNG)
-另存原始頁圖為 PNG（備份用，非存進度）|元のページ画像を PNG で保存（バックアップ用。作業内容は含みません）|Save original page images as PNG (backup only, not your work)
-匯出專案|プロジェクトを書き出し|Export project
-把目前這個專案存成 JSON 檔（檔名含專案名稱與日期）|現在のプロジェクトを JSON で保存（ファイル名にプロジェクト名と日付）|Save this project as JSON (file name includes project and date)
-匯入專案|プロジェクトを読み込み|Import project
-把專案檔（JSON）匯入為一個新專案；目前的專案不受影響|プロジェクトファイル（JSON）を新しいプロジェクトとして読み込み。現在のプロジェクトは変わりません|Import a project file (JSON) as a new project; the current project is untouched
-⏭ 續校下一段|⏭ 次の段へ続ける|⏭ Continue to next section
-這一段校完後，用同一組版本設定開新專案接著校下一段；可先備份這一段，並帶入各版本最後一頁超出本段的字框|この段を校し終えたら、同じ版本設定で新しいプロジェクトを作り次の段へ。先にこの段をバックアップし、各版本の最終ページのうち本段を超える字枠を引き継げます|When this section is done, open a new project with the same versions for the next section; back this one up first and carry over boxes on each version's last page beyond this section
-💾 備份全部專案|💾 全プロジェクトをバックアップ|💾 Back up all projects
-把所有專案（含頁圖、字框、校勘）存成一個備份檔；換電腦或換瀏覽器時用「匯入專案」還原|全プロジェクト（画像・字枠・校勘を含む）を1つのバックアップファイルに保存。別の端末やブラウザでは「プロジェクトを読み込み」で復元|Save every project (images, boxes, collation) into one backup file; restore it elsewhere with "Import project"
-尚未做過完整備份|まだ完全バックアップをしていません|No full backup yet
-查詢與說明|検索とヘルプ|Search & help
-🔍 字搜尋（各版畫廊）|🔍 字の検索（各版ギャラリー）|🔍 Find a character (gallery)
-📘 操作步驟|📘 操作手順|📘 Steps
-從建專案到匯出的操作步驟|プロジェクト作成から書き出しまでの手順|Steps from creating a project to exporting
-ℹ 關於與引用|ℹ 概要と引用|ℹ About & cite
-對勘室是什麼、資料存在哪裡、如何引用|対勘室とは何か、データの保存場所、引用の仕方|What CollateDesk is, where data lives, how to cite it
-✨ 導覽|✨ ガイドツアー|✨ Tour
-逐步聚光介紹各功能（快速鍵 ?）|各機能を順にハイライトして紹介（ショートカット ?）|Spotlight tour of the features (shortcut ?)
-選取框|選択中の枠|Selected box
-對應字 −1|対応字 −1|Char −1
-對應字 +1|対応字 +1|Char +1
-設此框＝此字#(錨)|この枠＝この字番号（アンカー）|Set box = char # (anchor)
-★ 設為段落起點（＝第1字）|★ 段落の始点にする（＝1字目）|★ Set as section start (= char 1)
-清除錨點|アンカーを解除|Clear anchor
-⬍ 上下切半|⬍ 上下に二分|⬍ Split top/bottom
-⬌ 左右切半|⬌ 左右に二分|⬌ Split left/right
-刪此框|この枠を削除|Delete box
-實際字|実際の字|Actual char
-標記類型：脫字＝此版缺底本這個字（此框改對應下一字）；衍字＝此框是多出來的字（不佔底本字序）|標記の種類：脱字＝この版本に底本のこの字がない（枠は次の字に対応）、衍字＝余分な字（底本の字順を占めない）|Mark type: omission = this version lacks this base character (the box maps to the next); addition = an extra character (takes no base position)
-上一格（閱讀順序；鍵盤 ↑）|前の枠（読み順。キー ↑）|Previous box (reading order; ↑)
-下一格（閱讀順序；鍵盤 ↓）|次の枠（読み順。キー ↓）|Next box (reading order; ↓)
-在此框之後新增一格（直書放在下方、橫書放在右方，大小相同）；新框會自動選取，再在放大圖上點字的中心對準|この枠の後に同じ大きさの枠を追加（縦書きは下、横書きは右）。新しい枠が選択されるので、拡大図で字の中心をクリックして合わせます|Add a box after this one (below for vertical, right for horizontal, same size); it is selected so you can click the character centre in the magnifier
-放大圖上顯示／隱藏字框（隱藏時方便看清楚字形；快速鍵 V）|拡大図の字枠を表示／非表示（非表示だと字形が見やすい。ショートカット V）|Show / hide the box in the magnifier (hide to see the glyph; shortcut V)
-字心（開／關）：打開時先自動對齊字心一次，之後在放大圖上點哪裡，框的中心就移到哪裡；關閉時點放大圖不會動到框。（雙擊字框或按 C 也能自動對齊）|字の中心（オン／オフ）：オンにすると一度自動で中心合わせし、以後は拡大図でクリックした所に枠の中心が移ります。オフでは動きません（字枠のダブルクリックや C キーでも自動合わせ）|Centre (on/off): when on, centres once automatically, then clicking the magnifier moves the box centre there; off leaves the box alone (double-click a box or press C to auto-centre)
-框放大（四邊各外擴 2px）|枠を拡大（四辺を 2px 広げる）|Grow box (2px each side)
-框縮小（四邊各內縮 2px）|枠を縮小（四辺を 2px 縮める）|Shrink box (2px each side)
-切半（直書上下切、橫書左右切）|二分（縦書きは上下、横書きは左右）|Split (top/bottom for vertical, left/right for horizontal)
-刪除此框|この枠を削除|Delete this box
-釘選：沒選字時也保持開著|固定：字を選んでいない時も開いたまま|Pin: keep open even with nothing selected
-關閉放大視窗（點下一個字框會再打開）|拡大ウィンドウを閉じる（次の字枠をクリックすると再び開きます）|Close the magnifier (clicking the next box reopens it)
-對照表|対照表|Comparison table
-點字圖→右側原圖；點欄標題→該版全頁|字の画像→右に原画像、列見出し→その版本の全ページ|Click a glyph → original on the right; click a column header → that version's pages
-收合/展開工具列|ツールバーを畳む／開く|Collapse / expand toolbar
-▲ 收合|▲ 畳む|▲ Collapse
-▼ 工具|▼ ツール|▼ Tools
-格寬|セル幅|Cell width
-搜尋字（可多字，如 盋葉象）|字を検索（複数可、例：盋葉象）|Search characters (several allowed)
-重新整理|再描画|Refresh
-顯示 ▾|表示 ▾|View ▾
-展開版本名|版本名を展開|Full version names
-大正校勘欄|大正校勘列|Taishō notes column
-音讀欄|音読列|Reading column
-校勘記欄|校勘記列|Notes column
-衍字列|衍字の行|Addition rows
-衍字（多出來的字）另起一列，排在它前一個底本字的下面|衍字（余分な字）を別の行にし、直前の底本字の下に置く|Put additions (extra characters) on their own row under the preceding base character
-分支欄|分岐列|Branch column
-在版本欄右邊加一欄直式分支圖，和每一列對齊|版本列の右に縦の分岐図の列を加え、各行に揃える|Add a vertical branch-graph column next to the versions, aligned with each row
-分支：顯示全部|分岐：すべて表示|Branches: show all
-分支：不顯示不出校|分岐：出校しないものは表示しない|Branches: hide unreported
-分支圖要畫哪些異文：全部，或只畫有出校的條目（不出校的視同底本）|分岐図に描く異文：すべて、または出校する項目のみ（出校しないものは底本と同じ扱い）|Which variants the branch graph draws: all, or only reported ones (unreported count as the base)
-欄位▾|列▾|Columns ▾
-異體出校|異体字も出校|Report variant forms
-勾選：標為「異體字」的地方也寫進校勘記。不勾：異體字視同底本、不出校。各列可在校勘記欄用「異」鈕個別改|オン：「異体字」の箇所も校勘記に記載。オフ：異体字は底本と同じ扱いで出校しない。各行は校勘記列の「異」ボタンで個別に変更可|On: variant forms also go into the notes. Off: treated as the base and not reported. Change per row with the "異" button in the notes column
-校勘記 ▾|校勘記 ▾|Notes ▾
-點此複製併用順序，貼進校勘記再刪改|並記順を複製し、校勘記に貼って手直し|Copy the sigla order to paste into notes and edit
-↻ 草稿重生成|↻ 下書きを再生成|↻ Regenerate drafts
-全部校勘記欄以最新規則重生成（會捨棄手動修改）|全校勘記を最新の規則で再生成（手での修正は破棄されます）|Regenerate all notes with the latest rules (discards manual edits)
-🏷 自訂類型|🏷 独自の種類|🏷 Custom types
-新增或刪除自訂校勘類型|独自の校勘種類を追加・削除|Add or remove custom note types
-📥 大正校勘|📥 大正校勘|📥 Taishō notes
-貼上 CBETA 複製的引文與 [n] 校勘註，顯示在「大正校勘」欄|CBETA でコピーした本文と [n] 校勘注を貼り付け、「大正校勘」列に表示|Paste text copied from CBETA with its [n] notes into the Taishō column
-📝 匯出校勘記|📝 校勘記を書き出し|📝 Export notes
-🌿 分支圖|🌿 分岐図|🌿 Branch graph
-把各版異文畫成分支圖（同的合一、異的分岔）|各版の異文を分岐図に（同じは合流、異なれば分岐）|Draw variants as a branch graph (same readings merge, variants split)
-開啟全部圖版|全画像を開く|Open all pages
-開啟示範|デモを開く|Open the demo
-建立一個示範專案：兩個版本、十四個字，已切好字框並對齊|デモプロジェクトを作成：二つの版本・十四字、字枠と位置合わせ済み|Create a demo project: two versions, fourteen characters, already cut and aligned
-⬇ 匯出 ▾|⬇ 書き出し ▾|⬇ Export ▾
-Word 輸出縮放|Word 出力の倍率|Word export scale
-兩欄|二段|Two columns
-自動|自動|Auto
-分表|表を分割|Split tables
-匯出目前顯示的欄位與列（含字圖）為 Word|表示中の列と行（字の画像を含む）を Word に書き出し|Export the visible columns and rows (with glyph images) to Word
-📄 講義|📄 講義資料|📄 Handout
-一鍵匯出完整講義（原文・訓讀・譯・語釋・校勘腳註・字形對照表）為 Word|講義資料一式（原文・訓読・訳・語釈・校勘脚注・字形対照表）を Word に書き出し|Export a full handout (text, kundoku, translation, glosses, notes, glyph table) to Word
-🖨 PDF|🖨 PDF|🖨 PDF
-以列印方式輸出，可另存為 PDF|印刷で出力（PDF として保存可）|Print, or save as PDF
-關閉 ✕|閉じる ✕|Close ✕
-關閉|閉じる|Close
-取消|キャンセル|Cancel
-儲存|保存|Save
-確定新增|追加する|Add
-完成|完了|Done
-新增版本|版本を追加|Add version
-略號（例：剛、七、敦、S…，簡短）|略号（例：剛・七・敦・S…、短く）|Siglum (e.g. 剛, 七, 敦, S… keep it short)
-全名（例：金剛寺、敦煌本…）|正式名（例：金剛寺、敦煌本…）|Full name (e.g. Kongōji, Dunhuang MS…)
-字搜尋 · 各版畫廊|字の検索 · 各版ギャラリー|Character search · gallery
-輸入字（可多字，如 盋葉象）|字を入力（複数可、例：盋葉象）|Type characters (several allowed)
-圖大小|画像サイズ|Image size
-搜尋|検索|Search
-校勘記|校勘記|Notes
-講義格式草稿|講義形式の下書き|Handout-style draft
-清楚版|清書版|Clean version
-下載 .txt|.txt をダウンロード|Download .txt
-全部版本圖版 · 直式並排對勘|全版本の画像 · 縦に並べて対勘|All versions · side by side
-圖高|画像の高さ|Image height
-← 左右捲動比對各版整頁 →|← 左右にスクロールして各版の全ページを比較 →|← Scroll sideways to compare whole pages →
-異文分支圖|異文分岐図|Variant branch graph
-上一句（←）|前の句（←）|Previous phrase (←)
-下一句（→）|次の句（→）|Next phrase (→)
-選一句；括號內是這句的分支數|句を選択。括弧内はその句の分岐数|Pick a phrase; brackets show its number of branches
-異體不分岔|異体字は分岐しない|Variant forms don't branch
-勾選時，標為異體字、異體詞的地方視同底本，不畫分支|オンにすると、異体字・異体語の箇所は底本と同じ扱いで分岐しません|When on, variant forms and variant words count as the base and do not branch
-下載向量圖，可放進論文或簡報|ベクター画像をダウンロード（論文やスライド用）|Download vector graphics for papers or slides
-下載圖片（2 倍解析度）|画像をダウンロード（2 倍解像度）|Download image (2× resolution)
-▶ 動畫|▶ アニメーション|▶ Animate
-從第一字逐字展開（空白鍵）|1字目から一字ずつ展開（スペースキー）|Unfold from the first character (space)
-回到開頭|先頭に戻る|Back to start
-全圖|全体|Whole graph
-結束動畫，顯示整張圖|アニメーションを終えて全体を表示|Stop the animation and show the whole graph
-拖曳可前後捲動（Shift+←／→ 逐字）|ドラッグで前後に移動（Shift+←／→ で一字ずつ）|Drag to scrub (Shift+← / → one character)
-動畫時畫面怎麼跟：分列＝換列時捲到那一列；分列・置中＝正在生長的那一列始終在畫面上下正中；單列捲動＝整段排成一條，畫面不動、圖往左流|アニメーション中の追従：行ごと＝行が変わるとその行へスクロール、行ごと・中央＝伸びている行を常に画面中央に、一列スクロール＝全体を一列にし、画面は固定で図が左へ流れる|How the view follows: by row = scroll to each new row; by row, centred = keep the growing row centred; single row = one long line flowing left
-分列|行ごと|By row
-分列・生長列置中|行ごと・伸びる行を中央に|By row, centred
-單列捲動|一列スクロール|Single row
-速度|速度|Speed
-年代|年代|Date
-全名|正式名|Full name
-系統|系統|Lineage
-起年（西元，排序用）|開始年（西暦、並べ替え用）|Start year (CE, for sorting)
-出土地／地區|出土地／地域|Provenance / region
-館藏地|所蔵|Holding institution
-編號|番号|Shelfmark
-顏色|色|Colour
-筆記|メモ|Notes
-略號|略号|Siglum
-匯入基本資料：|基本データの取り込み：|Import basic data:
-從 CSV／試算表匯入|CSV／表計算から取り込む|Import from CSV / spreadsheet
-下載 CSV 範本（含目前資料）|CSV テンプレートをダウンロード（現在のデータ入り）|Download CSV template (with current data)
-從其他專案帶入…|他のプロジェクトから取り込む…|Copy from another project…
-每個版本的基本資料，會用在「版本一覽」、分支圖顏色與對照表欄標題的提示。存在這個專案裡；「續校下一段」會一起帶到下一段。略號與簡稱可以直接改；按住左邊的點點上下拖曳可以調整版本順序。|各版本の基本データ。「版本一覧」、分岐図の色、対照表の列見出しのヒントに使われます。このプロジェクトに保存され、「次の段へ続ける」でも引き継がれます。略号と略称はその場で直せます。左端の点をつかんで上下にドラッグすると版本の順序を変えられます。|Basic data for each version, used in "All versions", branch-graph colours and column-header tips. Stored in this project and carried over by "Continue to next section". Sigla and short names can be edited here; drag the dots on the left up or down to reorder versions.
-新專案名稱|新しいプロジェクト名|New project name
-先把這一段存成備份檔（下載 JSON）|先にこの段をバックアップ（JSON をダウンロード）|Back up this section first (download JSON)
-開始下一段|次の段を始める|Start next section
-操作步驟|操作手順|Steps
-關於對勘室|対勘室について|About CollateDesk
-分支|分岐|Branch
-大正校勘|大正校勘|Taishō
-音讀|音読|Reading
-校勘記（可改）|校勘記（講義形式・編集可）|Notes (handout style, editable)
-引用與連結|引用とリンク|Cite & links
-引用對勘室|対勘室の引用|Citing CollateDesk
-在論文或報告中使用對勘室時，請引用：|論文や報告で対勘室を使った場合は、次のように引用してください：|If you use CollateDesk in a paper or report, please cite:
-📋 複製|📋 コピー|📋 Copy
-作者與連結|作者とリンク|Author & links
-主要功能|主な機能|Main features
-資料在哪裡|データの保存場所|Where your data lives
-建議環境|推奨環境|Recommended setup
-語言|言語|Language
-行框|行枠|Lines
-字框|字枠|Characters
-分支圖|分岐図|Branch graph
-收合|たたむ|Collapse
-展開|ひらく|Expand
-直接打開異文分支圖（會先整理對照表）|異文の分岐図を直接開く（先に対照表を整えます）|Open the variant branch graph directly (builds the table first)
-收合／展開校定本文（開始校對後可收起來，騰出空間看書影）|校定本文をたたむ／ひらく（校勘を始めたらたたんで書影の場所を広げられます）|Collapse or expand the base text (fold it once collation starts to make room for the images)
-簡稱|略称|Short name
-迄年（西元）|終年（西暦）|End year (CE)
-數位來源（網址）|デジタル資料の出典（URL）|Digital source (URL)
-參考文獻|参考文献|References
-主事單位（官刻／寺院／私刻…）|主体（官版／寺院／私版…）|Sponsor (imperial / temple / private…)
-編號（館藏號、經號）|番号（請求記号・経番号）|Shelf / sutra number
-按住拖曳，調整版本順序|つかんでドラッグすると版本の順序を変えられます|Drag to reorder versions
-略號：分頁、對照表欄標題與校勘記用的簡稱|略号：タブ、対照表の列見出し、校勘記で使う略称|Siglum: the short label used on tabs, table columns and in the apparatus
-簡稱：分頁上括號裡的名稱|略称：タブの括弧内に出る名前|Short name: shown in brackets on the tab
-已儲存版本屬性。|版本属性を保存しました。|Version attributes saved.
-在論文或報告中使用對勘室時，請引用你實際使用的版本（版本號在畫面右上角）。檢索日期會自動填今天。|論文や報告で対勘室を使った場合は、実際に使った版を引用してください（版番号は画面右上）。閲覧日は今日の日付が自動で入ります。|If you use CollateDesk in a paper or report, cite the version you actually used (shown at the top right). The access date is filled in with today.
-貼上底本正文（例如《大正藏》）。全段字序以這裡為準，各版本依此逐字對齊；標點不影響對齊。|底本の本文を貼ります（例：『大正蔵』）。全体の字順はここが基準で、各版本はこれに一字ずつ揃えます。句読点は揃え方に影響しません。|Paste the base text (e.g. from the Taishō). Its character order is the reference every version is aligned to; punctuation does not affect alignment.
+const I18N_RAW=`字級書影對勘工作臺|字単位書影対勘ワークベンチ|∅|∅|∅
+📘 操作步驟|📘 操作手順|📘 Steps|📘 Anleitung|📘 Mode d'emploi
+ℹ 關於對勘室|ℹ 対勘室について|ℹ About|ℹ Über|ℹ À propos
+❝ 引用|❝ 引用|❝ Cite|❝ Zitieren|❝ Citer
+v0.9.0・資料只存在本機|v0.9.0・データはこの端末にのみ保存|v0.9.0 · Data stays on this device|v0.9.0 · Daten bleiben auf diesem Gerät|v0.9.0 · Les données restent sur cet appareil
+資料只存在這個瀏覽器裡；請定期備份全部專案|データはこのブラウザにのみ保存されます。定期的に全プロジェクトをバックアップしてください|Data is stored only in this browser. Back up all projects regularly.|Die Daten liegen nur in diesem Browser. Sichern Sie regelmäßig alle Projekte.|Les données ne sont stockées que dans ce navigateur. Sauvegardez régulièrement tous les projets.
+點下方版本分頁，直接|下の版本タブを選び、|Pick a version tab below, then|Wählen Sie unten einen Versionsreiter und drücken Sie|Choisissez un onglet de version ci-dessous, puis appuyez sur
+貼上該版的書頁大圖（或拖放／選檔）。逐頁自動切字、可手動修框，再對齊到校定本文，最後一鍵排成對照表。|でその版の書影を貼り付けます（ドラッグ＆ドロップ／ファイル選択も可）。ページごとに自動で字を切り出し、枠を手直しして校定本文に揃え、最後に対照表を作ります。|to paste that version's page image (or drag & drop / choose a file). Characters are cut automatically page by page; adjust boxes, align them to the base text, then build the comparison table.|um das Seitenbild dieser Version einzufügen (oder Datei ziehen / auswählen). Die Zeichen werden seitenweise automatisch geschnitten; Rahmen anpassen, am Grundtext ausrichten und dann die Vergleichstabelle erstellen.|pour coller l'image de page de cette version (ou glisser-déposer / choisir un fichier). Les caractères sont découpés automatiquement page par page ; ajustez les cadres, alignez-les sur le texte de base, puis créez le tableau comparatif.
+大圖顯示高度（各頁等高・放大；Ctrl＋滾輪縮放）：|画像の高さ（Ctrl＋ホイールで拡大）：|Image height (Ctrl+wheel zooms):|Bildhöhe (Strg+Mausrad zoomt):|Hauteur d'image (Ctrl+molette pour zoomer) :
+對勘|対勘|Collate|Kollation|Collation
+訓讀|訓読|Kundoku|Kundoku|Kundoku
+地圖|地図|Map|Karte|Carte
+專案|プロジェクト|Project|Projekt|Projet
+切換不同文本的對勘專案|対勘プロジェクトを切り替え|Switch collation project|Kollationsprojekt wechseln|Changer de projet de collation
+＋ 新專案|＋ 新規プロジェクト|＋ New project|＋ Neues Projekt|＋ Nouveau projet
+新增一個對勘專案（另一個文本）|新しい対勘プロジェクト（別の本文）を作成|Create a new collation project (another text)|Neues Kollationsprojekt anlegen (anderer Text)|Créer un nouveau projet de collation (autre texte)
+改名|名前を変更|Rename|Umbenennen|Renommer
+替目前專案改名|現在のプロジェクト名を変更|Rename the current project|Aktuelles Projekt umbenennen|Renommer le projet actuel
+刪除專案|プロジェクトを削除|Delete project|Projekt löschen|Supprimer le projet
+刪除目前專案|現在のプロジェクトを削除|Delete the current project|Aktuelles Projekt löschen|Supprimer le projet actuel
+（每個專案各有自己的底本、版本與頁圖）|（プロジェクトごとに底本・版本・書影を持ちます）|(each project has its own base text, versions and page images)|(jedes Projekt hat eigenen Grundtext, eigene Versionen und Seitenbilder)|(chaque projet a son propre texte de base, ses versions et ses images de page)
+只顯示略號|略号のみ表示|Sigla only|Nur Siglen|Sigles seuls
+顯示全名|正式名を表示|Full names|Volle Namen|Noms complets
+切換版本分頁的顯示方式|版本タブの表示方法を切り替え|Toggle how version tabs are shown|Anzeige der Versionsreiter umschalten|Changer l'affichage des onglets de version
+版本屬性|版本情報|Version info|Versionsangaben|Fiche des versions
+各版本的全名、類型（寫本／刻本／抄本…）、系統、年代、出土地、館藏地、編號、筆記；可從 CSV 或其他專案匯入|各版本の正式名・種別（写本／刊本／抄本…）・系統・年代・出土地・所蔵・番号・メモ。CSV や他のプロジェクトから取り込めます|Full name, type (manuscript / woodblock / copy…), lineage, date, provenance, holding, shelfmark and notes for each version; import from CSV or another project|Voller Name, Typ (Handschrift / Blockdruck / Abschrift …), Überlieferungszweig, Datierung, Herkunft, Standort, Signatur und Notizen je Version; Import aus CSV oder einem anderen Projekt|Nom complet, type (manuscrit / xylographie / copie…), filiation, date, provenance, lieu de conservation, cote et notes pour chaque version ; import depuis un CSV ou un autre projet
+＋ 新增版本|＋ 版本を追加|＋ Add version|＋ Version hinzufügen|＋ Ajouter une version
+新增一個版本（自訂略號與名稱）|版本を追加（略号と名称を指定）|Add a version (choose siglum and name)|Version hinzufügen (Sigle und Namen wählen)|Ajouter une version (choisir sigle et nom)
+－ 刪除此版本|－ この版本を削除|－ Delete this version|－ Diese Version löschen|－ Supprimer cette version
+刪除目前選中的版本及其所有頁面|選択中の版本とその全ページを削除|Delete the selected version and all its pages|Ausgewählte Version mit allen Seiten löschen|Supprimer la version sélectionnée et toutes ses pages
+＋ 新增頁|＋ ページを追加|＋ Add page|＋ Seite hinzufügen|＋ Ajouter une page
+為目前版本新增一頁（選圖／貼圖也可）|現在の版本にページを追加（画像の選択・貼り付けも可）|Add a page to this version (choose or paste an image)|Dieser Version eine Seite hinzufügen (Bild wählen oder einfügen)|Ajouter une page à cette version (choisir ou coller une image)
+－ 刪除末頁|－ 最終ページを削除|－ Delete last page|－ Letzte Seite löschen|－ Supprimer la dernière page
+刪除目前版本的最後一頁（可從右欄『↩ 復原刪頁』救回）|現在の版本の最終ページを削除（右欄「↩ 削除を戻す」で復元可）|Delete this version's last page (restore with "↩ Undo delete" in the sidebar)|Letzte Seite dieser Version löschen (mit „↩ Löschen rückgängig“ in der Seitenleiste wiederherstellbar)|Supprimer la dernière page de cette version (restaurable avec « ↩ Annuler la suppression » dans la barre latérale)
+版本一覽|版本一覧|All versions|Alle Versionen|Toutes les versions
+各版本第一頁書影、系統與大約時代，整頁並列（Esc 關閉）|各版本の第1ページ・系統・おおよその年代を一覧（Esc で閉じる）|First page, lineage and approximate date of every version side by side (Esc to close)|Erste Seite, Überlieferungszweig und ungefähre Datierung aller Versionen nebeneinander (Esc schließt)|Première page, filiation et date approximative de chaque version côte à côte (Échap pour fermer)
+產生對照表 ▶|対照表を作成 ▶|Build table ▶|Tabelle erstellen ▶|Créer le tableau ▶
+對照表 ▶|対照表 ▶|Table ▶|Tabelle ▶|Tableau ▶
+把所有版本依底本字序排成對照表|全版本を底本の字順に並べて対照表にする|Arrange all versions by base-text order into a comparison table|Alle Versionen nach der Zeichenfolge des Grundtexts in einer Vergleichstabelle anordnen|Disposer toutes les versions selon l'ordre du texte de base dans un tableau comparatif
+提示：選取字框後，可拖|ヒント：字枠を選択したら|Tip: after selecting a box, drag |Tipp: Rahmen auswählen, dann |Astuce : après avoir sélectionné un cadre, faites glisser 
+任一角|四隅のどれか| any corner | eine beliebige Ecke | n'importe quel coin 
+縮放（可上下重疊）、拖框身移動、方向鍵微調、Delete 刪除。側欄「選取框」可指定此框對應第幾字（錨點），之後自動順延。|で拡大縮小（上下の重なり可）、枠本体のドラッグで移動、矢印キーで微調整、Delete で削除。サイドバー「選択中の枠」で、この枠が何字目かを指定（アンカー）すると、以降は自動で順送りされます。|to resize (overlap allowed), drag the box to move, arrow keys to nudge, Delete to remove. In the sidebar's "Selected box" you can pin this box to character N (anchor); following boxes continue from there.|ziehen zum Skalieren (Überlappen erlaubt), Rahmen ziehen zum Verschieben, Pfeiltasten zum Feinjustieren, Entf zum Löschen. Unter „Ausgewählter Rahmen“ in der Seitenleiste lässt sich der Rahmen an Zeichen N anheften (Anker); die folgenden Rahmen schließen daran an.|pour redimensionner (chevauchement permis), faites glisser le cadre pour le déplacer, flèches pour l'ajuster, Suppr pour l'effacer. Dans « Cadre sélectionné » de la barre latérale, vous pouvez épingler ce cadre au caractère N (ancre) ; les cadres suivants continuent à partir de là.
+在此|ここで|Here, press|Hier|Ici, appuyez sur
+貼上頁面大圖，或點此選檔／拖放圖片|ページ画像を貼り付け、またはクリックしてファイル選択／画像をドロップ|to paste a page image, or click to choose / drop an image|drücken, um ein Seitenbild einzufügen, oder klicken bzw. Bild hierher ziehen|pour coller une image de page, ou cliquez pour choisir / déposez une image
+校定本文（底本）|校定本文（底本）|Base text (collated)|Grundtext (kollationiert)|Texte de base (collationné)
+載入範例底本（彥琮傳）|サンプル底本（彦琮伝）を読み込む|Load sample base text (Yancong zhuan)|Beispiel-Grundtext laden (Yancong zhuan)|Charger le texte de base d'exemple (Yancong zhuan)
+把本文換成內建的《續高僧傳・彥琮傳》範例底本（會先確認）|本文を内蔵の『続高僧伝・彦琮伝』サンプルに置き換え（確認あり）|Replace the text with the built-in sample from the Xu gaoseng zhuan (asks first)|Text durch das eingebaute Beispiel aus dem Xu gaoseng zhuan ersetzen (mit Rückfrage)|Remplacer le texte par l'exemple intégré du Xu gaoseng zhuan (avec confirmation)
+全段字序以這裡為準，各版本都依此逐字對齊。先貼入底本（如《大正藏》）正文，校勘完成後再改為最後採用的文字。標點不影響對齊。|この本文の字順が基準になり、各版本はこれに一字ずつ揃えられます。まず底本（『大正蔵』など）の本文を貼り、校勘が終わったら最終的に採用する本文に直してください。句読点は揃え方に影響しません。|Every version is aligned character by character to this text. Paste the base text (e.g. the Taishō) first; once collation is done, change it to your adopted reading. Punctuation does not affect alignment.|Jede Version wird Zeichen für Zeichen an diesem Text ausgerichtet. Zuerst den Grundtext (z. B. Taishō) einfügen; nach der Kollation durch die gewählte Lesart ersetzen. Interpunktion beeinflusst die Ausrichtung nicht.|Chaque version est alignée caractère par caractère sur ce texte. Collez d'abord le texte de base (p. ex. le Taishō) ; une fois la collation terminée, remplacez-le par la leçon retenue. La ponctuation n'influe pas sur l'alignement.
+字框工具|字枠ツール|Box tools|Rahmenwerkzeuge|Outils de cadre
+選取／移動|選択／移動|Select / move|Auswählen / verschieben|Sélectionner / déplacer
+選取、移動、縮放字框；空白處拖曳＝框選多個|字枠を選択・移動・拡大縮小。空白をドラッグすると複数選択|Select, move and resize boxes; drag on empty space to select several|Rahmen auswählen, verschieben und skalieren; auf leerer Fläche ziehen, um mehrere auszuwählen|Sélectionner, déplacer et redimensionner les cadres ; glisser sur une zone vide pour en sélectionner plusieurs
+新增字框|字枠を追加|Add box|Rahmen hinzufügen|Ajouter un cadre
+新增字框：在字的中心點一下＝以那一點為中心放一個一般大小的框；按住拖曳＝自己畫框的範圍|字枠を追加：字の中心をクリックすると標準サイズの枠を置き、ドラッグすると範囲を自分で描きます|Add box: click a character's centre for a standard box, or drag to draw your own|Rahmen hinzufügen: auf die Zeichenmitte klicken für einen Standardrahmen oder selbst aufziehen|Ajouter un cadre : cliquez au centre d'un caractère pour un cadre standard, ou tracez le vôtre
+刪除字框|字枠を削除|Delete box|Rahmen löschen|Supprimer le cadre
+點一下字框就刪掉|クリックした字枠を削除|Click a box to delete it|Rahmen anklicken, um ihn zu löschen|Cliquez sur un cadre pour le supprimer
+↩ 復原刪頁|↩ 削除したページを戻す|↩ Undo page delete|↩ Seitenlöschung rückgängig|↩ Annuler la suppression de page
+復原最近刪掉的頁面|最後に削除したページを戻す|Restore the most recently deleted page|Zuletzt gelöschte Seite wiederherstellen|Restaurer la dernière page supprimée
+版面切分|レイアウト分割|Layout|Seitenaufbau|Mise en page
+書寫方向|書字方向|Writing direction|Schreibrichtung|Sens d'écriture
+此版本的書寫方向：決定偵測行、切字與閱讀順序|この版本の書字方向：行検出・字切り・読み順を決めます|Writing direction of this version: decides line detection, cutting and reading order|Schreibrichtung dieser Version: bestimmt Zeilenerkennung, Schnitt und Lesereihenfolge|Sens d'écriture de cette version : détermine la détection des lignes, le découpage et l'ordre de lecture
+直書（右→左）|縦書き（右→左）|Vertical (right→left)|Vertikal (rechts→links)|Vertical (droite→gauche)
+橫書（左→右）|横書き（左→右）|Horizontal (left→right)|Horizontal (links→rechts)|Horizontal (gauche→droite)
+範圍|範囲|Scope|Bereich|Portée
+本頁|このページ|This page|Diese Seite|Cette page
+本版全部|この版本すべて|Whole version|Ganze Version|Toute la version
+區塊|ブロック|Blocks|Blöcke|Blocs
+自動找正文區塊|本文ブロックを自動検出|Find text block|Textblock finden|Trouver le bloc de texte
+自動找出正文區塊（字最密的那一塊）。已手動畫的正文區塊不會被覆蓋|本文ブロック（字が最も密な領域）を自動検出。手で描いた本文ブロックは上書きしません|Detect the main text block (densest area). Hand-drawn text blocks are kept|Haupttextblock erkennen (dichtester Bereich). Von Hand gezeichnete Blöcke bleiben erhalten|Détecter le bloc de texte principal (zone la plus dense). Les blocs tracés à la main sont conservés
+編輯區塊|ブロック編集|Edit blocks|Blöcke bearbeiten|Modifier les blocs
+編輯區塊：空白處拖曳＝畫新區塊（類型依下方選單）；點區塊＝選取，可拖移、拉四角縮放；Delete 刪除|ブロック編集：空白をドラッグで新規（種類は下のメニュー）、クリックで選択、ドラッグで移動、四隅で拡大縮小、Delete で削除|Edit blocks: drag on empty space to draw (type from the menu below); click to select, drag to move, corners to resize; Delete removes|Blöcke bearbeiten: auf leerer Fläche ziehen zum Zeichnen (Typ aus dem Menü unten); klicken zum Auswählen, ziehen zum Verschieben, Ecken zum Skalieren; Entf löscht|Modifier les blocs : glisser sur une zone vide pour tracer (type choisi dans le menu ci-dessous) ; cliquer pour sélectionner, glisser pour déplacer, coins pour redimensionner ; Suppr efface
+類型|種類|Type|Typ|Type
+正文|本文|Main text|Haupttext|Texte principal
+標題／品題|標題／品題|Title|Titel|Titre
+夾注／雙行小字|割注|Interlinear note|Interlinearglosse|Note interlinéaire
+天頭批注|頭注|Upper-margin note|Randnotiz oben|Note de marge supérieure
+地腳|脚注|Lower margin|Unterer Rand|Marge inférieure
+版心／頁碼／卷次|版心／丁付／巻次|Block centre / folio / fascicle|Blattmitte / Blatt / Faszikel|Pli central / folio / fascicule
+章節標記|章節標識|Section mark|Abschnittszeichen|Marque de section
+註記|注記|Label|Beschriftung|Étiquette
+頁碼／卷次／章節|丁付／巻次／章節|Folio / fascicle / section|Blatt / Faszikel / Abschnitt|Folio / fascicule / section
+標題也進對勘|標題も対勘する|Collate titles too|Titel ebenfalls kollationieren|Collationner aussi les titres
+偵測行|行を検出|Detect lines|Zeilen erkennen|Détecter les lignes
+在正文區塊內找出每一行（藍色虛線）。沒有正文區塊會先自動找|本文ブロック内の各行を検出（青い破線）。本文ブロックがなければ先に自動検出|Find each line inside the text block (blue dashed). Finds the block first if needed|Jede Zeile im Textblock finden (blau gestrichelt). Findet zuerst den Block, falls nötig|Trouver chaque ligne dans le bloc de texte (tirets bleus). Trouve d'abord le bloc si nécessaire
+編輯行|行を編集|Edit lines|Zeilen bearbeiten|Modifier les lignes
+編輯行：空白處拖曳＝框選範圍變成行（框一行寬就是一行，框多行自動分行，範圍內原有的行被取代）；點行＝選取，可拖移、拉四角縮放；Delete 刪除|行の編集：空白をドラッグした範囲を行にします（1行幅なら1行、複数行なら自動で分割し、範囲内の既存の行は置き換え）。クリックで選択、ドラッグで移動、四隅で拡大縮小、Delete で削除|Edit lines: drag a range to make lines (one column wide = one line; wider is split automatically, replacing lines inside); click to select, drag to move, corners to resize; Delete removes|Zeilen bearbeiten: einen Bereich ziehen, um Zeilen zu bilden (eine Spalte breit = eine Zeile; breiter wird automatisch geteilt und ersetzt die Zeilen darin); klicken zum Auswählen, ziehen zum Verschieben, Ecken zum Skalieren; Entf löscht|Modifier les lignes : glisser sur une zone pour créer des lignes (une colonne de large = une ligne ; plus large est divisé automatiquement et remplace les lignes à l'intérieur) ; cliquer pour sélectionner, glisser pour déplacer, coins pour redimensionner ; Suppr efface
+行框加寬・左右|行枠を左右に広げる|Widen lines (L/R)|Zeilen verbreitern (L/R)|Élargir les lignes (G/D)
+行框加長・上下|行枠を上下に伸ばす|Lengthen lines (T/B)|Zeilen verlängern (O/U)|Allonger les lignes (H/B)
+行框左右各加寬幾 px：改數字就即時套用到範圍內全部行（負數＝變窄；Ctrl+Z 可還原）|行枠を左右に何 px 広げるか。数値を変えると範囲内の全行に即反映（負数で狭く。Ctrl+Z で戻せます）|Pixels to widen each line on both sides; applies at once to all lines in scope (negative narrows; Ctrl+Z undoes)|Pixel, um die jede Zeile beidseitig verbreitert wird; gilt sofort für alle Zeilen im Bereich (negativ verschmälert; Strg+Z macht rückgängig)|Pixels ajoutés de chaque côté de chaque ligne ; s'applique aussitôt à toutes les lignes de la portée (négatif rétrécit ; Ctrl+Z annule)
+行框上下各加長幾 px：改數字就即時套用到範圍內全部行（負數＝縮短；Ctrl+Z 可還原）|行枠を上下に何 px 伸ばすか。数値を変えると範囲内の全行に即反映（負数で短く。Ctrl+Z で戻せます）|Pixels to lengthen each line at top and bottom; applies at once (negative shortens; Ctrl+Z undoes)|Pixel, um die jede Zeile oben und unten verlängert wird; gilt sofort (negativ verkürzt; Strg+Z macht rückgängig)|Pixels ajoutés en haut et en bas de chaque ligne ; s'applique aussitôt (négatif raccourcit ; Ctrl+Z annule)
+行內切字|行内で字を切る|Cut characters|Zeichen schneiden|Découper les caractères
+在每一行裡切字；行內原有的字框會被取代。沒有行會先自動偵測|各行の中で字を切り出します。行内の既存の字枠は置き換わります。行がなければ先に自動検出|Cut characters within each line, replacing existing boxes. Detects lines first if needed|Zeichen in jeder Zeile schneiden und vorhandene Rahmen ersetzen. Erkennt zuerst die Zeilen, falls nötig|Découper les caractères dans chaque ligne en remplaçant les cadres existants. Détecte d'abord les lignes si nécessaire
+每行字數|1行の字数|Chars per line|Zeichen pro Zeile|Caractères par ligne
+寫本留空|写本は空欄|Blank for MSS|Leer bei Hss.|Vide pour les mss
+寫本請留空；刻本行款固定時填|写本は空欄のまま。刊本で行格が一定なら入力|Leave blank for manuscripts; fill in for prints with a fixed layout|Bei Handschriften leer lassen; bei Drucken mit festem Satzspiegel ausfüllen|Laisser vide pour les manuscrits ; remplir pour les imprimés à mise en page fixe
+字框外擴・上下|字枠の余白・上下|Box padding (T/B)|Rahmenrand (O/U)|Marge du cadre (H/B)
+字框外擴・左右|字枠の余白・左右|Box padding (L/R)|Rahmenrand (L/R)|Marge du cadre (G/D)
+字框上下各多包幾 px：改數字就即時套用到範圍內全部字框（負數＝內縮；Ctrl+Z 可還原）|字枠の上下に何 px 余白を取るか。範囲内の全字枠に即反映（負数で縮小。Ctrl+Z で戻せます）|Extra pixels above and below each box; applies at once to all boxes in scope (negative shrinks; Ctrl+Z undoes)|Zusätzliche Pixel über und unter jedem Rahmen; gilt sofort für alle Rahmen im Bereich (negativ verkleinert; Strg+Z macht rückgängig)|Pixels supplémentaires au-dessus et au-dessous de chaque cadre ; s'applique aussitôt à tous les cadres de la portée (négatif réduit ; Ctrl+Z annule)
+字框左右各多包幾 px：改數字就即時套用到範圍內全部字框（負數＝內縮；Ctrl+Z 可還原）|字枠の左右に何 px 余白を取るか。範囲内の全字枠に即反映（負数で縮小。Ctrl+Z で戻せます）|Extra pixels left and right of each box; applies at once (negative shrinks; Ctrl+Z undoes)|Zusätzliche Pixel links und rechts jedes Rahmens; gilt sofort (negativ verkleinert; Strg+Z macht rückgängig)|Pixels supplémentaires à gauche et à droite de chaque cadre ; s'applique aussitôt (négatif réduit ; Ctrl+Z annule)
+一鍵 1→2→3|ワンクリック 1→2→3|One click 1→2→3|Ein Klick 1→2→3|Un clic 1→2→3
+依序執行 1 區塊 → 2 行 → 3 字（已有正文區塊就沿用）|1 ブロック → 2 行 → 3 字 を順に実行（既存の本文ブロックはそのまま使用）|Run 1 blocks → 2 lines → 3 characters (keeps an existing text block)|1 Blöcke → 2 Zeilen → 3 Zeichen ausführen (ein vorhandener Textblock bleibt)|Lancer 1 blocs → 2 lignes → 3 caractères (conserve un bloc de texte existant)
+刪除選取的區塊／行|選択したブロック／行を削除|Delete selected block / line|Ausgewählten Block / Zeile löschen|Supprimer le bloc / la ligne sélectionnés
+刪除選取的區塊或行（也可按 Delete）|選択したブロックまたは行を削除（Delete キーでも可）|Delete the selected block or line (or press Delete)|Ausgewählten Block oder Zeile löschen (oder Entf drücken)|Supprimer le bloc ou la ligne sélectionnés (ou appuyer sur Suppr)
+✕ 清除重來|✕ クリアしてやり直す|✕ Clear and restart|✕ Leeren und neu beginnen|✕ Tout effacer et recommencer
+把範圍內的區塊、行、字框全部清掉，回到剛貼上圖的狀態（Ctrl+Z 可還原）|範囲内のブロック・行・字枠をすべて消去し、画像を貼った直後の状態に戻します（Ctrl+Z で戻せます）|Remove all blocks, lines and boxes in scope, back to the freshly pasted image (Ctrl+Z undoes)|Alle Blöcke, Zeilen und Rahmen im Bereich entfernen, zurück zum frisch eingefügten Bild (Strg+Z macht rückgängig)|Retirer tous les blocs, lignes et cadres de la portée et revenir à l'image telle que collée (Ctrl+Z annule)
+↶ 還原上一步|↶ 元に戻す|↶ Undo|↶ Rückgängig|↶ Annuler
+還原上一步（Ctrl+Z）；還原後可再按一次偵測|ひとつ前に戻す（Ctrl+Z）。戻した後に再検出できます|Undo the last step (Ctrl+Z); you can re-run detection afterwards|Letzten Schritt rückgängig machen (Strg+Z); danach kann die Erkennung erneut laufen|Annuler la dernière étape (Ctrl+Z) ; vous pouvez ensuite relancer la détection
+刻本：等距網格|刊本：等間隔グリッド|Prints: even grid|Drucke: gleichmäßiges Raster|Imprimés : grille régulière
+直行數|行数|Columns|Spalten|Colonnes
+刻本用：版面直行數|刊本用：版面の行数|For prints: number of columns|Für Drucke: Anzahl der Spalten|Pour les imprimés : nombre de colonnes
+如22|例：22|e.g. 22|z. B. 22|p. ex. 22
+▦ 等距網格切割（本版）|▦ 等間隔グリッドで分割（この版本）|▦ Cut by even grid (this version)|▦ Nach Raster schneiden (diese Version)|▦ Découper selon la grille (cette version)
+在正文區塊（沒有就用紙面）內等距切成「直行數 × 每行字數」|本文ブロック（なければ紙面）を「行数 × 1行の字数」に等分|Split the text block (or the page) evenly into columns × characters per line|Textblock (oder Seite) gleichmäßig in Spalten × Zeichen pro Zeile teilen|Diviser le bloc de texte (ou la page) régulièrement en colonnes × caractères par ligne
+顯示與對齊|表示と整列|Display & alignment|Anzeige & Ausrichtung|Affichage et alignement
+放大＋|拡大＋|Zoom in ＋|Vergrößern ＋|Agrandir ＋
+縮小－|縮小－|Zoom out －|Verkleinern －|Réduire －
+直書對應▶|縦書き本文▶|Vertical text ▶|Vertikaler Text ▶|Texte vertical ▶
+全框＋|全枠＋|All boxes ＋|Alle Rahmen ＋|Tous les cadres ＋
+全框－|全枠－|All boxes －|Alle Rahmen －|Tous les cadres －
+所有框上下左右各外擴 2px|全字枠を上下左右に 2px 広げる|Grow every box by 2px on all sides|Jeden Rahmen ringsum um 2 px vergrößern|Agrandir chaque cadre de 2 px de tous côtés
+所有框各內縮 2px|全字枠を 2px 縮める|Shrink every box by 2px|Jeden Rahmen um 2 px verkleinern|Réduire chaque cadre de 2 px
+對齊起點字#|開始字番号|Start at char #|Beginn bei Zeichen Nr.|Commencer au caractère n°
+黑白加強|白黒強調|Contrast|Kontrast|Contraste
+底圖黑白加強：0＝原圖；往右越黑白分明（只影響畫面顯示，不改原圖、不影響切字）|画像の白黒強調：0＝原画像。右へ行くほどくっきり（表示のみで、原画像や字切りには影響しません）|Contrast boost: 0 = original; further right is starker (display only; never changes the image or cutting)|Kontrastverstärkung: 0 = Original; weiter rechts härter (nur Anzeige; ändert weder Bild noch Schnitt)|Renforcement du contraste : 0 = original ; plus à droite, plus tranché (affichage seulement ; ne modifie ni l'image ni le découpage)
+顯示字框|字枠を表示|Show boxes|Rahmen anzeigen|Afficher les cadres
+快速鍵 B|ショートカット B|Shortcut B|Tastenkürzel B|Raccourci B
+顯示基準字|基準字を表示|Show base chars|Grundtextzeichen anzeigen|Afficher les caractères de base
+顯示編號|番号を表示|Show numbers|Nummern anzeigen|Afficher les numéros
+頁圖標大正校勘|画像に大正校勘を表示|Taishō notes on image|Taishō-Anmerkungen im Bild|Notes du Taishō sur l'image
+在頁圖的字框上標出大正藏校勘註|画像の字枠に大正蔵の校勘注を表示|Mark Taishō apparatus notes on the boxes|Anmerkungen des Taishō-Apparats an den Rahmen markieren|Signaler les notes de l'apparat du Taishō sur les cadres
+專案檔與備份|プロジェクトファイルとバックアップ|Project files & backup|Projektdateien & Sicherung|Fichiers du projet et sauvegarde
+🔗 自動存到電腦檔案|🔗 PC のファイルに自動保存|🔗 Auto-save to a file on this computer|🔗 Automatisch in Datei speichern|🔗 Enregistrement auto. dans un fichier
+選一個電腦上的檔案（例如放在 Dropbox），之後每次修改都自動存進去；資料就不只在瀏覽器裡。只支援 Chrome、Edge。|PC 上のファイル（Dropbox 内など）を選ぶと、以後の変更が自動でそこに保存されます。ブラウザだけに頼らずにすみます。Chrome・Edge のみ対応。|Pick a file on your computer (e.g. in Dropbox); every change is then saved to it automatically, so your work is not only in the browser. Chrome and Edge only.|Wählen Sie eine Datei auf Ihrem Computer (z. B. in Dropbox); jede Änderung wird dann automatisch dorthin gespeichert, sodass Ihre Arbeit nicht nur im Browser liegt. Nur Chrome und Edge.|Choisissez un fichier sur votre ordinateur (p. ex. dans Dropbox) ; chaque modification y est alors enregistrée automatiquement, et votre travail ne reste pas seulement dans le navigateur. Chrome et Edge uniquement.
+未連結|未接続|Not linked|Nicht verknüpft|Non relié
+已自動儲存 ✓|自動保存済み ✓|Saved ✓|Gespeichert ✓|Enregistré ✓
+已就緒（自動儲存開啟）|準備完了（自動保存オン）|Ready (auto-save on)|Bereit (automatisches Speichern an)|Prêt (enregistrement automatique activé)
+匯出原圖（PNG）|原画像を書き出し（PNG）|Export images (PNG)|Bilder exportieren (PNG)|Exporter les images (PNG)
+另存原始頁圖為 PNG（備份用，非存進度）|元のページ画像を PNG で保存（バックアップ用。作業内容は含みません）|Save original page images as PNG (backup only, not your work)|Originale Seitenbilder als PNG speichern (nur Sicherung, nicht Ihre Arbeit)|Enregistrer les images de page originales en PNG (sauvegarde seulement, pas votre travail)
+匯出專案|プロジェクトを書き出し|Export project|Projekt exportieren|Exporter le projet
+把目前這個專案存成 JSON 檔（檔名含專案名稱與日期）|現在のプロジェクトを JSON で保存（ファイル名にプロジェクト名と日付）|Save this project as JSON (file name includes project and date)|Dieses Projekt als JSON speichern (Dateiname enthält Projekt und Datum)|Enregistrer ce projet en JSON (le nom de fichier contient le projet et la date)
+匯入專案|プロジェクトを読み込み|Import project|Projekt importieren|Importer un projet
+把專案檔（JSON）匯入為一個新專案；目前的專案不受影響|プロジェクトファイル（JSON）を新しいプロジェクトとして読み込み。現在のプロジェクトは変わりません|Import a project file (JSON) as a new project; the current project is untouched|Projektdatei (JSON) als neues Projekt importieren; das aktuelle Projekt bleibt unverändert|Importer un fichier de projet (JSON) comme nouveau projet ; le projet actuel n'est pas modifié
+⏭ 續校下一段|⏭ 次の段へ続ける|⏭ Continue to next section|⏭ Weiter zum nächsten Abschnitt|⏭ Passer à la section suivante
+這一段校完後，用同一組版本設定開新專案接著校下一段；可先備份這一段，並帶入各版本最後一頁超出本段的字框|この段を校し終えたら、同じ版本設定で新しいプロジェクトを作り次の段へ。先にこの段をバックアップし、各版本の最終ページのうち本段を超える字枠を引き継げます|When this section is done, open a new project with the same versions for the next section; back this one up first and carry over boxes on each version's last page beyond this section|Ist dieser Abschnitt fertig, ein neues Projekt mit denselben Versionen für den nächsten Abschnitt öffnen; vorher diesen sichern und die Rahmen auf der letzten Seite jeder Version über den Abschnitt hinaus übernehmen|Une fois cette section terminée, ouvrir un nouveau projet avec les mêmes versions pour la section suivante ; sauvegarder d'abord celle-ci et reprendre les cadres de la dernière page de chaque version qui dépassent la section
+💾 備份全部專案|💾 全プロジェクトをバックアップ|💾 Back up all projects|💾 Alle Projekte sichern|💾 Sauvegarder tous les projets
+把所有專案（含頁圖、字框、校勘）存成一個備份檔；換電腦或換瀏覽器時用「匯入專案」還原|全プロジェクト（画像・字枠・校勘を含む）を1つのバックアップファイルに保存。別の端末やブラウザでは「プロジェクトを読み込み」で復元|Save every project (images, boxes, collation) into one backup file; restore it elsewhere with "Import project"|Alle Projekte (Bilder, Rahmen, Kollation) in eine Sicherungsdatei speichern; anderswo mit „Projekt importieren“ wiederherstellen|Enregistrer tous les projets (images, cadres, collation) dans un seul fichier de sauvegarde ; le restaurer ailleurs avec « Importer un projet »
+尚未做過完整備份|まだ完全バックアップをしていません|No full backup yet|Noch keine vollständige Sicherung|Pas encore de sauvegarde complète
+查詢與說明|検索とヘルプ|Search & help|Suche & Hilfe|Recherche et aide
+🔍 字搜尋（各版畫廊）|🔍 字の検索（各版ギャラリー）|🔍 Find a character (gallery)|🔍 Zeichen suchen (Galerie)|🔍 Chercher un caractère (galerie)
+📖 講義規範|📖 講義の規範|📖 Handout conventions|📖 Konventionen des Handouts|📖 Conventions du polycopié
+📘 操作步驟|📘 操作手順|📘 Steps|📘 Anleitung|📘 Mode d'emploi
+從建專案到匯出的操作步驟|プロジェクト作成から書き出しまでの手順|Steps from creating a project to exporting|Schritte vom Anlegen eines Projekts bis zum Export|Étapes, de la création d'un projet à l'export
+ℹ 關於與引用|ℹ 概要と引用|ℹ About & cite|ℹ Über & Zitieren|ℹ À propos et citation
+對勘室是什麼、資料存在哪裡、如何引用|対勘室とは何か、データの保存場所、引用の仕方|What CollateDesk is, where data lives, how to cite it|Was CollateDesk ist, wo die Daten liegen, wie man es zitiert|Ce qu'est CollateDesk, où sont les données, comment le citer
+✨ 導覽|✨ ガイドツアー|✨ Tour|✨ Rundgang|✨ Visite guidée
+逐步聚光介紹各功能（快速鍵 ?）|各機能を順にハイライトして紹介（ショートカット ?）|Spotlight tour of the features (shortcut ?)|Rundgang durch die Funktionen (Tastenkürzel ?)|Visite guidée des fonctions (raccourci ?)
+選取框|選択中の枠|Selected box|Ausgewählter Rahmen|Cadre sélectionné
+對應字 −1|対応字 −1|Char −1|Zeichen −1|Caractère −1
+對應字 +1|対応字 +1|Char +1|Zeichen +1|Caractère +1
+設此框＝此字#(錨)|この枠＝この字番号（アンカー）|Set box = char # (anchor)|Rahmen = Zeichen Nr. setzen (Anker)|Cadre = caractère n° (ancre)
+★ 設為段落起點（＝第1字）|★ 段落の始点にする（＝1字目）|★ Set as section start (= char 1)|★ Als Abschnittsbeginn setzen (= Zeichen 1)|★ Définir comme début de section (= caractère 1)
+清除錨點|アンカーを解除|Clear anchor|Anker entfernen|Retirer l'ancre
+⬍ 上下切半|⬍ 上下に二分|⬍ Split top/bottom|⬍ Oben/unten teilen|⬍ Diviser haut/bas
+⬌ 左右切半|⬌ 左右に二分|⬌ Split left/right|⬌ Links/rechts teilen|⬌ Diviser gauche/droite
+刪此框|この枠を削除|Delete box|Rahmen löschen|Supprimer le cadre
+實際字|実際の字|Actual char|Tatsächliches Zeichen|Caractère réel
+標記類型：脫字＝此版缺底本這個字（此框改對應下一字）；衍字＝此框是多出來的字（不佔底本字序）|標記の種類：脱字＝この版本に底本のこの字がない（枠は次の字に対応）、衍字＝余分な字（底本の字順を占めない）|Mark type: omission = this version lacks this base character (the box maps to the next); addition = an extra character (takes no base position)|Markierungstyp: Auslassung = dieser Version fehlt das Grundtextzeichen (der Rahmen gehört zum nächsten); Zusatz = ein zusätzliches Zeichen (belegt keine Grundtextposition)|Type de marque : omission = cette version n'a pas ce caractère de base (le cadre correspond au suivant) ; ajout = un caractère en trop (n'occupe aucune position du texte de base)
+上一格（閱讀順序；鍵盤 ↑）|前の枠（読み順。キー ↑）|Previous box (reading order; ↑)|Vorheriger Rahmen (Lesereihenfolge; ↑)|Cadre précédent (ordre de lecture ; ↑)
+下一格（閱讀順序；鍵盤 ↓）|次の枠（読み順。キー ↓）|Next box (reading order; ↓)|Nächster Rahmen (Lesereihenfolge; ↓)|Cadre suivant (ordre de lecture ; ↓)
+在此框之後新增一格（直書放在下方、橫書放在右方，大小相同）；新框會自動選取，再在放大圖上點字的中心對準|この枠の後に同じ大きさの枠を追加（縦書きは下、横書きは右）。新しい枠が選択されるので、拡大図で字の中心をクリックして合わせます|Add a box after this one (below for vertical, right for horizontal, same size); it is selected so you can click the character centre in the magnifier|Rahmen nach diesem hinzufügen (vertikal darunter, horizontal rechts, gleiche Größe); er wird ausgewählt, damit Sie in der Lupe die Zeichenmitte anklicken können|Ajouter un cadre après celui-ci (dessous en vertical, à droite en horizontal, même taille) ; il est sélectionné pour que vous cliquiez au centre du caractère dans la loupe
+放大圖上顯示／隱藏字框（隱藏時方便看清楚字形；快速鍵 V）|拡大図の字枠を表示／非表示（非表示だと字形が見やすい。ショートカット V）|Show / hide the box in the magnifier (hide to see the glyph; shortcut V)|Rahmen in der Lupe ein-/ausblenden (ausblenden, um die Glyphe zu sehen; Tastenkürzel V)|Afficher / masquer le cadre dans la loupe (masquer pour voir le glyphe ; raccourci V)
+字心（開／關）：打開時先自動對齊字心一次，之後在放大圖上點哪裡，框的中心就移到哪裡；關閉時點放大圖不會動到框。（雙擊字框或按 C 也能自動對齊）|字の中心（オン／オフ）：オンにすると一度自動で中心合わせし、以後は拡大図でクリックした所に枠の中心が移ります。オフでは動きません（字枠のダブルクリックや C キーでも自動合わせ）|Centre (on/off): when on, centres once automatically, then clicking the magnifier moves the box centre there; off leaves the box alone (double-click a box or press C to auto-centre)|Zentrieren (an/aus): wenn an, wird einmal automatisch zentriert, danach setzt ein Klick in die Lupe die Rahmenmitte dorthin; aus lässt den Rahmen unverändert (Doppelklick auf einen Rahmen oder C zentriert automatisch)|Centrer (oui/non) : activé, centre une fois automatiquement, puis un clic dans la loupe y place le centre du cadre ; désactivé, le cadre reste tel quel (double-clic sur un cadre ou C pour centrer automatiquement)
+框放大（四邊各外擴 2px）|枠を拡大（四辺を 2px 広げる）|Grow box (2px each side)|Rahmen vergrößern (2 px je Seite)|Agrandir le cadre (2 px par côté)
+框縮小（四邊各內縮 2px）|枠を縮小（四辺を 2px 縮める）|Shrink box (2px each side)|Rahmen verkleinern (2 px je Seite)|Réduire le cadre (2 px par côté)
+切半（直書上下切、橫書左右切）|二分（縦書きは上下、横書きは左右）|Split (top/bottom for vertical, left/right for horizontal)|Teilen (vertikal oben/unten, horizontal links/rechts)|Diviser (haut/bas en vertical, gauche/droite en horizontal)
+刪除此框|この枠を削除|Delete this box|Diesen Rahmen löschen|Supprimer ce cadre
+釘選：沒選字時也保持開著|固定：字を選んでいない時も開いたまま|Pin: keep open even with nothing selected|Anheften: offen lassen, auch wenn nichts ausgewählt ist|Épingler : garder ouvert même sans sélection
+關閉放大視窗（點下一個字框會再打開）|拡大ウィンドウを閉じる（次の字枠をクリックすると再び開きます）|Close the magnifier (clicking the next box reopens it)|Lupe schließen (Klick auf den nächsten Rahmen öffnet sie wieder)|Fermer la loupe (cliquer sur le cadre suivant la rouvre)
+對照表|対照表|Comparison table|Vergleichstabelle|Tableau comparatif
+點字圖→右側原圖；點欄標題→該版全頁|字の画像→右に原画像、列見出し→その版本の全ページ|Click a glyph → original on the right; click a column header → that version's pages|Glyphe anklicken → Original rechts; Spaltenkopf anklicken → Seiten dieser Version|Cliquer sur un glyphe → original à droite ; cliquer sur un en-tête de colonne → pages de cette version
+收合/展開工具列|ツールバーを畳む／開く|Collapse / expand toolbar|Werkzeugleiste ein-/ausklappen|Replier / déplier la barre d'outils
+▲ 收合|▲ 畳む|▲ Collapse|▲ Einklappen|▲ Replier
+▼ 工具|▼ ツール|▼ Tools|▼ Werkzeuge|▼ Outils
+格寬|セル幅|Cell width|Zellbreite|Largeur des cellules
+搜尋字（可多字，如 盋葉象）|字を検索（複数可、例：盋葉象）|Search characters (several allowed)|Zeichen suchen (mehrere möglich)|Chercher des caractères (plusieurs possibles)
+重新整理|再描画|Refresh|Aktualisieren|Actualiser
+顯示 ▾|表示 ▾|View ▾|Ansicht ▾|Affichage ▾
+展開版本名|版本名を展開|Full version names|Volle Versionsnamen|Noms complets des versions
+大正校勘欄|大正校勘列|Taishō notes column|Spalte Taishō-Anmerkungen|Colonne des notes du Taishō
+音讀欄|音読列|Reading column|Spalte Lesung|Colonne de lecture
+校勘記欄|校勘記列|Notes column|Spalte Apparat|Colonne de l'apparat
+衍字列|衍字の行|Addition rows|Zeilen für Zusätze|Lignes des ajouts
+衍字（多出來的字）另起一列，排在它前一個底本字的下面|衍字（余分な字）を別の行にし、直前の底本字の下に置く|Put additions (extra characters) on their own row under the preceding base character|Zusätze (zusätzliche Zeichen) in eigener Zeile unter dem vorangehenden Grundtextzeichen|Placer les ajouts (caractères en trop) sur leur propre ligne sous le caractère de base précédent
+分支欄|分岐列|Branch column|Spalte Verzweigung|Colonne des branches
+在版本欄右邊加一欄直式分支圖，和每一列對齊|版本列の右に縦の分岐図の列を加え、各行に揃える|Add a vertical branch-graph column next to the versions, aligned with each row|Neben den Versionen eine senkrechte Spalte mit dem Verzweigungsdiagramm, an jeder Zeile ausgerichtet|Ajouter à côté des versions une colonne verticale de graphe des branches, alignée sur chaque ligne
+分支：顯示全部|分岐：すべて表示|Branches: show all|Verzweigungen: alle zeigen|Branches : tout afficher
+分支：不顯示不出校|分岐：出校しないものは表示しない|Branches: hide unreported|Verzweigungen: nicht verzeichnete ausblenden|Branches : masquer les non relevées
+分支圖要畫哪些異文：全部，或只畫有出校的條目（不出校的視同底本）|分岐図に描く異文：すべて、または出校する項目のみ（出校しないものは底本と同じ扱い）|Which variants the branch graph draws: all, or only reported ones (unreported count as the base)|Welche Varianten das Diagramm zeichnet: alle oder nur verzeichnete (nicht verzeichnete gelten als Grundtext)|Variantes dessinées par le graphe : toutes, ou seulement celles relevées (les non relevées comptent comme le texte de base)
+欄位▾|列▾|Columns ▾|Spalten ▾|Colonnes ▾
+異體出校|異体字も出校|Report variant forms|Schreibvarianten verzeichnen|Relever les formes variantes
+勾選：標為「異體字」的地方也寫進校勘記。不勾：異體字視同底本、不出校。各列可在校勘記欄用「異」鈕個別改|オン：「異体字」の箇所も校勘記に記載。オフ：異体字は底本と同じ扱いで出校しない。各行は校勘記列の「異」ボタンで個別に変更可|On: variant forms also go into the notes. Off: treated as the base and not reported. Change per row with the "異" button in the notes column|An: Schreibvarianten kommen ebenfalls in den Apparat. Aus: gelten als Grundtext und werden nicht verzeichnet. Pro Zeile mit der Schaltfläche „異“ in der Apparatspalte änderbar|Activé : les formes variantes vont aussi dans l'apparat. Désactivé : traitées comme le texte de base et non relevées. Modifiable par ligne avec le bouton « 異 » de la colonne de l'apparat
+校勘記 ▾|校勘記 ▾|Notes ▾|Apparat ▾|Apparat ▾
+點此複製併用順序，貼進校勘記再刪改|並記順を複製し、校勘記に貼って手直し|Copy the sigla order to paste into notes and edit|Siglenfolge kopieren, um sie in den Apparat einzufügen und zu bearbeiten|Copier l'ordre des sigles pour le coller dans l'apparat et le modifier
+↻ 草稿重生成|↻ 下書きを再生成|↻ Regenerate drafts|↻ Entwürfe neu erzeugen|↻ Régénérer les brouillons
+全部校勘記欄以最新規則重生成（會捨棄手動修改）|全校勘記を最新の規則で再生成（手での修正は破棄されます）|Regenerate all notes with the latest rules (discards manual edits)|Alle Apparateinträge nach den aktuellen Regeln neu erzeugen (verwirft manuelle Änderungen)|Régénérer toutes les notes selon les règles actuelles (abandonne les modifications manuelles)
+🏷 自訂類型|🏷 独自の種類|🏷 Custom types|🏷 Eigene Typen|🏷 Types personnalisés
+新增或刪除自訂校勘類型|独自の校勘種類を追加・削除|Add or remove custom note types|Eigene Markierungstypen hinzufügen oder entfernen|Ajouter ou retirer des types de marque personnalisés
+📥 大正校勘|📥 大正校勘|📥 Taishō notes|📥 Taishō-Anmerkungen|📥 Notes du Taishō
+貼上 CBETA 複製的引文與 [n] 校勘註，顯示在「大正校勘」欄|CBETA でコピーした本文と [n] 校勘注を貼り付け、「大正校勘」列に表示|Paste text copied from CBETA with its [n] notes into the Taishō column|Aus CBETA kopierten Text samt [n]-Anmerkungen in die Taishō-Spalte einfügen|Coller dans la colonne Taishō le texte copié de CBETA avec ses notes [n]
+📝 匯出校勘記|📝 校勘記を書き出し|📝 Export notes|📝 Apparat exportieren|📝 Exporter l'apparat
+🌿 分支圖|🌿 分岐図|🌿 Branch graph|🌿 Verzweigungsdiagramm|🌿 Graphe des branches
+把各版異文畫成分支圖（同的合一、異的分岔）|各版の異文を分岐図に（同じは合流、異なれば分岐）|Draw variants as a branch graph (same readings merge, variants split)|Varianten als Verzweigungsdiagramm zeichnen (gleiche Lesarten laufen zusammen, Varianten verzweigen)|Dessiner les variantes en graphe des branches (les leçons identiques se rejoignent, les variantes se séparent)
+開啟全部圖版|全画像を開く|Open all pages|Alle Seiten öffnen|Ouvrir toutes les pages
+開啟示範|デモを開く|Open the demo|Demo öffnen|Ouvrir la démo
+建立一個示範專案：兩個版本、十四個字，已切好字框並對齊|デモプロジェクトを作成：二つの版本・十四字、字枠と位置合わせ済み|Create a demo project: two versions, fourteen characters, already cut and aligned|Demoprojekt anlegen: zwei Versionen, vierzehn Zeichen, bereits geschnitten und ausgerichtet|Créer un projet de démonstration : deux versions, quatorze caractères, déjà découpés et alignés
+⬇ 匯出 ▾|⬇ 書き出し ▾|⬇ Export ▾|⬇ Export ▾|⬇ Exporter ▾
+Word 輸出縮放|Word 出力の倍率|Word export scale|Maßstab für Word-Export|Échelle de l'export Word
+兩欄|二段|Two columns|Zweispaltig|Deux colonnes
+自動|自動|Auto|Automatisch|Auto
+分表|表を分割|Split tables|Tabellen teilen|Diviser les tableaux
+匯出目前顯示的欄位與列（含字圖）為 Word|表示中の列と行（字の画像を含む）を Word に書き出し|Export the visible columns and rows (with glyph images) to Word|Sichtbare Spalten und Zeilen (mit Glyphenbildern) nach Word exportieren|Exporter vers Word les colonnes et lignes visibles (avec images des glyphes)
+📄 講義|📄 講義資料|📄 Handout|📄 Handout|📄 Polycopié
+一鍵匯出完整講義（原文・訓讀・譯・語釋・校勘腳註・字形對照表）為 Word|講義資料一式（原文・訓読・訳・語釈・校勘脚注・字形対照表）を Word に書き出し|Export a full handout (text, kundoku, translation, glosses, notes, glyph table) to Word|Vollständiges Handout (Text, Kundoku, Übersetzung, Glossen, Apparat, Glyphentabelle) nach Word exportieren|Exporter vers Word un polycopié complet (texte, kundoku, traduction, gloses, apparat, tableau des glyphes)
+🖨 PDF|🖨 PDF|🖨 PDF|🖨 PDF|🖨 PDF
+以列印方式輸出，可另存為 PDF|印刷で出力（PDF として保存可）|Print, or save as PDF|Drucken oder als PDF speichern|Imprimer ou enregistrer en PDF
+關閉 ✕|閉じる ✕|Close ✕|Schließen ✕|Fermer ✕
+關閉|閉じる|Close|Schließen|Fermer
+取消|キャンセル|Cancel|Abbrechen|Annuler
+儲存|保存|Save|Speichern|Enregistrer
+確定新增|追加する|Add|Hinzufügen|Ajouter
+完成|完了|Done|Fertig|Terminé
+新增版本|版本を追加|Add version|Version hinzufügen|Ajouter une version
+略號（例：剛、七、敦、S…，簡短）|略号（例：剛・七・敦・S…、短く）|Siglum (e.g. 剛, 七, 敦, S… keep it short)|Sigle (z. B. 剛, 七, 敦, S … möglichst kurz)|Sigle (p. ex. 剛, 七, 敦, S… le plus court possible)
+全名（例：金剛寺、敦煌本…）|正式名（例：金剛寺、敦煌本…）|Full name (e.g. Kongōji, Dunhuang MS…)|Voller Name (z. B. Kongōji, Dunhuang-Hs. …)|Nom complet (p. ex. Kongōji, ms. de Dunhuang…)
+字搜尋 · 各版畫廊|字の検索 · 各版ギャラリー|Character search · gallery|Zeichensuche · Galerie|Recherche de caractères · galerie
+輸入字（可多字，如 盋葉象）|字を入力（複数可、例：盋葉象）|Type characters (several allowed)|Zeichen eingeben (mehrere möglich)|Saisir des caractères (plusieurs possibles)
+圖大小|画像サイズ|Image size|Bildgröße|Taille des images
+搜尋|検索|Search|Suchen|Chercher
+校勘記|校勘記|Notes|Apparat|Apparat
+講義格式草稿|講義形式の下書き|Handout-style draft|Entwurf im Handout-Stil|Brouillon façon polycopié
+清楚版|清書版|Clean version|Bereinigte Fassung|Version épurée
+下載 .txt|.txt をダウンロード|Download .txt|.txt herunterladen|Télécharger le .txt
+全部版本圖版 · 直式並排對勘|全版本の画像 · 縦に並べて対勘|All versions · side by side|Alle Versionen · nebeneinander|Toutes les versions · côte à côte
+圖高|画像の高さ|Image height|Bildhöhe|Hauteur d'image
+← 左右捲動比對各版整頁 →|← 左右にスクロールして各版の全ページを比較 →|← Scroll sideways to compare whole pages →|← Seitlich scrollen, um ganze Seiten zu vergleichen →|← Faire défiler latéralement pour comparer les pages entières →
+異文分支圖|異文分岐図|Variant branch graph|Verzweigungsdiagramm der Varianten|Graphe des branches des variantes
+上一句（←）|前の句（←）|Previous phrase (←)|Vorherige Phrase (←)|Phrase précédente (←)
+下一句（→）|次の句（→）|Next phrase (→)|Nächste Phrase (→)|Phrase suivante (→)
+選一句；括號內是這句的分支數|句を選択。括弧内はその句の分岐数|Pick a phrase; brackets show its number of branches|Phrase wählen; in Klammern die Zahl ihrer Verzweigungen|Choisir une phrase ; entre crochets, son nombre de branches
+異體不分岔|異体字は分岐しない|Variant forms don't branch|Schreibvarianten verzweigen nicht|Les formes variantes ne se séparent pas
+勾選時，標為異體字、異體詞的地方視同底本，不畫分支|オンにすると、異体字・異体語の箇所は底本と同じ扱いで分岐しません|When on, variant forms and variant words count as the base and do not branch|Wenn an, gelten Schreibvarianten und Wortvarianten als Grundtext und verzweigen nicht|Activé, les formes variantes et les variantes lexicales comptent comme le texte de base et ne se séparent pas
+下載向量圖，可放進論文或簡報|ベクター画像をダウンロード（論文やスライド用）|Download vector graphics for papers or slides|Vektorgrafik für Aufsätze oder Folien herunterladen|Télécharger le graphique vectoriel pour articles ou diapositives
+下載圖片（2 倍解析度）|画像をダウンロード（2 倍解像度）|Download image (2× resolution)|Bild herunterladen (2-fache Auflösung)|Télécharger l'image (résolution ×2)
+▶ 動畫|▶ アニメーション|▶ Animate|▶ Animieren|▶ Animer
+從第一字逐字展開（空白鍵）|1字目から一字ずつ展開（スペースキー）|Unfold from the first character (space)|Vom ersten Zeichen an entfalten (Leertaste)|Dérouler depuis le premier caractère (espace)
+回到開頭|先頭に戻る|Back to start|Zum Anfang|Retour au début
+全圖|全体|Whole graph|Ganzes Diagramm|Graphe entier
+結束動畫，顯示整張圖|アニメーションを終えて全体を表示|Stop the animation and show the whole graph|Animation anhalten und ganzes Diagramm zeigen|Arrêter l'animation et afficher le graphe entier
+拖曳可前後捲動（Shift+←／→ 逐字）|ドラッグで前後に移動（Shift+←／→ で一字ずつ）|Drag to scrub (Shift+← / → one character)|Ziehen zum Durchspulen (Umschalt+← / → ein Zeichen)|Glisser pour parcourir (Maj+← / → un caractère)
+動畫時畫面怎麼跟：分列＝換列時捲到那一列；分列・置中＝正在生長的那一列始終在畫面上下正中；單列捲動＝整段排成一條，畫面不動、圖往左流|アニメーション中の追従：行ごと＝行が変わるとその行へスクロール、行ごと・中央＝伸びている行を常に画面中央に、一列スクロール＝全体を一列にし、画面は固定で図が左へ流れる|How the view follows: by row = scroll to each new row; by row, centred = keep the growing row centred; single row = one long line flowing left|Wie die Ansicht folgt: zeilenweise = zu jeder neuen Zeile scrollen; zeilenweise, zentriert = wachsende Zeile mittig halten; eine Zeile = eine lange, nach links fließende Linie|Comment la vue suit : par ligne = défiler à chaque nouvelle ligne ; par ligne, centré = garder la ligne en cours au centre ; ligne unique = une longue ligne qui défile vers la gauche
+分列|行ごと|By row|Zeilenweise|Par ligne
+分列・生長列置中|行ごと・伸びる行を中央に|By row, centred|Zeilenweise, zentriert|Par ligne, centré
+單列捲動|一列スクロール|Single row|Eine Zeile|Ligne unique
+速度|速度|Speed|Tempo|Vitesse
+年代|年代|Date|Datierung|Date
+全名|正式名|Full name|Voller Name|Nom complet
+系統|系統|Lineage|Überlieferungszweig|Filiation
+起年（西元，排序用）|開始年（西暦、並べ替え用）|Start year (CE, for sorting)|Anfangsjahr (n. Chr., zum Sortieren)|Année de début (ère commune, pour le tri)
+出土地／地區|出土地／地域|Provenance / region|Herkunft / Region|Provenance / région
+館藏地|所蔵|Holding institution|Aufbewahrungsort|Lieu de conservation
+編號|番号|Shelfmark|Signatur|Cote
+顏色|色|Colour|Farbe|Couleur
+筆記|メモ|Notes|Notizen|Notes
+略號|略号|Siglum|Sigle|Sigle
+匯入基本資料：|基本データの取り込み：|Import basic data:|Basisdaten importieren:|Importer les données de base :
+從 CSV／試算表匯入|CSV／表計算から取り込む|Import from CSV / spreadsheet|Aus CSV / Tabelle importieren|Importer depuis un CSV / tableur
+下載 CSV 範本（含目前資料）|CSV テンプレートをダウンロード（現在のデータ入り）|Download CSV template (with current data)|CSV-Vorlage herunterladen (mit aktuellen Daten)|Télécharger le modèle CSV (avec les données actuelles)
+從其他專案帶入…|他のプロジェクトから取り込む…|Copy from another project…|Aus anderem Projekt übernehmen …|Reprendre d'un autre projet…
+每個版本的基本資料，會用在「版本一覽」、分支圖顏色與對照表欄標題的提示。存在這個專案裡；「續校下一段」會一起帶到下一段。略號與簡稱可以直接改；按住左邊的點點上下拖曳可以調整版本順序。|各版本の基本データ。「版本一覧」、分岐図の色、対照表の列見出しのヒントに使われます。このプロジェクトに保存され、「次の段へ続ける」でも引き継がれます。略号と略称はその場で直せます。左端の点をつかんで上下にドラッグすると版本の順序を変えられます。|Basic data for each version, used in "All versions", branch-graph colours and column-header tips. Stored in this project and carried over by "Continue to next section". Sigla and short names can be edited here; drag the dots on the left up or down to reorder versions.|Basisdaten jeder Version, verwendet in „Alle Versionen“, für die Farben des Verzweigungsdiagramms und die Hinweise in den Spaltenköpfen. Im Projekt gespeichert und von „Weiter zum nächsten Abschnitt“ übernommen. Siglen und Kurznamen lassen sich hier ändern; die Punkte links nach oben oder unten ziehen, um die Reihenfolge der Versionen zu ändern.|Données de base de chaque version, utilisées dans « Toutes les versions », pour les couleurs du graphe des branches et les infobulles des en-têtes de colonne. Enregistrées dans ce projet et reprises par « Passer à la section suivante ». Les sigles et noms courts se modifient ici ; faites glisser les points à gauche vers le haut ou le bas pour réordonner les versions.
+新專案名稱|新しいプロジェクト名|New project name|Name des neuen Projekts|Nom du nouveau projet
+先把這一段存成備份檔（下載 JSON）|先にこの段をバックアップ（JSON をダウンロード）|Back up this section first (download JSON)|Diesen Abschnitt zuerst sichern (JSON herunterladen)|Sauvegarder d'abord cette section (télécharger le JSON)
+開始下一段|次の段を始める|Start next section|Nächsten Abschnitt beginnen|Commencer la section suivante
+操作步驟|操作手順|Steps|Anleitung|Mode d'emploi
+關於對勘室|対勘室について|About CollateDesk|Über CollateDesk|À propos de CollateDesk
+分支|分岐|Branch|Verzweigung|Branche
+大正校勘|大正校勘|Taishō|Taishō|Taishō
+音讀|音読|Reading|Lesung|Lecture
+校勘記（可改）|校勘記（講義形式・編集可）|Notes (handout style, editable)|Apparat (Handout-Stil, bearbeitbar)|Apparat (façon polycopié, modifiable)
+引用與連結|引用とリンク|Cite & links|Zitieren & Links|Citation et liens
+引用對勘室|対勘室の引用|Citing CollateDesk|CollateDesk zitieren|Citer CollateDesk
+在論文或報告中使用對勘室時，請引用：|論文や報告で対勘室を使った場合は、次のように引用してください：|If you use CollateDesk in a paper or report, please cite:|Wenn Sie CollateDesk in einem Aufsatz oder Bericht verwenden, zitieren Sie bitte:|Si vous utilisez CollateDesk dans un article ou un rapport, merci de citer :
+📋 複製|📋 コピー|📋 Copy|📋 Kopieren|📋 Copier
+作者與連結|作者とリンク|Author & links|Autorin & Links|Autrice et liens
+主要功能|主な機能|Main features|Hauptfunktionen|Fonctions principales
+資料在哪裡|データの保存場所|Where your data lives|Wo Ihre Daten liegen|Où sont vos données
+建議環境|推奨環境|Recommended setup|Empfohlene Umgebung|Configuration recommandée
+語言|言語|Language|Sprache|Langue
+行框|行枠|Lines|Zeilen|Lignes
+字框|字枠|Characters|Zeichen|Caractères
+分支圖|分岐図|Branch graph|Verzweigungsdiagramm|Graphe des branches
+收合|たたむ|Collapse|Einklappen|Replier
+展開|ひらく|Expand|Ausklappen|Déplier
+直接打開異文分支圖（會先整理對照表）|異文の分岐図を直接開く（先に対照表を整えます）|Open the variant branch graph directly (builds the table first)|Verzweigungsdiagramm der Varianten direkt öffnen (erstellt zuerst die Tabelle)|Ouvrir directement le graphe des branches des variantes (crée d'abord le tableau)
+收合／展開校定本文（開始校對後可收起來，騰出空間看書影）|校定本文をたたむ／ひらく（校勘を始めたらたたんで書影の場所を広げられます）|Collapse or expand the base text (fold it once collation starts to make room for the images)|Grundtext ein- oder ausklappen (nach Beginn der Kollation einklappen, um Platz für die Bilder zu schaffen)|Replier ou déplier le texte de base (le replier une fois la collation commencée pour laisser de la place aux images)
+簡稱|略称|Short name|Kurzname|Nom court
+迄年（西元）|終年（西暦）|End year (CE)|Endjahr (n. Chr.)|Année de fin (ère commune)
+數位來源（網址）|デジタル資料の出典（URL）|Digital source (URL)|Digitale Quelle (URL)|Source numérique (URL)
+參考文獻|参考文献|References|Literatur|Bibliographie
+主事單位（官刻／寺院／私刻…）|主体（官版／寺院／私版…）|Sponsor (imperial / temple / private…)|Auftraggeber (kaiserlich / Kloster / privat …)|Commanditaire (impérial / monastère / privé…)
+編號（館藏號、經號）|番号（請求記号・経番号）|Shelf / sutra number|Signatur / Sutra-Nummer|Cote / numéro du sutra
+按住拖曳，調整版本順序|つかんでドラッグすると版本の順序を変えられます|Drag to reorder versions|Ziehen, um Versionen umzuordnen|Glisser pour réordonner les versions
+略號：分頁、對照表欄標題與校勘記用的簡稱|略号：タブ、対照表の列見出し、校勘記で使う略称|Siglum: the short label used on tabs, table columns and in the apparatus|Sigle: das kurze Kürzel auf Reitern, in Tabellenspalten und im Apparat|Sigle : l'abréviation courte utilisée sur les onglets, dans les colonnes du tableau et dans l'apparat
+簡稱：分頁上括號裡的名稱|略称：タブの括弧内に出る名前|Short name: shown in brackets on the tab|Kurzname: erscheint in Klammern auf dem Reiter|Nom court : affiché entre parenthèses sur l'onglet
+已儲存版本屬性。|版本属性を保存しました。|Version attributes saved.|Versionsangaben gespeichert.|Fiche des versions enregistrée.
+在論文或報告中使用對勘室時，請引用你實際使用的版本（版本號在畫面右上角）。檢索日期會自動填今天。|論文や報告で対勘室を使った場合は、実際に使った版を引用してください（版番号は画面右上）。閲覧日は今日の日付が自動で入ります。|If you use CollateDesk in a paper or report, cite the version you actually used (shown at the top right). The access date is filled in with today.|Wenn Sie CollateDesk in einem Aufsatz oder Bericht verwenden, zitieren Sie die tatsächlich benutzte Version (oben rechts angezeigt). Das Abrufdatum wird mit dem heutigen Datum ausgefüllt.|Si vous utilisez CollateDesk dans un article ou un rapport, citez la version effectivement utilisée (indiquée en haut à droite). La date de consultation est remplie avec la date du jour.
+貼上底本正文（例如《大正藏》）。全段字序以這裡為準，各版本依此逐字對齊；標點不影響對齊。|底本の本文を貼ります（例：『大正蔵』）。全体の字順はここが基準で、各版本はこれに一字ずつ揃えます。句読点は揃え方に影響しません。|Paste the base text (e.g. from the Taishō). Its character order is the reference every version is aligned to; punctuation does not affect alignment.|Grundtext einfügen (z. B. aus dem Taishō). Seine Zeichenfolge ist der Bezug, an dem jede Version ausgerichtet wird; Interpunktion beeinflusst die Ausrichtung nicht.|Collez le texte de base (p. ex. depuis le Taishō). Son ordre des caractères sert de référence à l'alignement de chaque version ; la ponctuation n'influe pas sur l'alignement.
 `;
 const HELP_I18N={
  ja:{steps:[
@@ -2787,7 +2788,45 @@ const HELP_I18N={
  <p><b>It works on images, not transcriptions.</b> Every box is a cut-out of a single character: variant forms, recut blocks, a change of carver — what encoding throws away stays visible in the image. The tool only puts the forms in front of you; whether a difference is a variant reading or a variant form, and whether to report it, is left to the reader.</p>
  <h4>Main features</h4><ul><li>Automatic character cutting (block → line → character) with box-by-box correction</li><li>Alignment to the base text by reading order and anchors</li><li>Marking variant readings, variant forms, errors, omissions, additions and custom types</li><li>Comparison table, draft notes, variant branch graph; export to Word, handout, PDF, SVG</li><li>Version info (date, type, holding…), continue to next section, full backup</li></ul>
  <h4>Where your data lives</h4><p>All projects, images and notes stay in your own browser and are never uploaded. Back up all projects regularly. Collation works offline; the lookup-site buttons need a connection.</p>
- <h4>Recommended setup</h4><p>A desktop or laptop with Chrome or Edge, screen width 1280px or more. Safari and Firefox work but cannot link an auto-save file, and Safari may clear site data after 7 days without use.</p>`}};
+ <h4>Recommended setup</h4><p>A desktop or laptop with Chrome or Edge, screen width 1280px or more. Safari and Firefox work but cannot link an auto-save file, and Safari may clear site data after 7 days without use.</p>`},
+ de:{steps:[
+ ["Projekt anlegen","Obere Leiste „Projekt“ → „＋ Neues Projekt“. Am besten ein Projekt pro Text und Abschnitt; Name z. B. „Titel · Faszikel · Abschnitt“."],
+ ["Grundtext einfügen","Den Grundtext (z. B. Taishō) in „Grundtext (kollationiert)“ einfügen. Interpunktion beeinflusst die Ausrichtung nicht; nach der Kollation kann er durch die gewählte Lesart ersetzt werden."],
+ ["Versionen einrichten","Die Reiter oben sind die Versionen. Mit „Versionsangaben“ vollen Namen, Typ, Datierung und Standort eintragen oder aus CSV importieren. Fehlende mit „＋ Version hinzufügen“ ergänzen."],
+ ["Seitenbilder einfügen","Einen Versionsreiter wählen und mit Strg+V das Seitenbild dieser Version einfügen (oder ziehen bzw. in den gestrichelten Bereich klicken). Eine Version kann viele Seiten haben."],
+ ["Zeichen schneiden","Seitenleiste „Seitenaufbau“ → „Ein Klick 1→2→3“ findet nacheinander Textblock, Zeilen und Zeichenrahmen. Einzelne Rahmen mit den „Rahmenwerkzeugen“ korrigieren: hinzufügen, löschen, verschieben, skalieren."],
+ ["Am Text ausrichten","Den Rahmen des ersten Zeichens dieses Abschnitts wählen und „★ Als Abschnittsbeginn setzen“ drücken. Wo es sich verschiebt, einen Rahmen wählen und an Zeichen N anheften (Anker); die übrigen folgen."],
+ ["Jedes Zeichen markieren","Rahmen anklicken, um die Lupe zu öffnen, das tatsächliche Zeichen eingeben und einen Typ wählen: Variante, Schreibvariante, Fehler, Auslassung, Zusatz, unsicher oder einen eigenen Typ."],
+ ["Tabelle erstellen","„Tabelle ▶“: Grundtextzeichen als Zeilen, Versionen als Spalten, jede Zelle ein Glyphenbild mit dem tatsächlichen Zeichen. Die Entwürfe in der Apparatspalte bearbeiten."],
+ ["Exportieren","Tabellenleiste „⬇ Export“ → Word, Handout, PDF; „Apparat ▾“ → Apparat exportieren. Das „🌿 Verzweigungsdiagramm“ lässt sich als SVG / PNG speichern."],
+ ["Weiter zum nächsten Abschnitt","Ist ein Abschnitt fertig, öffnet „⏭ Weiter zum nächsten Abschnitt“ in der Seitenleiste ein neues Projekt mit denselben Versionen und übernimmt die Rahmen auf der letzten Seite jeder Version, die über den Abschnitt hinausreichen."],
+ ["Daten sichern","Die Daten liegen nur in diesem Browser. Regelmäßig „💾 Alle Projekte sichern“ nutzen und die Datei in einem Cloudspeicher ablegen; auf einem anderen Computer oder Browser stellt „Projekt importieren“ sie wieder her."]],
+ tour:"Wo jede Funktion auf dem Bildschirm liegt, zeigt Seitenleiste „Suche & Hilfe“ → „✨ Rundgang“.",
+ about:`<h3>CollateDesk (對勘室)</h3><p class="hsub"><i>Character-Level Textual Collation with Source Images</i></p>
+ <p>CollateDesk richtet Seitenbilder mehrerer Versionen (Handschriften, Blockdrucke, kritische Ausgaben) Zeichen für Zeichen an einem Grundtext aus, sodass sich jede Glyphe in einer Zeile nebeneinander vergleichen lässt und Ihre Entscheidungen als Vergleichstabelle und Apparat festgehalten werden.</p>
+ <p><b>Es arbeitet mit Bildern, nicht mit Transkriptionen.</b> Jeder Rahmen ist der Ausschnitt eines einzelnen Zeichens: Schreibvarianten, nachgeschnittene Druckstöcke, ein Wechsel des Schneiders – was bei der Kodierung verloren geht, bleibt im Bild sichtbar. Das Werkzeug legt nur die Formen vor; ob ein Unterschied eine Lesart oder eine Schreibvariante ist und ob er verzeichnet wird, entscheiden Sie.</p>
+ <h4>Hauptfunktionen</h4><ul><li>Automatischer Zeichenschnitt (Block → Zeile → Zeichen) mit Korrektur Rahmen für Rahmen</li><li>Ausrichtung am Grundtext über Lesereihenfolge und Anker</li><li>Markierung von Lesarten, Schreibvarianten, Fehlern, Auslassungen, Zusätzen und eigenen Typen</li><li>Vergleichstabelle, Apparatentwürfe, Verzweigungsdiagramm; Export nach Word, Handout, PDF, SVG</li><li>Versionsangaben (Datierung, Typ, Standort …), Weiter zum nächsten Abschnitt, vollständige Sicherung</li></ul>
+ <h4>Wo Ihre Daten liegen</h4><p>Alle Projekte, Bilder und Notizen bleiben in Ihrem eigenen Browser und werden nie hochgeladen. Sichern Sie regelmäßig alle Projekte. Die Kollation funktioniert offline; die Schaltflächen für Nachschlagewerke brauchen eine Verbindung.</p>
+ <h4>Empfohlene Umgebung</h4><p>Desktop oder Laptop mit Chrome oder Edge, Bildschirmbreite ab 1280 px. Safari und Firefox funktionieren, können aber nicht automatisch in eine Datei speichern, und Safari löscht Websitedaten unter Umständen nach 7 Tagen ohne Nutzung.</p>`},
+ fr:{steps:[
+ ["Créer un projet","Barre du haut « Projet » → « ＋ Nouveau projet ». Un projet par texte et par section est l'idéal ; nommez-le p. ex. « Titre · fascicule · section »."],
+ ["Coller le texte de base","Collez le texte de base (p. ex. le Taishō) dans « Texte de base (collationné) ». La ponctuation n'influe pas sur l'alignement ; après la collation, vous pouvez le remplacer par la leçon retenue."],
+ ["Définir les versions","Les onglets du haut sont les versions. Dans « Fiche des versions », saisissez nom complet, type, date et lieu de conservation, ou importez-les depuis un CSV. Ajoutez celles qui manquent avec « ＋ Ajouter une version »."],
+ ["Coller les images de page","Choisissez un onglet de version et appuyez sur Ctrl+V pour coller l'image de page de cette version (ou glissez-déposez, ou cliquez dans la zone en pointillés). Une version peut avoir plusieurs pages."],
+ ["Découper les caractères","Barre latérale « Mise en page » → « Un clic 1→2→3 » trouve successivement le bloc de texte, les lignes et les cadres de caractères. Corrigez les cadres isolés avec les « Outils de cadre » : ajouter, supprimer, déplacer, redimensionner."],
+ ["Aligner sur le texte","Sélectionnez le cadre du premier caractère de la section et appuyez sur « ★ Définir comme début de section ». Là où cela dérive, sélectionnez un cadre et épinglez-le au caractère N (ancre) ; le reste suit."],
+ ["Marquer chaque caractère","Cliquez sur un cadre pour ouvrir la loupe, saisissez le caractère réel et choisissez un type : variante, forme variante, faute, omission, ajout, incertain, ou un type personnalisé."],
+ ["Créer le tableau","« Tableau ▶ » : caractères du texte de base en lignes, versions en colonnes, chaque cellule une image du glyphe avec le caractère réel. Modifiez les brouillons dans la colonne de l'apparat."],
+ ["Exporter","Barre du tableau « ⬇ Exporter » → Word, polycopié, PDF ; « Apparat ▾ » → exporter l'apparat. Le « 🌿 Graphe des branches » s'enregistre en SVG / PNG."],
+ ["Passer à la section suivante","Une section terminée, « ⏭ Passer à la section suivante » dans la barre latérale ouvre un nouveau projet avec les mêmes versions et reprend les cadres de la dernière page de chaque version qui dépassent la section."],
+ ["Protéger vos données","Les données ne vivent que dans ce navigateur. Utilisez régulièrement « 💾 Sauvegarder tous les projets » et gardez le fichier dans un stockage en ligne ; sur un autre ordinateur ou navigateur, « Importer un projet » le restaure."]],
+ tour:"Pour voir où se trouve chaque fonction à l'écran, utilisez dans la barre latérale « Recherche et aide » → « ✨ Visite guidée ».",
+ about:`<h3>CollateDesk (對勘室)</h3><p class="hsub"><i>Character-Level Textual Collation with Source Images</i></p>
+ <p>CollateDesk aligne caractère par caractère sur un texte de base les images de page de plusieurs versions (manuscrits, xylographies, éditions critiques), afin de comparer chaque glyphe côte à côte sur une même ligne et de consigner vos choix dans un tableau comparatif et un apparat.</p>
+ <p><b>Il travaille sur les images, non sur des transcriptions.</b> Chaque cadre est la découpe d'un seul caractère : formes variantes, planches regravées, changement de graveur — ce que l'encodage efface reste visible dans l'image. L'outil se contente de mettre les formes sous vos yeux ; décider si une différence est une variante ou une forme variante, et s'il faut la relever, revient au lecteur.</p>
+ <h4>Fonctions principales</h4><ul><li>Découpage automatique des caractères (bloc → ligne → caractère) avec correction cadre par cadre</li><li>Alignement sur le texte de base par ordre de lecture et ancres</li><li>Marquage des variantes, formes variantes, fautes, omissions, ajouts et types personnalisés</li><li>Tableau comparatif, brouillons d'apparat, graphe des branches ; export vers Word, polycopié, PDF, SVG</li><li>Fiche des versions (date, type, lieu de conservation…), passage à la section suivante, sauvegarde complète</li></ul>
+ <h4>Où sont vos données</h4><p>Tous les projets, images et notes restent dans votre propre navigateur et ne sont jamais envoyés en ligne. Sauvegardez régulièrement tous les projets. La collation fonctionne hors ligne ; les boutons des sites de référence demandent une connexion.</p>
+ <h4>Configuration recommandée</h4><p>Ordinateur de bureau ou portable avec Chrome ou Edge, largeur d'écran d'au moins 1280 px. Safari et Firefox fonctionnent mais ne peuvent pas enregistrer automatiquement dans un fichier, et Safari peut effacer les données du site après 7 jours sans utilisation.</p>`}};
 const ICO_P={copy:'<rect x="9" y="9" width="11" height="11" rx="1.5"/><path d="M5 15V5.5A1.5 1.5 0 0 1 6.5 4H15"/>',
  save:'<path d="M5 3.5h11l3 3V20a.5.5 0 0 1-.5.5h-13A.5.5 0 0 1 5 20z"/><path d="M8.5 3.5v5h6.5v-5M8 20.5v-7h8v7"/>',
  book:'<path d="M5 5a2 2 0 0 1 2-2h12v15H7a2 2 0 0 0-2 2z"/><path d="M5 20a2 2 0 0 0 2 2h12v-4"/>',
@@ -2829,11 +2868,11 @@ function iconizeEl(el){if(!el.matches||!el.matches(ICO_SEL)||el.closest("#pages 
 function iconize(root){if(!root||root.nodeType!==1)return;iconizeEl(root);root.querySelectorAll(ICO_SEL).forEach(iconizeEl);}
 iconize(document.body);
 new MutationObserver(ms=>{if(_icoBusy)return;for(const m of ms){if(m.type==="characterData"){const p=m.target.parentElement;if(p)iconizeEl(p);}else{if(m.target.nodeType===1)iconizeEl(m.target);m.addedNodes.forEach(x=>{if(x.nodeType===1)iconize(x);else if(x.nodeType===3&&x.parentElement)iconizeEl(x.parentElement);});}}}).observe(document.body,{childList:true,subtree:true,characterData:true});
-const I18N=(()=>{const D={};I18N_RAW.split("\n").forEach(l=>{const a=l.split("|");if(a.length===3){D[a[0]]=[a[1],a[2]];const k=icoStrip(a[0]);if(k&&k!==a[0]&&!D[k])D[k]=[icoStrip(a[1]),a[2]==="∅"?a[2]:icoStrip(a[2])];}});return D;})();
+const I18N=(()=>{const D={};I18N_RAW.split("\n").forEach(l=>{const a=l.split("|");if(a.length>=3){const v=[a[1],a[2],a[3]||a[2],a[4]||a[2]];D[a[0]]=v;const k=icoStrip(a[0]);if(k&&k!==a[0]&&!D[k])D[k]=v.map(x=>x==="∅"?x:icoStrip(x));}});return D;})();
 let LANG="zh";try{LANG=localStorage.getItem("bikan_lang")||"zh";}catch(e){}
 const _i18nT=new WeakMap(),_i18nA=new WeakMap();let _i18nBusy=false;
 const I18N_SKIP="textarea,script,style,#pages,#cbody,#cpane,#vpassage,#kd,#dmap,#csBody,#synBody,#vgCanvas,#vgLegend,#vgInfo,#colText,#magRef,#magInfo,#tabs .nm,#projSel,#rules,#tour,#langSel,#vgGal .cards,#selInfo,#curName,#guide,#pzName,dialog.welcome,#palPanel,#palLink";
-function t18(z){if(LANG==="zh")return z;const e=I18N[z];if(!e)return z;const v=LANG==="ja"?e[0]:e[1];return v==="∅"?"\u200b":v;}
+function t18(z){if(LANG==="zh")return z;const e=I18N[z];if(!e)return z;const v=e[{ja:0,en:1,de:2,fr:3}[LANG]??1];return v==="∅"?"\u200b":v;}
 function i18nTextNode(n){const p=n.parentElement;if(!p||(p.closest(I18N_SKIP)&&!p.closest("#cbody thead")))return;const raw=n.nodeValue;const t=raw.trim();if(!t)return;
  let r=_i18nT.get(n);if(!r||t!==r.shown.trim())r={orig:t,shown:t};const w=t18(r.orig);
  if(w.trim()!==t||w!==t&&raw.trim()===raw){_i18nBusy=true;n.nodeValue=raw.replace(t,w);_i18nBusy=false;}r.shown=w;_i18nT.set(n,r);}
@@ -2844,7 +2883,7 @@ function i18nApply(root){root=root||document.body;if(root.nodeType===3){i18nText
  const w=document.createTreeWalker(root,NodeFilter.SHOW_TEXT);let n;while(n=w.nextNode())i18nTextNode(n);}
 new MutationObserver(ms=>{if(_i18nBusy||LANG==="zh")return;for(const m of ms){if(m.type==="childList")m.addedNodes.forEach(x=>i18nApply(x));else if(m.type==="characterData")i18nTextNode(m.target);else if(m.type==="attributes")i18nEl(m.target);}})
  .observe(document.body,{childList:true,subtree:true,characterData:true,attributes:true,attributeFilter:["title","placeholder","aria-label"]});
-function setLang(l){LANG=l;try{localStorage.setItem("bikan_lang",l);}catch(e){}document.documentElement.lang=l==="ja"?"ja":l==="en"?"en":"zh-Hant";i18nApply(document.body);try{updateGuide();}catch(e){}const s=document.getElementById("langSel");if(s)s.value=l;
+function setLang(l){LANG=l;try{localStorage.setItem("bikan_lang",l);}catch(e){}document.documentElement.lang=l==="zh"?"zh-Hant":l;i18nApply(document.body);try{updateGuide();}catch(e){}const s=document.getElementById("langSel");if(s)s.value=l;
  const h=document.getElementById("helpDlg");if(h&&h.open){const t=(h.querySelector(".hdtabs .on")||{}).dataset;h.close();openHelp(t&&t.t);}}
 {const s=document.getElementById("langSel");if(s){s.value=LANG;s.onchange=()=>setLang(s.value);}if(LANG!=="zh")setTimeout(()=>setLang(LANG),0);}
 const GT={zh:{w1:"把同一段文字在不同版本中的書影逐字排在一起，看看各版有什麼不同。",demo:"開啟示範",own:"建立自己的專案",demoD:"直接看兩個版本、十四個字的對照表，找出哪一個字不同。",ownD:"準備一小段要比對的文字，以及同一段文字在各版本中的書影。第一次可以先用兩個版本、每版一頁。",
@@ -2864,7 +2903,19 @@ const GT={zh:{w1:"把同一段文字在不同版本中的書影逐字排在一�
   s4:c=>`Click the character on the page that matches the first character of the base text, “${c}”, then press the button. If this version lacks the opening, pick the first character you can confirm and set its number under “Selected box” in the sidebar.`,b4:"Align to character 1",s4n:"Click a box on the page first",
   s5:t=>`Aligned. Check that the first few boxes follow in order: ${t}. If so, open the table.`,b5:"Open the table",hide:"Hide tips",show:"Show next-step tips",next:"Next",
   pz:n=>`Add page image for “${n}”: `,cut:(l,b)=>`Found ${l} lines and ${b} boxes. Check that the first box frames the character you want to compare.`,cmp:"Each row is one character position; each column is one version. Click a glyph to see it on its page.",
-  demoName:"Demo: two versions",demoTip:"Demo task: find the character where the two versions differ, then click that glyph to see it on its page.",demoBtn:"Open the demo",demoMark:"Demo only, not a real page image",va:"Demo version A",vb:"Demo version B"}};
+  demoName:"Demo: two versions",demoTip:"Demo task: find the character where the two versions differ, then click that glyph to see it on its page.",demoBtn:"Open the demo",demoMark:"Demo only, not a real page image",va:"Demo version A",vb:"Demo version B"},
+ de:{w1:"Seitenbilder derselben Passage aus verschiedenen Versionen Zeichen für Zeichen nebeneinanderstellen und sehen, wo sie abweichen.",demo:"Demo öffnen",own:"Eigenes Projekt beginnen",demoD:"Eine fertige Vergleichstabelle ansehen und die abweichenden Zeichen finden.",ownD:"Halten Sie eine kurze Passage bereit sowie Seitenbilder dieser Passage in jeder Version. Für den ersten Versuch genügen zwei Versionen mit je einer Seite.",
+  s1:"Fügen Sie die zu vergleichende Passage ein. Ihre Zeichenfolge dient dazu, die Seitenbilder aller Versionen auszurichten.",b1:"Zum Grundtext",s2:n=>`Wählen Sie einen Versionsreiter und fügen Sie das Seitenbild für „${n}“ hinzu: Strg+V drücken oder unten in den gestrichelten Bereich klicken.`,s3:n=>`Seitenbild hinzugefügt. Lassen Sie nun jedes Zeichen finden.`,b3:n=>`Seite ${n} automatisch schneiden`,
+  s4:c=>`Klicken Sie auf der Seite das Zeichen an, das dem ersten Zeichen des Grundtexts „${c}“ entspricht, und drücken Sie die Schaltfläche. Fehlt dieser Version der Anfang, wählen Sie das erste sichere Zeichen und setzen Sie seine Nummer unter „Ausgewählter Rahmen“ in der Seitenleiste.`,b4:"An Zeichen 1 ausrichten",s4n:"Zuerst einen Rahmen auf der Seite anklicken",
+  s5:t=>`Ausgerichtet. Prüfen Sie, ob die ersten Rahmen der Reihe nach folgen: ${t}. Wenn ja, öffnen Sie die Tabelle.`,b5:"Tabelle öffnen",hide:"Hinweise ausblenden",show:"Nächste Schritte zeigen",next:"Schritt",
+  pz:n=>`Seitenbild für „${n}“ hinzufügen: `,cut:(l,b)=>`${l} Zeilen und ${b} Rahmen gefunden. Prüfen Sie, ob der erste Rahmen das zu vergleichende Zeichen umfasst.`,cmp:"Jede Zeile ist eine Zeichenposition, jede Spalte eine Version. Glyphe anklicken, um sie auf ihrer Seite zu sehen.",
+  demoName:"Demo: zwei Versionen",demoTip:"Demo-Aufgabe: Finden Sie das Zeichen, in dem die beiden Versionen abweichen, und klicken Sie die Glyphe an, um sie auf ihrer Seite zu sehen.",demoBtn:"Demo öffnen",demoMark:"Nur Demo, kein echtes Seitenbild",va:"Demoversion A",vb:"Demoversion B"},
+ fr:{w1:"Aligner caractère par caractère les images de page d'un même passage dans différentes versions, et voir où elles divergent.",demo:"Ouvrir la démo",own:"Commencer mon projet",demoD:"Voir un tableau comparatif terminé et repérer les caractères qui diffèrent.",ownD:"Préparez un court passage, ainsi que les images de page de ce passage dans chaque version. Pour un premier essai, deux versions d'une page chacune suffisent.",
+  s1:"Collez le passage à comparer. Son ordre des caractères sert à aligner les images de page de chaque version.",b1:"Aller au texte de base",s2:n=>`Choisissez un onglet de version et ajoutez l'image de page de « ${n} » : appuyez sur Ctrl+V, ou cliquez dans le cadre en pointillés ci-dessous.`,s3:n=>`Image de page ajoutée. Laissez maintenant l'outil trouver chaque caractère.`,b3:n=>`Découper automatiquement la page ${n}`,
+  s4:c=>`Cliquez sur la page le caractère qui correspond au premier caractère du texte de base, « ${c} », puis appuyez sur le bouton. Si cette version n'a pas le début, choisissez le premier caractère sûr et indiquez son numéro sous « Cadre sélectionné » dans la barre latérale.`,b4:"Aligner sur le caractère 1",s4n:"Cliquez d'abord sur un cadre de la page",
+  s5:t=>`Aligné. Vérifiez que les premiers cadres se suivent dans l'ordre : ${t}. Si oui, ouvrez le tableau.`,b5:"Ouvrir le tableau",hide:"Masquer les conseils",show:"Afficher les étapes suivantes",next:"Étape",
+  pz:n=>`Ajouter l'image de page de « ${n} » : `,cut:(l,b)=>`${l} lignes et ${b} cadres trouvés. Vérifiez que le premier cadre entoure le caractère à comparer.`,cmp:"Chaque ligne est une position de caractère ; chaque colonne, une version. Cliquez sur un glyphe pour le voir sur sa page.",
+  demoName:"Démo : deux versions",demoTip:"Exercice de démo : trouvez le caractère où les deux versions diffèrent, puis cliquez sur ce glyphe pour le voir sur sa page.",demoBtn:"Ouvrir la démo",demoMark:"Démo seulement, pas une vraie image de page",va:"Version de démo A",vb:"Version de démo B"}};
 const gt=()=>GT[LANG]||GT.zh;
 function verName(sig){const e=SIGS.find(x=>x[0]===sig);return e?e[1]:sig;}
 function updateGuide(){const g=document.getElementById("guide");if(!g)return;const T=gt();let off=false;try{off=localStorage.getItem("bikan_guideOff")==="1";}catch(e){}
