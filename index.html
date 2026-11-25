@@ -766,7 +766,7 @@ body.tx-washi,body.tx-washi header{background-color:oklch(from var(--paper) calc
  </details>
  <details class="sbg" data-g="help"><summary>查詢與說明</summary>
  <button class="btn" id="charBtn">🔍 字搜尋（各版畫廊）</button>
- <button class="btn" id="demoBtn" title="開啟示範專案：《釋迦方志》序，各版書影已切好字框並對齊">開啟示範</button>
+ <button class="btn" id="demoBtn" title="建立一個示範專案：兩個版本、十四個字，已切好字框並對齊">開啟示範</button>
 <button class="btn" id="tourBtn" title="逐步聚光介紹各功能（快速鍵 ?）">✨ 導覽</button>
  </details>
 </div>
@@ -790,7 +790,7 @@ body.tx-washi,body.tx-washi header{background-color:oklch(from var(--paper) calc
 <input type="file" id="file" accept="image/*" multiple style="display:none">
 <input type="file" id="fileProj" accept="application/json" style="display:none">
 
-<div style="padding:6px 22px" id="psgHead"><b>校定本文（底本）</b> <button class="btn" id="psgFold" title="收合／展開校定本文（開始校對後可收起來，騰出空間看書影）">收合</button> <span id="psgPeek" hidden></span> <button class="btn" id="resetPsg" title="把本文換成內建的《續高僧傳・彥琮傳》範例底本（會先確認）">載入範例底本（彥琮傳）</button><div class="psgNote" style="font-size:13px;color:oklch(from var(--muted) calc(l - 0.046) max(0, calc(c - 0.009)) calc(h - 3.6));margin-top:3px">全段字序以這裡為準，各版本都依此逐字對齊。先貼入底本（如《大正藏》）正文，校勘完成後再改為最後採用的文字。標點不影響對齊。</div></div>
+<div style="padding:6px 22px" id="psgHead"><b>校定本文（底本）</b> <button class="btn" id="psgFold" title="收合／展開校定本文（開始校對後可收起來，騰出空間看書影）">收合</button> <span id="psgPeek" hidden></span><div class="psgNote" style="font-size:13px;color:oklch(from var(--muted) calc(l - 0.046) max(0, calc(c - 0.009)) calc(h - 3.6));margin-top:3px">全段字序以這裡為準，各版本都依此逐字對齊。先貼入底本（如《大正藏》）正文，校勘完成後再改為最後採用的文字。標點不影響對齊。</div></div>
 <textarea id="passage" style="width:calc(100% - 44px);margin:0 22px 6px;height:70px;font-family:inherit;font-size:15px;border:1px solid var(--line);border-radius:6px;padding:8px"></textarea>
 
 <div class="dwrow" style="display:flex;align-items:center;gap:8px;padding:4px 22px;font-size:13px;color:oklch(from var(--accent) calc(l - 0.030) max(0, calc(c - 0.087)) calc(h + 34.6))"><label for="dw">大圖顯示高度（各頁等高・放大；Ctrl＋滾輪縮放）：</label><input type="range" id="dw" min="300" max="3000" value="900" style="width:220px"> <span id="dwv">900px</span><button class="btn" id="addPg" style="margin-left:auto" title="為目前版本新增一頁（選圖／貼圖也可）">＋ 新增頁</button><button class="btn" id="delPg" title="刪除目前版本的最後一頁（可從右欄『↩ 復原刪頁』救回）">－ 刪除末頁</button><button class="btn" id="saveImgs" title="另存原始頁圖為 PNG（備份用，非存進度）">匯出原圖（PNG）</button></div>
@@ -838,7 +838,7 @@ body.tx-washi,body.tx-washi header{background-color:oklch(from var(--paper) calc
 
 <div id="collation" style="position:fixed;inset:0;background:oklch(from var(--ink) calc(l - 0.023) max(0, calc(c - 0.005)) calc(h + 0.0) / .85);z-index:52;display:none;align-items:center;justify-content:center">
  <div style="background:var(--paper);border:2px solid var(--accent);border-radius:8px;width:min(780px,93vw);max-height:88vh;display:flex;flex-direction:column;overflow:hidden">
-   <div style="padding:8px 14px;background:oklch(from var(--bar) calc(l + 0.050) max(0, calc(c + 0.011)) calc(h + 2.6));color:var(--paper);display:flex;gap:8px;align-items:center"><b>校勘記</b><button class="btn" id="fmtDraft">講義格式草稿</button><button class="btn" id="fmtClear">清楚版</button><span style="flex:1"></span><button class="btn" id="colDownload">下載 .txt</button><button class="btn" id="colClose">關閉 ✕</button></div>
+   <div style="padding:8px 14px;background:oklch(from var(--bar) calc(l + 0.050) max(0, calc(c + 0.011)) calc(h + 2.6));color:var(--paper);display:flex;gap:8px;align-items:center"><b>校勘記</b><button class="btn" id="fmtDraft">校勘記格式草稿</button><button class="btn" id="fmtClear">清楚版</button><span style="flex:1"></span><button class="btn" id="colDownload">下載 .txt</button><button class="btn" id="colClose">關閉 ✕</button></div>
    <textarea id="colText" style="flex:1;min-height:320px;font-family:inherit;font-size:14px;line-height:1.7;padding:12px;border:none;resize:none;background:oklch(from var(--paper) calc(l + 0.035) max(0, calc(c - 0.010)) calc(h + 0.0))"></textarea>
  </div>
 </div>
@@ -888,7 +888,7 @@ body.tx-washi,body.tx-washi header{background-color:oklch(from var(--paper) calc
    <div class="cmrow"><label style="font-size:13px" title="一頁を左右二欄に並べる（A4橫・左欄→右欄の順）"><input type="checkbox" id="twoColChk">兩欄</label><input type="number" id="colRows" placeholder="自動" min="1" title="兩欄時 每欄の行數（空欄＝自動推定。はみ出すなら数字を入れて減らす）" style="width:48px;font-size:13px;border-radius:4px;padding:2px">行</div>
    <div class="cmrow"><label style="font-size:13px" title="一字＝一小表で出力。Wordで〔レイアウト→段組み→2段〕にすると自動で2欄に流れます（行数の調整不要）"><input type="checkbox" id="splitTblChk">分表</label></div>
    <div class="cmrow"><button class="btn" id="wordBtn" title="匯出目前顯示的欄位與列（含字圖）為 Word">⬇ Word</button></div>
-   <div class="cmrow"><button class="btn" id="hoBtn" title="一鍵匯出完整講義（原文・訓讀・譯・語釋・校勘腳註・字形對照表）為 Word">📄 講義</button></div>
+   
    <div class="cmrow"><button class="btn" id="pdfBtn" title="以列印方式輸出，可另存為 PDF">🖨 PDF</button></div>
   </span></span>
   <span style="flex:1"></span>
@@ -949,12 +949,11 @@ body.tx-washi,body.tx-washi header{background-color:oklch(from var(--paper) calc
 </div>
 <div id="vgPop" hidden></div>
 <script>
-const DEFAULT_SIGS=[["剛","金剛寺"],["七","七寺"],["興","興聖寺"],["初","高麗初雕"],["趙","趙城金藏"],
- ["再","高麗再雕"],["毘","毘盧（宮）"],["思","思溪（宋）"],["磧","磧砂"],["大正","大正藏（底本）"]];
+const DEFAULT_SIGS=[["甲","版本甲"],["乙","版本乙"]];
 let SIGS=DEFAULT_SIGS.map(x=>[x[0],x[1]]);   // 可變版本清單（＝state.sigs）。增刪版本就改這個。
-const DEFAULT_PASSAGE="若夫孝始孝終，治家治國，足宣至德，堪弘要道。況復淨名之勸發心，善生之歸妙覺。奚假落髮翦鬚，苦違俗訓，持衣捧缽，頓改世儀。坐受僧號，詳謂是理，遙學梵章，寧容非法。崇佛為主，羞討佛字之源，紹釋為宗，恥尋釋語之趣。空覩經葉，弗興敬仰，總見梵僧，例生侮慢。退本追末，吁可笑乎。象運將窮，斯法見續。用茲紹繼，誠可悲夫。  文多不載。 琮師尚宗據，深究教源。故章抄疏記，諸無所及。述製書論，不敘丘墳。著福田論、僧官論、慈悲論、默語論、鬼神錄、通極論、辯聖論、通學論、善知識錄等。並賦詞弘瞻，精理通顯。";
-const VARIANTS={"缽":{"思":"鉢","毘":"鉢"},"葉":{"思":"業","毘":"業"},"總":{"思":"忽"},"例":{"思":"倒","毘":"倒"},"象":{"思":"像","毘":"像"}};
-const CBETA_APP=[{find:"缽",base:"盋",variant:"鉢",sigla:"宋・元・明・宮"},{find:"葉",base:"葉",variant:"業",sigla:"宋・元・明・宮"},{find:"總",base:"總",variant:"忽",sigla:"宋・元・明"},{find:"例",base:"例",variant:"倒",sigla:"宋・元・明・宮"},{find:"象",base:"象",variant:"像",sigla:"宋・元・明・宮"}];
+const DEFAULT_PASSAGE="";
+const VARIANTS={};
+const CBETA_APP=[];
 let showApp=false;
 function appAt(r){if(typeof taishoInit==="function")taishoInit();if(Array.isArray(state.taishoApp)&&(state.taishoApp.length||!isXGSZ()))return state.taishoApp.find(e=>e.r===r)||null;if(!isXGSZ())return null;const chars=passageChars();for(const e of CBETA_APP){let i=chars.indexOf(e.find);if(i<0&&e.find==='缽')i=chars.indexOf('盋');if(i===r)return e;}return null;}
 
@@ -970,10 +969,8 @@ function blankState(){const st={passage:"",passageVer:PASSAGE_VER,dw:900,version
 function applyState(s){state=s;state.sigs=(state.sigs&&state.sigs.length)?state.sigs:DEFAULT_SIGS.map(x=>[x[0],x[1]]);SIGS=state.sigs;SIGS.forEach(([sig])=>{if(!state.versions[sig])state.versions[sig]={pages:[],start:1};});if(!SIGS.some(x=>x[0]===active))active=SIGS[0][0];}
 
 function passageChars(){return state.passage.replace(/[。，、；：？！「」『』（）()\[\]《》〈〉…—·\s0-9]/g,"").split("");}
-/* 校勘記錄：trans[r]={c:字,t:"diff"異文|"var"異體|"star"打不出來|"lack"缺字(c="")} ；字串為舊格式視為異文 */
 function getTrans(s,r){const t=(state.versions[s].trans||{})[r];if(t==null)return null;return (typeof t==="string")?{c:t,t:"diff"}:t;}
 function setTrans(s,r,obj){const tr=state.versions[s].trans=state.versions[s].trans||{};if(obj&&(obj.c||obj.t==="star"||obj.t==="lack"))tr[r]=obj;else delete tr[r];}
-/* 校勘類型：內建＋自訂（state.customTypes，各專案各自保存） */
 const BASE_TTYPES=[
  {k:'var',n:'異體字',ex:'眾／衆',col:'#0f8a3e'},{k:'word',n:'異體詞',ex:'花／華',col:'#1d5fa8'},{k:'diff',n:'異文',col:'#c0271a'},{k:'err',n:'訛字',col:'#d2691e'},
  {k:'lack',n:'脫字',col:'#6b6b6b'},{k:'extra',n:'衍字',col:'#8a5a00'},{k:'star',n:'不確定',col:'#7a3fb5'}];
@@ -1005,7 +1002,6 @@ function save(){clearTimeout(_saveT);_saveT=setTimeout(()=>{const st=document.ge
  if(curProj){idbSet("projMeta",projMeta);idbSet("curProj",curProj);}
  try{localStorage.setItem("bikan_v1",JSON.stringify(state));}catch(e){}
  writeFile();},400);}
-/* ---- File System Access：自動寫入硬碟專案檔 ---- */
 let fileHandle=null;const FS_OK=("showSaveFilePicker" in window);
 function fhKey(){return "fileHandle_"+(curProj||"default");}
 function setFileStat(t){const fs=document.getElementById("fileStat");if(fs)fs.textContent=t;}
@@ -1034,18 +1030,16 @@ async function loadState(){
   if(s&&s.versions)applyState(s);
   return;
  }
- // 初次（舊版單一專案）→ 遷移成專案「彥琮傳」
  let s=null;try{s=await idbGet("state");}catch(e){}
  if(!s){try{s=JSON.parse(localStorage.getItem("bikan_v1"));}catch(e){}}
  if(!s&&EMBEDDED_PROJECT&&EMBEDDED_PROJECT.versions)s=EMBEDDED_PROJECT;   // 分享版：載入內嵌成果
- curProj="p"+Date.now();projMeta=[{id:curProj,name:"彥琮傳"}];
+ curProj="p"+Date.now();projMeta=[{id:curProj,name:"我的第一個專案"}];
  if(s&&s.versions){applyState(s);if(s!==EMBEDDED_PROJECT&&!state.passage){state.passage=DEFAULT_PASSAGE;}state.passageVer=PASSAGE_VER;}
  try{await idbSet("proj_"+curProj,state);await idbSet("projMeta",projMeta);await idbSet("curProj",curProj);}catch(e){}
 }
 
 function getImg(url){return new Promise(res=>{if(imgCache[url]){res(imgCache[url]);return;}const im=new Image();im.onload=()=>{imgCache[url]=im;res(im);};im.src=url;});}
 
-/* ---------- 自動切割 (JS 投影+網格) ---------- */
 function autoCut(im){
  const W=im.naturalWidth,H=im.naturalHeight;
  const cv=document.createElement("canvas");cv.width=W;cv.height=H;
@@ -1053,11 +1047,9 @@ function autoCut(im){
  const d=cx.getImageData(0,0,W,H).data;
  const gray=new Uint8Array(W*H);let hist=new Array(256).fill(0);
  for(let i=0,p=0;i<W*H;i++,p+=4){const g=(d[p]*0.299+d[p+1]*0.587+d[p+2]*0.114)|0;gray[i]=g;hist[g]++;}
- // Otsu
  let tot=W*H,sum=0;for(let t=0;t<256;t++)sum+=t*hist[t];let sumB=0,wB=0,mx=0,th=128;
  for(let t=0;t<256;t++){wB+=hist[t];if(!wB)continue;const wF=tot-wB;if(!wF)break;sumB+=t*hist[t];
   const mB=sumB/wB,mF=(sum-sumB)/wF,v=wB*wF*(mB-mF)*(mB-mF);if(v>mx){mx=v;th=t;}}
- // 去黑邊→紙面框 (亮度)
  const bright=(x,y)=>gray[y*W+x]>150;
  let rb=new Float64Array(H),cb=new Float64Array(W);
  for(let y=0;y<H;y++){let c=0;for(let x=0;x<W;x++)if(bright(x,y))c++;rb[y]=c/W;}
@@ -1068,7 +1060,6 @@ function autoCut(im){
  for(let x=0;x<W;x++){if(cb[x]>0.25){px0=Math.max(0,x-4);break;}}
  for(let x=W-1;x>=0;x--){if(cb[x]>0.25){px1=Math.min(W,x+4);break;}}
  const ink=(x,y)=>gray[y*W+x]<th?1:0;
- // 垂直投影找直行
  const cw=px1-px0, chh=py1-py0;
  let colp=new Float64Array(cw);
  for(let x=0;x<cw;x++){let s=0;for(let y=py0;y<py1;y++)s+=ink(px0+x,y);colp[x]=s;}
@@ -1076,7 +1067,6 @@ function autoCut(im){
  const colMax=Math.max(...colp);
  let cols=bands(colp,0.04*colMax,Math.max(4,0.012*cw),Math.max(2,0.004*cw));
  if(!cols.length)return [];
- // pitch = 直行中心距
  const centers=cols.map(b=>(b[0]+b[1])/2).sort((a,b)=>a-b);
  let dd=[];for(let i=1;i<centers.length;i++)dd.push(centers[i]-centers[i-1]);
  const gridPitch=median(dd)||median(cols.map(b=>b[1]-b[0]));
@@ -1092,7 +1082,6 @@ function autoCut(im){
    cb2=splitMerge(cb2,inkPitch);
    const n=cb2.length;
    if(!n)continue;
-   // 等距網格 + 吸附波谷
    const top=cb2[0][0],bot=cb2[n-1][1],span=bot-top,win=Math.max(1,0.3*gridPitch);
    let cuts=[];for(let i=0;i<=n;i++)cuts.push(top+span*i/n);
    for(let i=1;i<n;i++){let c=Math.round(cuts[i]),a=Math.max(top,c-win)|0,b=Math.min(bot,c+win)|0,mn=1e9,mi=c;
@@ -1102,7 +1091,6 @@ function autoCut(im){
      bx=Math.max(0,bx);by=Math.max(0,by);bw=Math.min(W-bx,bw);bh=Math.min(H-by,bh);
      boxes.push({x:bx,y:by,w:bw,h:bh});}
  }
- // 去兩端雜訊行(整條線/小字/字數過少) — 以中位數為準
  return dropJunk(boxes,gridPitch,chh);
 }
 function smooth(a,k){if(k<2)return a;const o=new Float64Array(a.length);const h=k>>1;
@@ -1115,16 +1103,12 @@ function splitMerge(bs,pitch){let o=[];for(const [s,e] of bs){const L=e-s,n=Math
  let m=[];for(const b of o){if(m.length&&(b[1]-b[0])<0.45*pitch)m[m.length-1][1]=b[1];else m.push([b[0],b[1]]);}return m;}
 function median(a){if(!a.length)return 0;const s=[...a].sort((x,y)=>x-y);return s[Math.floor(s.length/2)];}
 function dropJunk(boxes,pitch,Hc){ // boxes 已含多行;依列(x)分組再判端欄
- // 這裡 boxes 已是逐字;改以「整條線(高>0.6H)」與孤點過濾
  const hs=boxes.map(b=>b.h),gmed=median(hs);
  return boxes.filter(b=>b.h<0.6*Hc && b.h>0.35*gmed && b.w>0.3*pitch);
 }
 
-/* ---------- ① 偵測行（界欄） ② 行內切字（動態規劃） ---------- */
-// 前處理：3×3 平滑、Otsu、墨跡二值圖（去孤點）
 function cutPrep(gray0,W,H,fr){
  const [x0,y0,x1,y1]=fr.map(Math.round),fw=x1-x0,fh=y1-y0;
- // 積分圖 → 任意半徑的方框平均
  const I=new Float64Array((fw+1)*(fh+1));
  for(let y=0;y<fh;y++){let r=0;const o=(y0+y)*W+x0;for(let x=0;x<fw;x++){r+=gray0[o+x];I[(y+1)*(fw+1)+x+1]=I[y*(fw+1)+x+1]+r;}}
  const box=(rad,out)=>{for(let y=0;y<fh;y++){const ya=Math.max(0,y-rad),yb=Math.min(fh,y+rad+1);for(let x=0;x<fw;x++){const xa=Math.max(0,x-rad),xb=Math.min(fw,x+rad+1);
@@ -1140,7 +1124,6 @@ function cutPrep(gray0,W,H,fr){
  for(let t=0;t<256;t++){wB+=hist[t];if(!wB)continue;const wF=tot-wB;if(!wF)break;sumB+=t*hist[t];
   const mB=sumB/wB,mF=(sum-sumB)/wF,v=wB*wF*(mB-mF)*(mB-mF);if(v>mx){mx=v;th=t;}}
  let acc=0,bg=255;for(let t=0;t<256;t++){acc+=hist[t];if(acc>=tot*0.6){bg=t;break;}}
- // 局部門檻（Bradley）：比周圍背景暗 15% 以上才算墨——不怕污漬、紙色不均、白邊
  const raw=new Uint8Array(W*H);
  const gcap=bg*0.8; // 同時要比整頁紙色暗兩成，避免白邊旁的灰紙被當成墨
  for(let y=y0;y<y1;y++){const o=y*W;for(let x=x0;x<x1;x++){const i=o+x;if(g5[i]<loc[i]*0.85&&g5[i]<gcap)raw[i]=1;}}
@@ -1154,20 +1137,16 @@ function cutTophat(a,w){const n=a.length,mn=new Float64Array(n),op=new Float64Ar
  for(let i=0;i<n;i++){let m=-1e9;for(let j=Math.max(0,i-w);j<=Math.min(n-1,i+w);j++)if(mn[j]>m)m=mn[j];op[i]=m;}
  const o=new Float64Array(n);for(let i=0;i<n;i++)o[i]=a[i]-op[i];return o;}
 function cutQuantile(a,q){if(!a.length)return 0;const s=Array.from(a).sort((x,y)=>x-y);return s[Math.min(s.length-1,Math.floor(q*s.length))];}
-// （備用）依界欄偵測行
 function detectColsLines(P){
  const {W,H,gray,ink}=P,[x0,y0,x1,y1]=P.fr,cw=x1-x0,chh=y1-y0;
- // 界欄特徵：「細暗脊線」——比左右兩側（3 或 5px 外）都暗，且上下連貫（先做 9 列縱向平滑）
  const V=new Float32Array(W*H);
  for(let y=y0;y<y1;y++){const ya=Math.max(y0,y-4),yb=Math.min(y1-1,y+4),n=yb-ya+1;for(let x=x0;x<x1;x++){let s=0;for(let yy=ya;yy<=yb;yy++)s+=gray[yy*W+x];V[y*W+x]=s/n;}}
  const rt=Math.max(3,0.05*(P.bg-P.th));const rid=new Uint8Array(W*H);
  for(let y=y0;y<y1;y++)for(let x=x0+5;x<x1-5;x++){const i=y*W+x,v=V[i];if(v<Math.min(V[i-3],V[i+3])-rt||v<Math.min(V[i-5],V[i+5])-rt)rid[i]=1;}
  const sc=new Float64Array(cw);
  for(let xi=1;xi<cw-1;xi++){const x=x0+xi;let c=0;for(let y=y0;y<y1;y++){const i=y*W+x;if(rid[i]||rid[i-1]||rid[i+1])c++;}sc[xi]=c/chh;}
- // 扣掉局部平均（字與紙紋造成的底），只留突出的峰
  const th1=new Float64Array(cw);{const R=Math.max(10,Math.round(0.012*cw));let s=0,c=0;const pre=new Float64Array(cw+1);for(let i=0;i<cw;i++)pre[i+1]=pre[i]+sc[i];
   for(let i=0;i<cw;i++){const a=Math.max(0,i-R),b=Math.min(cw,i+R+1);th1[i]=Math.max(0,sc[i]-(pre[b]-pre[a])/(b-a));}}
- // 行距：自相關（容許約 4～45 行），防止取到倍數
  let sp=0;{const mean=th1.reduce((x,y)=>x+y,0)/cw,ac=[];const lo=Math.max(8,Math.floor(cw/45)),hi=Math.floor(cw/4);
   for(let lag=0;lag<=hi;lag++){if(lag<lo){ac.push(-1e18);continue;}let s=0;for(let i=0;i+lag<cw;i++)s+=(th1[i]-mean)*(th1[i+lag]-mean);ac.push(s/(cw-lag));}
   const pk=[];for(let l=lo+1;l<hi;l++)if(ac[l]>0&&ac[l]>=ac[l-1]&&ac[l]>=ac[l+1])pk.push(l);
@@ -1175,9 +1154,7 @@ function detectColsLines(P){
    for(const l of pk)if(l<best&&ac[l]>0.6*ac[best]&&Math.abs(best/l-Math.round(best/l))<0.12){best=l;break;}sp=best;}}
  let lines=null;
  if(sp){
-  // 相位：梳狀和最大
   let ph=0,bs=-1;for(let p=0;p<sp;p++){let s=0;for(let x=p;x<cw;x+=sp){let m=0;for(let d=-2;d<=2;d++){const t=x+d;if(t>=0&&t<cw&&th1[t]>m)m=th1[t];}s+=m;}if(s>bs){bs=s;ph=p;}}
-  // 逐條吸附到附近實際的細峰（容許掃描變形累積）
   const strong=cutQuantile(th1,0.995);let peaks=[],virt=new Set();
   {let c=ph;while(c-sp>=0)c-=sp;
    while(c<cw){const w=Math.round(0.15*sp);let bi=-1,bv=0;
@@ -1201,7 +1178,6 @@ function detectColsLines(P){
  const inkIn=(xa,xb,ya,yb)=>{xa=Math.max(x0,Math.round(xa));xb=Math.min(x1,Math.round(xb));let c=0;if(xb<=xa)return 0;for(let y=ya;y<yb;y+=2)for(let x=xa;x<xb;x++)c+=ink[y*W+x];return c/((xb-xa)*(yb-ya)/2);};
  let spans=[]; // [xl,xr]（含內縮）
  if(lines){
-  // 兩端：版面邊緣與最外界欄之間若還有一行字，補虛擬邊界
   const ref=inkIn(LX(lines[0],ym),LX(lines[1],ym),y0,y1);
   {const L=lines[0],xe=LX(L,ym);if(xe-x0>0.4*sp&&inkIn(Math.max(x0,xe-sp),xe-L.hw,y0,y1)>0.3*ref)lines.unshift({a:Math.max(x0,L.a-sp),b:L.b,hw:0,virt:true});}
   {const L=lines[lines.length-1],xe=LX(L,ym);if(x1-xe>0.4*sp&&inkIn(xe+L.hw,Math.min(x1,xe+sp),y0,y1)>0.3*ref)lines.push({a:Math.min(x1-1,L.a+sp),b:L.b,hw:0,virt:true});}
@@ -1209,19 +1185,16 @@ function detectColsLines(P){
    const sl=Math.max(Math.abs(L.b),Math.abs(R.b))*chh/2;
    spans.push([Math.ceil(LX(L,ym)+L.hw+1+sl),Math.floor(LX(R,ym)-R.hw-1-sl)]);}
  }else{
-  // 退回：垂直投影找墨跡帶
   const colp=new Float64Array(cw);for(let xi=0;xi<cw;xi++){let s=0;for(let y=y0;y<y1;y++)s+=ink[y*W+x0+xi];colp[xi]=s;}
   const sm=smooth(colp,5),mxv=Math.max(...sm);
   for(const [a,b] of bands(sm,0.04*mxv,Math.max(4,0.012*cw),Math.max(2,0.004*cw)))spans.push([x0+a,x0+b]);
   if(spans.length>1)sp=median(spans.slice(1).map((s,i)=>((s[0]+s[1])-(spans[i][0]+spans[i][1]))/2));
  }
- // 每行取墨跡上下界；空白行（界欄間沒字）丟掉
  let cols=[];
  for(const [xa,xb] of spans){if(xb-xa<4)continue;const p=new Float64Array(H);let tot=0;
   for(let y=y0;y<y1;y++){let s=0;const o=y*W;for(let x=xa;x<=xb;x++)s+=ink[o+x];p[y]=s;tot+=s;}
   const ps=smooth(p,5).subarray(y0,y1);const rr=inkRuns(ps,sp||(xb-xa),xb-xa+1);if(!rr.length)continue;
   const t=y0+rr[0][0],b=y0+rr[rr.length-1][1]-1;
-  // 左右也收緊到字（扣底噪）
   const tb=tightBox(ink,W,xa,xb+1,t,b+1,0.06);let cxa=xa,cxb=xb;if(tb){cxa=Math.max(xa,tb[0]-3);cxb=Math.min(xb,tb[1]+2);}
   cols.push({x:cxa,y:Math.max(y0,t-3),w:cxb-cxa+1,h:Math.min(y1,b+4)-Math.max(y0,t-3),tot});}
  const medTot=median(cols.map(c=>c.tot));
@@ -1229,14 +1202,11 @@ function detectColsLines(P){
  cols.sort((a,b)=>b.x-a.x);
  return {cols,lines:lines||[],sp};
 }
-// 去掉墨跡圖裡的長直線（界欄、摺痕、紙縫），免得干擾以字為準的偵測
 function cleanVLines(P){if(P._vclean)return;P._vclean=true;
  const {W,ink}=P,[x0,y0,x1,y1]=P.fr,L=Math.max(30,Math.round(0.12*(y1-y0)));
  for(let x=x0;x<x1;x++){let s=-1,gap=0;
   for(let y=y0;y<=y1;y++){const on=y<y1&&ink[y*W+x];
    if(on){if(s<0)s=y;gap=0;}else if(s>=0){gap++;if(gap>2||y===y1){const e=y-gap;if(e-s+1>=L)for(let k=s;k<=e;k++)ink[k*W+x]=0;s=-1;gap=0;}}}}}
-// 一個範圍內的行：以「字」為準——垂直投影 → 自相關求行距 → 動態規劃找行與行之間的空隙
-// opts.pitch：已知行距（框選少數幾行時用）
 function detectCols(P,opts){
  opts=opts||{};cleanVLines(P);
  const {W,H,ink}=P,[x0,y0,x1,y1]=P.fr,cw=x1-x0,chh=y1-y0;
@@ -1266,7 +1236,6 @@ function detectCols(P,opts){
  cols.sort((a,b)=>b.x-a.x);
  return {cols,lines:[],sp};
 }
-// 一頁所有行框的字距（自相關）；每行字數已知則直接算
 function estPitch(P,cols,perCol){
  const {W,ink}=P;const profs=cols.map(c=>{const p=new Float64Array(c.h);for(let yi=0;yi<c.h;yi++){let s=0;const o=(c.y+yi)*W;for(let x=c.x;x<c.x+c.w;x++)s+=ink[o+x];p[yi]=s;}return smooth(p,3);});
  const maxH=Math.max(...cols.map(c=>c.h));
@@ -1277,12 +1246,9 @@ function estPitch(P,cols,perCol){
    let a=0;for(let k=0;k+lag<n;k++)a+=(p[k]-m)*(p[k+lag]-m);s+=a/(n-lag);}ac[lag]=s;}
  let bl=Math.round(cwid),best=-1e18;for(let l=lo+1;l<hi;l++)if(ac[l]>=ac[l-1]&&ac[l]>=ac[l+1]&&ac[l]>best){best=ac[l];bl=l;}   // 只認真正的峰，不取搜尋範圍邊緣
  if(best===-1e18)for(let l=lo;l<=hi;l++)if(ac[l]>best){best=ac[l];bl=l;}
- // 防止取到兩倍字距：較小的峰約為一半且相關夠高就用它
  for(let l=lo+1;l<hi;l++)if(l<bl&&ac[l]>=ac[l-1]&&ac[l]>=ac[l+1]&&ac[l]>0.5*best&&Math.abs(bl/l-Math.round(bl/l))<0.15&&Math.round(bl/l)>=2){bl=l;break;}
  return {pitch:bl,profs,maxH};
 }
-// ② 行內切字：在行框內找切點，使「切過的墨最少」且「字高接近字距」
-// 收緊到墨跡：扣掉雜點底噪（取低分位數當底），超過「底＋frac×(峰−底)」才算字
 function tightBox(ink,W,x0,x1,y0,y1,frac){
  const nx=x1-x0,ny=y1-y0;if(nx<2||ny<2)return null;
  const cx=new Float64Array(nx),cy=new Float64Array(ny);
@@ -1291,14 +1257,12 @@ function tightBox(ink,W,x0,x1,y0,y1,frac){
   const fl=Math.min(cutQuantile(s,0.1),0.3*mx),th=Math.min(fl+3*Math.sqrt(fl)+0.5,fl+0.25*(mx-fl));let a0=0,a1=s.length-1;while(a0<s.length&&s[a0]<=th)a0++;while(a1>a0&&s[a1]<=th)a1--;return [a0,a1];};
  const X=lim(cx),Y=lim(cy);if(!X||!Y)return null;
  return [x0+X[0],x0+X[1]+1,y0+Y[0],y0+Y[1]+1];}
-// 墨跡段：空白間隙 ≥ 0.3 字距才斷開；去掉兩端的紙邊陰影／界線（很薄，或很薄又塗滿整行寬）
 function inkRuns(p,pitch,colW){let pm=0;for(let k=0;k<p.length;k++)if(p[k]>pm)pm=p[k];
  const fl=Math.min(cutQuantile(p,0.15),0.3*pm);
  const act=Array.from(p).filter(v=>v>fl+0.02*(pm-fl));const q75=act.length?cutQuantile(act,0.75):pm;
  let runs=bands(p,Math.max(fl+0.06*(pm-fl),fl+0.2*(q75-fl)),1,Math.round(0.3*pitch));
  const fill=r=>{let s=0;for(let k=r[0];k<r[1];k++)s+=Math.max(0,p[k]-fl);return s/((r[1]-r[0])*colW);};
  const bad=(r,end,gap)=>{const h=r[1]-r[0];if(h<(end?0.15:0.05)*pitch)return true;return end&&h<0.5*pitch&&(gap>1.0*pitch||(gap>0.6*pitch&&fill(r)>0.25));};
- // 兩端墨色明顯偏淡（平均不到中位數的 35%）的段，多半是紙邊污漬、透墨或掃描雜訊
  const avg=r=>{let s=0;for(let k=r[0];k<r[1];k++)s+=Math.max(0,p[k]-fl);return s/(r[1]-r[0]);};
  if(runs.length>=2){const big=runs.reduce((u,v)=>(v[1]-v[0])>(u[1]-u[0])?v:u),ma=avg(big);
   while(runs.length>1&&runs[0]!==big&&avg(runs[0])<0.35*ma)runs.shift();
@@ -1327,13 +1291,11 @@ function cutColumn(P,c,p,pitch,pmax,n){
   out.push({x:bx,y:by,w:bw,h:bh,_net:tb?net:0,_den:tb?net/((tb[1]-tb[0])*(tb[3]-tb[2])):0});}
  return out;
 }
-// 印本用：段長÷字距＝字數，等分後每條切線在 ±0.3 字距內找墨最少處
 function gridCuts(p,top,bot,pitch){const M=bot-top,n=Math.max(1,Math.floor(M/pitch+0.65)),st=(n*pitch>M)?pitch:M/n,w=Math.round(0.2*st);let pm=1;for(let y=top;y<bot;y++)if(p[y]>pm)pm=p[y];const c=[top];   // 段尾多出半格多半是標點：照字距切，最後一格留給標點
  for(let i=1;i<n;i++){const g=Math.round(top+st*i);let bi=g,bv=1e18;for(let y=Math.max(c[c.length-1]+Math.round(0.7*st),g-w);y<=Math.min(bot-1,g+w);y++){const v=p[y]/pm+0.6*Math.abs(y-g)/w;if(v<bv){bv=v;bi=y;}}c.push(bi);}
  c.push(bot);return c;}
 function dpCuts(p,top,bot,pitch,pmax,n){
  const M=bot-top;if(M<=0)return [top,bot];
- // 印本（橫書）字距整齊：只容許 0.7～1.35 個字距、偏離罰得重；寫本字大小不一，放寬
  const R=cutRegular,lo=Math.max(2,Math.round((R?0.7:0.45)*pitch)),hi=Math.max(lo+1,Math.round((R?1.35:1.9)*pitch)),LAM=R?4:1.2;
  const segc=new Float64Array(M+2);for(let L=0;L<=M+1;L++){const d=(L-pitch)/pitch;segc[L]=LAM*d*d;}
  const cc=new Float64Array(M+1);for(let j=1;j<M;j++)cc[j]=Math.min(1,p[top+j]/pmax);
@@ -1355,11 +1317,9 @@ function dpCuts(p,top,bot,pitch,pmax,n){
   if(bi>=0){f[j]=best+cc[j];bk[j]=bi;}}
  const o=[M];let j=M;while(j>0){j=bk[j];if(j<0)break;o.push(j);}return o.reverse().map(v=>top+v);
 }
-// ② 對一頁：把「長框」(高 > 2.5 倍寬) 視為行，各自切字；其他框原樣保留
 function cutCharsInPage(P,boxes,perCol){
  const cols=boxes.filter(b=>b.col||b.h>2.5*b.w),rest=boxes.filter(b=>!(b.col||b.h>2.5*b.w));
  if(!cols.length)return boxes;
- // 去掉沿著行方向的長線（專名號、書名號的底線／旁線、界欄殘線）：長度超過 1.15 個字身的連續墨線一定跨過字縫，不是字的筆畫
  {const {W,ink}=P;for(const c of cols){const L=Math.max(12,Math.round(1.15*c.w));
   for(let x=c.x;x<c.x+c.w;x++){let s=-1,gap=0;for(let y=c.y;y<=c.y+c.h;y++){const on=y<c.y+c.h&&ink[y*W+x];
    if(on){if(s<0)s=y;gap=0;}else if(s>=0){gap++;if(gap>2||y===c.y+c.h){const e=y-gap;if(e-s+1>=L)for(let k=s;k<=e;k++)ink[k*W+x]=0;s=-1;gap=0;}}}}}}
@@ -1368,16 +1328,13 @@ function cutCharsInPage(P,boxes,perCol){
  const pmax=cutQuantile(all,0.95)||1;
  const out=[...rest];
  let got=[];cols.forEach((c,i)=>{const n=(perCol>0&&c.h>=0.85*maxH)?perCol:0;got.push(...cutColumn(P,c,profs[i],pitch,pmax,n).map(b=>(b._fix=n>0,b)));});
- // 墨量遠低於一般字（< 兩成），或墨點稀疏散開（密度 < 三成）的框，多半是污漬、透墨或雜點，丟掉（固定字數的行不丟）
  const medNet=median(got.map(b=>b._net)),medDen=median(got.map(b=>b._den));
  got=got.filter(b=>b._fix||(b._net>=0.2*medNet&&b._den>=0.3*medDen));
- // 長寬都不到一般字的 55%：標點（，。、；：）、注碼〔1〕等，不算字
  const mW=median(got.map(b=>b.w)),mH=median(got.map(b=>b.h));
  got=got.filter(b=>b._fix||!(b.w<0.55*mW&&b.h<0.55*mH)).map(({x,y,w,h})=>({x,y,w,h}));
  out.push(...got);
  return out;
 }
-// 框出的範圍只當一行：上下用墨跡段、左右收緊到字
 function singleCol(P,r,pitch){
  const {W,ink}=P;cleanVLines(P);const x0=Math.round(r.x),x1=Math.round(r.x+r.w),y0=Math.round(r.y),y1=Math.round(r.y+r.h);
  const p=new Float64Array(y1-y0);for(let y=y0;y<y1;y++){let s=0;const o=y*W;for(let x=x0;x<x1;x++)s+=ink[o+x];p[y-y0]=s;}
@@ -1386,20 +1343,15 @@ function singleCol(P,r,pitch){
  const tb=tightBox(ink,W,x0,x1,t,b,0);let xa=x0,xb=x1-1;if(tb){xa=Math.max(x0,tb[0]-3);xb=Math.min(x1-1,tb[1]+2);}
  return {x:xa,y:Math.max(y0,t-3),w:xb-xa+1,h:Math.min(y1,b+3)-Math.max(y0,t-3),col:true};
 }
-/* ---------- 版面切分：① 區塊 → ② 行 → ③ 字 ---------- */
 const BLK_TYPES=[["body","正文","#1a7f4b"],["title","標題／品題","#8a3fb5"],["note","夾注／雙行小字","#c06a00"],["head","天頭批注","#b03a2e"],["foot","地腳","#7a5a3a"],["margin","版心／頁碼／卷次","#1f5fa8"],["section","章節標記","#0f7f8a"]];
 function blkInfo(t){return BLK_TYPES.find(x=>x[0]===t)||BLK_TYPES[0];}
-// 舊資料遷移：網格範圍 → 正文區塊；混在字框裡的行框 → 行層
 function ensureLayers(pg){
  if(!pg.blocks){pg.blocks=[];if(pg.gridFrame)pg.blocks.push({x:pg.gridFrame.x,y:pg.gridFrame.y,w:pg.gridFrame.w,h:pg.gridFrame.h,type:"body"});}
  if(!pg.lines){pg.lines=pg.boxes.filter(b=>b.col).map(({x,y,w,h})=>({x,y,w,h}));pg.boxes=pg.boxes.filter(b=>!b.col);}}
-// 要切行、切字的區塊：正文，以及勾了「進對勘」的標題
 function workBlocks(pg){return pg.blocks.filter(b=>b.type==="body"||(b.type==="title"&&b.collate));}
 const inside=(b,r)=>{const cx=b.x+b.w/2,cy=b.y+b.h/2;return cx>=r.x&&cx<=r.x+r.w&&cy>=r.y&&cy<=r.y+r.h;};
-// 這一頁的行距
 function colPitchOf(pg){if(pg.colPitch)return pg.colPitch;const c=(pg.lines||[]).map(b=>isHoriz()?b.y+b.h/2:b.x+b.w/2).sort((a,b)=>a-b);
  if(c.length<2)return 0;return median(c.slice(1).map((v,i)=>v-c[i]));}
-// ① 自動找正文區塊：先分行，取各行上下端的中位數，比中位數多伸出 0.6 行距以上的部分（污漬、透墨、紙邊）不算
 function detectBody(P){const D=detectCols(P);if(!D.cols.length)return null;const sp=D.sp||median(D.cols.map(c=>c.w));
  const mh=Math.max(...D.cols.map(c=>c.h)),cs=D.cols.filter(c=>c.h>=0.3*mh);
  const mt=median(cs.map(c=>c.y)),mb=median(cs.map(c=>c.y+c.h));
@@ -1408,13 +1360,11 @@ function detectBody(P){const D=detectCols(P);if(!D.cols.length)return null;const
  const [fx0,fy0,fx1,fy1]=P.fr;
  return {blk:{x:Math.max(fx0,x0-pad),y:Math.max(fy0,Math.round(top)-pad),w:Math.min(fx1,x1+pad)-Math.max(fx0,x0-pad),h:Math.min(fy1,Math.round(bot)+pad)-Math.max(fy0,Math.round(top)-pad),type:"body",auto:true},sp};}
 async function pageGray(pg){const im=await getImg(pg.img);return {im,...grayOfImg(im)};}
-// 橫書：把影像轉置（x↔y）後沿用直書的演算法，結果再轉回來
 function isHoriz(){return (state.versions[active]||{}).dir==="h";}
 const Tr=r=>({...r,x:r.y,y:r.x,w:r.h,h:r.w}),Tf=f=>[f[1],f[0],f[3],f[2]];
 async function pageGrayD(pg){const o=await pageGray(pg);if(!isHoriz())return {...o,T:r=>r,TF:f=>f};
  const {g,W,H}=o,t=new Uint8Array(W*H);for(let y=0;y<H;y++){const r=y*W;for(let x=0;x<W;x++)t[x*H+y]=g[r+x];}
  return {im:o.im,g:t,W:H,H:W,T:Tr,TF:Tf};}
-// 每一步：已手動畫的正文區塊不會被自動結果覆蓋；只換掉上次自動產生的
 async function step1(pg){ensureLayers(pg);if(pg.blocks.some(b=>b.type==="body"&&!b.auto))return true;
  const {im,g,W,H,T,TF}=await pageGrayD(pg);const P=cutPrep(g,W,H,TF(detectPaperBox(im)));const r=detectBody(P);
  pg.blocks=pg.blocks.filter(b=>!(b.type==="body"&&b.auto));if(!r)return false;pg.blocks.push(T(r.blk));pg.colPitch=r.sp;return true;}
@@ -1434,7 +1384,6 @@ async function step3(pg,perCol){cutRegular=isHoriz();ensureLayers(pg);if(!pg.lin
  const P=cutPrep(g,W,H,[fx0,fy0,fx1,fy1]);const {ph,pv}=padVals();
  const chars=padBoxes(cutCharsInPage(P,L.map(l=>({...l,col:true})),perCol).map(T),ph,pv,pg.w||1e9,pg.h||1e9);
  pg.boxes=pg.boxes.filter(b=>!pg.lines.some(l=>inside(b,l))).concat(chars);pg.padH=ph;pg.padV=pv;pg._sel=-1;return chars.length>0;}
-// 框選範圍 → 行（範圍內原有的行被取代；範圍窄於 1.5 行距就當一行）
 async function regionToLines(pg,r0){ensureLayers(pg);const {g,W,H,T}=await pageGrayD(pg);const r=T(r0);
  const x0=Math.max(0,Math.round(r.x)),y0=Math.max(0,Math.round(r.y)),x1=Math.min(W,Math.round(r.x+r.w)),y1=Math.min(H,Math.round(r.y+r.h));
  const P=cutPrep(g,W,H,[x0,y0,x1,y1]);const hint=colPitchOf(pg);let cols=[];
@@ -1442,7 +1391,6 @@ async function regionToLines(pg,r0){ensureLayers(pg);const {g,W,H,T}=await pageG
  if(!cols.length){const c=singleCol(P,{x:x0,y:y0,w:x1-x0,h:y1-y0},hint);if(c)cols=[c];}
  if(!cols.length){alert("這個範圍裡沒找到字。");return;}
  const R=T({x:x0,y:y0,w:x1-x0,h:y1-y0});pg.lines=pg.lines.filter(l=>!inside(l,R)).concat(cols.map(({x,y,w,h})=>T({x,y,w,h})));pg._lsel=null;}
-// 範圍：本頁（有選取就是那一頁，否則畫面上主要的那頁）或本版全部
 function curPageIdx(){const s=findSel();if(s)return s.pi;const v=state.versions[active];const li=v.pages.findIndex(p=>p._lsel);if(li>=0)return li;
  const cards=[...document.querySelectorAll('#pages .page')];let best=0,bv=-1;
  cards.forEach((c,i)=>{const r=c.getBoundingClientRect();const vv=Math.max(0,Math.min(r.bottom,innerHeight)-Math.max(r.top,0));if(vv>bv){bv=vv;best=i;}});return best;}
@@ -1453,7 +1401,6 @@ async function runStep(fn,failMsg){const idx=scopePages();if(!idx.length)return;
  try{for(const i of idx){const ok=await fn(v.pages[i]);if(!ok)miss.push(i+1);await new Promise(r=>setTimeout(r,0));}}
  finally{btns.forEach(b=>b.disabled=false);}
  save();renderPages();if(miss.length)alert("第 "+miss.join("、")+" 頁"+failMsg);}
-// 選取的區塊／行
 function lselItem(){const v=state.versions[active];for(const pg of v.pages){if(pg._lsel){ensureLayers(pg);const arr=pg._lsel.k==="blk"?pg.blocks:pg.lines;const it=arr[pg._lsel.i];if(it)return {pg,arr,it,k:pg._lsel.k,i:pg._lsel.i};}}return null;}
 function clearLsel(){state.versions[active].pages.forEach(p=>p._lsel=null);}
 function updateLayerEditor(){const s=lselItem(),bt=document.getElementById("blkType"),bl=document.getElementById("blkLabel"),bc=document.getElementById("blkCollate");if(!bt)return;
@@ -1463,14 +1410,11 @@ function updateLayerEditor(){const s=lselItem(),bt=document.getElementById("blkT
  const pv=state.versions[active].pages[curPageIdx()];if(pv&&pv.padV!=null){const a=document.getElementById("padV"),b=document.getElementById("padH");if(document.activeElement!==a)a.value=pv.padV;if(document.activeElement!==b)b.value=pv.padH||0;}
  if(pv&&pv.lpadH!=null){const a=document.getElementById("lpadH"),b=document.getElementById("lpadV");if(document.activeElement!==a)a.value=pv.lpadH;if(document.activeElement!==b)b.value=pv.lpadV||0;}}
 
-// 取圖的灰階
 function grayOfImg(im){const W=im.naturalWidth,H=im.naturalHeight;const cv=document.createElement("canvas");cv.width=W;cv.height=H;
  const cx=cv.getContext("2d");cx.drawImage(im,0,0);const d=cx.getImageData(0,0,W,H).data;const g=new Uint8Array(W*H);
  for(let i=0,p=0;i<W*H;i++,p+=4)g[i]=(d[p]*0.299+d[p+1]*0.587+d[p+2]*0.114)|0;return {g,W,H};}
-// 版面範圍：有「網格範圍」外框就用它，否則自動找紙面
 function cutFrame(pg,im){return pg.gridFrame?[pg.gridFrame.x,pg.gridFrame.y,pg.gridFrame.x+pg.gridFrame.w,pg.gridFrame.y+pg.gridFrame.h]:detectPaperBox(im);}
 
-/* ---------- 閱讀順序 ---------- */
 function orderPage(boxes,dir){const bs=boxes.map((b,i)=>({...b,_i:i}));
  if(dir==="h"){const mh=median(bs.map(b=>b.h))||30;bs.sort((a,b)=>(a.y+a.h/2)-(b.y+b.h/2));const rows=[];   // 橫書：橫列由上而下、列內由左而右
   bs.forEach(b=>{const cy=b.y+b.h/2;let r=rows.find(r=>Math.abs(r.cy-cy)<mh*0.6);if(!r){r={cy,items:[]};rows.push(r);}r.items.push(b);r.cy=(r.cy*(r.items.length-1)+cy)/r.items.length;});
@@ -1495,12 +1439,9 @@ function currentOrderIndex(){const sel=findSel();if(!sel)return -1;const order=v
 function selectOrderIndex(oi){const order=versionOrdered(active);if(oi<0||oi>=order.length)return;clearSel();multiSel=[];const o=order[oi];state.versions[active].pages[o.pi]._sel=o.bi;renderPages();
  setTimeout(()=>{const sv=document.querySelectorAll('#pages .pagewrap svg')[o.pi];if(sv){const rc=[...sv.querySelectorAll('rect.box')].find(x=>+x.dataset.bi===o.bi);if(rc)rc.scrollIntoView({block:'center',inline:'center',behavior:'smooth'});}},25);}
 
-/* ---------- 介面 ---------- */
 const ICON_SPLITV='<svg class="ic" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="3.5" width="12" height="17" rx="1.5"/><path d="M3 12h18" stroke-dasharray="2.5 2"/></svg>',ICON_SPLITH='<svg class="ic" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="6" width="17" height="12" rx="1.5"/><path d="M12 3v18" stroke-dasharray="2.5 2"/></svg>';
 let tabShort=(()=>{try{return localStorage.getItem("bikan_tabShort")==="1";}catch(e){return false;}})();
-// 一次性：依講義順序把聖語藏排在剛・七・興之後
-// 《釋迦方志》序：依使用者 10/21 定稿的標點改寫原文（字序不變，只換標點；一次性）
-const PUNCT_SHIJIA="惟夫大唐之有天下也，將四十載。淳風洽而澆俗改，文德修而武功暢。故使青丘丹穴之候，並入堤封。龍砂鳥塞之區，聿遵聲教。英髦稽首，顯朝宗之羽儀。輸賝奉贄，表懷柔之盛德。然則八荒內外，前史具書。五竺方維，由來罕述。豈非時也。雖復周穆西狩，止屆昆丘。舜禹南巡，不踰滄海。秦皇畫野，近袤臨洮。漢武封疆，關開鐵路。厥斯以降，遐討未詳。所以崆峒問道，局在酒泉之地。崑崙謁聖，實惟玉門之側。";
+const PUNCT_SHIJIA="";
 function punctFixShijia(){if(!state||state._punctShijia1021||!state.passage)return;const DROP=/[。，、；：？！「」『』（）()\[\]《》〈〉…—·\s0-9]/g;
  const want=PUNCT_SHIJIA.replace(DROP,"");const i=state.passage.indexOf("惟夫大唐");if(i<0)return;
  if(state.passage.slice(i).replace(DROP,"")!==want)return;
@@ -1518,7 +1459,6 @@ function renderTabs(){punctFixShijia();sigOrderFix();try{if(typeof rebaseRepair=
 function updateBar(){const nm=SIGS.find(x=>x[0]===active)[1];document.getElementById("curName").textContent=`${active}(${nm})`;}
 
 function renderPages(){const host=document.getElementById("pages");
- // 記住各頁橫向捲動位置（以「離右邊多遠」記，直書從右讀起；放大縮小後仍對齊右側）
  const keepR=[...host.querySelectorAll(".pscroll")].map(e=>e.scrollWidth-e.clientWidth-e.scrollLeft);host.innerHTML="";
  const v=state.versions[active];const chars=passageChars();const {piByKey,readByKey}=computeMap(active);
  v.pages.forEach((pg,pi)=>{ensureLayers(pg);
@@ -1537,12 +1477,10 @@ function renderPages(){const host=document.getElementById("pages");
   svg.setAttribute("width",pg.w*scale);svg.setAttribute("height",pg.h*scale);svg.setAttribute("viewBox",`0 0 ${pg.w} ${pg.h}`);
   drawBoxes(svg,pg,pi,scale,readByKey,piByKey,chars);
   wrap.appendChild(svg);const scr=document.createElement("div");scr.className="pscroll";scr.appendChild(wrap);
-  // 右側留半個畫面寬的空白，圖的右半部可以往左捲到畫面中央（不被放大視窗、側欄擋住）
   const pad=document.createElement("div");pad.className="pspad";scr.appendChild(pad);card.appendChild(scr);host.appendChild(card);
   const pw=Math.round(scr.clientWidth*0.5);pad.style.width=pw+"px";
   scr.scrollLeft=scr.scrollWidth-scr.clientWidth-(keepR[pi]!=null?keepR[pi]:pw);
  });if(window.syncImgCon)syncImgCon();updateSelEditor();updateLayerEditor();renderVPassage();drawMag();updateMultiInfo();}
-// 複製整頁：原圖（原尺寸）或原圖＋字框；放進剪貼簿，不行就存成 PNG
 async function pageCopy(sig,pi,mode,btn){const pg=state.versions[sig].pages[pi];const old=btn.textContent;btn.disabled=true;btn.textContent="處理中…";
  try{const im=await getImg(pg.img);const cv=document.createElement("canvas");cv.width=pg.w;cv.height=pg.h;const cx=cv.getContext("2d");cx.fillStyle="#fff";cx.fillRect(0,0,cv.width,cv.height);cx.drawImage(im,0,0,pg.w,pg.h);
   if(mode==="box"){const card=btn.closest(".page");const sv=card&&card.querySelector(".pagewrap svg");if(sv){const c=sv.cloneNode(true);c.setAttribute("width",pg.w);c.setAttribute("height",pg.h);c.setAttribute("xmlns","http://www.w3.org/2000/svg");
@@ -1554,7 +1492,6 @@ async function pageCopy(sig,pi,mode,btn){const pg=state.versions[sig].pages[pi];
  catch(e){alert("複製失敗："+(e.message||e));btn.textContent=old;}
  finally{setTimeout(()=>{btn.textContent=old;btn.disabled=false;},1600);}}
 function svgEl(svg,t,attrs){const e=document.createElementNS(svg.namespaceURI,t);for(const k in attrs)e.setAttribute(k,attrs[k]);svg.appendChild(e);return e;}
-// 框上的字：以「螢幕像素」定大小（大圖縮小顯示時才看得到），並且不超過框高的六成
 function lblSize(t,px,scale){t.style.fontSize=(px/scale)+"px";t.style.strokeWidth=(2.6/scale)+"px";}
 function drawBoxes(svg,pg,pi,scale,readByKey,piByKey,chars){
  svg.innerHTML="";const hv=8/scale,hh=15/scale;   // hv=可見小把手, hh=隱形大熱區
@@ -1587,7 +1524,6 @@ function drawBoxes(svg,pg,pi,scale,readByKey,piByKey,chars){
   [["tl",f.x,f.y],["tr",f.x+f.w,f.y],["bl",f.x,f.y+f.h],["br",f.x+f.w,f.y+f.h]].forEach(a=>{const g=svgEl(svg,"rect",{class:"ghd",x:a[1]-ghs/2,y:a[2]-ghs/2,width:ghs,height:ghs});g.dataset.gf=a[0];});}
  bindPointer(svg,pg,pi,scale);
 }
-// 區塊（依類型上色，左上角標類型與註記）與行（藍色虛線）；只在各自的編輯模式下可點選
 let lineAdj=false;
 function drawLayers(svg,pg,scale){
  pg.blocks.forEach((b,i)=>{const [t,nm,col]=blkInfo(b.type);const sel=pg._lsel&&pg._lsel.k==="blk"&&pg._lsel.i===i;
@@ -1609,7 +1545,6 @@ function bindPointer(svg,pg,pi,scale){
   if(t.dataset.gframe!=null){pushHist();const f=pg.gridFrame;pDrag={svg,type:"gmove",f,dx:p.x-f.x,dy:p.y-f.y};svg.setPointerCapture(e.pointerId);return;}
   if(mode==="blk"||mode==="line"){const kind=mode==="blk"?"blk":"ln",arr=kind==="blk"?pg.blocks:pg.lines;
    if(t.dataset.lc!=null&&pg._lsel&&pg._lsel.k===kind){pushHist();pDrag={svg,type:"corner",c:t.dataset.lc,b:arr[pg._lsel.i]};svg.setPointerCapture(e.pointerId);return;}
-   // 已選取的那個：拖曳＝移動；其他地方（含未選取的區塊／行內部）：拖曳＝畫新範圍，只點一下＝選取
    const hitI=(t.dataset.li!=null&&t.dataset.lk===kind)?+t.dataset.li:-1;
    if(hitI>=0&&pg._lsel&&pg._lsel.k===kind&&pg._lsel.i===hitI){pushHist();const b=arr[hitI];pDrag={svg,type:"move",b,dx:p.x-b.x,dy:p.y-b.y};svg.setPointerCapture(e.pointerId);return;}
    clearSel();const b={x:p.x,y:p.y,w:1,h:1};pDrag={svg,type:"lnew",kind,b,hitI,sx:e.clientX,sy:e.clientY,ox:p.x,oy:p.y};svg.setPointerCapture(e.pointerId);return;}
@@ -1642,7 +1577,6 @@ function bindPointer(svg,pg,pi,scale){
   if(pDrag&&pDrag.svg===svg&&pDrag.type==="mmove"){pDrag=null;save();renderPages();return;}
 if(pDrag&&pDrag.svg===svg&&pDrag.type==="lnew"){const b=pDrag.b,kind=pDrag.kind,hitI=pDrag.hitI,moved=Math.abs(e.clientX-pDrag.sx)+Math.abs(e.clientY-pDrag.sy)>6;pDrag=null;
    if(!moved){const q=P(e);const cand=pg.boxes.map((b,bi)=>({b,bi})).filter(o=>q.x>=o.b.x&&q.x<=o.b.x+o.b.w&&q.y>=o.b.y&&q.y<=o.b.y+o.b.h).sort((u,v)=>u.b.w*u.b.h-v.b.w*v.b.h)[0];
-    // 單點：區塊模式下點到字框＝選字（切回移動模式）；行模式下點在行外的字框也一樣
     if(cand&&(kind==="blk"||hitI<0)){clearLsel();setMode("move");clearSel();multiSel=[];pg._sel=cand.bi;magClosedKey=null;renderPages();return;}
     clearLsel();if(hitI>=0)pg._lsel={k:kind,i:hitI};renderPagesLight();updateLayerEditor();return;}
    pushHist();clearLsel();
@@ -1650,7 +1584,6 @@ if(pDrag&&pDrag.svg===svg&&pDrag.type==="lnew"){const b=pDrag.b,kind=pDrag.kind,
     else{document.body.style.cursor="wait";await regionToLines(pg,b);document.body.style.cursor="";}}
    save();renderPages();updateLayerEditor();return;}
   if(pDrag&&pDrag.svg===svg&&pDrag.type==="new"&&(pDrag.b.w<6||pDrag.b.h<6)){
-   // 只點一下：在點的位置放一個「一般字大小」的框（用本頁字框大小的中位數），再自動對齊字心
    const b=pDrag.b,cx=pDrag.ox,cy=pDrag.oy;pDrag=null;const others=pg.boxes.filter(o=>o!==b&&!o.extra);
    let w=median(others.map(o=>o.w)),h=median(others.map(o=>o.h));
    if(!w||!h){const L=(pg.lines||[]).find(l=>cx>=l.x&&cx<=l.x+l.w&&cy>=l.y&&cy<=l.y+l.h);w=L?(isHoriz()?L.h:L.w):Math.round((pg.colPitch||60)*0.8);h=w;}
@@ -1712,7 +1645,6 @@ function bindMag(svg){
   if(mDrag.c==="move"){if(!mDrag.inBox)return;b.x=Math.round(p.x-mDrag.dx);b.y=Math.round(p.y-mDrag.dy);}else resizeHandle(b,mDrag.c,p);
   drawMagOverlay();renderPagesLight();};
  svg.onpointerup=e=>{if(!mDrag)return;const md=mDrag;mDrag=null;magBusy=false;
-  // 只點一下（沒拖）：點的位置就是字心，框的中心移到那裡（大小不變）
   if(md.c==="move"&&magPick&&Math.abs(e.clientX-md.sx)+Math.abs(e.clientY-md.sy)<5&&magReg){const pg=state.versions[active].pages[magReg.pi],b=pg.boxes[magReg.bi],p=P(e);
    b.x=Math.max(0,Math.round(p.x-b.w/2));b.y=Math.max(0,Math.round(p.y-b.h/2));}
   else if(md.c==="move"&&(!md.inBox||Math.abs(e.clientX-md.sx)+Math.abs(e.clientY-md.sy)<5)){history.pop();}
@@ -1725,7 +1657,6 @@ function deleteMulti(){const byPage={};multiSel.forEach(k=>{const a=k.split("_")
  Object.keys(byPage).forEach(pi=>{const arr=byPage[pi].sort((x,y)=>y-x);const pg=state.versions[active].pages[+pi];arr.forEach(bi=>pg.boxes.splice(bi,1));pg._sel=-1;});
  multiSel=[];save();renderPages();}
 function multiBoxes(){const v=state.versions[active];return multiSel.map(k=>{const a=k.split("_");return v.pages[+a[0]]&&v.pages[+a[0]].boxes[+a[1]];}).filter(Boolean);}
-// 多選的框一起調大小：dh 左右、dv 上下（每邊幾 px）
 function resizeMulti(dh,dv){if(!multiSel.length)return;pushHist();const v=state.versions[active];
  multiSel.forEach(k=>{const a=k.split("_"),pg=v.pages[+a[0]],b=pg&&pg.boxes[+a[1]];if(!b)return;const n=padBoxes([b],dh,dv,pg.w||1e9,pg.h||1e9)[0];b.x=n.x;b.y=n.y;b.w=n.w;b.h=n.h;});save();renderPagesLight();}
 function updateMultiInfo(){const el=document.getElementById("multiInfo");if(!el)return;if(!multiSel.length){el.style.display="none";return;}
@@ -1756,7 +1687,6 @@ function jumpToChar(r){const {piByKey}=computeMap(active);let tg=null;for(const 
 let reflowTimer=null;
 function reflow(){clearTimeout(reflowTimer);reflowTimer=setTimeout(()=>renderPages(),0);}
 
-/* ---------- 貼圖/上傳 ---------- */
 async function addImage(url){const im=await getImg(url);state.versions[active].pages.push({img:url,w:im.naturalWidth,h:im.naturalHeight,boxes:[],_sel:-1});save();renderTabs();renderPages();}
 function handleFiles(files){[...files].forEach(f=>{if(!f.type.startsWith("image"))return;const r=new FileReader();r.onload=()=>addImage(r.result);r.readAsDataURL(f);});}
 window.addEventListener("paste",e=>{const it=e.clipboardData&&e.clipboardData.items;if(!it)return;for(const i of it){if(i.type.startsWith("image")){const f=i.getAsFile();const r=new FileReader();r.onload=()=>addImage(r.result);r.readAsDataURL(f);e.preventDefault();}}});
@@ -1767,7 +1697,6 @@ pz.ondragleave=()=>pz.classList.remove("drag");
 pz.ondrop=e=>{e.preventDefault();pz.classList.remove("drag");handleFiles(e.dataTransfer.files);};
 document.getElementById("file").onchange=e=>handleFiles(e.target.files);
 
-/* ---------- 工具列 ---------- */
 function setMode(m){mode=m;if(m!=="blk"&&m!=="line")clearLsel();["mMove","mAdd","mDel","mCol","mBlk"].forEach(id=>document.getElementById(id).classList.remove("on"));document.getElementById({move:"mMove",add:"mAdd",del:"mDel",line:"mCol",blk:"mBlk"}[m]).classList.add("on");}
 document.getElementById("mMove").onclick=()=>setMode("move");
 document.getElementById("mAdd").onclick=()=>setMode("add");
@@ -1836,7 +1765,6 @@ document.getElementById("magSplit").onclick=()=>splitSel(isHoriz()?"h":"v");
 document.getElementById("magClose").onclick=()=>{const sel=findSel();magPinned=false;const b=document.getElementById("magPin");b.classList.remove("on");magClosedKey=sel?sel.pi+"_"+sel.bi+"_"+active:null;document.getElementById("mag").style.display="none";};
 document.getElementById("magPrev").onclick=()=>{magClosedKey=null;selectOrderIndex(currentOrderIndex()-1);};
 document.getElementById("magNext").onclick=()=>{magClosedKey=null;selectOrderIndex(currentOrderIndex()+1);};
-// 外部字書：點了開新分頁查這個字
 const REF_SITES=[["字統","https://zi.tools/zi/"],["異體字字典","https://dict.variants.moe.edu.tw/search.jsp?QTP=0&WORD="],["漢典","https://www.zdic.net/hans/"],["GlyphWiki",null],["CBETA","https://cbetaonline.dila.edu.tw/search/?q="]];
 function updateMagRef(){const el=document.getElementById("magRef");if(!el)return;const sel=findSel();if(!sel){el.innerHTML="";return;}
  const ac=(document.getElementById("actualChar").value||"").trim();const pidx=computeMap(active).piByKey[sel.pi+"_"+sel.bi];
@@ -1858,7 +1786,6 @@ let magPick=(()=>{try{return localStorage.getItem("bikan_magPick")==="1";}catch(
 document.getElementById("magAdd").onclick=()=>{const sel=findSel();if(!sel){alert("請先選一個字框。");return;}pushHist();const pg=state.versions[active].pages[sel.pi],b=sel.box,W=pg.w||1e9,H=pg.h||1e9;
  const nb=isHoriz()?{x:Math.min(W-b.w,b.x+b.w+2),y:b.y,w:b.w,h:b.h}:{x:b.x,y:Math.min(H-b.h,b.y+b.h+2),w:b.w,h:b.h};
  pg.boxes.push(nb);pg._sel=pg.boxes.length-1;magClosedKey=null;save();renderPages();};
-// 對齊字心：在框四周多看 35% 的範圍，扣掉雜點底噪與橫直界線，取墨跡範圍的中心，把框移過去（大小不變）
 async function centerBoxes(list){if(!list.length)return;pushHist();const byPg=new Map();list.forEach(o=>{if(!byPg.has(o.pg))byPg.set(o.pg,[]);byPg.get(o.pg).push(o.b);});
  for(const [pg,bs] of byPg){const {g,W,H}=await pageGray(pg);
   for(const b of bs){const mx=Math.round(b.w*0.35),my=Math.round(b.h*0.35);
@@ -1866,9 +1793,7 @@ async function centerBoxes(list){if(!list.length)return;pushHist();const byPg=ne
    const P=cutPrep(g,W,H,[x0,y0,x1,y1]);const ink=P.ink,nx=x1-x0,ny=y1-y0;
    for(let y=y0;y<y1;y++){let c=0;for(let x=x0;x<x1;x++)c+=ink[y*W+x];if(c>0.6*nx)for(let x=x0;x<x1;x++)ink[y*W+x]=0;}   // 橫線
    for(let x=x0;x<x1;x++){let c=0;for(let y=y0;y<y1;y++)c+=ink[y*W+x];if(c>0.6*ny)for(let y=y0;y<y1;y++)ink[y*W+x]=0;}   // 直線
-   // 只看和原框重疊的那團墨：從原框內的墨出發，往外擴 20% 內的墨也算
    const ix0=Math.max(x0,b.x-Math.round(b.w*.2)),iy0=Math.max(y0,b.y-Math.round(b.h*.2)),ix1=Math.min(x1,b.x+b.w+Math.round(b.w*.2)),iy1=Math.min(y1,b.y+b.h+Math.round(b.h*.2));
-   // 上下、左右各自找字的邊界：在框的上緣、下緣附近各找一條「墨最少」的切線（字與字相連的寫本也適用），框心對到兩條切線的中點
    const edges=(lo,hi,a0,a1,vert,boxLo,boxLen)=>{const n=hi-lo,p=new Float64Array(n);
      for(let i=0;i<n;i++){let c=0;for(let j=a0;j<a1;j++)c+=vert?ink[(lo+i)*W+j]:ink[j*W+lo+i];p[i]=c;}
      const ps=smooth(p,5);let pm=0;for(const v of ps)if(v>pm)pm=v;if(!pm)return null;
@@ -1880,7 +1805,6 @@ async function centerBoxes(list){if(!list.length)return;pushHist();const byPg=ne
  save();renderPagesLight();if(magReg)drawMagOverlay();}
 function centerTargets(){const v=state.versions[active];if(multiSel.length)return multiSel.map(k=>{const a=k.split("_"),pg=v.pages[+a[0]];return pg&&pg.boxes[+a[1]]?{pg,b:pg.boxes[+a[1]]}:null;}).filter(Boolean);
  const s=findSel();return s?[{pg:v.pages[s.pi],b:s.box}]:[];}
-// （原「自動對齊字心」按鈕已併入「字心」開關；雙擊字框或按 C 仍可自動對齊）
 document.getElementById("magShrink").onclick=()=>nudgeSel(-2);
 document.getElementById("magDel").onclick=()=>{const sel=findSel();if(sel){pushHist();state.versions[active].pages[sel.pi].boxes.splice(sel.bi,1);state.versions[active].pages[sel.pi]._sel=-1;save();renderPages();}};
 document.getElementById("actualChar").addEventListener("keydown",e=>{
@@ -1910,7 +1834,6 @@ document.getElementById("zout").onclick=()=>{state.dw=Math.max(300,Math.round(st
 document.getElementById("vpBtn").onclick=()=>toggleVP();
 document.getElementById("boxPlus").onclick=()=>expandAll(2);
 document.getElementById("boxMinus").onclick=()=>expandAll(-2);
-/* 放大鏡：可拖移 + 釘選 */
 (function(){const mag=document.getElementById("mag"),bar=document.getElementById("magBar");let d=null;
  bar.addEventListener("pointerdown",e=>{if(e.target.closest("#magPin,#magClose"))return;const r=mag.getBoundingClientRect();d={dx:e.clientX-r.left,dy:e.clientY-r.top};mag.style.right="auto";mag.style.bottom="auto";mag.style.left=r.left+"px";mag.style.top=r.top+"px";bar.setPointerCapture(e.pointerId);});
  bar.addEventListener("pointermove",e=>{if(!d)return;mag.style.left=Math.max(0,Math.min(window.innerWidth-60,e.clientX-d.dx))+"px";mag.style.top=Math.max(0,Math.min(window.innerHeight-40,e.clientY-d.dy))+"px";});
@@ -1923,14 +1846,12 @@ document.getElementById("colCut").onclick=()=>{const perCol=+document.getElement
 document.getElementById("cutPage").onclick=()=>{const perCol=+document.getElementById('gRows').value||0;
  runStep(async pg=>{await step1(pg);await step2(pg);let ok=await step3(pg,perCol);
   if(!ok){const im=await getImg(pg.img);const bx=autoCut(im);if(bx.length){pg.boxes=bx;ok=true;}}return ok;}," 沒切出字，請用「▭ 編輯區塊」「▥ 編輯行」手動框出範圍後再切。");};
-// 行框加寬／加長：改數字即時套用（只套差額；每頁記住已套用的值）
 (()=>{let histOn=false;
  const live=()=>{const idx=scopePages();if(!idx.length)return;const lh=+document.getElementById("lpadH").value||0,lv=+document.getElementById("lpadV").value||0;if(!histOn){pushHist();histOn=true;}const v=state.versions[active];
   for(const i of idx){const pg=v.pages[i];ensureLayers(pg);const dh=lh-(pg.lpadH||0),dv=lv-(pg.lpadV||0);if(dh||dv)pg.lines=padBoxes(pg.lines,dh,dv,pg.w||1e9,pg.h||1e9);pg.lpadH=lh;pg.lpadV=lv;}
   save();renderPagesLight();};
  ["lpadH","lpadV"].forEach(id=>{const el=document.getElementById(id);el.addEventListener("input",live);
   el.addEventListener("focus",()=>{lineAdj=true;renderPagesLight();});el.addEventListener("blur",()=>{histOn=false;lineAdj=false;renderPagesLight();});});})();
-// 字框外擴：改數字即時套用（只套差額；每頁記住已套用的值）
 (()=>{let histOn=false;
  const live=()=>{const idx=scopePages();if(!idx.length)return;const {ph,pv}=padVals();if(!histOn){pushHist();histOn=true;}const v=state.versions[active];
   for(const i of idx){const pg=v.pages[i];const dh=ph-(pg.padH||0),dv=pv-(pg.padV||0);if(dh||dv)pg.boxes=padBoxes(pg.boxes,dh,dv,pg.w||1e9,pg.h||1e9);pg.padH=ph;pg.padV=pv;}
@@ -1938,15 +1859,12 @@ document.getElementById("cutPage").onclick=()=>{const perCol=+document.getElemen
  ["padV","padH"].forEach(id=>{const el=document.getElementById(id);el.addEventListener("input",live);el.addEventListener("blur",()=>{histOn=false;});});})();
 document.getElementById("layerDel").onclick=()=>{const it=lselItem();if(!it){alert("請先在「▭ 編輯區塊」或「▥ 編輯行」模式下點選要刪的區塊或行。");return;}pushHist();it.arr.splice(it.i,1);it.pg._lsel=null;save();renderPages();};
 document.getElementById("layerUndo").onclick=()=>undo();
-// 底圖對比（純顯示用 CSS 濾鏡）與框線開關；記在本瀏覽器
 (()=>{const rd=k=>{try{return localStorage.getItem(k);}catch(e){return null;}},wr=(k,v)=>{try{localStorage.setItem(k,v);}catch(e){}};
  const con=document.getElementById("imgCon"),sb=document.getElementById("showBox");
  let st=document.getElementById("imgConStyle");if(!st){st=document.createElement("style");st.id="imgConStyle";document.head.appendChild(st);}
  const apply=()=>{const v=+con.value;if(state&&state.versions&&state.versions[active]){if(v)state.versions[active].imgCon=v;else delete state.versions[active].imgCon;save();}
-  // 去色 → 拉高對比 → 稍微提亮，讓灰底接近白、墨跡接近黑
   st.textContent=v?`#pages .pagewrap img,#magCv{filter:grayscale(1) brightness(${(1+v/250).toFixed(3)}) contrast(${(1+v/22).toFixed(2)})}`:"";wr("bikan_imgCon",v);};
  con.addEventListener("input",apply);
- // 每個版本各自記住自己的黑白加強值；切換版本時自動帶入
  window.syncImgCon=()=>{const v=(state&&state.versions&&state.versions[active]&&state.versions[active].imgCon)||0;if(+con.value!==v)con.value=v;
   st.textContent=v?`#pages .pagewrap img,#magCv{filter:grayscale(1) brightness(${(1+v/250).toFixed(3)}) contrast(${(1+v/22).toFixed(2)})}`:"";};syncImgCon();
  const applyB=()=>{document.getElementById("pages").classList.toggle("nobox",!sb.checked);wr("bikan_showBox",sb.checked?"1":"0");};
@@ -1999,7 +1917,6 @@ document.addEventListener("keydown",e=>{
   else if(e.key==="ArrowLeft"){b.x--;renderPagesLight();}else if(e.key==="ArrowRight"){b.x++;renderPagesLight();}
   return;}}});
 
-/* ---------- 匯出/匯入 ---------- */
 document.getElementById("expProj").onclick=()=>{const blob=new Blob([JSON.stringify(state)],{type:"application/json"});const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="對勘室專案.json";a.click();};
 document.getElementById("saveImgs").onclick=async()=>{let n=0;for(let vi=0;vi<SIGS.length;vi++){const s=SIGS[vi][0],v=state.versions[s];
   for(let pi=0;pi<v.pages.length;pi++){const a=document.createElement("a");a.href=v.pages[pi].img;a.download=`${vi+1}_${s}_p${pi+1}.png`;document.body.appendChild(a);a.click();a.remove();n++;await new Promise(r=>setTimeout(r,250));}}
@@ -2015,7 +1932,6 @@ document.getElementById("fileProj").onchange=e=>{const f=e.target.files[0];e.tar
   try{await idbSet("proj_"+id,state);await idbSet("projMeta",projMeta);await idbSet("curProj",id);}catch(e){}
   refreshAll();alert("已匯入為新專案「"+name+"」。原本的專案沒有變動，可從上方「專案」選單切換。");};r.readAsText(f);};
 
-/* ---------- 對照表 ---------- */
 async function cropToURL(sig,o,cell){const v=state.versions[sig];const pg=v.pages[o.pi];const b=pg.boxes[o.bi];const im=await getImg(pg.img);
  const cv=document.createElement("canvas");cv.width=cell;cv.height=cell;const cx=cv.getContext("2d");cx.fillStyle="#fff";cx.fillRect(0,0,cell,cell);
  const s=Math.min(cell/b.w,cell/b.h);const dw=b.w*s,dh=b.h*s;cx.drawImage(im,b.x,b.y,b.w,b.h,(cell-dw)/2,(cell-dh)/2,dw,dh);return cv.toDataURL();}
@@ -2025,13 +1941,10 @@ let _cov=null;
 let _ext={};
 function extrasOf(s,m){const out={};for(const key in m.extraByKey){const r=Math.max(0,m.extraByKey[key]);const [pi,bi]=key.split('_').map(Number);const b=state.versions[s].pages[pi].boxes[bi];(out[r]=out[r]||[]).push({c:b.extraC||'？',pi,bi});}return out;}
 function buildCov(){_cov={};_ext={};SIGS.forEach(([s])=>{const m=computeMap(s);_ext[s]=extrasOf(s,m);const set=new Set();let mn=Infinity,mx=-1;for(const k in m.piByKey){const p=m.piByKey[k];if(p>=0){set.add(p);if(p<mn)mn=p;if(p>mx)mx=p;}}_cov[s]={set,min:mn,max:mx};});}
-// 出校設定：每一條可個別設「出校／不出校」（state.rowOn[r]=true/false）；沒設時，異體字依全域「異體出校」（state.varCollate，預設不出校），其餘照常出校
 function rowOnMigrate(){if(!state.varRow)return;state.rowOn=state.rowOn||{};for(const k in state.varRow){if(state.varRow[k]===true&&state.rowOn[k]==null)state.rowOn[k]=true;}delete state.varRow;}
 function rowSet(r){const o=state.rowOn&&state.rowOn[r];return (o===true||o===false)?o:null;}
 function varIn(r){return rowSet(r)===true||!!state.varCollate;}
-// 這一條最後的校勘記文字（不出校＝空字串；手動修改優先）
 function noteText(r){if(rowSet(r)===false)return '';const n=state.notes&&state.notes[r];return n!==undefined?n:draftFor(r);}
-// 不出校時淡色顯示的文字：手動改過的優先，否則含異體的完整草稿
 function noteGhost(r){const n=state.notes&&state.notes[r];return (n!==undefined&&String(n).trim())?n:draftFor(r,true);}
 function rowOut(r){if(!_outCache){_outCache=new Set();const n=passageChars().length;for(let i=0;i<n;i++){const t=noteText(i);if(t&&String(t).trim())_outCache.add(i);}}return _outCache.has(r);}
 var _outCache=null;
@@ -2049,7 +1962,6 @@ function draftFor(r,forceVar){const vIn=forceVar||varIn(r);const ORDER=cmpOrder(
   else return;                                                      // 該版未切到此處 → 不列
   if(idx[key]==null){idx[key]=groups.length;groups.push({c:reading,key:key,sigs:[]});}
   groups[idx[key]].sigs.push(sigShort(s));});
- // 大正藏（底本來源）：與採用字相同就不列；不同時依報告格式記作「X」大正★
  ORDER.filter(vgIsBase).forEach(s=>{const rd=taishoReading(s,r,base);if(rd==null||rd===base)return;hasDiff=true;
   const g=groups.find(x=>x.key===rd)||groups.find(x=>x.c===rd);if(g)g.sigs.push(s+'★');else{groups.push({c:rd,key:rd,sigs:[s+'★']});}});
  const exG={},exO=[];ORDER.forEach(s=>{if(vgIsBase(s))return;const a=_ext[s]&&_ext[s][r];if(!a)return;const x=a.map(e=>e.c).join('');if(!exG[x]){exG[x]=[];exO.push(x);}exG[x].push(sigShort(s));});
@@ -2059,20 +1971,16 @@ function draftFor(r,forceVar){const vIn=forceVar||varIn(r);const ORDER=cmpOrder(
  if(bi>0){const g=groups.splice(bi,1)[0];groups.unshift(g);}
  const main=hasDiff?groups.map(g=>`「${g.c}」${g.sigs.join('・')}`).join('；'):'';
  return [main,exTxt].filter(Boolean).join('；')+'。（参照第'+(r+1)+'字）';}   // 句末加。＋参照字號
-// 大正藏在第 r 字的讀法：有校記用校記；否則看大正校勘記錄的底本字；再否則同底本
 function taishoReading(s,r,base){const tr=getTrans(s,r);if(tr&&tr.t==='lack')return 'なし';if(tr&&tr.c)return tr.c;
  const e=(state.taishoApp||[]).find(x=>x.r===r&&(x.len||1)===1);if(e&&e.base&&e.base!==base)return e.base;return base;}
-// 改底本字（舊→新）時，讓各版的意思不變：原本「同底本」（空白）的版本記為舊字；原本記成新字的校記拿掉
 function rebaseChar(r,oldc,newc){if(!oldc||!newc||oldc===newc)return;buildCov();
  SIGS.forEach(([s])=>{const v=state.versions[s];if(!v)return;const tr=getTrans(s,r);
   if(tr&&tr.t!=='lack'&&tr.c===newc&&tr.t!=='var'&&tr.t!=='word'){setTrans(s,r,null);return;}
   if(!tr){const cv=_cov[s];const has=(cv&&cv.set.has(r))||(vgIsBase(s)&&(!cv||!cv.set.size));if(has)setTrans(s,r,{c:oldc,t:'diff'});}});}
-// 一次性修正：之前直接改了底本字（如「舒」→「書」），把各版記錄換回正確的意思
 function rebaseRepair(){if(state._rebaseFix)return;state._rebaseFix=1;const chars=passageChars();
  (state.taishoApp||[]).forEach(e=>{if((e.len||1)!==1)return;const cur=chars[e.r];if(!cur||cur===e.base)return;
   if(SIGS.some(([s])=>{const t=getTrans(s,e.r);return t&&t.c===cur&&t.t!=='var'&&t.t!=='word';}))rebaseChar(e.r,e.base,cur);});save();}
 
-/* ---------- 對照表欄位：寬度記憶、隱藏、調換順序 ---------- */
 const EXN={br:"分支",app:"大正校勘",read:"音讀",note:"校勘記（可改）"};
 function exOrder(){const d=["br","app","read","note"];let o=(state.exOrder||[]).filter(k=>d.includes(k));d.forEach(k=>{if(!o.includes(k))o.push(k);});return o;}
 function exShown(k){return k==="br"?showBrCol:k==="app"?showAppCol:k==="read"?showReadCol:showNoteCol;}
@@ -2088,7 +1996,6 @@ function colBind(body){state.colW=state.colW||{};
   if(ch){clearTimeout(_colT);_colT=setTimeout(()=>{save();if(typeof cmpBranch==="function")cmpBranch();},300);}});
  body.querySelectorAll(".thr[data-ck]").forEach(d=>{d.addEventListener("mousedown",()=>{if(!d.style.width)d.style.width=d.offsetWidth+"px";});_colRO.observe(d);});
  body.querySelectorAll("button.thx[data-hidex]").forEach(b=>b.onclick=e=>{e.stopPropagation();exSet(b.dataset.hidex,false);reCmp();});
- // 拖曳表頭的 ⋮⋮ 調換順序（版本與版本、其他欄與其他欄）
  let drag=null;
  body.querySelectorAll(".grip").forEach(g=>{g.addEventListener("dragstart",e=>{drag=g.dataset.dk;e.dataTransfer.effectAllowed="move";try{e.dataTransfer.setData("text/plain",drag);}catch(_){}});
   g.addEventListener("click",e=>e.stopPropagation());});
@@ -2122,7 +2029,6 @@ async function renderCompare(){const cell=+document.getElementById("cellW").valu
   if(exK.includes('note')){const st=rowSet(r),off=st===false,nv=noteText(r);const can=off||!!draftFor(r,true)||(state.notes&&state.notes[r]!==undefined);const out=!!(nv&&String(nv).trim());
    const pv=out?nv:(can?noteGhost(r):'');ec.note=`<td class="notecell${can&&!out?' off':''}"><div style="display:flex;gap:3px;align-items:center"><input class="notein" data-r="${r}" value="${(pv||'').replace(/"/g,'&quot;')}" placeholder="「字」版本…；「字」版本…" ${can&&!out?'disabled title="不出校（淡色＝不列入校勘記）"':''} style="flex:1">${can?`<button class="nout${out?' on':''}" data-r="${r}" title="${out?'此條出校。點一下改為不出校（校勘記、Word、匯出都不列）':'此條不出校。點一下改為出校'}">${out?'出校':'不出校'}</button>`:''}<button class="ntr" data-r="${r}" title="重生成此列草稿（捨棄手動修改）">↻</button></div></td>`;}
   h+=exK.map(k=>ec[k]).join('')+'</tr>';
-  // 衍字列：任何一版在此字之後有衍字，就另起一列（不佔底本字序）
   if(showExRow&&vs.some(([s])=>_ext[s]&&_ext[s][r])){h+=`<tr class="exrow" data-xr="${r}"><td class="r" title="衍字列：不佔底本字序">衍</td><td class="ref exref" title="第${r+1}字「${chars[r]}」之下">${chars[r]}下</td>`;
    for(const [s] of vs)h+=`<td data-xcell="${s}_${r}" style="width:${cell}px"></td>`;
    h+=exK.map(k=>k==='br'?'<td class="brcell"></td>':'<td></td>').join('')+'</tr>';}}
@@ -2145,14 +2051,11 @@ async function renderCompare(){const cell=+document.getElementById("cellW").valu
    if(inp){inp.disabled=!now;inp.value=now?noteText(r):noteGhost(r);inp.title=now?'':'不出校（淡色＝不列入校勘記）';}
    save();if(state.brOutOnly){_outCache=null;cmpBranch();}};});
  body.querySelectorAll('button.ntr').forEach(b=>{b.onclick=()=>{const r=+b.dataset.r;if(state.notes)delete state.notes[r];const inp=b.parentElement.querySelector('input.notein');if(inp)inp.value=draftFor(r);save();};});
- // 填裁圖
  for(const [s] of vs){const {order,piByKey}=maps[s];for(const o of order){const pidx=piByKey[o.pi+"_"+o.bi];if(pidx<0||pidx>=chars.length)continue;
    const td=body.querySelector(`td[data-cell="${s}_${pidx}"]`);if(!td||td.querySelector('img'))continue;
    const url=await cropToURL(s,o,cell);const img=new Image();img.src=url;img.width=cell;img.height=cell;img.style.cursor="zoom-in";
    img.title=s+" 第"+(o.pi+1)+"頁，點看原圖版（複製圖：右鍵→複製影像）";img.onclick=()=>showPane(s,o);td.insertBefore(img,td.firstChild);}}
- // 大正已知異文預填到 trans(思/毘)
  for(let r=0;r<chars.length&&isXGSZ();r++){const vv=VARIANTS[chars[r]];if(!vv)continue;for(const sig in vv){if(!state.versions[sig])continue;const t=state.versions[sig].trans=state.versions[sig].trans||{};if(t[r]===undefined)t[r]=vv[sig];}}
- // 每格：實際文字＋類型選單（脫字／衍字會改變對齊）
  const boxAt={};for(const [s] of vs){const {order,piByKey}=maps[s];for(const o of order){const p=piByKey[o.pi+"_"+o.bi];if(p>=0&&boxAt[s+"_"+p]===undefined)boxAt[s+"_"+p]=o;}}
  vs.forEach(([s])=>{for(let r=0;r<chars.length;r++){const td=body.querySelector(`td[data-cell="${s}_${r}"]`);if(!td)continue;
    const hasImg=td.querySelector('img'),cur=getTrans(s,r),val=cur?cur.c:"";
@@ -2179,7 +2082,6 @@ async function renderCompare(){const cell=+document.getElementById("cellW").valu
     inp.value=(getTrans(s,r)||{}).c||"";fill();colorCell(td,s,r);save();};
    inp.oninput=()=>{const c2=getTrans(s,r),t=c2?c2.t:"var";setTrans(s,r,inp.value?{c:inp.value,t}:null);fill();colorCell(td,s,r);save();};
    td.appendChild(inp);td.appendChild(sel);fill();colorCell(td,s,r);}});
- // 衍字：預設放在獨立的「衍字列」；關掉衍字列時掛在前一字的格子下方
  for(const [s] of vs){const ex=extrasOf(s,maps[s]);for(const r in ex){const td=body.querySelector(showExRow?`td[data-xcell="${s}_${r}"]`:`td[data-cell="${s}_${r}"]`);if(!td)continue;
    for(const e of ex[r]){const w=document.createElement('div');w.className='exw';const o={pi:e.pi,bi:e.bi};
     try{const url=await cropToURL(s,o,cell);const im=new Image();im.src=url;im.width=im.height=showExRow?cell:Math.round(cell*0.7);im.style.cursor='zoom-in';im.onclick=()=>showPane(s,o);w.appendChild(im);}catch(err){}
@@ -2344,16 +2246,12 @@ document.getElementById('chTgl').onclick=()=>{const ch=document.querySelector('#
 document.getElementById("cmpReload").onclick=renderCompare;
 document.getElementById("cellW").onchange=renderCompare;
 
-/* ---------- init ---------- */
-/* 把工具列搬到右側固定直欄 */
 (function(){const sb=document.createElement('div');sb.id='sidebar';document.body.appendChild(sb);
  const bars=document.querySelectorAll('.bar');if(bars[0])sb.appendChild(bars[0]);
  const se=document.getElementById('selbar');if(se)sb.appendChild(se);})();
-/* 在 Claude 頁面（沙盒框架）裡，原生 alert／prompt 不能用：改成提示列與預設值；confirm 維持拒絕，避免誤刪 */
 (function(){let framed=false;try{framed=window.self!==window.top;}catch(e){framed=true;}if(!framed||location.protocol==="file:")return;
  window.alert=m=>{try{cdToast(String(m));}catch(e){}};
  window.prompt=(m,d)=>(d!=null&&d!=="")?d:"新專案 "+new Date().toISOString().slice(5,16).replace("T"," ");})();
-/* ---------- 續校下一段＋資料保全 ---------- */
 const APP_VERSION="0.9.0";
 function deepc(x){return x==null?x:JSON.parse(JSON.stringify(x));}
 function ymd(){const d=new Date(),z=n=>String(n).padStart(2,"0");return d.getFullYear()+"-"+z(d.getMonth()+1)+"-"+z(d.getDate());}
@@ -2411,9 +2309,7 @@ document.getElementById("nextSegBtn").onclick=continueNextSegment;
 document.getElementById("backupAllBtn").onclick=backupAll;
 document.getElementById("expProj").onclick=exportCurrent;
 document.getElementById("expProj").title="把目前這個專案存成 JSON 檔（檔名含專案名稱與日期）";
-/* 申請持久儲存，降低瀏覽器自動清除資料的機會 */
 (async function(){try{if(navigator.storage&&navigator.storage.persist){const ok=await navigator.storage.persisted()||await navigator.storage.persist();const st=document.getElementById("saveStat");if(st)st.title=ok?"已取得持久儲存：瀏覽器不會自動清除這裡的資料（仍建議定期備份）":"瀏覽器未給予持久儲存：資料可能在空間不足時被清除，請定期備份";}}catch(e){}})();
-/* ---------- 版本屬性（state.verMeta[略號]） ---------- */
 const VM_FIELDS=[["full","全名"],["type","類型"],["sys","系統"],["org","主事單位（官刻／寺院／私刻…）"],["date","年代"],["year","起年（西元，排序用）"],["yearEnd","迄年（西元）"],["place","出土地／地區"],["holding","館藏地"],["shelf","編號（館藏號、經號）"],["src","數位來源（網址）"],["refs","參考文獻"],["color","顏色"],["note","筆記"]];
 const VM_TYPES=["寫本","刻本","抄本","活字本","影印本","校注本","其他"];
 const VM_ORGS=["官刻（朝廷）","地方官府","寺院","私刻（施主募刻）","坊刻","官寫經所","寺院寫經","私人抄寫"];
@@ -2482,7 +2378,6 @@ function openVerMeta(){state.verMeta=state.verMeta||{};
  tb.addEventListener("dragend",()=>{if(dragTr){dragTr.classList.remove("vmdrag");dragTr.draggable=false;}dragTr=null;renum();});
  tb.addEventListener("drop",e=>e.preventDefault());
  d.showModal();}
-/* 改略號：把舊略號在專案裡用到的地方一起換掉（分頁、書影、屬性、隱藏欄、分支圖、欄寬）；校勘記裡已手寫的文字不動 */
 function renameSigs(pairs){if(!pairs.length)return;const tmp=pairs.map((p,i)=>["\u0001"+i,p[1]]);
  const one=(o,n)=>{const e=SIGS.find(x=>x[0]===o);if(!e)return;const ix=SIGS.indexOf(e);
   if(!o.startsWith("\u0001")){const keep=Object.assign({},(typeof VER_INFO!=="undefined"&&VER_INFO[o])||{},(state.verMeta||{})[o]||{});if(!keep.color)keep.color=vgColor(o,ix);if(!keep.full&&e[1])keep.full=e[1];state.verMeta=state.verMeta||{};state.verMeta[o]=keep;}
@@ -2494,7 +2389,6 @@ function renameSigs(pairs){if(!pairs.length)return;const tmp=pairs.map((p,i)=>["
   if(active===o)active=n;};
  pairs.forEach((p,i)=>one(p[0],tmp[i][0]));tmp.forEach(([t,n])=>one(t,n));state.sigs=SIGS;}
 document.getElementById("verMetaBtn").onclick=openVerMeta;
-/* ---------- 說明：操作步驟／關於／引用 ---------- */
 const ABOUT={doi:"",author:"邱琬淳",authorEn:"Wan-chun Chiu",github:"https://github.com/wanchunchiu",repo:"https://github.com/wanchunchiu/CollateDesk",site:"https://wanchunchiu.github.io/CollateDesk/",orcid:"",homepage:"",email:"",year:"2026",license:"MIT License（程式碼）；書影與專案資料依各收藏機構條款"};
 const HELP_STEPS=[
  ["建立專案","上方「專案」→「＋ 新專案」。建議一個文本、一段一個專案；名稱可用「書名・卷・段」。"],
@@ -2890,7 +2784,6 @@ const HELP_I18N={
  <h4>Main features</h4><ul><li>Automatic character cutting (block → line → character) with box-by-box correction</li><li>Alignment to the base text by reading order and anchors</li><li>Marking variant readings, variant forms, errors, omissions, additions and custom types</li><li>Comparison table, draft notes, variant branch graph; export to Word, handout, PDF, SVG</li><li>Version info (date, type, holding…), continue to next section, full backup</li></ul>
  <h4>Where your data lives</h4><p>All projects, images and notes stay in your own browser and are never uploaded. Back up all projects regularly. Collation works offline; the lookup-site buttons need a connection.</p>
  <h4>Recommended setup</h4><p>A desktop or laptop with Chrome or Edge, screen width 1280px or more. Safari and Firefox work but cannot link an auto-save file, and Safari may clear site data after 7 days without use.</p>`}};
-/* ---------- 按鈕圖示：emoji／符號一律換成 SVG 線條圖示（18px、無填色、線寬 1.7、currentColor） ---------- */
 const ICO_P={copy:'<rect x="9" y="9" width="11" height="11" rx="1.5"/><path d="M5 15V5.5A1.5 1.5 0 0 1 6.5 4H15"/>',
  save:'<path d="M5 3.5h11l3 3V20a.5.5 0 0 1-.5.5h-13A.5.5 0 0 1 5 20z"/><path d="M8.5 3.5v5h6.5v-5M8 20.5v-7h8v7"/>',
  book:'<path d="M5 5a2 2 0 0 1 2-2h12v15H7a2 2 0 0 0-2 2z"/><path d="M5 20a2 2 0 0 0 2 2h12v-4"/>',
@@ -2932,7 +2825,6 @@ function iconizeEl(el){if(!el.matches||!el.matches(ICO_SEL)||el.closest("#pages 
 function iconize(root){if(!root||root.nodeType!==1)return;iconizeEl(root);root.querySelectorAll(ICO_SEL).forEach(iconizeEl);}
 iconize(document.body);
 new MutationObserver(ms=>{if(_icoBusy)return;for(const m of ms){if(m.type==="characterData"){const p=m.target.parentElement;if(p)iconizeEl(p);}else{if(m.target.nodeType===1)iconizeEl(m.target);m.addedNodes.forEach(x=>{if(x.nodeType===1)iconize(x);else if(x.nodeType===3&&x.parentElement)iconizeEl(x.parentElement);});}}}).observe(document.body,{childList:true,subtree:true,characterData:true});
-/* ---------- 多語言介面（中／日／英）：以字典翻譯介面文字；研究內容（本文、版本名、對照表、頁圖）不翻 ---------- */
 const I18N=(()=>{const D={};I18N_RAW.split("\n").forEach(l=>{const a=l.split("|");if(a.length===3){D[a[0]]=[a[1],a[2]];const k=icoStrip(a[0]);if(k&&k!==a[0]&&!D[k])D[k]=[icoStrip(a[1]),a[2]==="∅"?a[2]:icoStrip(a[2])];}});return D;})();
 let LANG="zh";try{LANG=localStorage.getItem("bikan_lang")||"zh";}catch(e){}
 const _i18nT=new WeakMap(),_i18nA=new WeakMap();let _i18nBusy=false;
@@ -2951,20 +2843,19 @@ new MutationObserver(ms=>{if(_i18nBusy||LANG==="zh")return;for(const m of ms){if
 function setLang(l){LANG=l;try{localStorage.setItem("bikan_lang",l);}catch(e){}document.documentElement.lang=l==="ja"?"ja":l==="en"?"en":"zh-Hant";i18nApply(document.body);try{updateGuide();}catch(e){}const s=document.getElementById("langSel");if(s)s.value=l;
  const h=document.getElementById("helpDlg");if(h&&h.open){const t=(h.querySelector(".hdtabs .on")||{}).dataset;h.close();openHelp(t&&t.t);}}
 {const s=document.getElementById("langSel");if(s){s.value=LANG;s.onchange=()=>setLang(s.value);}if(LANG!=="zh")setTimeout(()=>setLang(LANG),0);}
-/* ---------- 新手引導：歡迎視窗、示範專案、下一步提示列 ---------- */
-const GT={zh:{w1:"把同一段文字在不同版本中的書影逐字排在一起，看看各版有什麼不同。",demo:"開啟示範",own:"建立自己的專案",demoD:"直接看《釋迦方志》序各版本的對照表，找出哪些字不同。",ownD:"準備一小段要比對的文字，以及同一段文字在各版本中的書影。第一次可以先用兩個版本、每版一頁。",
+const GT={zh:{w1:"把同一段文字在不同版本中的書影逐字排在一起，看看各版有什麼不同。",demo:"開啟示範",own:"建立自己的專案",demoD:"直接看兩個版本、十四個字的對照表，找出哪一個字不同。",ownD:"準備一小段要比對的文字，以及同一段文字在各版本中的書影。第一次可以先用兩個版本、每版一頁。",
   s1:"貼上這次要比對的文字。系統會用這段文字的字序，把各版書影排成對照表。",b1:"到校定本文",s2:n=>`選好版本分頁，加入「${n}」的書影：按 Ctrl＋V 貼上，或點下方虛線框選檔。`,s3:n=>`書影已加入。接著讓系統找出每一個字。`,b3:n=>`自動切分第 ${n} 頁`,
   s4:c=>`點書影中與校定本文第一字「${c}」相同的字，再按右邊的按鈕。這一版缺開頭時，改選第一個能確認的字，在側欄「選取框」指定它是第幾字。`,b4:"對齊到本文第 1 字",s4n:"請先在書影上點一個字框",
   s5:t=>`已對齊。請核對前幾格是否順著排對：${t}。沒問題就開啟對照表。`,b5:"開啟對照表",hide:"隱藏提示",show:"顯示下一步提示",next:"下一步",
   pz:n=>`加入「${n}」的書影：`,cut:(l,b)=>`已找到 ${l} 行、${b} 個字框。請看第一個框有沒有圈到要比對的字。`,cmp:"每列是同一個字位，每欄是一個版本。點字圖可以回查原頁。",
   demoName:"示範：兩個版本",demoTip:"示範任務：找出兩個版本在哪一個字不同，點那一格的字圖，看它在原頁哪裡。",demoBtn:"開啟示範",demoMark:"示範用・非真實書影",va:"示範甲本",vb:"示範乙本"},
- ja:{w1:"同じ本文の、版本ごとの書影を一字ずつ並べて、どこが違うかを見ます。",demo:"デモを開く",own:"自分のプロジェクトを作る",demoD:"『釋迦方志』序の各版本の対照表をすぐに見て、どの字が違うかを探します。",ownD:"比べたい短い本文と、その本文の各版本の書影を用意します。初回は二つの版本・各一ページで十分です。",
+ ja:{w1:"同じ本文の、版本ごとの書影を一字ずつ並べて、どこが違うかを見ます。",demo:"デモを開く",own:"自分のプロジェクトを作る",demoD:"二つの版本・十四字の対照表をすぐに見て、どの字が違うかを探します。",ownD:"比べたい短い本文と、その本文の各版本の書影を用意します。初回は二つの版本・各一ページで十分です。",
   s1:"比べたい本文を貼り付けます。この本文の字順に沿って、各版の書影を対照表に並べます。",b1:"校定本文へ",s2:n=>`版本タブを選び、「${n}」の書影を追加します：Ctrl＋V で貼り付けるか、下の破線枠をクリック。`,s3:n=>`書影を追加しました。次に一字ずつ検出します。`,b3:n=>`${n} ページ目を自動分割`,
   s4:c=>`書影の中で、校定本文の1字目「${c}」と同じ字をクリックし、右のボタンを押します。冒頭が欠けている版本は、確認できる最初の字を選び、サイドバー「選択中の枠」で何字目かを指定します。`,b4:"本文の1字目に揃える",s4n:"先に書影の字枠をクリックしてください",
   s5:t=>`揃いました。最初の数字が順に合っているか確認してください：${t}。問題なければ対照表を開きます。`,b5:"対照表を開く",hide:"ヒントを隠す",show:"次の手順を表示",next:"次の手順",
   pz:n=>`「${n}」の書影を追加：`,cut:(l,b)=>`${l} 行・${b} 個の字枠を検出しました。最初の枠が比べたい字を囲んでいるか確認してください。`,cmp:"各行は同じ字位、各列は一つの版本です。字の画像をクリックすると元のページを確認できます。",
   demoName:"デモ：二つの版本",demoTip:"デモの課題：二つの版本でどの字が違うかを探し、その字の画像をクリックして元のページで確かめます。",demoBtn:"デモを開く",demoMark:"デモ用・実在の書影ではありません",va:"デモ甲本",vb:"デモ乙本"},
- en:{w1:"Line up page images of the same passage from different versions, character by character, and see where they differ.",demo:"Open the demo",own:"Start my own project",demoD:"See a finished table for the preface of the Shijia fangzhi across its versions, and find where they differ.",ownD:"Have a short passage ready, plus page images of that passage in each version. Two versions with one page each is enough for a first try.",
+ en:{w1:"Line up page images of the same passage from different versions, character by character, and see where they differ.",demo:"Open the demo",own:"Start my own project",demoD:"See a finished table of two versions and fourteen characters, and find the one that differs.",ownD:"Have a short passage ready, plus page images of that passage in each version. Two versions with one page each is enough for a first try.",
   s1:"Paste the passage you want to compare. Its character order is used to line up every version's page images.",b1:"Go to base text",s2:n=>`Pick a version tab and add the page image for “${n}”: press Ctrl+V, or click the dashed box below.`,s3:n=>`Page image added. Next, let the tool find each character.`,b3:n=>`Cut page ${n} automatically`,
   s4:c=>`Click the character on the page that matches the first character of the base text, “${c}”, then press the button. If this version lacks the opening, pick the first character you can confirm and set its number under “Selected box” in the sidebar.`,b4:"Align to character 1",s4n:"Click a box on the page first",
   s5:t=>`Aligned. Check that the first few boxes follow in order: ${t}. If so, open the table.`,b5:"Open the table",hide:"Hide tips",show:"Show next-step tips",next:"Next",
@@ -3013,9 +2904,8 @@ async function createDemo(){const T=gt();const base="若夫孝始孝終治家治
 function openWelcome(){const T=gt();const d=document.createElement("dialog");d.className="cddlg welcome";
  d.innerHTML=`<h3>對勘室｜CollateDesk</h3><p class="wlead">${T.w1}</p><div class="wopts"><button data-w="demo"><b>${T.demo}</b><span>${T.demoD}</span></button><button data-w="own"><b>${T.own}</b><span>${T.ownD}</span></button></div>`;
  document.body.appendChild(d);d.addEventListener("click",e=>{const b=e.target.closest("[data-w]");if(!b)return;d.close();d.remove();try{localStorage.setItem("bikan_seenHelp","1");}catch(e){}
-  if(b.dataset.w==="demo")openDemo();else{try{localStorage.setItem("bikan_guideOff","0");}catch(e){}updateGuide();document.getElementById("guide").scrollIntoView({block:"center"});}});
+  if(b.dataset.w==="demo")createDemo();else{try{localStorage.setItem("bikan_guideOff","0");}catch(e){}updateGuide();document.getElementById("guide").scrollIntoView({block:"center"});}});
  d.addEventListener("close",()=>{try{localStorage.setItem("bikan_seenHelp","1");}catch(e){}d.remove();});d.showModal();}
-/* 真實示範：《釋迦方志》序（demo/shakafangzhi.js，與本檔同資料夾）；載不到時退回合成示範 */
 const DEMO_SHIJIA_NAME="示範：釋迦方志";
 function loadDemoData(){return new Promise(res=>{if(window.CD_DEMO_SHIJIA)return res(window.CD_DEMO_SHIJIA);
  const sc=document.createElement("script");sc.src="demo/shakafangzhi.js";sc.onload=()=>res(window.CD_DEMO_SHIJIA||null);sc.onerror=()=>res(null);document.head.appendChild(sc);});}
@@ -3030,11 +2920,9 @@ async function openDemo(){
  applyState(st);active=SIGS[0][0];try{await idbSet("proj_"+id,state);await idbSet("projMeta",projMeta);await idbSet("curProj",id);}catch(e){}
  refreshAll();document.getElementById("genCmp").click();
  setTimeout(()=>cdToast("示範：《釋迦方志》序，十一個版本。每列是同一個字位，點字圖可以回查原頁。"),900);}
-document.getElementById("demoBtn").onclick=openDemo;
-/* 對照表工具列的下拉選單 */
+document.getElementById("demoBtn").onclick=createDemo;
 document.querySelectorAll('#compare [data-cm]').forEach(b=>b.addEventListener('click',e=>{e.stopPropagation();const body=document.getElementById('cm_'+b.dataset.cm);const was=body.classList.contains('open');document.querySelectorAll('#compare .cmbody.open').forEach(x=>x.classList.remove('open'));if(!was)body.classList.add('open');}));
 document.addEventListener('click',e=>{if(!e.target.closest('#compare .cmbody'))document.querySelectorAll('#compare .cmbody.open').forEach(x=>x.classList.remove('open'));});
-/* 側欄群組開合狀態記在本機 */
 (function(){document.querySelectorAll('#sidebar details.sbg').forEach(d=>{const k='bikan_sbg_'+d.dataset.g;try{const v=localStorage.getItem(k);if(v==='1')d.open=true;else if(v==='0')d.open=false;}catch(e){}
  d.addEventListener('toggle',()=>{try{localStorage.setItem(k,d.open?'1':'0');}catch(e){}});});})();
 function refreshAll(){document.getElementById("passage").value=state.passage;
@@ -3073,13 +2961,12 @@ document.getElementById("projSel").onchange=e=>switchProject(e.target.value);
 document.getElementById("newProjBtn").onclick=newProject;
 document.getElementById("renProjBtn").onclick=renameProject;
 document.getElementById("delProjBtn").onclick=deleteProject;
-document.getElementById("resetPsg").onclick=()=>{if(!confirm("要把目前的校定本文換成內建的《彥琮傳》範例底本嗎？\n目前的本文會被取代，無法還原。"))return;state.passage=DEFAULT_PASSAGE;state.passageVer=PASSAGE_VER;document.getElementById("passage").value=DEFAULT_PASSAGE;save();renderPages();};
+(document.getElementById("resetPsg")||{}).onclick=()=>{if(!confirm("要把目前的校定本文換成內建的《彥琮傳》範例底本嗎？\n目前的本文會被取代，無法還原。"))return;state.passage=DEFAULT_PASSAGE;state.passageVer=PASSAGE_VER;document.getElementById("passage").value=DEFAULT_PASSAGE;save();renderPages();};
 document.getElementById("linkFile").onclick=linkFile;
 if(!FS_OK)document.getElementById("linkFile").style.display="none";
 (async function(){await loadState();try{await idbDel("proj_null");}catch(e){}refreshAll();await tryRestoreHandle();refreshAll();try{updateBackupStat();}catch(e){}try{updateGuide();if(!localStorage.getItem("bikan_seenHelp")&&!Object.values(state.versions||{}).some(v=>v.pages&&v.pages.length))setTimeout(openWelcome,500);}catch(e){}
  const st=document.getElementById("saveStat");if(st)st.textContent="已就緒（自動儲存開啟）";deepLink();})();
 
-/* 版本總覽（深連結 #open=gallery）：每個版本第一頁書影＋系統＋大約時代。年代表 VER_INFO 可改。 */
 const VER_INFO={
  "剛":{sys:"日本古寫經",full:"金剛寺一切經",date:"平安末～鎌倉初（12–13 世紀）"},
  "七":{sys:"日本古寫經",full:"七寺一切經",date:"平安末（12 世紀後半）"},
@@ -3097,7 +2984,7 @@ const SYS_ORDER=[["日本古寫經","#2f7d5a","抄寫傳本，字形連續"],["�
 function vgGallery(){let ov=document.getElementById("vgGal");if(!ov){ov=document.createElement("div");ov.id="vgGal";document.body.appendChild(ov);}
  const name=(sig)=>{const e=SIGS.find(x=>x[0]===sig);return e?e[1]:sig;};
  const groups={};SIGS.forEach(([sig])=>{const v=state.versions[sig];if(!(v&&v.pages&&v.pages[0]))return;const info=verInfo(sig);const sy=info.sys||'未分類';(groups[sy]=groups[sy]||[]).push(sig);});
- const pj=(projMeta||[]).find(p=>p.id===curProj);const pname=(pj&&pj.name)?pj.name:'彥琮傳';
+ const pj=(projMeta||[]).find(p=>p.id===curProj);const pname=(pj&&pj.name)?pj.name:'對勘室';
  const allSigs=Object.values(groups).flat();const totPages=allSigs.reduce((n,sg)=>n+state.versions[sg].pages.length,0);
  let h='<div class="galh"><h2>'+esc(pname)+'　對勘版本一覽</h2><span class="tot">'+allSigs.length+' 種版本・共 '+totPages+' 頁書影</span><button class="x" onclick="document.getElementById(\'vgGal\').classList.remove(\'open\')" title="關閉（Esc）">✕</button></div><div class="grid">';
  const known=SYS_ORDER.map(x=>x[0]);const extra=Object.keys(groups).filter(k=>!known.includes(k)).map(k=>[k,'#6b5d4f','']);const all=SYS_ORDER.concat(extra);const rows=[];for(let i=0;i<all.length;i+=2)rows.push(all.slice(i,i+2));
@@ -3132,9 +3019,8 @@ function deepLink(){const h=location.hash.replace(/^#/,"");if(!h||h.indexOf("=")
   if(q.anim==="1"){later(()=>{if(q.bare==="1"){vgDraw();vgAn.on=true;vgAn.p=0;vgAnApply();vgFitScale();}vgAnPlay(true);},1100);}}
  if(q.tour==="1"){later(()=>{if(q.auto&&window.tourAuto)window.tourAuto(+q.auto||4);else if(window.tourStart)window.tourStart();},300);}}
 
-/* ================= 訓讀工作區（原文・訓讀・譯・白話・語釋・查詢） ================= */
 const KD_STRIP=/[。，、；：？！「」『』（）()\[\]《》〈〉…—·\s0-9]/;
-const KD_SEED={"match":"若夫孝始孝終","segs":[{"t":"原文○1","s":[{"src":"若夫孝始孝終，治家治國，足宣至德，堪弘要道。","kun":"夫れ孝の始め孝の終り、家を治め国を治むるが若きは、至徳を宣ぶるに足り、要道を弘むるに堪う。","ja":"そもそも、孝に始まり孝に終わり、家を治め国を治めるようなことでさえ、至高の徳を明らかにするに足り、肝要な道を弘めるに堪えるものである。","zh":""},{"src":"況復淨名之勸發心，善生之歸妙覺，奚假落髮翦鬚，苦違俗訓，持衣捧盋，頓改世儀。","kun":"況んや復た浄名の発心を勧め、善生の妙覚に帰するは、奚ぞ髪を落し髭を剪りて、苦ろに俗訓に違い、衣を持し鉢を捧げ、頓に世儀を改むるを仮らんや。","ja":"まして、在家の居士である浄名が人に発心を勧め、善生が仏の円満な覚りに帰依するような場合、どうして髪を剃り髭を切り、無理に世俗の教えに背き、法衣を持ち鉢を捧げて、にわかに世間の礼法を改める必要があろうか。","zh":""},{"src":"坐受僧号，詳謂是理，遙學梵章，寧容非法。","kun":"坐して僧号を受け、詳らかに是れ理なりと謂わば、遥かに梵章を学ぶを、寧んぞ非法と容れんや。","ja":"ただ僧の名を受けるだけで、それをよく考えて道理にかなうものだと言うのであれば、遠く梵文の経章を学ぶことを、どうして仏法に背くものとされ得ようか。","zh":""}],"notes":[{"term":"孝始孝終","def":"","cites":[{"q":"『孝經』開宗明義「身體髮膚，受之父母，不敢毀傷，孝之始也。立身行道，揚名於後世，以顯父母，孝之終也。夫孝，始於事親，中於事君，終於立身。」","ref":""}]},{"term":"治家治國","def":"","cites":[{"q":"『大學』「古之欲明明德於天下者，先治其國。欲治其國者，先齊其家。」","ref":""}]},{"term":"足宣至德堪弘要道","def":"","cites":[{"q":"『孝經』開宗明義「先王有至德要道，以順天下，民用和睦，上下無怨。」","ref":""},{"q":"『般泥洹經』卷一「妙哉！佛為無倫，以自然法無不感動，至德至道，巍巍乃爾。」","ref":"T01, no. 6, p. 182a24-25"}]},{"term":"淨名之勸發心","def":"維摩詰を指す。梵名 Vimalakīrti。","cites":[{"q":"『維摩經義疏』卷三「此第三明時眾出益。凡有四句，初淨名勸出家、二長者不敢違佛制、三淨名重勸發心、四長者受旨。」","ref":"T38, no. 1781, p. 947a25-28"}]},{"term":"善生","def":"梵名 Sujāta。『善生経』は、仏陀が在家者に倫理と生活の規範を説いた経典である。善生長者が亡父の遺教により東・南・⻄・北・下・上の「六方」を礼拝するのを見た仏陀は、これに新たな意味を与え、六種の人倫関係になぞらえた。東＝父母、南＝師長、 ⻄＝夫婦、北＝親友、下＝使用人、上＝沙門・婆羅門であり、各々を「五事」をもって敬い遇すべきだと説く。かく六方を礼敬する者は、命終の後に天に生まれるという。在家倫理を説き、理財・修身にも及ぶ。漢訳に安世高訳『尸迦羅越六方礼経』、支法度訳『善生子経』、『中阿含』『長阿含』所収本などがある。","cites":[]},{"term":"妙覺","def":"","cites":[{"q":"『弘明集』卷十常侍柳憕答：「殷人示民有知，孔子祭則神在，或理傳妙覺，或義闡生知。」","ref":"T52, no. 2102, p. 62a23-24"}]},{"term":"落髮","def":"","cites":[{"q":"『別譯雜阿含經』卷五「落髮服法衣，手中執應器，住立我門側，將欲何所求。」","ref":"T02, no. 100, p. 407b20-21"}]},{"term":"翦鬚","def":"","cites":[{"q":"『四分律』卷五十一「時六群比丘以剪刀剪鬚髮。佛言，不應爾。彼剃髮不剃鬚。佛言，應剃鬚髮。彼剃鬚、不剃髮。佛言，應剃鬚髮。彼拔髮。佛言，不應爾。彼留髮。佛言，不應爾。彼撚髭令翹。佛言，不應爾。汝等癡人，避我所制，更作餘事。自今已去，應鬚髮盡剃。」","ref":"T22, no. 1428, pp. 945c20-946a3"}]},{"term":"持衣捧盋","def":"","cites":[{"q":"『長阿含經』卷一「佛告比丘，太子見老、病人，知世苦惱，又見死人，戀世情滅。及見沙門，廓然大悟。下寶車時，步步中間轉遠縛著，是真出家，是真遠離。時，彼國人聞太子剃除鬚髮，法服持鉢，出家修道，咸相謂言，此道必真，乃令太子捨國榮位，捐棄所重。于時，國中八萬四千人往就太子，求為弟子，出家修道。」","ref":"T01, no. 1, p. 7a18-25"},{"q":"『長阿含經』卷十一「當知時善宿比丘於乞食後，執持衣鉢，來至我所，頭面禮足，在一面坐，」","ref":"T01, no. 1, p. 66c10-12"}]},{"term":"世儀","def":"","cites":[{"q":"『淮南子』齊俗訓「北人無擇非舜，而自投清泠之淵，不可以為世儀。」","ref":""}]},{"term":"梵章","def":"梵本の仏典。","cites":[{"q":"『佛祖統紀』卷四十三「惟淨者江南李煜之姪，口受梵章即曉其義。歲餘度為僧，升梵學筆受。」","ref":"T49, no. 2035, p. 398c26-27"}]}]},{"t":"原文○2","s":[{"src":"崇佛為主，羞討佛字之源，紹釋為宗，恥尋釋語之趣。","kun":"仏を崇びて主と為すも、仏字の源を討ぬるを羞じ、釈を紹ぎて宗と為すも、釈語の趣を尋ぬるを恥ず。","ja":"仏を崇めて根本としながら、「仏」という字の源を探ることを恥じ、釈尊の教えを継いで宗旨としながら、釈教の言葉の意味と趣旨を尋ねることを恥じている。","zh":""},{"src":"空覩經葉，弗興敬仰，總見梵僧，倒生侮慢。","kun":"空しく経葉を覩て、敬仰を興さず、総て梵僧を見て、倒に侮慢を生ず。","ja":"むなしく貝葉の経典を見ても敬仰の念を起こさず、梵僧を見るたびに、かえって侮慢の心を生じる。","zh":""},{"src":"退本追末，吁可笑乎。","kun":"本を退けて末を追う。吁、笑うべきかな。","ja":"根本を退けて枝末を追い求めるとは、ああ、なんと笑うべきことであろうか。","zh":""},{"src":"象運將窮，斯法見續。","kun":"象運将に窮まらんとし、斯の法は続けらる。","ja":"像法の時運はまさに尽き果てようとしており、この仏法は、そのような者たちによってかろうじて続けられている。","zh":""},{"src":"用茲紹繼，誠可悲夫。","kun":"茲を用って紹継するは、誠に悲しむべきかな。","ja":"このようなあり方によって仏法が継承されているとは、まことに悲しむべきことである。","zh":""},{"src":"文多不載。","kun":"文多くして載せず。","ja":"文が多いので、その全文はここには載せない。","zh":""}],"notes":[{"term":"經葉","def":"","cites":[{"q":"『法苑珠林』卷18「士行執經王庭曰，必大法不傳當從火化。便以貝葉經投火，一無所損，舉國敬異。」","ref":"T53, no. 2122, p. 418b6-8"},{"q":"法琳『辯正論』卷一「於是乎五百應供搖象扇而聞持，八萬修多拂龍床而器寫。珠函寶印既溢王宮，貝葉梵文還盈海藏。昇堂萬計競沐身田，負牆百億爭開心樹。」","ref":"T52, no. 2110, p. 492b15-18"}]},{"term":"侮慢","def":"","cites":[{"q":"『後漢書·文苑傳·禰衡』「後復侮慢於表，表恥不能容」","ref":""},{"q":"『大方廣佛華嚴經』卷十二「此菩薩自憶宿命，無數世來，於六親所行無慚行，或侮慢無禮，或婬亂無節。忍害無親，興師相伐，迷惑顛倒，無惡不造。斯由三毒邪疑，使纏虛偽，諂曲諸不善故。」","ref":"T09, no. 278, p. 475c1-5"}]},{"term":"退本追末","def":"","cites":[{"q":"『呂氏春秋．士容論』上農「民舍本而事末，則不令。」","ref":""},{"q":"『戰國策』齊策四「故有問舍本而問末者耶。」","ref":""},{"q":"『齊民要術』序「舍本逐末，賢哲所非。」","ref":""},{"q":"『抱朴子．外篇』自叙「又患弊俗捨本逐末，交游過差，故遂撫筆閑居，守靜蓽門。」","ref":""}]},{"term":"吁可笑乎","def":"","cites":[{"q":"『文心雕龍』銘箴「夸誕示後，吁可笑也。」","ref":""}]},{"term":"象運","def":"像法時代の法運。","cites":[{"q":"『出三藏記集』卷十二「常願覺道流於忍土。正化隆於像運。是以三寶勝跡必也詳錄。四眾福緣每事述記。」","ref":"T55, no. 2145, p. 94c4-5"},{"q":"『高僧傳』卷三「使夫慕道來儀，遐邇烟萃，三藏法門，有緣必覩，自像運東遷，在茲為盛。」","ref":"T50, no. 2059, p. 345c19-20"}]}]},{"t":"原文○3","s":[{"src":"琮師尚宗據，深究教源。","kun":"琮、宗拠を師尚し、教源を深究す。","ja":"彦琮は、宗義の典拠を規範として尊び、仏法の本源を深く究明した。","zh":""},{"src":"故章抄疏記，諸無所及。","kun":"故に章抄疏記、諸も及ぶ所無し。","ja":"それゆえ、彦琮の章抄や疏記は、他の諸家の及ぶところではなかった。","zh":""},{"src":"述製書論，不敘丘墳。","kun":"書論を述製して、丘墳を叙べず。","ja":"彼は仏教に関する書論を著述し、世俗の古典を述べることはなかった。","zh":""},{"src":"著福田論、僧官論、慈悲論、默語論、鬼神録、通極論、辯聖論、通學論、善知識録等。","kun":"『福田論』『僧官論』『慈悲論』『黙語論』『鬼神録』『通極論』『弁聖論』『通学論』『善知識録』等を著す。","ja":"『福田論』『僧官論』『慈悲論』『黙語論』『鬼神録』『通極論』『弁聖論』『通学論』『善知識録』などを著した。","zh":""},{"src":"並賦詞弘贍，精理通顯。","kun":"並びに賦詞弘贍にして、精理通顕す。","ja":"あわせて、文辞は豊かで広がりがあり、精妙な義理はあまねく顕れている。","zh":""}],"notes":[{"term":"章抄","def":"","cites":[{"q":"『成唯識論述記』卷五「七慢等分別，如別章抄。」","ref":"T43, no. 1830, p. 395b23"}]},{"term":"疏記","def":"","cites":[{"q":"『歷代三寶紀』卷十一「沙門真諦一十六部 (四十六卷經論疏記)」","ref":"T49, no. 2034, p. 95a10"},{"q":"『妙法蓮華經玄義』卷八「一切脩多羅、一切通別論、一切疏記等，皆由聖人心口，是名教由。」","ref":"T33, no. 1716, p. 776a7-8"}]},{"term":"丘墳","def":"伝説上の古代典籍『九丘』および『三墳』をあわせた略称。","cites":[{"q":"王筠『昭明太子哀策文』「遍該湘素，殫極丘墳。」","ref":""},{"q":"『北齊書』祖鴻勳傳「敝精神於丘墳，盡心力於河漢。」","ref":""},{"q":"楊炯『王勃集』序「或苟求蟲篆，未盡力於丘墳。或獨徇波瀾，不尋源於禮樂。」","ref":""}]},{"term":"弘贍","def":"文辞が広博で華麗である。","cites":[{"q":"『後漢書』班彪傳「遷文直而事覈，固文贍而事詳。」","ref":""},{"q":"『隋書·儒林傳』馬光「光剖析疑滯，雖辭非俊辯，而理義弘贍。論者莫測其淺深，咸共推服，上嘉而勞焉。」","ref":""}]},{"term":"精理","def":"精微的義理。","cites":[{"q":"王僧達『答顏延年』「珪璋既文府，精理亦道心。」","ref":""},{"q":"杜甫『贈特進汝陽王二十二韻』「精理通談笑，忘形向友朋。","ref":""}]}]}]};
+const KD_SEED=null;
 const KD_SITES_DEFAULT=[
  {n:"CBETA",u:"https://cbetaonline.dila.edu.tw/search/?q={q}"},
  {n:"漢語大詞典",u:"COPY http://www.kaom.net/book_hanyudacidian.php"},{n:"漢語大字典",u:""},{n:"識典古籍",u:"https://www.shidianguji.com/zh/search/{q}?type=all"},
@@ -3146,9 +3032,7 @@ let kdOn=false,kdCur=0,kdHist=[],kdNoteSel=null;
 const esc=s=>String(s==null?"":s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
 function kdSites(){try{const v=JSON.parse(localStorage.getItem("bikan_sites")||"null");if(Array.isArray(v)&&v.length){v.forEach(x=>{const d=KD_SITES_DEFAULT.find(y=>y.n===x.n);if(d&&d.u&&(!x.u||/kaom\.net\/book_hanyudacidian8/.test(x.u)))x.u=d.u;});return v;}}catch(e){}return KD_SITES_DEFAULT.map(x=>({...x}));}   // 已存的清單裡空白的網址，用新的預設值補上
 function kdSaveSites(v){try{localStorage.setItem("bikan_sites",JSON.stringify(v));}catch(e){}}
-// 有些網站只收表單（POST）：網址樣板寫成「POST 網址 欄位名={q}」，點了用隱藏表單送出
 function kdIsPost(site){return /^POST\s/i.test(site.u||"");}
-// 網站不接受從外部帶入查詢（擋外來表單）：寫成「COPY 網址」→ 把字詞複製到剪貼簿、打開網站，你在那邊貼上按查詢
 function kdIsCopy(site){return /^COPY\s/i.test(site.u||"");}
 function kdToast(t){let el=document.getElementById("kdToast");if(!el){el=document.createElement("div");el.id="kdToast";document.body.appendChild(el);}el.textContent=t;el.classList.add("on");clearTimeout(el._t);el._t=setTimeout(()=>el.classList.remove("on"),2600);}
 document.addEventListener("click",e=>{const a=e.target.closest("a[data-copy]");if(!a)return;e.preventDefault();const q=a.dataset.q;
@@ -3159,12 +3043,10 @@ function kdPost(u,q){const m=/^POST\s+(\S+)\s+(.+)$/i.exec(u);if(!m)return;const
 document.addEventListener("click",e=>{const a=e.target.closest("a[data-post]");if(!a)return;e.preventDefault();kdPost(a.dataset.post,a.dataset.q);},true);
 function kdLink(s,q,cls){if(kdIsCopy(s))return `<a class="${cls||""}" href="#" data-copy="${esc(s.u.replace(/^COPY\s+/i,""))}" data-q="${esc(q)}" title="複製字詞並打開網站">${esc(s.n)}</a>`;return kdIsPost(s)?`<a class="${cls||""}" href="#" data-post="${esc(s.u)}" data-q="${esc(q)}">${esc(s.n)}</a>`:`<a class="${cls||""}" href="${esc(kdUrl(s,q))}" target="_blank" rel="noopener">${esc(s.n)}</a>`;}
 function kdUrl(site,q){if(!site.u)return "";const c=[...q][0]||"";return site.u.replace("{q}",encodeURIComponent(q)).replace("{u}","u"+(c?c.codePointAt(0).toString(16):""));}
-// 原文（含標點）逐字對應到底本字序
 function kdLayout(){const p=state.passage||"";const out=[];let r=0;for(const ch of p){if(ch==="\n"){out.push({ch,r:-1});continue;}if(KD_STRIP.test(ch))out.push({ch,r:-1});else out.push({ch,r:r++});}return {cells:out,n:r};}
 function kdSegRange(sg){return [sg.sents[0].a,sg.sents[sg.sents.length-1].b];}
 function kdPush(){try{kdHist.push(JSON.stringify(state.kd));if(kdHist.length>60)kdHist.shift();}catch(e){}}
 function kdUndo(){if(!kdHist.length)return;state.kd=JSON.parse(kdHist.pop());save();kdRender();}
-// 把字串（可含異體）在字序範圍內找位置：先完全比對，否則找差異最少的位置
 function kdLocate(chars,term,lo,hi){const t=[...term].filter(c=>!KD_STRIP.test(c));const L=t.length;if(!L)return null;let best=-1,bm=1e9;
  for(let i=lo;i+L<=hi;i++){let m=0;for(let k=0;k<L;k++)if(chars[i+k]!==t[k])m++;if(m<bm){bm=m;best=i;}if(!m)break;}
  return (best>=0&&bm<=(L>=2?Math.max(1,Math.floor(L/3)):0))?[best,best+L]:null;}
@@ -3175,11 +3057,9 @@ function kdInit(){if(state.kd&&state.kd.segs&&state.kd.segs.length)return;const 
    state.kd.segs.push(sg);});
   if(pos<n)state.kd.segs[state.kd.segs.length-1].sents.push({a:pos,b:n,kun:"",ja:"",zh:""});
   return;}
- // 一般：整段為一段，依句末標點分句
  const {cells}=kdLayout();const sents=[];let a=0,last=-1;cells.forEach(c=>{if(c.r>=0)last=c.r;else if(/[。！？]/.test(c.ch)&&last>=a){sents.push({a,b:last+1,kun:"",ja:"",zh:""});a=last+1;}});
  if(a<n)sents.push({a,b:n,kun:"",ja:"",zh:""});if(!sents.length)sents.push({a:0,b:Math.max(1,n),kun:"",ja:"",zh:""});
  state.kd.segs.push({id:"s0",title:"原文○1",sents,notes:[]});}
-// 校勘註：有記錄的字序，依序編號（對勘室的校勘記；你改過的版本優先）
 function kdCollNotes(){const chars=passageChars();const out=[];try{buildCov();}catch(e){}
  for(let r=0;r<chars.length;r++){let t=noteText(r);if(t&&String(t).trim())out.push({r,t:String(t).trim()});}
  const byR={};out.forEach((o,i)=>{o.n=i+1;byR[o.r]=o;});return {list:out,byR};}
@@ -3187,23 +3067,15 @@ function kdAllNotes(){const L=[];state.kd.segs.forEach((sg,si)=>sg.notes.forEach
 function kdCbetaLink(ref){const m=/T\s*(\d+),\s*no\.\s*(\d+)[A-Za-z]?,\s*pp?\.\s*(\d+)([abc])(\d+)/.exec(ref||"");if(!m)return "";
  const ln=`T${m[1].padStart(2,"0")}n${m[2].padStart(4,"0")}_p${m[3].padStart(4,"0")}${m[4]}${m[5].padStart(2,"0")}`;return "https://cbetaonline.dila.edu.tw/zh/"+ln;}
 
-/* ---------- 畫面 ---------- */
 
-// 《釋迦方志》序：10/21 講義的訓讀與譯（日文）帶入訓讀頁（只填空格；一次性）
-const KD_KUNJA_SHIJIA=[
- ["惟夫大唐","惟（おもんみ）るに夫れ大唐の天下を有つや、将に四十載ならんとす。淳風洽くして澆俗改まり、文徳修まりて武功暢ぶ。故に青丘・丹穴の候をして、並びに堤封に入らしめ、龍砂・鳥塞の区をして、聿に声教に遵わしむ。","思うに、大唐が天下を保有してから、まもなく四十年になろうとしている。素朴で篤実な風俗があまねく行きわたって軽薄な世俗は改まり、文徳が修まって武功も伸び広がった。それゆえ、東方の青丘や南方の丹穴の地をも、すべて版図に組み入れさせ、西北の龍砂・鳥塞の地域をも、ついに天子の声威と教化に従わせたのである。"],
- ["英髦稽首","英髦稽首して、朝宗の羽儀を顕わし、賝を輸し贄を奉じて、懐柔の盛徳を表わす。","諸国の俊英たちは稽首して、天子に朝見し帰服する儀容を示し、珍宝を献じ礼物を奉じて、遠方の者を懐け従わせる（大唐の）盛んな徳をあらわしている。"],
- ["然則八荒","然らば則ち八荒の内外は、前史具さに書すも、五竺の方維は、由来述ぶること罕なり。豈に時に非ずや。","そうであるならば、八方の果ての内外については、前代の史書が詳しく書き記しているが、五天竺の四方四維については、これまで記述されることがまれであった。これは（それを記すべき）時に至っていなかったからではなかろうか。"],
- ["雖復周穆","復た周穆西のかた狩して、止だ昆丘に届り、舜禹南のかた巡りて、滄海を踰えず、秦皇野を画して、近く臨洮に袤り、漢武疆を封じて、関を鉄路に開くと雖も、","また、周の穆王が西方に巡狩しても、崑崙の丘に至っただけであり、舜や禹が南方に巡狩しても、滄海を越えることはなかった。秦の始皇帝が国土を区画しても、近く臨洮にまで延び広がったにすぎず、漢の武帝が疆域を定めても、鉄路に関所を開いたにとどまる。"],
- ["厥斯以降","厥れ斯れより以降、遐かに討ぬること未だ詳らかならず。所以に崆峒の問道は、局りて酒泉の地に在り、崑崙の謁聖は、実に惟れ玉門の側なり。","それ以降も、遠方を探訪することは詳らかでなかった。それゆえ崆峒に道を問うといっても、酒泉の地に限られ、崑崙に聖人を拝するといっても、実は玉門関のかたわらにすぎなかったのである。"]];
+const KD_KUNJA_SHIJIA=[];
 function kdFillKunJaShijia(){if(!state.kd||state.kd._kunjaShijia1021)return false;const chars=passageChars().join("");if(!chars.includes("惟夫大唐之有天下"))return false;
  let n=0;state.kd.segs.forEach(sg=>sg.sents.forEach(s=>{const head=chars.slice(s.a,s.a+4);const m=KD_KUNJA_SHIJIA.find(x=>x[0]===head);if(!m)return;
   if(!(s.kun||"").trim()){s.kun=m[1];n++;}if(!(s.ja||"").trim()){s.ja=m[2];n++;}}));
  state.kd._kunjaShijia1021=1;save();return n;}
 
-/* ---------- ふりがな：｜漢字《かな》 記法；講義版語釋（jdef） ---------- */
-const KD_RUBY_SHIJIA=[["惟夫大唐", "｜惟《おもんみ》るに｜夫《そ》れ｜大唐《だいとう》の｜天下《てんか》を｜有《たも》つや、｜将《まさ》に｜四十載《しじゅうさい》ならんとす。｜淳風《じゅんぷう》｜洽《あまね》くして｜澆俗《ぎょうぞく》｜改《あらた》まり、｜文徳《ぶんとく》｜修《おさ》まりて｜武功《ぶこう》｜暢《の》ぶ。｜故《ゆえ》に｜青丘《せいきゅう》・｜丹穴《たんけつ》の｜候《こう》をして、｜並《なら》びに｜堤封《ていほう》に｜入《い》らしめ、｜龍砂《りゅうさ》・｜鳥塞《ちょうさい》の｜区《く》をして、｜聿《ここ》に｜声教《せいきょう》に｜遵《したが》わしむ。", "｜思《おも》うに、｜大唐《だいとう》が｜天下《てんか》を｜保有《ほゆう》してから、まもなく｜四十年《よんじゅうねん》になろうとしている。｜素朴《そぼく》で｜篤実《とくじつ》な｜風俗《ふうぞく》があまねく｜行《ゆ》きわたって｜軽薄《けいはく》な｜世俗《せぞく》は｜改《あらた》まり、｜文徳《ぶんとく》が｜修《おさ》まって｜武功《ぶこう》も｜伸《の》び｜広《ひろ》がった。それゆえ、｜東方《とうほう》の｜青丘《せいきゅう》や｜南方《なんぽう》の｜丹穴《たんけつ》の｜地《ち》をも、すべて｜版図《はんと》に｜組《く》み｜入《い》れさせ、｜西北《せいほく》の｜龍砂《りゅうさ》・｜鳥塞《ちょうさい》の｜地域《ちいき》をも、ついに｜天子《てんし》の｜声威《せいい》と｜教化《きょうか》に｜従《したが》わせたのである。"], ["英髦稽首", "｜英髦《えいぼう》｜稽首《けいしゅ》して、｜朝宗《ちょうそう》の｜羽儀《うぎ》を｜顕《あら》わし、｜賝《ちん》を｜輸《ゆ》し｜贄《し》を｜奉《ほう》じて、｜懐柔《かいじゅう》の｜盛徳《せいとく》を｜表《あら》わす。", "｜諸国《しょこく》の｜俊英《しゅんえい》たちは｜稽首《けいしゅ》して、｜天子《てんし》に｜朝見《ちょうけん》し｜帰服《きふく》する｜儀容《ぎよう》を｜示《しめ》し、｜珍宝《ちんぽう》を｜献《けん》じ｜礼物《れいもつ》を｜奉《ほう》じて、｜遠方《えんぽう》の｜者《もの》を｜懐《なつ》け｜従《したが》わせる（｜大唐《だいとう》の）｜盛《さか》んな｜徳《とく》をあらわしている。"], ["然則八荒", "｜然《しか》らば｜則《すなわ》ち｜八荒《はっこう》の｜内外《ないがい》は、｜前史《ぜんし》｜具《つぶ》さに｜書《しょ》すも、｜五竺《ごじく》の｜方維《ほうい》は、｜由来《ゆらい》｜述《の》ぶること｜罕《まれ》なり。｜豈《あ》に｜時《とき》に｜非《あら》ずや。", "そうであるならば、｜八方《はっぽう》の｜果《は》ての｜内外《ないがい》については、｜前代《ぜんだい》の｜史書《ししょ》が｜詳《くわ》しく｜書《か》き｜記《しる》しているが、｜五天竺《ごてんじく》の｜四方《しほう》｜四維《しい》については、これまで｜記述《きじゅつ》されることがまれであった。これは（それを｜記《しる》すべき）｜時《とき》に｜至《いた》っていなかったからではなかろうか。"], ["雖復周穆", "｜復《ま》た｜周穆《しゅうぼく》｜西《にし》のかた｜狩《かり》して、｜止《た》だ｜昆丘《こんきゅう》に｜届《いた》り、｜舜禹《しゅんう》｜南《みなみ》のかた｜巡《めぐ》りて、｜滄海《そうかい》を｜踰《こ》えず、｜秦皇《しんこう》｜野《や》を｜画《かく》して、｜近《ちか》く｜臨洮《りんとう》に｜袤《わた》り、｜漢武《かんぶ》｜疆《さかい》を｜封《ほう》じて、｜関《かん》を｜鉄路《てつろ》に｜開《ひら》くと｜雖《いえど》も、", "また、｜周《しゅう》の｜穆王《ぼくおう》が｜西方《せいほう》に｜巡狩《じゅんしゅ》しても、｜崑崙《こんろん》の｜丘《おか》に｜至《いた》っただけであり、｜舜《しゅん》や｜禹《う》が｜南方《なんぽう》に｜巡狩《じゅんしゅ》しても、｜滄海《そうかい》を｜越《こ》えることはなかった。｜秦《しん》の｜始皇帝《しこうてい》が｜国土《こくど》を｜区画《くかく》しても、その｜西端《せいたん》は｜臨洮《りんとう》｜付近《ふきん》にとどまり、｜漢《かん》の｜武帝《ぶてい》が｜疆域《きょういき》を｜広《ひろ》げても、｜鉄門関《てつもんかん》へ｜通《つう》じる｜道《みち》に｜関所《せきしょ》を｜開《ひら》いたにとどまる。"], ["厥斯以降", "｜厥《そ》れ｜斯《こ》れより｜以降《いこう》、｜遐《はる》かに｜討《たず》ぬること｜未《いま》だ｜詳《つまび》らかならず。｜所以《ゆえ》に｜崆峒《こうどう》の｜問道《もんどう》は、｜局《かぎ》りて｜酒泉《しゅせん》の｜地《ち》に｜在《あ》り、｜崑崙《こんろん》の｜謁聖《えっせい》は、｜実《じつ》に｜惟《こ》れ｜玉門《ぎょくもん》の｜側《かたわら》なり。", "それ｜以降《いこう》も、｜遠方《えんぽう》を｜探訪《たんぼう》することは｜詳《つまび》らかでなかった。それゆえ｜崆峒《こうどう》に｜道《みち》を｜問《と》うといっても、｜酒泉《しゅせん》の｜地《ち》に｜限《かぎ》られ、｜崑崙《こんろん》に｜聖人《せいじん》を｜拝《はい》するといっても、｜実《じつ》は｜玉門関《ぎょくもんかん》のかたわらにすぎなかったのである。"]];
-const KD_JDEF_SHIJIA={"青丘": "伝説上の東方の山・国の名。ここでは東方の遠隔の地を指す。『山海經』南山經「又東三百里，曰青丘之山，其陽多玉，其陰多青雘。」", "淳風": "素朴で篤実な風俗。『抱朴子』外篇・逸民「淳風足以濯百代之穢，高操足以激將來之濁。」", "澆俗": "軽薄な世俗の風。『隋天台智者大師別傳』「紹像法之將墜，以救昏蒙；顯慧日之重光，用拯澆俗。」", "丹穴": "伝説上の南方の山。日の真下にあたる南方の地を指す。『山海經』南山經「丹穴之山……有鳥焉，其狀如雞，五采而文，名曰鳳皇。」『爾雅』釋地「岠齊州以南戴日為丹穴。」『淮南子』「丹穴、太蒙」高誘注「丹穴，南方當日之下也；太蒙，西方日所入處也。」", "堤封": "「提封」に同じ。国家の疆域、版図。『漢書』刑法志「天子畿方千里，提封百萬井。」『隋書』卷五十九「日月之所臨，風雨之所至，圓首方足，禀氣食芼，莫不盡入提封，皆為臣妾。」", "龍砂": "「龍沙」に同じ。白龍堆の沙漠。転じて西北の辺塞を指す。『後漢書』班超傳贊「坦步蔥雪，咫尺龍沙。」李賢注「蔥嶺、雪山，白龍堆沙漠也。」", "雁塞": "大正藏は「雁塞」に作る（脚注参照）。雁塞（鴈塞）は北方の辺塞を指す。『初學記』卷三十引劉澄之『梁州記』「梁州縣界有鴈塞山，傳云此山有大池水，鴈棲集之，故因名曰鴈塞。」楊炯『原州百泉縣令李君神道碑』「山連雁塞，野接龍坰。」", "聿遵": "遵い従う。「聿」は発語の辞。", "聲教": "天子の声威と教化。『尚書』禹貢「東漸于海，西被于流沙，朔南暨聲教，訖于四海。」", "英髦": "才知にすぐれた俊英の士。劉孝標『辯命論』（『文選』卷五十四）「昔之玉質金相，英髦秀達。」", "稽首": "頭を地につける最も丁重な拝礼。『尚書』舜典「禹拜稽首，讓于稷契暨皋陶。」", "朝宗": "諸侯が天子に朝見すること。転じて、四方の者が帰服すること。『周禮』春官・大宗伯「春見曰朝，夏見曰宗。」『尚書』禹貢「江漢朝宗于海。」", "羽儀": "①天子の儀仗。②世の模範となる威儀。『周易』漸卦上九「鴻漸于陸，其羽可用為儀。」『新唐書』張薦傳「真卿逮事四朝，為國元老，忠直孝友，羽儀王室。」", "輸賝": "珍宝を献上すること。「賝」は「琛」に同じ。徐陵『報尹義尚書』「則輸賝王府，屈膝閶門。」", "奉贄": "贄（礼物）を奉じて拝謁すること。徐幹『中論』譴交「古之君子，因王事之閒，則奉贄以見其同僚。」", "懷柔": "恩徳によって遠方の者を懐け帰服させること。『三國志』吳書・吳主傳「懷柔百越。」『梁書』武帝紀「懷柔萬姓，經營四方。」", "盛德": "盛大な徳。『周易』繫辭上「日新之謂盛德。」『梁書』武帝紀「盛德昭於景緯，至義感於鬼神。」", "八荒": "八方の遠い果て。天下。賈誼『過秦論』「有席卷天下，包舉宇內，囊括四海之意，并吞八荒之心。」", "五竺": "五天竺。東・西・南・北・中の五インドの総称。『妙法蓮華經文句』「五天竺地最為第一。」", "方維": "四方（東・西・南・北）と四維（東南・西南・西北・東北）。『十住毘婆沙論』卷五「十方，名四方、四維、上下。」(T26, no. 1521, p. 45b2)『中阿含經』卷五十三「或上或下，或至方維。」(T01, no. 26, p. 760c25)", "周穆西狩止屆昆丘": "周の穆王の西征。『竹書紀年』「穆王十七年，西征，至昆侖丘，見西王母。」『穆天子傳』卷二「吉日辛酉，天子升於崑崙之丘，以觀黃帝之宮。」", "舜禹南巡不踰滄海": "舜・禹の巡狩。『史記』五帝本紀「踐帝位三十九年，南巡狩，崩於蒼梧之野。葬於江南九疑，是為零陵。」『史記』夏本紀「帝禹東巡狩，至于會稽而崩。」滄海は東海の称。『博物志』「東海之別有渤澥，故東海共稱渤海，又通謂之滄海。」", "秦皇畫野近袤臨洮": "畫野は境域を区画すること。『漢書』地理志「方制萬里，畫野分州。」臨洮は秦長城の西端。『史記』蒙恬列傳「因地形，用制險塞，起臨洮，至遼東，延袤萬餘里。」", "封疆": "境界、疆域。『史記』商君列傳「為田開阡陌封疆，而賦稅平。」『周禮』地官・大司徒「諸公之地，封疆方五百里。」", "崆峒問道": "黄帝が崆峒（空同）山に広成子を訪ねて道を問うた故事。『莊子』在宥「黃帝立為天子十九年，令行天下，聞廣成子在於空同之上，故往見之。」", "崑崙": "『史記』大宛列傳「漢使窮河源，河源出于窴，其山多玉石，采來，天子案古圖書，名河所出山曰崑崙云。」『莊子』天地「黃帝遊乎赤水之北，登乎崑崙之丘。」", "玉門": "玉門関。漢の武帝の置。西域への門戸。『漢書』西域傳「東則接漢，阸以玉門、陽關，西則限以蔥嶺。」"};
+const KD_RUBY_SHIJIA=[];
+const KD_JDEF_SHIJIA={};
 const KD_RB=/｜([^｜《》\n]+)《([^《》\n]+)》|([\u3005\u3400-\u9fff\uf900-\ufaff\u{20000}-\u{3ffff}]+)《([^《》\n]+)》/gu;
 function kdHasRuby(t){return /《[^《》\n]+》/.test(t||"");}
 function kdRubyStrip(t){return (t||"").replace(KD_RB,(m,a,b,c,d)=>a||c).replace(/｜/g,"");}
@@ -3217,7 +3089,6 @@ function kdFillRubyShijia(){if(!state.kd||state.kd._rubyShijia1021)return 0;cons
  state.kd.segs.forEach(sg=>sg.notes.forEach(o=>{const g=KD_JDEF_SHIJIA[o.term];if(g&&!(o.jdef||"").trim()){o.jdef=g;n++;}}));
  state.kd._rubyShijia1021=1;save();return n;}
 
-// 10/21：「關開鐵路」譯作「通往鐵門關的道路」（推定），改第4句白話與日譯的後半；鐵路語釋註明推定（一次性）
 function kdTiemenFix1021(){if(!state.kd||state.kd._tiemenTr1021)return 0;const chars=passageChars().join("");if(!chars.includes("關開鐵路"))return 0;let n=0;
  const ZH="秦始皇劃定疆界，其西部疆域延伸至臨洮附近；漢武帝開拓疆土，在通往鐵門關的道路上設置關隘。",JA="｜秦《しん》の｜始皇帝《しこうてい》が｜国土《こくど》を｜区画《くかく》しても、その｜西端《せいたん》は｜臨洮《りんとう》｜付近《ふきん》にとどまり、｜漢《かん》の｜武帝《ぶてい》が｜疆域《きょういき》を｜広《ひろ》げても、｜鉄門関《てつもんかん》へ｜通《つう》じる｜道《みち》に｜関所《せきしょ》を｜開《ひら》いたにとどまる。",JD="「鉄路」は鉄門関に通じる道を指す可能性があるが、確証はない（推定）。鉄門関は唐代、焉耆の西に置かれた関（今の新疆庫爾勒市の北）。";
  state.kd.segs.forEach(sg=>{sg.sents.forEach(s=>{if(chars.slice(s.a,s.a+4)!=="雖復周穆")return;
@@ -3227,46 +3098,36 @@ function kdTiemenFix1021(){if(!state.kd||state.kd._tiemenTr1021)return 0;const c
  if(!state.kd.segs.some(sg=>sg.notes.some(o=>/鐵路/.test(o.term||"")))){const a=chars.indexOf("鐵路");if(a>=0){const sg=state.kd.segs.find(g=>{const [A,B]=kdSegRange(g);return a>=A&&a<B;});if(sg){sg.notes.push({id:"n"+Date.now(),a,b:a+2,term:"鐵路",def:"",cites:[],jdef:JD});n++;}}}
  state.kd._tiemenTr1021=1;save();return n;}
 
-// 10/21（第二版）：使用者定稿的訓讀・譯（含標題句）；鐵路語釋與地圖鐵門關改為中亞鐵門（一次性）
-const KD_V1021B=[["釋迦方志", "｜釈迦方志《しゃかほうし》｜序《じょ》\n｜終南《しゅうなん》｜太一山《たいいつさん》の｜釈氏《しゃくし》｜道宣《どうせん》｜撰《せん》す。", "『｜釈迦方志《しゃかほうし》』｜序《じょ》\n｜終南山《しゅうなんざん》｜太一山《たいいつさん》の｜僧《そう》、｜道宣《どうせん》｜撰《せん》。"], ["惟夫大唐", "｜惟《おも》うに｜夫《そ》れ｜大唐《だいとう》の｜天下《てんか》を｜有《たも》つや、｜将《まさ》に｜四十載《しじゅうさい》ならんとす。｜淳風《じゅんぷう》｜洽《あまね》くして｜澆俗《ぎょうぞく》｜改《あらた》まり、｜文徳《ぶんとく》｜修《おさ》まりて｜武功《ぶこう》｜暢《の》ぶ。｜故《ゆえ》に｜青丘《せいきゅう》・｜丹穴《たんけつ》の｜候《こう》をして、｜並《なら》びに｜堤封《ていほう》に｜入《い》らしめ、｜龍砂《りゅうさ》・｜鳥塞《ちょうさい》の｜区《く》をして、｜聿《ここ》に｜声教《せいきょう》に｜遵《したが》わしむ。", "｜思《おも》うに、｜大唐《だいとう》が｜天下《てんか》を｜統治《とうち》するようになってから、まもなく｜四十年《よんじゅうねん》になろうとしている。｜淳厚《じゅんこう》な｜風俗《ふうぞく》が｜広《ひろ》く｜行《ゆ》きわたり、｜軽薄《けいはく》な｜風俗《ふうぞく》は｜改《あらた》まり、｜文徳《ぶんとく》が｜修《おさ》められ、｜武功《ぶこう》も｜広《ひろ》く｜伸《の》びた。それゆえ、｜東方《とうほう》の｜青丘《せいきゅう》や｜南方《なんぽう》の｜丹穴《たんけつ》などの｜遠方《えんぽう》の｜地《ち》までも｜大唐《だいとう》の｜版図《はんと》に｜組《く》み｜入《い》れ、｜西方《せいほう》の｜龍砂《りゅうさ》や｜北方《ほっぽう》の｜鳥塞《ちょうさい》などの｜辺境《へんきょう》｜地域《ちいき》にも、｜大唐《だいとう》の｜声威《せいい》と｜教化《きょうか》に｜従《したが》わせたのである。"], ["英髦稽首", "｜英髦《えいぼう》｜稽首《けいしゅ》して、｜朝宗《ちょうそう》の｜羽儀《うぎ》を｜顕《あら》わし、｜賝《ちん》を｜輸《ゆ》し｜贄《し》を｜奉《ほう》じて、｜懐柔《かいじゅう》の｜盛徳《せいとく》を｜表《あら》わす。", "｜諸国《しょこく》の｜俊英《しゅんえい》たちは｜稽首《けいしゅ》の｜礼《れい》を｜行《おこな》い、｜天子《てんし》に｜朝見《ちょうけん》する｜際《さい》の｜威儀《いぎ》を｜示《しめ》し、｜珍宝《ちんぽう》や｜礼物《れいもつ》を｜献上《けんじょう》することによって、｜遠方《えんぽう》の｜人々《ひとびと》を｜懐柔《かいじゅう》する｜大唐《だいとう》の｜盛《さか》んな｜徳《とく》を｜表《あらわ》した。"], ["然則八荒", "｜然《しか》らば｜則《すなわ》ち｜八荒《はっこう》の｜内外《ないがい》は、｜前史《ぜんし》｜具《つぶ》さに｜書《しょ》すも、｜五竺《ごじく》の｜方維《ほうい》は、｜由来《ゆらい》｜述《の》ぶること｜罕《まれ》なり。｜豈《あ》に｜時《とき》に｜非《あら》ずや。", "そうであるならば、｜八方《はっぽう》の｜遠方《えんぽう》｜地域《ちいき》とその｜内外《ないがい》については、｜前代《ぜんだい》の｜史書《ししょ》に｜詳《くわ》しく｜記《しる》されているものの、｜五天竺《ごてんじく》の｜地理的《ちりてき》｜位置《いち》や｜地域《ちいき》の｜広《ひろ》がりについては、｜古来《こらい》ほとんど｜述《の》べられてこなかった。これもまた、｜時代《じだい》の｜事情《じじょう》によるものではなかろうか。"], ["雖復周穆", "｜復《ま》た｜周穆《しゅうぼく》｜西《にし》のかた｜狩《かり》して、｜止《た》だ｜昆丘《こんきゅう》に｜届《いた》り、｜舜禹《しゅんう》｜南《みなみ》のかた｜巡《めぐ》りて、｜滄海《そうかい》を｜踰《こ》えず、｜秦皇《しんこう》｜野《や》を｜画《かく》して、｜近《ちか》く｜臨洮《りんとう》に｜袤《わた》り、｜漢武《かんぶ》｜疆《さかい》を｜封《ほう》じて、｜関《かん》を｜鉄路《てつろ》に｜開《ひら》くと｜雖《いえど》も、", "｜周《しゅう》の｜穆王《ぼくおう》が｜西方《せいほう》に｜巡狩《じゅんしゅ》しても、｜崑崙《こんろん》の｜丘《おか》に｜至《いた》るにとどまり、｜舜《しゅん》や｜禹《う》が｜南方《なんぽう》を｜巡《めぐ》っても、｜滄海《そうかい》を｜越《こ》えることはなかった。｜秦《しん》の｜始皇帝《しこうてい》が｜国土《こくど》を｜区画《くかく》しても、その｜西端《せいたん》は｜臨洮《りんとう》｜付近《ふきん》にとどまり、｜漢《かん》の｜武帝《ぶてい》が｜疆域《きょういき》を｜定《さだ》め、｜鉄門関《てつもんかん》へ｜通《つう》じる｜道《みち》に｜関所《せきしょ》を｜開《ひら》いたとしても、"], ["厥斯以降", "｜厥《そ》れ｜斯《こ》れより｜以降《いこう》、｜遐《とお》く｜討《たず》ぬること｜未《いま》だ｜詳《つまび》らかならず。｜所以《ゆえ》に｜崆峒《こうどう》に｜道《みち》を｜問《と》うは、｜局《かぎ》りて｜酒泉《しゅせん》の｜地《ち》に｜在《あ》り、｜崑崙《こんろん》にて｜聖《せい》に｜謁《えっ》するは、｜実《じつ》に｜惟《こ》れ｜玉門《ぎょくもん》の｜側《かたわら》なり。", "それ｜以降《いこう》、｜遠方《えんぽう》の｜地域《ちいき》についての｜探求《たんきゅう》や｜考察《こうさつ》は、なお｜十分《じゅうぶん》には｜詳《つまび》らかにされていなかった。\nそれゆえ、｜崆峒山《こうどうさん》で｜道《みち》を｜問《と》うたという｜伝承《でんしょう》も｜酒泉《しゅせん》の｜地《ち》に｜限《かぎ》られ、｜崑崙山《こんろんさん》で｜聖者《せいじゃ》に｜謁見《えっけん》したという｜伝承《でんしょう》も、｜実際《じっさい》には｜玉門関《ぎょくもんかん》の｜近辺《きんぺん》にすぎなかったのである。"]];
-const KD_V1021B_JD="「鉄門関へ通じる道」と推定するが、確証はない。『釈迦方志』巻上「東南山行三百餘里至鐵門關。左右石壁其色如鐵。鐵固門扉懸鈴尚在。即漢塞之西門也。」(T51, no. 2088, p. 953a17-18)。この鉄門関は覩貨邏（吐火羅）の北境にあたり、玄奘の通過した鉄門（今のウズベキスタン南部、デルベント付近の峡谷）である。序文後段にも「定遠之開鐵門」(T51, no. 2088, p. 948a18) と見え、定遠侯班超の事績とされる。";
-const DM_TIEMEN2={ll:[38.21,66.97],src:"Wikipedia: Iron Gate (Central Asia) 38.211, 66.973（今烏茲別克 Derbent 附近峽谷）",now:"鐵門（今烏茲別克南部 Derbent 附近峽谷）",note:"「漢武封疆，關開鐵路」の「鐵路」を鉄門関へ通じる道と推定（確証なし）。『釋迦方志』卷上「東南山行三百餘里至鐵門關。左右石壁其色如鐵……即漢塞之西門也」（T51, no. 2088, p. 953a17-18）の鐵門關は覩貨邏の北境、玄奘の通過した鉄門（今ウズベキスタン南部、デルベント付近）。序文後段「定遠之開鐵門」（p. 948a18）。"};
+const KD_V1021B=[];
+const KD_V1021B_JD="";
+const DM_TIEMEN2={ll:[0,0],src:"",now:"",note:""};
 function kdV1021b(){if(!state.kd||state.kd._v1021b)return 0;const chars=passageChars().join("");if(!chars.includes("惟夫大唐之有天下"))return 0;let n=0;
  state.kd.segs.forEach(sg=>{sg.sents.forEach(s=>{const m=KD_V1021B.find(x=>chars.slice(s.a,s.a+4)===x[0]);if(!m)return;s.kun=m[1];s.ja=m[2];n++;});
   sg.notes.forEach(o=>{if(/鐵路|鉄路/.test(o.term||"")){o.jdef=KD_V1021B_JD;delete o.jdefH;n++;}});});
  state.kd._v1021b=1;save();return n;}
 function dmAddZhongnan(){if(!Array.isArray(state.places)||state._dmZhongnan1021)return;state._dmZhongnan1021=1;
- const add=[
-  {id:"zhongnan",n:"終南太一山",side:"r",c:"sure",ll:[33.98,109.0],now:"終南山（秦嶺北麓）；太一山＝太乙山，今西安市長安區翠華山一帶",note:"撰者題署「終南太一山釋氏道宣撰」。道宣長年居終南山（豐德寺、淨業寺等）弘律，世稱南山律師、南山律宗。",a:5,b:10,src:"估計：翠華山（太乙山）一帶，約 33.98, 109.00（CHGIS 無此條）"},
-  {id:"ximing",n:"西明寺",side:"l",c:"approx",ll:[34.25,108.925],now:"唐長安延康坊西明寺（今西安市西南，白廟村一帶遺址）",note:"顯慶三年（658）落成，道宣奉敕任上座，玄奘亦曾入居。《釋迦方志》撰於永徽元年（650），早於西明寺落成；道宣晚年著述多在此寺與終南山之間。",a:13,b:15,src:"估計：延康坊西明寺遺址（考古發掘於今西安白廟村一帶），未精確測定"}];
+ const add=[];
  add.forEach(x=>{if(!state.places.some(p=>p.id===x.id||p.n===x.n))state.places.push(x);});}
 function dmV1021b(){if(!Array.isArray(state.places)||state._dmTiemen1021b)return;state._dmTiemen1021b=1;const t=state.places.find(x=>x.id==="tielu"||x.n==="鐵門關");
  if(t)Object.assign(t,{n:"鐵門",c:"approx",ll:DM_TIEMEN2.ll,src:DM_TIEMEN2.src,now:DM_TIEMEN2.now,note:DM_TIEMEN2.note});save();}
 
-// 10/21：ふりがな修正（具→つぶ・さに／狩→かり）（一次性，只改這兩處）
 function kdRubyFix1021(){if(!state.kd||state.kd._rubyFix1021)return 0;let n=0;const F=[["｜具《つぶさ》さに","｜具《つぶ》さに"],["｜狩《しゅ》して","｜狩《かり》して"]];
  state.kd.segs.forEach(sg=>sg.sents.forEach(s=>{["kun","ja"].forEach(f=>{let v=s[f]||"";F.forEach(([a,b])=>{if(v.includes(a)){v=v.split(a).join(b);n++;}});s[f]=v;});}));
  state.kd._rubyFix1021=1;save();return n;}
 
-// 10/21：《釋迦方志》序的段落（惟夫／然則／雖復 各起一段；一次性）
 function kdParaShijia(){if(!state.kd||state.kd._paraShijia)return;const chars=passageChars().join("");if(!chars.includes("惟夫大唐之有天下"))return;
  state.kd.segs.forEach(sg=>sg.sents.forEach(s=>{if(["惟夫大唐","然則八荒","雖復周穆"].includes(chars.slice(s.a,s.a+4)))s.pbrk=true;}));state.kd._paraShijia=1;save();}
 
-// 10/21：段落改為兩段（標題＋惟夫…盛德／然則…玉門之側）；譯文第二段內不再分行（一次性）
 function kdPara2Shijia(){if(!state.kd||state.kd._para2Shijia)return;const chars=passageChars().join("");if(!chars.includes("惟夫大唐之有天下"))return;
  state.kd.segs.forEach(sg=>sg.sents.forEach(s=>{const h=chars.slice(s.a,s.a+4);s.pbrk=(h==="惟夫大唐"||h==="然則八荒");if(h!=="釋迦方志"){["kun","ja"].forEach(f=>{if(s[f])s[f]=s[f].replace(/\n/g,"");});}}));
  state.kd._para2Shijia=1;save();}
 function kdRender(){if(!kdOn)return;kdInit();const root=document.getElementById("kd");const chars=passageChars();const {cells}=kdLayout();
- // 《釋迦方志》序：第一次打開時自動帶入白話譯文（只帶一次，之後以你改過的為準）
- // 原文裡只要有這一段就帶入；只填還空著的白話格，不蓋掉你寫過的
- // 依提供的分句：一行原文＝一句（照這個重新切句），並填入白話
  if(!state.kd._zhShijia3&&passageChars().join("").includes("惟夫大唐之有天下")){state.kd._zhShijia3=1;kdPush();const msg=kdImport(KD_ZH_SHIJIA,"zh");kdToast("《釋迦方志》序白話："+msg);return;}
  {const n=(kdFillKunJaShijia()||0)+(kdFillRubyShijia()||0);const t=kdTiemenFix1021();const v2=kdV1021b();kdParaShijia();kdPara2Shijia();kdRubyFix1021();if(v2)setTimeout(()=>kdToast("已換成 10/21 定稿的訓讀・譯（含標題句）"),1800);if(t)setTimeout(()=>kdToast("已更新第4句白話・日譯（鐵門關之路，推定）"),1200);if(n)setTimeout(()=>kdToast("已帶入 10/21 講義的訓讀・譯（含ふりがな）與講義版語釋"),50);}
  const coll=kdCollNotes();kdAllNotes();const segs=state.kd.segs;if(kdCur>=segs.length)kdCur=segs.length-1;
  const nav=segs.map((sg,i)=>{const [a,b]=kdSegRange(sg);const head=chars.slice(a,Math.min(b,a+8)).join("");return `<button class="kdnav${i===kdCur?" on":""}" data-si="${i}"><b>${esc(sg.title)}</b><span>${esc(head)}…</span></button>`;}).join("");
  let main="";
  segs.forEach((sg,si)=>{const [A,B]=kdSegRange(sg);
-  // 原文行：逐字，後接校勘號（朱）與語釋號（藍）
   const endAt={};sg.notes.forEach(o=>{(endAt[o.b-1]=endAt[o.b-1]||[]).push(o);});
   let line="";let inSeg=false;
   for(let i=0;i<cells.length;i++){const c=cells[i];if(c.r>=0){inSeg=c.r>=A&&c.r<B;if(!inSeg)continue;
@@ -3290,7 +3151,6 @@ function kdRender(){if(!kdOn)return;kdInit();const root=document.getElementById(
    <div class="kgrid"><div class="khead"><span>原文</span><span>訓讀</span><span>譯</span><span>白話</span></div>${rows}</div>
    ${cl?`<details class="kcoll"${coll.list.length<60?" open":""}><summary>校勘（${coll.list.filter(o=>o.r>=A&&o.r<B).length}）</summary><ol>${cl}</ol></details>`:""}
   </section>`;});
- // 右欄：目前段落的語釋
  const sg=segs[kdCur];const notes=sg.notes.slice().sort((x,y)=>x.a-y.a);
  const side=notes.length?notes.map(o=>{const cites=(o.cites||[]).map((c,ci)=>{const lk=kdCbetaLink(c.ref);return `<div class="kcite" data-ci="${ci}">
     <textarea data-cf="q" rows="2" placeholder="引文：『書名』卷「……」">${esc(c.q)}</textarea>
@@ -3319,7 +3179,6 @@ function kdRender(){if(!kdOn)return;kdInit();const root=document.getElementById(
  root.querySelectorAll("textarea").forEach(kdGrow);kdBind(root);kdBindImgs(root);kdBindRich(root);
  root.querySelectorAll(".kline").forEach(l=>l.ondblclick=e=>{if(e.target.closest("sup"))return;window.getSelection().removeAllRanges();kdEditSeg(+l.dataset.si);});}
 
-/* ---------- 訓讀頁：複製整份翻譯（含語釋），純文字＋HTML（貼到 Word 保留粗體與標題） ---------- */
 function kdSrcText(a,b){const {cells}=kdLayout();let t="",on=false;for(const c of cells){if(c.r>=0){on=c.r>=a&&c.r<b;if(on)t+=c.ch;}else if(on&&c.ch!=="\n"&&c.ch.trim())t+=c.ch;}return t;}
 function kdSrcMarked(a,b,withColl,coll){const {cells}=kdLayout();const ends={};kdAllNotes().forEach(({o})=>{if(o.a>=a&&o.a<b)(ends[o.b-1]=ends[o.b-1]||[]).push(o._n);});
  let t="",on=false;for(const c of cells){if(c.ch==="\n"){if(on&&t&&!t.endsWith("\n"))t+="\n";continue;}if(c.r>=0){on=c.r>=a&&c.r<b;if(!on)continue;t+=c.ch;if(withColl&&coll.byR[c.r])t+="〔"+coll.byR[c.r].n+"〕";(ends[c.r]||[]).forEach(n=>t+="("+n+")");}else if(on&&c.ch!=="\n"&&c.ch.trim())t+=c.ch;}return t;}
@@ -3360,7 +3219,6 @@ function kdCopyOpen(){const d=document.getElementById("kdCopyDlg");try{const p=J
   if(!ok){const ta=document.getElementById("kdCopyPrev");ta.focus();ta.select();try{ok=document.execCommand("copy");}catch(e){}}
   msg.textContent=ok?"已複製，可直接貼到 Word":"瀏覽器不讓自動複製：預覽框已全選，請按 ⌘C";};
  d.showModal();}
-// 講義版語釋：可加底線／粗體的編輯框；只保留 <u> <b> <br>
 function kdCleanRich(el){const out=[];const walk=(n,u,b)=>{n.childNodes.forEach(c=>{if(c.nodeType===3){let t=esc(c.nodeValue);if(!t)return;if(b)t="<b>"+t+"</b>";if(u)t="<u>"+t+"</u>";out.push(t);return;}if(c.nodeType!==1)return;
   const tg=c.tagName,st=c.getAttribute("style")||"";const uu=u||tg==="U"||/underline/.test(st),bb=b||tg==="B"||tg==="STRONG"||/font-weight:\s*(bold|[6-9]00)/.test(st);
   if(tg==="BR"){out.push("<br>");return;}const blk=/^(DIV|P)$/.test(tg);if(blk&&out.length&&out[out.length-1]!=="<br>")out.push("<br>");walk(c,uu,bb);});};
@@ -3369,11 +3227,9 @@ function kdBindRich(root){root.querySelectorAll("[data-nfh]").forEach(ed=>{const
   ed.addEventListener("input",()=>{const f=kdFindNote(card.dataset.nid);if(!f)return;const h=kdCleanRich(ed);f.o.jdefH=h;f.o.jdef=ed.innerText.replace(/\n{2,}/g,"\n").trim();save();});
   ed.addEventListener("paste",e=>{e.preventDefault();const t=(e.clipboardData||window.clipboardData).getData("text/plain");document.execCommand("insertText",false,t);});});
  root.querySelectorAll(".kfmt button").forEach(b=>{b.onmousedown=e=>e.preventDefault();b.onclick=()=>{const ed=b.closest(".knotecard").querySelector("[data-nfh]");ed.focus();document.execCommand(b.dataset.fmt,false,null);ed.dispatchEvent(new Event("input"));};});}
-// 直接在訓讀・譯格子裡選取複製：純文字帶（かな），HTML 保留ルビ
 document.addEventListener("copy",e=>{const sel=getSelection();if(!sel||sel.isCollapsed)return;const r=sel.getRangeAt(0);
  const inRb=n=>{n=n.nodeType===1?n:n.parentElement;return n&&n.closest&&n.closest(".kruby,.kline,.krow");};
  if(!inRb(r.startContainer)||!inRb(r.endContainer))return;const frag=r.cloneContents();if(!frag.querySelector||!frag.querySelector("ruby, rt")){
-  // 選取範圍在 ruby 內部時 cloneContents 可能只拿到片段，從祖先 ruby 補
   const anc=(r.commonAncestorContainer.nodeType===1?r.commonAncestorContainer:r.commonAncestorContainer.parentElement).closest("ruby");if(!anc)return;}
  const div=document.createElement("div");div.appendChild(frag);
  div.querySelectorAll("rp").forEach(x=>x.remove());
@@ -3415,7 +3271,6 @@ function kdBind(root){
  root.querySelectorAll("sup.kcol").forEach(s=>s.onclick=()=>{const li=[...s.closest(".kseg").querySelectorAll(".kcoll li")].find(l=>l.querySelector(".kjump").dataset.r===s.dataset.r);const d=s.closest(".kseg").querySelector(".kcoll");if(d)d.open=true;if(li){li.scrollIntoView({block:"center",behavior:"smooth"});li.classList.add("hl");setTimeout(()=>li.classList.remove("hl"),1600);}});
  root.querySelectorAll(".kjump").forEach(b=>b.onclick=()=>kdJumpToChar(+b.dataset.r));
  root.querySelectorAll(".kchip.off").forEach(a=>a.onclick=e=>{e.preventDefault();kdSitesDlg();});
- // 選取原文 → 浮動工具列（＋語釋、查詢）
  root.querySelector(".kdmain").addEventListener("mouseup",kdSelPop);root.querySelector(".kdside").addEventListener("mouseup",kdSelPop);}
 function kdSideOnly(){kdRender();}
 function kdFlash(o){document.querySelectorAll("#kd .kc").forEach(el=>{const r=+el.dataset.r;el.classList.toggle("kflash",r>=o.a&&r<o.b);});document.querySelectorAll("#kd .knotecard").forEach(c=>c.classList.toggle("sel",c.dataset.nid===o.id));}
@@ -3424,7 +3279,6 @@ function kdSelPop(e){const pop=document.getElementById("kdPop");setTimeout(()=>{
   else if(sel&&!sel.isCollapsed){txt=sel.toString();range=sel.getRangeAt(0);}
   txt=txt.replace(/\s+/g,"").replace(/[\(（]\d+[\)）]/g,"").replace(/\d+/g,"");
   if(!txt||txt.length>40){pop.hidden=true;return;}
-  // 原文行裡的選取 → 算出字序範圍
   let rr=null;if(range){const line=range.commonAncestorContainer.nodeType===1?range.commonAncestorContainer:range.commonAncestorContainer.parentElement;const ln=line&&line.closest(".kline,.ksrc");
    if(ln){const sp=[...ln.querySelectorAll("[data-r]")].filter(s=>range.intersectsNode(s)&&!s.matches("sup"));if(sp.length){const rs=sp.map(s=>+s.dataset.r);rr=[Math.min(...rs),Math.max(...rs)+1];}}}
   const q=rr?passageChars().slice(rr[0],rr[1]).join(""):txt;
@@ -3453,9 +3307,7 @@ function kdSetOn(on){kdOn=on;document.body.classList.toggle("kdmode",on);documen
 try{localStorage.setItem("bikan_ws","dk");}catch(e){}   /* 分享版：只有對勘工作區 */
 
 
-/* ---------- MDict（.mdx）讀取：只讀檔頭與索引，正文用到才讀那一塊；不連網 ---------- */
 const MDX=(()=>{
- // RIPEMD-128（MDX 索引解密用）
  function ripemd128(msg){const rol=(x,n)=>(x<<n)|(x>>>(32-n));
   const f=[(x,y,z)=>x^y^z,(x,y,z)=>(x&y)|(~x&z),(x,y,z)=>(x|~y)^z,(x,y,z)=>(x&z)|(y&~z)];
   const K1=[0,0x5a827999,0x6ed9eba1,0x8f1bbcdc],K2=[0x50a28be6,0x5c4dd124,0x6d703ef3,0];
@@ -3473,7 +3325,6 @@ const MDX=(()=>{
   const out=new Uint8Array(16);const ov=new DataView(out.buffer);h.forEach((x,i)=>ov.setUint32(i*4,x>>>0,true));return out;}
  function fastDecrypt(data,key){const b=new Uint8Array(data);let prev=0x36;for(let i=0;i<b.length;i++){const c=b[i];let t=((c>>4)|(c<<4))&0xff;t=t^prev^(i&0xff)^key[i%key.length];prev=c;b[i]=t;}return b;}
  async function inflate(u8){const ds=new DecompressionStream("deflate");const w=ds.writable.getWriter();w.write(u8);w.close();return new Uint8Array(await new Response(ds.readable).arrayBuffer());}
- // LZO1X 解壓（舊版 MDX 用）
  function lzo1x(src,outLen){const out=new Uint8Array(outLen);let ip=0,op=0,t=0,mp=0,st;
   const lit=n=>{out.set(src.subarray(ip,ip+n),op);ip+=n;op+=n;};const cp=(from,n)=>{for(let i=0;i<n;i++)out[op++]=out[from+i];};
   const ext=(base)=>{let x=0;while(src[ip]===0){x+=255;ip++;}return x+base+src[ip++];};
@@ -3514,7 +3365,6 @@ const MDX=(()=>{
   const rh=4*N;dv=new DataView((await rd(p,p+rh)).buffer);const nRB=num(dv,0),riSize=num(dv,2*N);p+=rh;
   const ri=new DataView((await rd(p,p+riSize)).buffer);p+=riSize;const rblocks=[];let co=p,uo=0;
   for(let i=0;i<nRB;i++){const c=num(ri,i*2*N),u=num(ri,i*2*N+N);rblocks.push({co,cs:c,uo,us:u});co+=c;uo+=u;}
-  // 依字頭排序的索引（同一字頭可有多條）
   const idx=new Map();keys.forEach((k,i)=>{const n=k.trim();if(!idx.has(n))idx.set(n,[]);idx.get(n).push(i);});
   const cache=new Map();
   async function record(i){const a=offs[i],b=i+1<offs.length?offs[i+1]:Infinity;let lo=0,hi=rblocks.length-1;while(lo<hi){const m=(lo+hi+1)>>1;if(rblocks[m].uo<=a)lo=m;else hi=m-1;}
@@ -3526,7 +3376,6 @@ const MDX=(()=>{
   return {title:(attr("Title")&&!/No HTML code/i.test(attr("Title")))?attr("Title"):file.name.replace(/\.mdx$/i,""),count:keys.length,lookup,prefix,has:w=>idx.has(w)};}
  return {open,ripemd128};})();
 
-/* ---------- 本機辭典（MDX）：檔案留在你的電腦，只記住「去哪裡讀」 ---------- */
 let MDXS=[];   // {name, handle, dict, err}
 (async()=>{try{const hs=await idbGet("mdxHandles");if(Array.isArray(hs))MDXS=hs.map(h=>({name:h.name,handle:h,dict:null}));}catch(e){}})();
 async function mdxSaveList(){try{await idbSet("mdxHandles",MDXS.filter(m=>m.handle).map(m=>m.handle));}catch(e){}}
@@ -3539,7 +3388,6 @@ async function mdxAdd(){
  else{const inp=document.createElement("input");inp.type="file";inp.accept=".mdx";inp.multiple=true;await new Promise(r=>{inp.onchange=r;inp.click();});
   for(const f of inp.files)if(!MDXS.some(m=>m.name===f.name))MDXS.push({name:f.name,file:f,dict:null});}
  await mdxEnsure(true);mdxDlgDraw();}
-// 查一個字詞：先查完整字串，查不到就從頭取較短的字串（孝始孝終→孝始→孝）
 async function mdxQuery(q){await mdxEnsure(false);const out=[];const cs=[...q];
  for(const m of MDXS){if(!m.dict)continue;let hit=null;for(let n=cs.length;n>=1&&!hit;n--){const w=cs.slice(0,n).join("");const r=await m.dict.lookup(w);if(r.length)hit={w,r};}
   if(hit)out.push({name:m.dict.title,w:hit.w,r:hit.r,full:hit.w===q,more:m.dict.prefix(q,8)});}
@@ -3580,8 +3428,7 @@ function mdxDlgOpen(){const dl=document.getElementById("mdxDlg");mdxDlgDraw();dl
  pn.querySelector(".mdxmanage").onclick=mdxDlgOpen;
  const qi=pn.querySelector(".mdxq");qi.addEventListener("keydown",e=>{if(e.key==="Enter"&&!e.isComposing){e.preventDefault();if(qi.value.trim())mdxShow(qi.value.trim());}});})();
 
-/* ---------- 貼上對照譯文：原文一行、譯文一行，自動對到句子 ---------- */
-const KD_ZH_SHIJIA="惟夫大唐之有天下也，將四十載。淳風洽而澆俗改，文德修而武功暢，故使青丘丹穴之候，并入堤封，龍砂雁塞之區，聿遵聲教。\n大唐取得天下以來，已經將近四十年了。淳厚的風尚普遍流布，浮薄的陋俗得到改易，文治教化得到興舉，軍事功業順利推行，因此使得青丘、丹穴的屬地，全部納入大唐的疆界，龍砂、雁塞的區域，全都遵奉大唐的聲威教化。\n英髦稽首，顯朝宗之羽儀，輸賝奉贄，表懷柔之盛德。\n傑出的英才們叩首行禮，展現出朝見歸附的禮儀儀態，進獻珍寶、奉上貢品，彰顯出安撫遠人的盛大恩德。\n然則八荒内外，前史具舒，五竺方維，由來罕述，豈非時也？\n這麼看來，八荒的內外區域，以往的史書都已經詳細記載完畢，五竺的疆土範圍，從古至今很少有相關記述，這難道不是時代條件導致的嗎？\n雖復周穆西狩，止屆昆丘，舜禹南巡，不踰滄海，秦皇畫野，近袤臨洮，漢武封疆，關開鐵路。\n即使周穆到西方巡遊，也只抵達昆丘，舜、禹到南方巡視，行程不越過滄海，秦皇劃分疆域，轄境往近處延伸只到臨洮，漢武開拓疆土，在鐵路開設關口。\n厥斯以降，遐討未詳。所以崆峒問道，局在酒泉之地，崑崙謁聖，實惟玉門之側。\n在此之後，對遙遠地域的考察記述就都不清楚了。因此到崆峒問道的事跡，範圍只局限在酒泉的地界，前往崑崙拜謁聖賢的事，實際就在玉門的近旁。";
+const KD_ZH_SHIJIA="";
 function kdImportOpen(){const dl=document.getElementById("kdImp");dl.querySelector("textarea").value="";dl.querySelector(".kimpmsg").textContent="";dl.showModal();
  dl.querySelector("#kdImpGo").onclick=()=>{const r=kdImport(dl.querySelector("textarea").value,dl.querySelector("select").value);dl.querySelector(".kimpmsg").textContent=r;};
  dl.querySelector("#kdImpClose").onclick=()=>dl.close();}
@@ -3596,7 +3443,6 @@ function kdImport(text,field,keep){kdInit();const chars=passageChars(),n=chars.l
   kdSetSent(loc[0],loc[1],field,tr);pos=loc[1];ok++;}
  save();kdRender();
  return `已填入 ${ok} 句。`+(miss.length?`下面這些原文後面沒有譯文：${miss.join("、")}…`:"")+(ok?"":"（找不到對得上的原文：請確認貼上的原文和底本一致，一行原文、下一行譯文。）");}
-// 讓 [a,b) 正好成為一句（必要時拆句／併句），再填入欄位
 function kdSetSent(a,b,field,val){const segs=state.kd.segs;let sg=segs.find(g=>{const [x,y]=kdSegRange(g);return a>=x&&a<y;});if(!sg)return;
  const [,segEnd]=kdSegRange(sg);b=Math.min(b,segEnd);
  const cut=at=>{const k=sg.sents.findIndex(s=>at>s.a&&at<s.b);if(k<0)return;const s=sg.sents[k];sg.sents.splice(k+1,0,{a:at,b:s.b,kun:"",ja:"",zh:""});s.b=at;};
@@ -3604,7 +3450,6 @@ function kdSetSent(a,b,field,val){const segs=state.kd.segs;let sg=segs.find(g=>{
  const first=sg.sents[ks[0]];for(const k of ks.slice(1)){const s=sg.sents[k];["kun","ja","zh"].forEach(f=>{if(f!==field&&s[f])first[f]=(first[f]||"")+s[f];});}
  sg.sents.splice(ks[0]+1,ks.length-1);first.b=b;first[field]=val;}
 
-/* ---------- 異文分支圖（仿 TRAViz）：各版相同處合成一條，異文處分岔，每條線是一個版本 ---------- */
 const VG_COLS={"剛":"#b3261e","七":"#e0702a","興":"#b88a00","初":"#1f4e9c","趙":"#4a86cf","再":"#6a4bb0","毘":"#0f7a5a","思":"#5a9a2a","磧":"#2a9090","大正":"#6b5d4f"};
 const VG_FALL=["#a0306a","#8a6a00","#3a6a8a","#7a3a1a","#2a7a4a","#5a5aa0"];
 let vgSt={a:0,b:-1,norm:false};
@@ -3615,7 +3460,6 @@ function vgIsBase(s){const x=SIGS.find(z=>z[0]===s);return s==="大正"||!!(x&&/
 function vgSentences(){const drop=/[。，、；：？！「」『』（）()\[\]《》〈〉…—·\s0-9]/,stop=/[。！？；]/;const out=[];let n=0,st=0,txt="";
  for(const ch of state.passage){if(stop.test(ch)){if(n>st)out.push({a:st,b:n-1,t:txt});st=n;txt="";continue;}if(drop.test(ch))continue;txt+=ch;n++;}
  if(n>st)out.push({a:st,b:n-1,t:txt});return out;}
-// 每版在第 r 字的讀法；norm＝異體字／異體詞視同底本
 function vgRead(s,r,base,norm){if(state.brOutOnly&&!rowOut(r))return base;   // 「不顯示不出校」：不出校的條目視同底本
  const tr=getTrans(s,r);if(!tr)return base;if(tr.t==="lack")return "";
  if(norm&&(tr.t==="var"||tr.t==="word"))return base;if(tr.t==="star")return tr.c||"？";return tr.c||base;}
@@ -3643,7 +3487,6 @@ function vgDraw(){const G=vgBuild(vgSt.a,vgSt.b,vgSt.norm);const host=document.g
  const fs=n=>Math.round(15+15*(n/N));
  const hostW=host.clientWidth>480?host.clientWidth:Math.max(host.clientWidth,window.innerWidth-(document.body.classList.contains("vgbare")?128:60));
  const maxW=vgAn.scroll?1e9:Math.max(420,hostW-60);   // 單列捲動：不換列，整段一條
- // 量寬、分列
  const meas=sl=>{sl.groups.forEach(g=>{g.fs=fs(g.sigs.length);g.w=g.t?[...g.t].length*g.fs+12:22;});sl.w=Math.max(...sl.groups.map(g=>g.w));};
  const cut=(sl,parts)=>{const t=parts.map(q=>q.t).join("");return {shared:true,pos:parts.map(q=>q.p),parts,base:parts.map(q=>q.b).join(""),groups:[{t,sigs:sl.groups[0].sigs,isBase:true,track:0}]};};
  const rows=[];let row=null,x=PADX;const laid=[];
@@ -3659,7 +3502,6 @@ function vgDraw(){const G=vgBuild(vgSt.a,vgSt.b,vgSt.norm);const host=document.g
  let y=24;rows.forEach(rw=>{let lo=0,hi=0;rw.slots.forEach(sl=>sl.groups.forEach(g=>{lo=Math.min(lo,g.track);hi=Math.max(hi,g.track);}));rw.y0=y+(-lo)*TG+TG/2;y+=(hi-lo+1)*TG+30;});
  const H=y,Wd=Math.max(...rows.map(rw=>{const l=rw.slots[rw.slots.length-1];return l?l.x+l.w+PADX:0;}),vgAn.scroll?Math.max(420,hostW-60):maxW);
  const ns="http://www.w3.org/2000/svg";let h=`<svg xmlns="${ns}" id="vgSvg" width="${Wd}" height="${H}" viewBox="0 0 ${Wd} ${H}" font-family="Songti SC,Source Han Serif TC,Noto Serif TC,PMingLiU,serif"><rect width="100%" height="100%" fill="#fbf6ea"/><defs>${rows.map((rw,ri)=>`<clipPath id="vgcp${ri}"><rect id="vgcr${ri}" x="0" y="0" width="${Wd}" height="${H}"/></clipPath>`).join("")}</defs>`;
- // 線：每版每列一條；每列各自一個 clipPath，動畫時由左往右揭露
  const lanes=(g,s)=>{const k=g.sigs.length,i=g.sigs.indexOf(s);return (i-(k-1)/2)*LW;};
  let lines="";
  rows.forEach((rw,ri)=>{lines+=`<g clip-path="url(#vgcp${ri})">`;rw.ri=ri;G.W.forEach(s=>{let d="",px=0,py=0;
@@ -3672,7 +3514,6 @@ function vgDraw(){const G=vgBuild(vgSt.a,vgSt.b,vgSt.norm);const host=document.g
   if(ri>0){const sl=rw.slots[0];if(sl)lines+=`<text x="${sl.x-20}" y="${rw.y0+4}" font-size="12" fill="#9a855f" text-anchor="end">⤷</text>`;}
   if(ri<rows.length-1){const l=rw.slots[rw.slots.length-1];lines+=`<text class="vgc" data-ri="${ri}" data-x="${l.x+l.w+14}" x="${l.x+l.w+14}" y="${rw.y0+4}" font-size="12" fill="#9a855f">⤶</text>`;}lines+=`</g>`;});
  h+=`<g>${lines}</g><g>`;
- // 字：壓在線上，留紙色描邊
  G.slots.forEach((sl,si)=>{const rw=rows.find(r=>r.slots.includes(sl));sl.ri=rw.ri;sl.groups.forEach((g,gi)=>{const cx=sl.x+sl.w/2,cy=rw.y0+g.track*TG;
   const tip=`${g.t||(sl.ins?"（無衍字）":"（無此字）")}：${g.sigs.join("・")}`;
   if(!g.t){if(sl.ins)return;h+=`<g class="vgn" data-ri="${sl.ri}" data-x="${cx}" data-si="${si}" data-gi="${gi}"><title>${esc(tip)}</title><rect x="${cx-11}" y="${cy-9}" width="22" height="18" rx="9" fill="#fbf6ea" stroke="#b9a57e" stroke-dasharray="2 2"/><text x="${cx}" y="${cy+4}" font-size="11" fill="#8a7356" text-anchor="middle">脫</text></g>`;return;}
@@ -3695,7 +3536,6 @@ function vgDraw(){const G=vgBuild(vgSt.a,vgSt.b,vgSt.norm);const host=document.g
  vgSt.k=1;{const sv=host.querySelector('svg');if(vgAn.scroll){const k=Math.max(1,Math.min(1.8,(host.clientHeight-48)/H));sv.setAttribute('width',Wd*k);sv.setAttribute('height',H*k);vgSt.k=k;}   // 單列捲動：放大填滿高度
   sv.style.margin=vgAn.view==="center"?(host.clientHeight/2-14)+"px 0":"";}   // 生長列置中：上下留半個畫面，首尾列也能置中
  vgSt.G=G;vgSt.rows=rows;vgSt.TG=TG;vgAnApply();}
-// 版本篩選列：點版本＝加入／移出；系別鈕＝只看那一系
 function vgLegend(G){const lg=document.getElementById("vgLegend");const sigIdx=s=>SIGS.findIndex(z=>z[0]===s);const off=vgOff();
  const on=G.cov.filter(s=>!off.has(s));const same=(a,b)=>a.length===b.length&&a.every(x=>b.includes(x));
  const pre=[["全部",G.cov]].concat(VG_FAM.map(([n,m])=>[n,G.cov.filter(s=>m.includes(s))]).filter(x=>x[1].length));
@@ -3707,7 +3547,6 @@ function vgLegend(G){const lg=document.getElementById("vgLegend");const sigIdx=s
  const apply=list=>{state.vgOff=G.cov.filter(s=>!list.includes(s)).concat((state.vgOff||[]).filter(s=>!G.cov.includes(s)));save();vgFillSel();vgSetRange(vgSt.a,vgSt.b);};
  lg.querySelectorAll(".vgp").forEach(b=>b.onclick=()=>apply(pre[+b.dataset.i][1]));
  lg.querySelectorAll(".vgk").forEach(b=>b.onclick=()=>{const s=b.dataset.s;apply(off.has(s)?on.concat([s]):on.filter(x=>x!==s));});}
-// 點節點：列出這一處各版的字形原圖
 async function vgPop(sl,e){const pp=document.getElementById("vgPop");const chars=passageChars();
  const rs=[...new Set(sl.pos.filter(p=>!p.x).map(p=>p.r))];
  const boxOf={};for(const g of sl.groups)for(const s of g.sigs){const m=computeMap(s);const out=[];
@@ -3737,7 +3576,6 @@ function vgOpen(r){const ov=document.getElementById("vgraph");ov.classList.add("
  let k=r!=null?ss.findIndex(x=>r>=x.a&&r<=x.b):ss.findIndex(x=>x.a===vgSt.a&&x.b===vgSt.b);
  if(k<0){buildCov();k=ss.findIndex(x=>vgBuild(x.a,x.b,vgSt.norm).branches>0);if(k<0)k=0;}
  vgSetRange(ss[k].a,ss[k].b);}
-/* ---- 分支圖動畫：從第一字逐字展開。p＝已揭露的字位數（含衍字列）；每列一個 clipPath 由左往右推進，字到位時淡入 ---- */
 const vgAn={on:false,p:0,playing:false,last:0,scroll:false,view:"rows"};
 function vgAnRowX(rw,p){let X=-1e9,prevEnd=null;   // 這一列揭露到的 x
  for(const sl of rw.slots){if(p<=sl.u0)return prevEnd==null?-1e9:prevEnd;
@@ -3771,17 +3609,13 @@ function vgAnRead(sl,p,ui){const ro=document.getElementById("vgAnRead"),G=vgSt.G
  ro.innerHTML=h;}
 function vgAnTick(ts){if(!vgAn.playing)return;const dt=vgAn.last?(ts-vgAn.last)/1000:0;vgAn.last=ts;const sp=+document.getElementById("vgAnSpeed").value;
  vgAn.p=Math.min(vgSt.G.U,vgAn.p+dt*sp);vgAnApply();if(vgAn.p>=vgSt.G.U){vgAnPlay(false);if(vgAn.fitEnd)setTimeout(vgFitAll,300);return;}requestAnimationFrame(vgAnTick);}
-// 播完定格：關掉動畫、顯示整張圖，並縮放到整個畫面放得下（深連結 fit=1 時自動；也可手動呼叫）
-// 分支圖縮放：＋／－（或 Ctrl＋滾輪）放大縮小，0＝整張放進畫面
 function vgZoom(f){const cv=document.getElementById("vgCanvas"),sv=cv&&cv.querySelector("svg");if(!sv)return;const W=+sv.getAttribute("width"),H=+sv.getAttribute("height");if(!W||!H)return;
  const k=Math.max(.15,Math.min(6,(vgSt.k||1)*f));const r=k/(vgSt.k||1);sv.setAttribute("width",W*r);sv.setAttribute("height",H*r);vgSt.k=k;sv.style.margin=sv.style.margin||"0 auto";}
 document.addEventListener("keydown",e=>{const ov=document.getElementById("vgraph");if(!ov||!ov.classList.contains("open"))return;const tg=(e.target.tagName||"").toLowerCase();if(tg==="input"||tg==="select"||tg==="textarea")return;
  if(e.key==="+"||e.key==="="){vgZoom(1.15);e.preventDefault();}else if(e.key==="-"||e.key==="_"){vgZoom(1/1.15);e.preventDefault();}else if(e.key==="0"){vgFitAll();e.preventDefault();}});
 document.addEventListener("wheel",e=>{const cv=document.getElementById("vgCanvas");if(!cv||!(e.ctrlKey||e.metaKey)||!cv.contains(e.target))return;e.preventDefault();vgZoom(e.deltaY<0?1.1:1/1.1);},{passive:false});
-// 把整張圖縮放到畫面放得下（不改動畫狀態）
 function vgFitScale(){const cv=document.getElementById("vgCanvas"),sv=cv&&cv.querySelector("svg");if(!sv)return;const W=+sv.getAttribute("width")/(vgSt.k||1),H=+sv.getAttribute("height")/(vgSt.k||1);if(!W||!H)return;
  const k=Math.min((cv.clientWidth-128)/W,(cv.clientHeight-48)/H);sv.setAttribute("width",W*k);sv.setAttribute("height",H*k);vgSt.k=k;sv.style.margin="0 auto";sv.style.display="block";cv.scrollTo({top:0,left:0});}
-// 純畫面模式的小控制列：播放／暫停、重播、速度
 function vgBareBar(){if(document.getElementById("vgBareBar"))return;const b=document.createElement("div");b.id="vgBareBar";
  b.innerHTML='<button id="vbPlay">▶ 播放</button><button id="vbReset" title="回到開頭">↺</button><span>速度</span><input id="vbSpeed" type="range" min="0.5" max="64" step="0.5"><span id="vbSpeedV"></span>';document.body.appendChild(b);
  const sp=document.getElementById("vgAnSpeed"),vs=document.getElementById("vbSpeed"),vv=document.getElementById("vbSpeedV");vs.value=sp.value;vv.textContent=(+sp.value).toFixed(1)+" 字／秒";
@@ -3825,7 +3659,6 @@ document.getElementById("genVg").onclick=()=>{document.getElementById("genCmp").
   else if(e.key===" "){vgAnPlay(!vgAn.playing);e.preventDefault();}
   else if(e.shiftKey&&(e.key==="ArrowRight"||e.key==="ArrowLeft")){vgAnStep(e.key==="ArrowRight"?1:-1);e.preventDefault();}
   else if(e.key==="ArrowRight"||e.key==="ArrowDown"){step(1);e.preventDefault();}else if(e.key==="ArrowLeft"||e.key==="ArrowUp"){step(-1);e.preventDefault();}},true);})();
-/* ---------- 對照表「分支」欄：直式異文分支圖，和每一列對齊（字由上往下，異文往左右分岔） ---------- */
 var showBrCol=true;
 function cmpOrder(){return SIGS.map(x=>x[0]);}
 function exRestore(){const h=state.exHidden||{};["br","app","read","note"].forEach(k=>{const on=!h[k];if(exShown(k)!==on){if(k==="br")showBrCol=on;else if(k==="app")showAppCol=on;else if(k==="read")showReadCol=on;else showNoteCol=on;const c=document.getElementById({br:"brColChk",app:"appColChk",read:"readColChk",note:"noteColChk"}[k]);if(c)c.checked=on;}});}
@@ -3835,7 +3668,6 @@ function cmpBranch(){const body=document.getElementById("cbody");const old=body.
  if(!showBrCol)return;const tb=body.querySelector("table.mx");if(!tb)return;
  buildCov();_outCache=null;const chars=passageChars(),norm=false;const vs=visSigs().map(([s])=>s);const sigIdx=s=>SIGS.findIndex(z=>z[0]===s);
  const has=(s,r)=>{const cv=_cov[s];if((!cv||!cv.set.size)&&vgIsBase(s))return true;if(!cv||!cv.set.size)return false;if(cv.set.has(r))return true;const t=getTrans(s,r);return !!(t&&t.t==="lack"&&r>=cv.min-1&&r<=cv.max+1);};
- // 依畫面上的列（含衍字列）逐列算分組
  const rows=[...tb.querySelectorAll("tbody tr")].filter(tr=>tr.offsetParent!==null&&tr.style.display!=="none");
  const TS=30,LW=2.4,bR=body.getBoundingClientRect(),cell0=tb.querySelector("th.brth")||[...tb.querySelectorAll("td.brcell")].find(c=>c.offsetParent!==null);if(!cell0)return;   // 用表頭定位：篩選後第一列可能被隱藏
  const P=[];let maxT=0;
@@ -3873,11 +3705,9 @@ function cmpBranch(){const body=document.getElementById("cbody");const old=body.
   const g=p.groups[+n.dataset.gi];
   n.onmouseenter=()=>focus(g?g.sigs:null);n.onmouseleave=()=>focus(null);
   n.onclick=e=>vgPop({pos:[{r:p.r,x:p.isX}],base:p.base,groups:p.groups},e);});
- // 游標停在版本欄標題：只突顯那一版的線
  tb.querySelectorAll("th[data-sig]").forEach(th=>{th.onmouseenter=()=>focus([th.dataset.sig]);th.onmouseleave=()=>focus(null);});}
 (()=>{const ck=document.getElementById("brColChk");if(ck)ck.onchange=e=>{exSet("br",e.target.checked);renderCompare();};
  let t=null;window.addEventListener("resize",()=>{if(!document.getElementById("compare").classList.contains("open"))return;clearTimeout(t);t=setTimeout(cmpBranch,150);});})();
-/* ---------- 語釋卡片的圖片：貼上（⌘V）、拖進來、或按「＋圖」；圖存在專案裡 ---------- */
 function kdImgFile(file){return new Promise(res=>{const fr=new FileReader();fr.onload=()=>{const url=fr.result;const im=new Image();im.onload=()=>{
   const M=1800,k=Math.min(1,M/Math.max(im.naturalWidth,im.naturalHeight));
   if(k===1&&file.size<450000){res({src:url,w:im.naturalWidth,h:im.naturalHeight});return;}   // 小圖照原樣
@@ -3889,7 +3719,6 @@ async function kdAddImgs(nid,files){const f=kdFindNote(nid);if(!f)return;const i
 function kdImgsHTML(o){return `<div class="kimgs">`+(o.imgs||[]).map((m,ii)=>`<figure class="kimg" data-ii="${ii}"><img src="${m.src}" alt="${esc(m.cap||o.term)}" title="點一下放大"><figcaption><input data-capi="${ii}" value="${esc(m.cap||"")}" placeholder="圖說"><button data-op="delimg" data-ii="${ii}" title="刪除這張圖">✕</button></figcaption></figure>`).join("")+`</div>`;}
 function kdLightbox(src,cap){let lb=document.getElementById("kdLb");if(!lb){lb=document.createElement("div");lb.id="kdLb";document.body.appendChild(lb);lb.onclick=()=>lb.classList.remove("on");}
  lb.innerHTML=`<img src="${src}"><p>${esc(cap||"")}</p>`;lb.classList.add("on");}
-// 貼上：游標在哪一張語釋卡裡就加到那張；不在卡片裡就加到目前選取的語釋
 document.addEventListener("paste",e=>{if(!kdOn)return;const fs=[...(e.clipboardData&&e.clipboardData.files)||[]].filter(x=>/^image\//.test(x.type));if(!fs.length)return;
  const card=(document.activeElement&&document.activeElement.closest&&document.activeElement.closest(".knotecard"))||null;const nid=card?card.dataset.nid:kdNoteSel;
  if(!nid||!kdFindNote(nid)){kdToast("先點一下要放圖的語釋卡，再貼上");return;}e.preventDefault();kdAddImgs(nid,fs);});
@@ -3902,8 +3731,6 @@ function kdBindImgs(root){root.querySelectorAll(".knotecard").forEach(cd=>{const
  cd.querySelectorAll("[data-capi]").forEach(inp=>inp.oninput=()=>{f.o.imgs[+inp.dataset.capi].cap=inp.value;save();});
  cd.querySelectorAll('[data-op="delimg"]').forEach(b=>b.onclick=e=>{e.stopPropagation();kdPush();f.o.imgs.splice(+b.dataset.ii,1);save();kdRender();});
  const ab=cd.querySelector('[data-op="addimg"]');if(ab)ab.onclick=e=>{e.stopPropagation();const inp=document.createElement("input");inp.type="file";inp.accept="image/*";inp.multiple=true;inp.onchange=()=>kdAddImgs(nid,inp.files);inp.click();};});}
-/* ---------- 訓讀頁：直接改原文（含標點）；增刪字時，各版校記、錨點、訓讀句、語釋的字序一起移動 ---------- */
-// delta>0：在第 at 字前插入 delta 字；delta<0：刪去第 at 字起 -delta 個字
 function shiftIdx(at,delta){if(!delta)return;const del=delta<0?-delta:0;
  const mp=r=>r<at?r:(delta>0?r+delta:(r<at+del?null:r+delta));
  const mvKeys=o=>{if(!o)return o;const n={};for(const k in o){const r=+k;if(isNaN(r)){n[k]=o[k];continue;}const m=mp(r);if(m!=null)n[m]=o[k];}return n;};
@@ -3919,11 +3746,9 @@ function shiftIdx(at,delta){if(!delta)return;const del=delta<0?-delta:0;
     if(y){["kun","ja","zh"].forEach(f=>{if(x[f])y[f]=(y[f]||"")+x[f];});sg.sents.splice(k,1);}}
    sg.notes.forEach(o=>{o.a=ma(o.a);o.b=Math.max(o.a+1,mb(o.b));});});
   state.kd.segs=state.kd.segs.filter(sg=>sg.sents.some(x=>x.b>x.a));}}
-// 第 a～b 字（不含 b）在 state.passage 裡的位置（含其後的標點，不含換行）
 function kdRawSpan(a,b){const p=state.passage;let r=0,s=-1,e=p.length;
  for(let i=0;i<p.length;i++){if(KD_STRIP.test(p[i]))continue;if(r===a&&s<0)s=i;if(r===b){e=i;break;}r++;}
  if(s<0)s=p.length;let e2=e;while(e2>s&&/\s/.test(p[e2-1]))e2--;
- // 句首的開引號等留在上一句；句尾的標點跟著本句
  return [s,e2];}
 function kdEditSrc(si,k){const sg=state.kd.segs[si],s=sg.sents[k];const [S,E]=kdRawSpan(s.a,s.b);const raw=state.passage.slice(S,E);
  const row=document.querySelector(`.krow[data-si="${si}"][data-k="${k}"] .ksrc`);if(!row)return;
@@ -3946,10 +3771,8 @@ function kdApplySrc(S,E,nw){const p=state.passage,old=p.slice(S,E);if(old===nw){
  state.passage=p.slice(0,S)+nw+p.slice(E);
  const pe=document.getElementById("passage");if(pe)pe.value=state.passage;
  save();kdRender();kdToast(od===nd?"已修改原文":"已修改原文，"+(nd>od?"新增 "+(nd-od):"刪去 "+(od-nd))+" 字，字序已同步");}
-/* 分享版：地圖工作區已移除 */
 let dmOn=false;function dmSetOn(){}function dmSetOff(){}function dmStartPlace(){}
 
-// 整段改原文・標點：在段落上方的原文直接改
 function kdEditSeg(si){const sg=state.kd.segs[si];if(!sg)return;const [A,B]=kdSegRange(sg);const [S,E]=kdRawSpan(A,B);const raw=state.passage.slice(S,E);
  const ln=document.querySelector(`.kline[data-si="${si}"]`);if(!ln)return;
  ln.innerHTML=`<textarea class="ksrcedit klinedit">${esc(raw)}</textarea><div class="ksrcbtns"><button class="kbtn small" data-x="ok">確定</button><button class="kbtn small" data-x="no">取消</button><span>只改標點不影響任何對應；增刪字會先詢問。⌘Enter 確定・Esc 取消</span></div>`;
@@ -3957,17 +3780,14 @@ function kdEditSeg(si){const sg=state.kd.segs[si];if(!sg)return;const [A,B]=kdSe
  const done=ok=>{if(ok)kdApplySrc(S,E,ta.value);else kdRender();};
  ln.querySelector('[data-x="ok"]').onclick=()=>done(true);ln.querySelector('[data-x="no"]').onclick=()=>done(false);
  ta.oninput=()=>kdGrow(ta);ta.onkeydown=e=>{if(e.key==="Escape"){e.preventDefault();done(false);}else if(e.key==="Enter"&&(e.metaKey||e.ctrlKey)){e.preventDefault();done(true);}};}
-/* ---------- 大正藏校勘：貼上 CBETA 複製的引文（含 [n] 與校勘註），對到底本字序 ---------- */
-const KD_TAISHO_SHIJIA="「惟夫大唐之有天下也將四十載。淳風洽而澆俗改。文德修而武功暢。故使青丘丹穴之候。並入堤封。龍砂[6]雁塞之區。聿遵聲教。[7]英髦稽首。顯朝宗之羽儀。輸賝奉贄。表懷柔之盛德。然則八荒內外前史具[8]舒。五竺方維由來罕述。豈非時也。雖復周穆西狩止屆[9]昆丘。舜禹南巡不踰滄海。秦皇畫野近袤臨洮。漢武封疆關開鐵路。厥斯以降遐討未詳。所以崆峒問道局在酒泉之地。崑崙謁聖。實[10]惟玉門之側。」《釋迦方志》卷1(CBETA 2026.R2, T51, no. 2088, p. 948a6-15)[6] 雁【大】，鳥【宋】【元】【明】　[7] 英髦【大】，膜拜【宋】【元】【明】　[8] 舒【大】，書【宋】【元】【明】　[9] 昆【大】，崑【宋】【元】【明】　[10] 惟【大】＊，唯【宋】＊【元】＊【明】＊";
+const KD_TAISHO_SHIJIA="";
 function isXGSZ(){return passageChars().join("").startsWith("若夫孝始");}   // 《續高僧傳》彥琮傳（內建校勘資料只適用這一段）
 function parseTaisho(text){const chars=passageChars();const t=text.replace(/\r/g,"");
  const ci=t.search(/《[^》]+》卷|\(CBETA|（CBETA/);let body=ci>0?t.slice(0,ci):t;const notesTxt=ci>0?t.slice(ci):"";
  body=body.replace(/^[「『\s]+|[」』\s]+$/g,"");
- // 校勘註：[6] 雁【大】，鳥【宋】【元】【明】
  const notes={};const re=/\[(\d+)\]\s*([^【\[\s]*)【大】＊?[，,]\s*([^\[]*?)(?=\s*\[\d+\]|$)/g;let m;
  while((m=re.exec(notesTxt))){const groups=m[3].split(/[，,]/).map(g=>g.trim()).filter(Boolean).map(g=>{const v=g.replace(/【[^】]*】|＊/g,"").trim();const sg=[...g.matchAll(/【([^】]*)】/g)].map(x=>x[1]);return {v:v||"〔－〕",s:sg.join("・")};});
   notes[m[1]]={base:m[2].replace(/＊/g,""),groups};}
- // 正文：記下每個 [n] 前面有幾個字
  const bc=[],marks=[];let k=0;const rx=/\[(\d+)\]|./gsu;let x;
  while((x=rx.exec(body))){if(x[1]){marks.push({n:x[1],k});continue;}const c=x[0];if(KD_STRIP.test(c)||/[\[\]]/.test(c))continue;bc.push(c);k++;}
  const loc=bc.length?kdLocate(chars,bc.join(""),0,chars.length):null;
@@ -3988,8 +3808,6 @@ function taishoDlg(){let dl=document.getElementById("taishoDlg");
  dl.querySelector('[data-x="add"]').onclick=()=>go(false);dl.querySelector('[data-x="replace"]').onclick=()=>go(true);
  dl.querySelector('[data-x="clear"]').onclick=()=>{if(!confirm("清除這個專案的大正校勘？"))return;state.taishoApp=[];save();renderCompare();msg.textContent="已清除。";};
  dl.querySelector('[data-x="close"]').onclick=()=>dl.close();dl.showModal();ta.focus();}
-/* ---------- 一鍵匯出講義（.docx）：標題 → 各段【原文】【訓讀】【譯】【白話】【語釋】→【字形對照表】；校勘記放腳註 ---------- */
-// 版式依 2026.10.21『釋迦方志』資料：A4 兩欄、10.5pt、【】為標題 2、原文字後接腳註號再接語釋號 (n)、無法打字的異文以字圖嵌入腳註
 const HO_CRC=(()=>{const t=new Uint32Array(256);for(let n=0;n<256;n++){let c=n;for(let k=0;k<8;k++)c=c&1?0xEDB88320^(c>>>1):c>>>1;t[n]=c>>>0;}return t;})();
 function hoCrc(b){let c=0xFFFFFFFF;for(let i=0;i<b.length;i++)c=HO_CRC[(c^b[i])&255]^(c>>>8);return (c^0xFFFFFFFF)>>>0;}
 function hoZip(files){// files:[{name,data:Uint8Array}]；不壓縮（STORE），UTF-8 檔名
@@ -4017,17 +3835,13 @@ async function hoBuild(opt){
  const H2=t=>P(run(t),'<w:pStyle w:val="Heading2"/>');
  const addImg=(url,part)=>{const id="rIdI"+(++imgId);media.push({id,name:`media/img${imgId}.png`,data:hoB64(url),part});return id;};
  const drawing=(rid,cx,cy,pos)=>{const n=++docPr;return `<w:r><w:rPr><w:noProof/>${pos?`<w:position w:val="${pos}"/>`:""}</w:rPr><w:drawing><wp:inline distT="0" distB="0" distL="0" distR="0"><wp:extent cx="${cx}" cy="${cy}"/><wp:effectExtent l="0" t="0" r="0" b="0"/><wp:docPr id="${n}" name="圖片 ${n}"/><wp:cNvGraphicFramePr><a:graphicFrameLocks xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main" noChangeAspect="1"/></wp:cNvGraphicFramePr><a:graphic xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main"><a:graphicData uri="http://schemas.openxmlformats.org/drawingml/2006/picture"><pic:pic xmlns:pic="http://schemas.openxmlformats.org/drawingml/2006/picture"><pic:nvPicPr><pic:cNvPr id="${n}" name="g${n}"/><pic:cNvPicPr/></pic:nvPicPr><pic:blipFill><a:blip r:embed="${rid}"/><a:stretch><a:fillRect/></a:stretch></pic:blipFill><pic:spPr><a:xfrm><a:off x="0" y="0"/><a:ext cx="${cx}" cy="${cy}"/></a:xfrm><a:prstGeom prst="rect"><a:avLst/></a:prstGeom></pic:spPr></pic:pic></a:graphicData></a:graphic></wp:inline></w:drawing></w:r>`;};
- // ふりがな：｜漢字《かな》→ Word ruby
  const rubyRuns=t=>{if(!opt.ruby)return run(kdRubyStrip(t));let out="",i=0;const s=t||"";KD_RB.lastIndex=0;let m;
   while((m=KD_RB.exec(s))){out+=run(s.slice(i,m.index).replace(/｜/g,""));const base=m[1]||m[3],rt=m[2]||m[4];
    out+=`<w:r><w:ruby><w:rubyPr><w:rubyAlign w:val="center"/><w:hps w:val="10"/><w:hpsRaise w:val="20"/><w:hpsBaseText w:val="${SZ}"/><w:lid w:val="ja-JP"/></w:rubyPr><w:rt><w:r><w:rPr><w:sz w:val="10"/><w:szCs w:val="10"/></w:rPr><w:t>${hoX(rt)}</w:t></w:r></w:rt><w:rubyBase><w:r><w:rPr><w:sz w:val="${SZ}"/><w:szCs w:val="${SZ}"/></w:rPr><w:t>${hoX(base)}</w:t></w:r></w:rubyBase></w:ruby></w:r>`;i=m.index+m[0].length;}
   return out+run(s.slice(i).replace(/｜/g,""));};
- // 講義版語釋的 <b><u><br> → runs
  const richRuns=h=>{let out="",b=0,u=0;String(h||"").split(/(<\/?[bu]>|<br\s*\/?>)/i).forEach(tk=>{const t=tk.toLowerCase();if(t==="<b>")b++;else if(t==="</b>")b=Math.max(0,b-1);else if(t==="<u>")u++;else if(t==="</u>")u=Math.max(0,u-1);else if(/^<br/.test(t))out+="<w:r><w:br/></w:r>";else if(tk){const d=document.createElement("textarea");d.innerHTML=tk.replace(/<[^>]+>/g,"");out+=run(d.value,{b:b>0,u:u>0});}});return out;};
- // 各版本：字序 r → 框
  const boxAt={};const boxOf=(s,r)=>{if(!boxAt[s]){boxAt[s]={};const {order,piByKey}=computeMap(s);order.forEach(o=>{const k=piByKey[o.pi+"_"+o.bi];if(k!=null&&k>=0&&boxAt[s][k]==null)boxAt[s][k]=o;});}return boxAt[s][r];};
  const sigOfShort=t=>{t=t.replace(/[★●]/g,"").trim();const f=SIGS.find(([s])=>s===t||sigShort(s)===t);return f?f[0]:null;};
- // 腳註
  const fns=[];const fnAt={};
  for(let r=0;r<chars.length;r++){if(!opt.coll)break;let t=noteText(r),gray=false;if(!t||!String(t).trim()){if(!opt.gray)continue;t=noteGhost(r);gray=true;}if(!t||!String(t).trim())continue;
   t=String(t).trim();const col=gray?"A0A0A0":null;let inner=run("\t");const re=/「([^」]*)」([^；。「]*)/g;let i=0,m;
@@ -4039,7 +3853,6 @@ async function hoBuild(opt){
   inner+=run(t.slice(i),{col});
   const id=fns.length+1;fns.push(`<w:footnote w:id="${id}">${P(`<w:r><w:rPr><w:rStyle w:val="FootnoteReference"/></w:rPr><w:footnoteRef/></w:r>`+inner,'<w:pStyle w:val="FootnoteText"/>')}</w:footnote>`);fnAt[r]=id;}
  const fnRef=id=>`<w:r><w:rPr><w:rStyle w:val="FootnoteReference"/><w:sz w:val="${SZ}"/><w:szCs w:val="${SZ}"/></w:rPr><w:footnoteReference w:id="${id}"/></w:r>`;
- // 原文：字 → 腳註號 → 語釋號 (n)
  const ends={};if(opt.notes)kdAllNotes().forEach(({o})=>{(ends[o.b-1]=ends[o.b-1]||[]).push(o._n);});
  const {cells}=kdLayout();
  const srcParas=(a,b)=>{const out=[];let cur="",buf="",on=false;const flush=()=>{cur+=run(buf);buf="";};const endP=()=>{flush();if(cur)out.push(P(cur));cur="";};
@@ -4067,7 +3880,6 @@ async function hoBuild(opt){
      const W=Math.min(2700000,(im.w||600)*9525),Hh=Math.round(W*((im.h||400)/(im.w||600)));body.push(P(drawing(addImg(url,"doc"),W,Hh),'<w:jc w:val="center"/>'));
      if((im.cap||"").trim())body.push(P(run(im.cap.trim(),{sz:18}),'<w:jc w:val="center"/>'));}}
    body.push(P(""));}}
- // 字形對照表
  if(opt.table){const vs=visSigs().map(([s])=>s).filter(s=>state.versions[s]&&state.versions[s].pages&&state.versions[s].pages.some(p=>p.boxes&&p.boxes.length));
   if(vs.length){body.push(H2("【字形對照表】"));const W0=300,WV=390,bd='<w:tcBorders><w:top w:val="single" w:sz="8" w:space="0" w:color="999999"/><w:left w:val="single" w:sz="8" w:space="0" w:color="999999"/><w:bottom w:val="single" w:sz="8" w:space="0" w:color="999999"/><w:right w:val="single" w:sz="8" w:space="0" w:color="999999"/></w:tcBorders>';
    const tc=(w,inner,fill)=>`<w:tc><w:tcPr><w:tcW w:w="${w}" w:type="dxa"/>${bd}${fill?`<w:shd w:val="clear" w:color="auto" w:fill="${fill}"/>`:""}<w:tcMar><w:top w:w="20" w:type="dxa"/><w:left w:w="20" w:type="dxa"/><w:bottom w:w="20" w:type="dxa"/><w:right w:w="20" w:type="dxa"/></w:tcMar><w:vAlign w:val="center"/></w:tcPr><w:p><w:pPr><w:jc w:val="center"/><w:spacing w:before="0" w:after="0" w:line="240" w:lineRule="auto"/></w:pPr>${inner}</w:p></w:tc>`;
@@ -4202,7 +4014,6 @@ const TOUR_STEPS=[
  let autoT=null,autoSec=0;
  function end(){if(i<0)return;i=-1;root.classList.remove("on");if(openedCmp&&cmpOpen()){cmp().classList.remove("open");}openedCmp=false;if(autoT){clearTimeout(autoT);autoT=null;}}
  function start(){openedCmp=false;show(0);}
- // 自動播放（簡報用）：每 sec 秒下一步，播完回到第一步循環；手動按鍵／點擊會停掉自動播放
  function tourAuto(sec){autoSec=sec||4;openedCmp=false;const tick=async()=>{if(autoSec<=0)return;const k=(i<0||i>=S.length-1)?0:i+1;if(i<0)await show(0);else await show(k);autoT=setTimeout(tick,autoSec*1000);};tick();}
  function autoStop(){autoSec=0;if(autoT){clearTimeout(autoT);autoT=null;}}
  root.querySelector("#tourNext").onclick=()=>{autoStop();show(i+1);};root.querySelector("#tourPrev").onclick=()=>{autoStop();show(i-1);};root.querySelector("#tourEnd").onclick=end;bg.onclick=()=>{autoStop();show(i+1);};
@@ -4214,13 +4025,11 @@ const TOUR_STEPS=[
  addEventListener("scroll",()=>{if(i>=0){cancelAnimationFrame(rafId);rafId=requestAnimationFrame(place);}},true);
  const btn=document.getElementById("tourBtn");if(btn)btn.onclick=start;
  window.tourStart=start;window.tourAuto=tourAuto;
- // 嵌在簡報 iframe 裡時：PageUp／PageDown 一律交給簡報換張；導覽自動播放中，左右鍵也交給簡報（導覽自己會走）
  if(window.parent&&window.parent!==window){document.addEventListener("keydown",e=>{const tg=(e.target.tagName||"").toLowerCase();if(tg==="input"||tg==="textarea"||e.target.isContentEditable)return;
   const fwd=e.key==="PageDown"||e.key==="PageUp"||e.key==="ArrowRight"||e.key==="ArrowLeft"||e.key===" ";
   if(fwd){e.preventDefault();e.stopImmediatePropagation();try{window.parent.postMessage({dk:"key",key:e.key},"*");}catch(x){}}},true);}
 })();
 </script><script>
-/* ---------- 配色實驗室（個人版）：和色 465 色出自「和色大辞典」colordic.org/w ---------- */
 (function(){
 if(!document.getElementById("wsTabs"))return;
 const WAIRO="桜色|さくらいろ|fef4f4;小豆色|あずきいろ|96514d;黄金|こがね|e6b422;萌葱色|もえぎいろ|006e54;古代紫|こだいむらさき|895b8a;薄桜|うすざくら|fdeff2;枯茶|からちゃ|8d6449;櫨染|はじぞめ|d9a62e;花緑青|はなろくしょう|00a381;茄子紺|なすこん|824880;桜鼠|さくらねず|e9dfe5;飴色|あめいろ|deb068;黄朽葉色|きくちばいろ|d3a243;翡翠色|ひすいいろ|38b48b;二藍|ふたあい|915c8b;鴇鼠|ときねず|e4d2d8;駱駝色|らくだいろ|bf794e;山吹茶|やまぶきちゃ|c89932;青緑|あおみどり|00a497;京紫|きょうむらさき|9d5b8b;虹色|にじいろ|f6bfbc;土色|つちいろ|bc763c;芥子色|からしいろ|d0af4c;水浅葱|みずあさぎ|80aba9;蒲葡|えびぞめ|7a4171;珊瑚色|さんごいろ|f5b1aa;黄唐茶|きがらちゃ|b98c46;豆がら茶|まめがらちゃ|8b968d;錆浅葱|さびあさぎ|5c9291;若紫|わかむらさき|bc64a4;一斤染|いっこんぞめ|f5b199;桑染|くわぞめ|b79b5b;麹塵|きくじん|6e7955;青碧|せいへき|478384;紅紫|べにむらさき|b44c97;宍色|ししいろ|efab93;櫨色|はじいろ|b77b57;山鳩色|やまばといろ|767c6b;御召茶|おめしちゃ|43676b;梅紫|うめむらさき|aa4c8f;紅梅色|こうばいいろ|f2a0a1;黄橡|きつるばみ|b68d4c;利休鼠|りきゅうねずみ|888e7e;湊鼠|みなとねずみ|80989b; 菖蒲色|あやめいろ|cc7eb1;薄紅|うすべに|f0908d;丁字染|ちょうじぞめ|ad7d4c;海松茶|みるちゃ|5a544b;高麗納戸|こうらいなんど|2c4f54;紅藤色|べにふじいろ|cca6bf;甚三紅|じんざもみ|ee827c;香染|こうぞめ|ad7d4c;藍海松茶|あいみるちゃ|56564b;百入茶|ももしおちゃ|1f3134;浅紫|あさむらさき|c4a3bf;桃色|ももいろ|f09199;枇杷茶|びわちゃ|ae7c4f;藍媚茶|あいこびちゃ|555647;錆鼠|さびねず|47585c;紫水晶|むらさきすいしょう|e7e7eb;鴇色|ときいろ|f4b3c2;芝翫茶|しかんちゃ|ad7e4e;千歳茶|せんさいちゃ|494a41;錆鉄御納戸|さびてつおなんど|485859;薄梅鼠|うすうめねず|dcd6d9;撫子色|なでしこいろ|eebbcb;焦香|こがれこう|ae7c58;岩井茶|いわいちゃ|6b6f59;藍鼠|あいねず|6c848d;暁鼠|あかつきねず|d3cfd9;灰梅|はいうめ|e8d3c7;胡桃色|くるみいろ|a86f4c;仙斎茶|せんさいちゃ|474b42;錆御納戸|さびおなんど|53727d;牡丹鼠|ぼたんねず|d3ccd6;灰桜|はいざくら|e8d3d1;渋紙色|しぶかみいろ|946243;黒緑|くろみどり|333631;舛花色|ますはないろ|5b7e91;霞色|かすみいろ|c8c2c6;淡紅藤|あわべにふじ|e6cde3;朽葉色|くちばいろ|917347;柳煤竹|やなぎすすたけ|5b6356;熨斗目花色|のしめはないろ|426579;藤鼠|ふじねず|a6a5c4;石竹色|せきちくいろ|e5abbe;桑茶|くわちゃ|956f29;樺茶色|かばちゃいろ|726250;御召御納戸|おめしおなんど|4c6473;半色|はしたいろ|a69abd;薄紅梅|うすこうばい|e597b2;路考茶|ろこうちゃ|8c7042;空五倍子色|うつぶしいろ|9d896c;鉄御納戸|てつおなんど|455765;薄色|うすいろ|a89dac;桃花色|ももはないろ|e198b4;国防色|こくぼうしょく|7b6c3e;生壁色|なまかべいろ|94846a;紺鼠|こんねず|44617b;薄鼠|うすねず|9790a4;水柿|みずがき|e4ab9b;伽羅色|きゃらいろ|d8a373;肥後煤竹|ひごすすたけ|897858;藍鉄|あいてつ|393f4c;鳩羽鼠|はとばねずみ|9e8b8e;ときがら茶|ときがらちゃ|e09e87;江戸茶|えどちゃ|cd8c5c;媚茶|こびちゃ|716246;青褐|あおかち|393e4f;鳩羽色|はとばいろ|95859c;退紅|あらぞめ|d69090;樺色|かばいろ|cd5e3c;白橡|しろつるばみ|cbb994;褐返|かちかえし|203744;桔梗鼠|ききょうねず|95949a;薄柿|うすがき|d4acad;紅鬱金|べにうこん|cb8347;亜麻色|あまいろ|d6c6af;褐色|かちいろ|4d4c61;紫鼠|むらさきねず|71686c;長春色|ちょうしゅんいろ|c97586;土器色|かわらけいろ|c37854;榛色|はしばみいろ|bfa46f;月白|げっぱく|eaf4fc;葡萄鼠|ぶどうねずみ|705b67;梅鼠|うめねず|c099a0;狐色|きつねいろ|c38743;灰汁色|あくいろ|9e9478;白菫色|しろすみれいろ|eaedf7;濃色|こきいろ|634950;鴇浅葱|ときあさぎ|b88884;黄土色|おうどいろ|c39143;利休茶|りきゅうちゃ|a59564;白花色|しらはないろ|e8ecef;紫鳶|むらさきとび|5f414b;梅染|うめぞめ|b48a76;琥珀色|こはくいろ|bf783a;鶯茶|うぐいすちゃ|715c1f;藍白|あいじろ|ebf6f7;濃鼠|こいねず|4f455c;蘇芳香|すおうこう|a86965;赤茶|あかちゃ|bb5535;木蘭色|もくらんじき|c7b370;白藍|しらあい|c1e4e9;藤煤竹|ふじすすたけ|5a5359;浅蘇芳|あさすおう|a25768;代赭|たいしゃ|bb5520;砂色|すないろ|dcd3b2;水色|みずいろ|bce2e8;滅紫|けしむらさき|594255;真朱|まそお|ec6d71;煉瓦色|れんがいろ|b55233;油色|あぶらいろ|a19361;瓶覗|かめのぞき|a2d7dd;紅消鼠|べにけしねずみ|524748;赤紫|あかむらさき|eb6ea5;雀茶|すずめちゃ|aa4f37;利休色|りきゅういろ|8f8667;秘色色|ひそくいろ|abced8;似せ紫|にせむらさき|513743;躑躅色|つつじいろ|e95295;団十郎茶|だんじゅうろうちゃ|9f563a;梅幸茶|ばいこうちゃ|887938;空色|そらいろ|a0d8ef;灰黄緑|はいきみどり|e6eae3;牡丹色|ぼたんいろ|e7609e;柿渋色|かきしぶいろ|9f563a;璃寛茶|りかんちゃ|6a5d21;勿忘草色|わすれなぐさいろ|89c3eb;蕎麦切色|そばきりいろ|d4dcd6;今様色|いまよういろ|d0576b;紅鳶|べにとび|9a493f;黄海松茶|きみるちゃ|918754;青藤色|あおふじいろ|84a2d4;薄雲鼠|うすくもねず|d4dcda;中紅|なかべに|c85179;灰茶|はいちゃ|98623c;菜種油色|なたねゆいろ|a69425;白群|びゃくぐん|83ccd2;枯野色|かれのいろ|d3cbc6;薔薇色|ばらいろ|e9546b;茶色|ちゃいろ|965042;青朽葉|あおくちば|ada250;浅縹|あさはなだ|84b9cb;潤色|うるみいろ|c8c2be;韓紅|からくれない|e95464;檜皮色|ひわだいろ|965036;根岸色|ねぎしいろ|938b4b;薄花色|うすはないろ|698aab;利休白茶|りきゅうしろちゃ|b3ada0;銀朱|ぎんしゅ|c85554;鳶色|とびいろ|95483f;鶸茶|ひわちゃ|8c8861;納戸色|なんどいろ|008899;茶鼠|ちゃねずみ|a99e93;赤紅|あかべに|c53d43;柿茶|かきちゃ|954e2a;柳茶|やなぎちゃ|a1a46d;浅葱色|あさぎいろ|00a3af;胡桃染|くるみぞめ|a58f86;紅緋|べにひ|e83929;弁柄色|べんがらいろ|8f2e14;海松色|みるいろ|726d40;花浅葱|はなあさぎ|2a83a2;江戸鼠|えどねず|928178;赤|あか|e60033;赤錆色|あかさびいろ|8a3319;鶯色|うぐいすいろ|928c36;新橋色|しんばしいろ|59b9c6;煤色|すすいろ|887f7a;猩々緋|しょうじょうひ|e2041b; 褐色|かっしょく|8a3b00;緑黄色|りょくおうしょく|dccb18;天色|あまいろ|2ca9e1;丁子茶|ちょうじちゃ|b4866b;紅|くれない|d7003a;栗梅|くりうめ|852e19;鶸色|ひわいろ|d7cf3a;露草色|つゆくさいろ|38a1db;柴染|ふしぞめ|b28c6e;深緋|こきひ|c9171e;紅檜皮|べにひはだ|7b4741;抹茶色|まっちゃいろ|c5c56a;青|あお|0095d9;宗伝唐茶|そうでんからちゃ|a16d5d;緋色|ひいろ|d3381c;海老茶|えびちゃ|773c30;若草色|わかくさいろ|c3d825;薄藍|うすあい|0094c8;砺茶|とのちゃ|9f6f55;赤丹|あかに|ce5242;唐茶|からちゃ|783c1d;黄緑|きみどり|b8d200;縹色|はなだいろ|2792c3;煎茶色|せんちゃいろ|8c6450;紅赤|べにあか|d9333f;栗色|くりいろ|762f07;若芽色|わかめいろ|e0ebaf;紺碧|こんぺき|007bbb;銀煤竹|ぎんすすだけ|856859;臙脂|えんじ|b94047;赤銅色|しゃくどういろ|752100;若菜色|わかないろ|d8e698;薄群青|うすぐんじょう|5383c3;黄枯茶|きがらちゃ|765c47;朱・緋|あけ|ba2636;錆色|さびいろ|6c3524;若苗色|わかなえいろ|c7dc68;薄花桜|うすはなざくら|5a79ba;煤竹色|すすたけいろ|6f514c;茜色|あかねいろ|b7282e;赤褐色|せっかっしょく|683f36;青丹|あおに|99ab4e;群青色|ぐんじょういろ|4c6cb3;焦茶|こげちゃ|6f4b3e;紅海老茶|べにえびちゃ|a73836;茶褐色|ちゃかっしょく|664032;草色|くさいろ|7b8d42;杜若色|かきつばたいろ|3e62ad;黒橡|くろつるばみ|544a47;蘇芳|すおう|9e3d3f;栗皮茶|くりかわちゃ|6d3c32;苔色|こけいろ|69821b;瑠璃色|るりいろ|1e50a2;憲法色|けんぽういろ|543f32;真紅|しんく|a22041;黒茶|くろちゃ|583822;萌黄|もえぎ|aacf53;薄縹|うすはなだ|507ea4;涅色|くりいろ|554738;濃紅|こいくれない|a22041;葡萄茶|えびちゃ|6c2c2f;苗色|なえいろ|b0ca71;瑠璃紺|るりこん|19448e;檳榔子染|びんろうじぞめ|433d3c;象牙色|ぞうげいろ|f8f4e6;葡萄色|えびいろ|640125;若葉色|わかばいろ|b9d08b;紺瑠璃|こんるり|164a84;黒鳶|くろとび|432f2f;練色|ねりいろ|ede4cd;萱草色|かんぞういろ|f8b862;松葉色|まつばいろ|839b5c;藍色|あいいろ|165e83;赤墨|あかすみ|3f312b;灰白色|かいはくしょく|e9e4d4;柑子色|こうじいろ|f6ad49;夏虫色|なつむしいろ|cee4ae;青藍|せいらん|274a78;黒紅|くろべに|302833;蒸栗色|むしぐりいろ|ebe1a9;金茶|きんちゃ|f39800;鶸萌黄|ひわもえぎ|82ae46;深縹|こきはなだ|2a4073;白|しろ|ffffff;女郎花|おみなえし|f2f2b0;蜜柑色|みかんいろ|f08300;柳色|やなぎいろ|a8c97f;紺色|こんいろ|223a70;胡粉色|ごふんいろ|fffffc;枯草色|かれくさいろ|e4dc8a;鉛丹色|えんたんいろ|ec6d51;青白橡|あおしろつるばみ|9ba88d;紺青|こんじょう|192f60;卯の花色|うのはないろ|f7fcfe;淡黄|たんこう|f8e58c;黄丹|おうに|ee7948;柳鼠|やなぎねず|c8d5bb;留紺|とめこん|1c305c;白磁|はくじ|f8fbf8;白茶|しらちゃ|ddbb99;柿色|かきいろ|ed6d3d;裏葉柳|うらはやなぎ|c1d8ac;濃藍|こいあい|0f2350;生成り色|きなりいろ|fbfaf5;赤白橡|あかしろつるばみ|d7a98c;黄赤|きあか|ec6800;山葵色|わさびいろ|a8bf93;鉄紺|てつこん|17184b;乳白色|にゅうはくしょく|f3f3f3;洗柿|あらいがき|f2c9ac;人参色|にんじんいろ|ec6800;老竹色|おいたけいろ|769164;漆黒|しっこく|0d0015;白練|しろねり|f3f3f2;鳥の子色|とりのこいろ|fff1cf;橙色|だいだいいろ|ee7800;白緑|びゃくろく|d6e9ca;淡藤色|あわふじいろ|bbc8e6;素色|そしょく|eae5e3;蜂蜜色|はちみついろ|fddea5;照柿|てりがき|eb6238;淡萌黄|うすもえぎ|93ca76;藤色|ふじいろ|bbbcde;白梅鼠|しらうめねず|e5e4e6;肌色|はだいろ|fce2c4;赤橙|あかだいだい|ea5506;柳染|やなぎぞめ|93b881;紅掛空色|べにかけそらいろ|8491c3;白鼠|しろねず|dcdddd;薄卵色|うすたまごいろ|fde8d0;金赤|きんあか|ea5506;薄萌葱|うすもえぎ|badcad;紅碧|べにみどり|8491c3;絹鼠|きぬねず|dddcd6;雄黄|ゆうおう|f9c89b;朱色|しゅいろ|eb6101;深川鼠|ふかがわねずみ|97a791;紺桔梗|こんききょう|4d5aaf;灰青|はいあお|c0c6c9;洒落柿|しゃれがき|f7bd8f;小麦色|こむぎいろ|e49e61;若緑|わかみどり|98d98e;花色|はないろ|4d5aaf;銀鼠|ぎんねず|afafb0;赤香|あかこう|f6b894;丹色|にいろ|e45e32;浅緑|あさみどり|88cb7f;紺藍|こんあい|4a488e;薄鈍|うすにび|adadad;砥粉色|とのこいろ|f4dda5;黄茶|きちゃ|e17b34;薄緑|うすみどり|69b076;紅桔梗|べにききょう|4d4398;薄墨色|うすずみいろ|a3a3a2;肉色|にくいろ|f1bf99;肉桂色|にっけいいろ|dd7a56;青鈍|あおにび|6b7b6e;桔梗色|ききょういろ|5654a2;錫色|すずいろ|9ea1a3;人色|ひといろ|f1bf99;赤朽葉色|あかくちばいろ|db8449;青磁鼠|せいじねず|bed2c3;藤納戸|ふじなんど|706caa;素鼠|すねずみ|9fa0a0;丁子色|ちょうじいろ|efcd9a;黄櫨染|こうろぜん|d66a35;薄青|うすあお|93b69c;紅掛花色|べにかけはないろ|68699b;鼠色|ねずみいろ|949495;香色|こういろ|efcd9a;蒲公英色|たんぽぽいろ|ffd900;錆青磁|さびせいじ|a6c8b2;紫苑色|しおんいろ|867ba9;源氏鼠|げんじねず|888084;薄香|うすこう|f0cfa0;黄色|きいろ|ffd900;緑青色|ろくしょういろ|47885e;白藤色|しらふじいろ|dbd0e6;灰色|はいいろ|7d7d7d;浅黄|うすき|edd3a1;中黄|ちゅうき|ffea00;千歳緑|ちとせみどり|316745;藤紫|ふじむらさき|a59aca;鉛色|なまりいろ|7b7c7d;枯色|かれいろ|e0c38c;菜の花色|なのはないろ|ffec47;若竹色|わかたけいろ|68be8d;菫色|すみれいろ|7058a3;鈍色|にびいろ|727171;淡香|うすこう|f3bf88;黄檗色|きはだいろ|fef263;緑|みどり|3eb370;青紫|あおむらさき|674598;墨|すみ|595857;杏色|あんずいろ|f7b977;卵色|たまごいろ|fcd575;常磐色|ときわいろ|007b43;菖蒲色|しょうぶいろ|674196;丼鼠|どぶねずみ|595455;東雲色|しののめいろ|f19072;花葉色|はなばいろ|fbd26b;千草鼠|ちぐさねず|bed3ca;竜胆色|りんどういろ|9079ad;消炭色|けしずみいろ|524e4d;曙色|あけぼのいろ|f19072;刈安色|かりやすいろ|f5e56b;千草色|ちぐさいろ|92b5a9;江戸紫|えどむらさき|745399;藍墨茶|あいすみちゃ|474a4d;珊瑚朱色|さんごしゅいろ|ee836f;玉蜀黍色|とうもろこしいろ|eec362;青磁色|せいじいろ|7ebea5;本紫|ほんむらさき|65318e;羊羹色|ようかんいろ|383c3c;深支子|こきくちなし|eb9b6f;金糸雀色|かなりあいろ|ebd842;青竹色|あおたけいろ|7ebeab; 葡萄色|ぶどういろ|522f60;蝋色|ろういろ|2b2b2b;纁|そひ|e0815e;黄支子色|きくちなしいろ|ffdb4f;常磐緑|ときわみどり|028760;深紫|ふかむらさき|493759;黒|くろ|2b2b2b;浅緋|うすきひ|df7163;支子色|くちなしいろ|fbca4d;木賊色|とくさいろ|3b7960;紫黒|しこく|2e2930;烏羽色|からすばいろ|180614;真赭|まそほ|d57c6b;向日葵色|ひまわりいろ|fcc800;天鵞絨|びろうど|2f5d50;紫|むらさき|884898;鉄黒|てつぐろ|281a14;洗朱|あらいしゅ|d0826c;山吹色|やまぶきいろ|f8b500;虫襖|むしあお|3a5b52;薄葡萄|うすぶどう|c0a2c7;濡羽色|ぬればいろ|000b00;遠州茶|えんしゅうちゃ|ca8269;鬱金色|うこんいろ|fabf14;革色|かわいろ|475950;紫紺|しこん|460e44;黒檀|こくたん|250d00;紅樺色|べにかばいろ|bb5548;藤黄|とうおう|f7c114;深緑|ふかみどり|00552e;暗紅色|あんこうしょく|74325c;憲法黒茶|けんぽうくろちゃ|241a08;赭|そほ|ab6953;金色|こんじき|e6b422;鉄色|てついろ|005243;桑の実色|くわのみいろ|55295b;暗黒色|あんこくしょく|16160e".split(";").map(s=>{const[n,r,h]=s.split("|");return{n,r,h:"#"+h};});
@@ -4230,7 +4039,6 @@ const ROLES=[["paper","紙色","頁面、卡片、對照表的底色","#f3ead7"]
 const DEF=Object.fromEntries(ROLES.map(r=>[r[0],r[3]]));
 const PRESETS=[["原色",{}],["藍染",{"paper": "#fbfaf5", "ink": "#0f2350", "muted": "#455765", "line": "#c0c6c9", "bar": "#203744", "gold": "#f0cfa0", "accent": "#165e83", "accent2": "#2792c3", "ok": "#007b43", "diff": "#b94047"}],["茜と鳥の子",{"paper": "#fff1cf", "ink": "#432f2f", "muted": "#a58f86", "line": "#e0c38c", "bar": "#6c2c2f", "gold": "#fddea5", "accent": "#b7282e", "accent2": "#db8449", "ok": "#316745", "diff": "#4c6cb3"}],["抹茶と墨",{"paper": "#f8f4e6", "ink": "#383c3c", "muted": "#8f8667", "line": "#c8d5bb", "bar": "#494a41", "gold": "#f2f2b0", "accent": "#316745", "accent2": "#69821b", "ok": "#028760", "diff": "#745399"}],["江戸紫",{"paper": "#eae5e3", "ink": "#2e2930", "muted": "#9e8b8e", "line": "#c8c2c6", "bar": "#302833", "gold": "#efcd9a", "accent": "#745399", "accent2": "#9d5b8b", "ok": "#3b7960", "diff": "#d9333f"}]];
 const FAMS=[["all","全部"],["red","赤"],["brown","茶・橙"],["yellow","黄"],["green","緑"],["blue","青"],["purple","紫"],["gray","鼠・白黒"]];
-/* --- 色彩換算（sRGB ⇄ OKLCH） --- */
 const s2l=c=>(c/=255)<=.04045?c/12.92:((c+.055)/1.055)**2.4, l2s=c=>{c=Math.max(0,Math.min(1,c));return Math.round(255*(c<=.0031308?12.92*c:1.055*c**(1/2.4)-.055));};
 function hex2rgb(h){h=h.replace("#","");return[0,2,4].map(i=>parseInt(h.substr(i,2),16));}
 function rgb2hex(r,g,b){return"#"+[r,g,b].map(x=>x.toString(16).padStart(2,"0")).join("");}
@@ -4251,14 +4059,12 @@ WAIRO.forEach(w=>{w.f=fam(w.h);w.L=hex2lch(w.h)[0];});const FI={};FAMS.forEach((
 const byHex={};WAIRO.forEach(w=>{(byHex[w.h]||(byHex[w.h]=w));});
 function nearest(h){let best=null;for(const w of WAIRO){const d=dE(h,w.h);if(!best||d<best.d)best={w,d};}return best;}
 function nameOf(h){const w=byHex[h.toLowerCase()];return w?w.n:"";}
-/* --- 狀態 --- */
 let tex="none";try{tex=localStorage.getItem("bikan_tex")||"none";}catch(e){}
 function applyTex(){document.body.classList.remove("tx-line","tx-washi");if(tex!=="none")document.body.classList.add("tx-"+tex);try{if(tex==="none")localStorage.removeItem("bikan_tex");else localStorage.setItem("bikan_tex",tex);}catch(e){}}applyTex();
 let cur=Object.assign({},DEF);try{const s=JSON.parse(localStorage.getItem("bikan_palette")||"null");if(s)Object.keys(DEF).forEach(k=>{if(/^#[0-9a-f]{6}$/i.test(s[k]||""))cur[k]=s[k].toLowerCase();});}catch(e){}
 function apply(){const st=document.documentElement.style;Object.keys(DEF).forEach(k=>{if(cur[k]===DEF[k])st.removeProperty("--"+k);else st.setProperty("--"+k,cur[k]);});
  try{const ch=Object.keys(DEF).some(k=>cur[k]!==DEF[k]);if(ch)localStorage.setItem("bikan_palette",JSON.stringify(cur));else localStorage.removeItem("bikan_palette");}catch(e){}}
 apply();
-/* --- 介面 --- */
 const IC={pal:'<svg class="ici" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a9 9 0 1 0 0 18c1.1 0 1.7-.8 1.7-1.6 0-.5-.2-.9-.5-1.2-.3-.3-.5-.7-.5-1.2 0-.9.7-1.6 1.6-1.6H16a5 5 0 0 0 5-5C21 6.3 17 3 12 3z"/><circle cx="7.5" cy="11" r="1"/><circle cx="10" cy="7" r="1"/><circle cx="14.5" cy="7" r="1"/><circle cx="17" cy="10.5" r="1"/></svg>',
  x:'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>',
  undo:'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9h11a5 5 0 0 1 0 10H9"/><path d="M8 5L4 9l4 4"/></svg>',
@@ -4330,7 +4136,6 @@ P.addEventListener("input",e=>{const ip=e.target.closest("input[data-live]");if(
 P.addEventListener("change",e=>{const ip=e.target.closest("input[data-live]");if(!ip)return;role=ip.dataset.live;render();});
 P.addEventListener("mouseover",e=>{const b=e.target.closest(".grid button");if(!b)return;const w=byHex[b.dataset.hex];const hv=P.querySelector(".hov");if(hv&&w)hv.textContent=`${w.n}（${w.r}）${w.h}`;});
 P.addEventListener("mouseleave",()=>{const hv=P.querySelector(".hov");const h=cur[role];if(hv)hv.textContent=nameOf(h)?`目前：${nameOf(h)}（${byHex[h].r}）${h}`:`目前：${h}`;});
-/* 拖曳面板 */
 P.addEventListener("pointerdown",e=>{const hd=e.target.closest(".phd");if(!hd||e.target.closest("button"))return;const r=P.getBoundingClientRect(),dx=e.clientX-r.left,dy=e.clientY-r.top;
  const mv=ev=>{P.style.left=Math.max(0,Math.min(innerWidth-r.width,ev.clientX-dx))+"px";P.style.top=Math.max(0,Math.min(innerHeight-60,ev.clientY-dy))+"px";P.style.right="auto";};
  const up=()=>{removeEventListener("pointermove",mv);removeEventListener("pointerup",up);};addEventListener("pointermove",mv);addEventListener("pointerup",up);});
@@ -4340,7 +4145,6 @@ document.addEventListener("keydown",e=>{if(e.key==="Escape"&&!P.hidden&&!documen
 })();
 </script>
 <script>
-/* 校定本文收合：開始校對（已有書影）後預設收起；記住使用者的選擇 */
 (function(){const b=document.getElementById("psgFold"),pk=document.getElementById("psgPeek"),ta=document.getElementById("passage");if(!b||!ta)return;
  function set(f,save){document.body.classList.toggle("psgFolded",f);b.textContent=f?"展開":"收合";pk.hidden=!f;if(f){const t=ta.value.replace(/\s+/g,"");pk.textContent=t.length?t.slice(0,60)+(t.length>60?"…":"")+`（${t.length} 字）`:"（尚未貼入）";}
   if(save)try{localStorage.setItem("bikan_psgFold",f?"1":"0");}catch(e){}}
