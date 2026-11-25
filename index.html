@@ -790,8 +790,8 @@ body.tx-washi,body.tx-washi header{background-color:oklch(from var(--paper) calc
 <input type="file" id="file" accept="image/*" multiple style="display:none">
 <input type="file" id="fileProj" accept="application/json" style="display:none">
 
-<div style="padding:6px 22px" id="psgHead"><b>校定本文（底本）</b> <button class="btn" id="psgFold" title="收合／展開校定本文（開始校對後可收起來，騰出空間看書影）">收合</button> <span id="psgPeek" hidden></span><div class="psgNote" style="font-size:13px;color:oklch(from var(--muted) calc(l - 0.046) max(0, calc(c - 0.009)) calc(h - 3.6));margin-top:3px">全段字序以這裡為準，各版本都依此逐字對齊。先貼入底本（如《大正藏》）正文，校勘完成後再改為最後採用的文字。標點不影響對齊。</div></div>
-<textarea id="passage" style="width:calc(100% - 44px);margin:0 22px 6px;height:70px;font-family:inherit;font-size:15px;border:1px solid var(--line);border-radius:6px;padding:8px"></textarea>
+<div style="padding:6px 22px" id="psgHead"><b>校定本文（底本）</b> <button class="btn" id="psgFold" title="收合／展開校定本文（開始校對後可收起來，騰出空間看書影）">收合</button> <span id="psgPeek" hidden></span><div class="psgNote" hidden style="font-size:13px;color:oklch(from var(--muted) calc(l - 0.046) max(0, calc(c - 0.009)) calc(h - 3.6));margin-top:3px">全段字序以這裡為準，各版本都依此逐字對齊。先貼入底本（如《大正藏》）正文，校勘完成後再改為最後採用的文字。標點不影響對齊。</div></div>
+<textarea id="passage" placeholder="貼上底本正文（例如《大正藏》）。全段字序以這裡為準，各版本依此逐字對齊；標點不影響對齊。" style="width:calc(100% - 44px);margin:0 22px 6px;height:70px;font-family:inherit;font-size:15px;border:1px solid var(--line);border-radius:6px;padding:8px"></textarea>
 
 <div class="dwrow" style="display:flex;align-items:center;gap:8px;padding:4px 22px;font-size:13px;color:oklch(from var(--accent) calc(l - 0.030) max(0, calc(c - 0.087)) calc(h + 34.6))"><label for="dw">大圖顯示高度（各頁等高・放大；Ctrl＋滾輪縮放）：</label><input type="range" id="dw" min="300" max="3000" value="900" style="width:220px"> <span id="dwv">900px</span><button class="btn" id="addPg" style="margin-left:auto" title="為目前版本新增一頁（選圖／貼圖也可）">＋ 新增頁</button><button class="btn" id="delPg" title="刪除目前版本的最後一頁（可從右欄『↩ 復原刪頁』救回）">－ 刪除末頁</button><button class="btn" id="saveImgs" title="另存原始頁圖為 PNG（備份用，非存進度）">匯出原圖（PNG）</button></div>
 <div class="pages" id="pages"></div>
@@ -2745,6 +2745,7 @@ Word 輸出縮放|Word 出力の倍率|Word export scale
 簡稱：分頁上括號裡的名稱|略称：タブの括弧内に出る名前|Short name: shown in brackets on the tab
 已儲存版本屬性。|版本属性を保存しました。|Version attributes saved.
 在論文或報告中使用對勘室時，請引用你實際使用的版本（版本號在畫面右上角）。檢索日期會自動填今天。|論文や報告で対勘室を使った場合は、実際に使った版を引用してください（版番号は画面右上）。閲覧日は今日の日付が自動で入ります。|If you use CollateDesk in a paper or report, cite the version you actually used (shown at the top right). The access date is filled in with today.
+貼上底本正文（例如《大正藏》）。全段字序以這裡為準，各版本依此逐字對齊；標點不影響對齊。|底本の本文を貼ります（例：『大正蔵』）。全体の字順はここが基準で、各版本はこれに一字ずつ揃えます。句読点は揃え方に影響しません。|Paste the base text (e.g. from the Taishō). Its character order is the reference every version is aligned to; punctuation does not affect alignment.
 `;
 const HELP_I18N={
  ja:{steps:[
