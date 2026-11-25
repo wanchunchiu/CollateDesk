@@ -166,7 +166,7 @@ dialog.welcome .wopts button:hover{box-shadow:0 2px 10px rgba(0,0,0,.18)}
 .exgal img{width:100%;height:120px;object-fit:cover;object-position:top left;border:1px solid var(--line);border-radius:6px;display:block;background:var(--paper)}
 .exgal figcaption{font-size:12px;margin-top:4px;color:var(--muted)}
 .exgal .exnote{font-size:11.5px;color:var(--muted);margin:8px 0 0}
-#exZoom{position:fixed;inset:0;z-index:400;background:rgba(20,14,8,.82);display:flex;align-items:center;justify-content:center;cursor:zoom-out;padding:3vh 3vw}
+#exZoom{position:fixed;inset:0;z-index:99999;background:rgba(20,14,8,.82);display:flex;align-items:center;justify-content:center;cursor:zoom-out;padding:3vh 3vw}
 #exZoom img{max-width:100%;max-height:100%;border-radius:6px;box-shadow:0 6px 30px rgba(0,0,0,.5);background:#faf5ea}
 @media(max-width:600px){dialog.welcome .wopts{grid-template-columns:1fr}.guide{flex-wrap:wrap}}
 dialog.cddlg{border:2px solid var(--accent);border-radius:10px;padding:18px 20px;background:oklch(from var(--paper) calc(l + 0.035) max(0, calc(c - 0.010)) calc(h + 0.0));max-width:460px;font-size:14px;color:oklch(from var(--bar) calc(l + 0.001) max(0, calc(c + 0.001)) calc(h - 2.2))}
@@ -582,6 +582,7 @@ body.vgbare #vgraph .vgh,body.vgbare #vgLegend,body.vgbare #vgAnim,body.vgbare .
 #tourBg{position:absolute;inset:0;cursor:pointer}
 #tourHole{position:absolute;border-radius:10px;box-shadow:0 0 0 9999px oklch(from var(--ink) calc(l - 0.023) max(0, calc(c - 0.005)) calc(h + 0.0) / .78),0 0 0 3px var(--gold),0 0 24px 6px oklch(from var(--gold) l c h / .55);transition:left .28s cubic-bezier(.4,0,.2,1),top .28s cubic-bezier(.4,0,.2,1),width .28s cubic-bezier(.4,0,.2,1),height .28s cubic-bezier(.4,0,.2,1);pointer-events:none}
 #tourHole.none{box-shadow:0 0 0 9999px oklch(from var(--ink) calc(l - 0.023) max(0, calc(c - 0.005)) calc(h + 0.0) / .78);width:0;height:0}
+#tourCard:has(.exgal){width:600px}#tourCard .exgal{margin-top:10px}#tourCard .exgal h4{display:none}
 #tourCard{position:absolute;width:340px;max-width:calc(100vw - 24px);background:oklch(from var(--paper) calc(l + 0.035) max(0, calc(c - 0.010)) calc(h + 0.0));color:var(--ink);border:2px solid var(--accent);border-radius:12px;padding:14px 16px 12px;box-shadow:0 14px 40px rgba(0,0,0,.55);font-family:inherit;transition:left .28s cubic-bezier(.4,0,.2,1),top .28s cubic-bezier(.4,0,.2,1)}
 #tourCard .tn{font-size:12px;color:var(--accent);letter-spacing:.12em;font-weight:700;display:flex;align-items:center;gap:8px}
 #tourCard .tn i{display:inline-block;width:7px;height:7px;border-radius:50%;background:oklch(from var(--gold) calc(l + 0.015) max(0, calc(c - 0.043)) calc(h + 8.0))}
@@ -2423,7 +2424,7 @@ function openHelp(tab){let d=document.getElementById("helpDlg");if(d)d.remove();
  const HL=LANG!=="zh"?HELP_I18N[LANG]:null;const a=ABOUT;const link=(u,t)=>u?`<a href="${esc(u)}" target="_blank" rel="noopener">${esc(t||u)}</a>`:"";
  const links=[["GitHub",a.github],["程式碼",a.repo],["網站",a.site],["ORCID",a.orcid],["個人網站",a.homepage],["Email",a.email&&("mailto:"+a.email)]].filter(x=>x[1]).map(([t,u])=>`<li>${t}：${link(u,u.replace(/^mailto:/,""))}</li>`).join("");
  d.innerHTML=`<div class="hdtabs"><button data-t="steps">操作步驟</button><button data-t="about">關於對勘室</button><button data-t="cite">引用與連結</button><span style="flex:1"></span><button data-t="x" title="關閉（Esc）">✕</button></div>
- <section data-p="steps"><h3>操作步驟</h3><ol class="hsteps">${(HL?HL.steps:HELP_STEPS).map(([t,x])=>`<li><b>${t}</b><span>${x}</span></li>`).join("")}</ol>
+ <section data-p="steps"><h3>操作步驟</h3>${exGallery()}<ol class="hsteps">${(HL?HL.steps:HELP_STEPS).map(([t,x])=>`<li><b>${t}</b><span>${x}</span></li>`).join("")}</ol>
   <p class="hnote">${HL?HL.tour:"想看各功能在畫面上的位置，可按側欄「查詢與說明」→「✨ 導覽」。"}</p></section>
  <section data-p="about">${HL?HL.about+`<p class="hnote">v${APP_VERSION}・${esc(a.authorEn)}（${esc(a.author)}）</p></section><section data-p="aboutzh" hidden>`:""}<h3>對勘室｜CollateDesk</h3><p class="hsub">字級書影對勘工作臺 — <i>Character-Level Textual Collation with Source Images</i></p>
   <p>對勘室把多個版本（寫本、刻本、校注本）的書頁影像，依底本正文逐字對齊，讓研究者在同一列上直接比較每個字的字形，並把判斷寫成對照表與校勘記。</p>
@@ -4039,6 +4040,8 @@ function hoDlg(){let d=document.getElementById("hoDlg");
  *   before(ctx) = 顯示該步之前要做的準備（可選）
  */
 const TOUR_STEPS=[
+ {el:null,title:"對勘室做什麼",
+  text:"把同一段文字在不同版本中的書影<b>逐字切下、並排比對</b>，標出異文與異體，再畫成分支圖。以下是《釋迦方志》序的例子："+exGallery()},
  {el:"#projBar",title:"專案",
   text:"一個文本一個專案：底本、版本、頁圖、字框和校勘記都存在專案裡。可以<b>新增、改名、複製、刪除</b>，也可以匯出成檔案備份或交給別人匯入。資料只存在你的電腦。"},
  {el:"#tabs",title:"版本分頁",
@@ -4065,7 +4068,7 @@ const TOUR_STEPS=[
  {el:"#vgBtn",need:"compare",title:"異文分支圖",
   text:"各版相同處合成一股，異文處分岔；一條線＝一個版本。可只畫有出校的條目，也可逐字動畫展開。"},
  {el:null,title:"還復如故",
-  text:"導覽結束。對勘室只提供視野：切圖、並排、粒度開關；判斷留給讀的人。關掉工具，世界還復如故——要看哪一層，得自己記得。"+exGallery()}
+  text:"導覽結束。對勘室只提供視野：切圖、並排、粒度開關；判斷留給讀的人。關掉工具，世界還復如故——要看哪一層，得自己記得。"}
 ];
 
 (function(){
