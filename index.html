@@ -154,11 +154,20 @@ header{position:relative}header .hlinks{position:absolute;top:14px;right:22px;fo
 #pzName{font-weight:600;color:var(--accent)}
 dialog.cddlg.welcome{max-width:620px;padding:24px 26px}dialog.welcome h3{font-size:20px}
 dialog.welcome .wlead{font-size:16px;color:oklch(from var(--bar) calc(l + 0.001) max(0, calc(c + 0.001)) calc(h - 2.2));line-height:1.7;margin:6px 0 18px}
-dialog.welcome .wopts{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+dialog.welcome .wopts{display:grid;grid-template-columns:1fr;gap:12px}
 dialog.welcome .wopts button{font:inherit;text-align:left;padding:14px 16px;border:1px solid var(--accent2);border-radius:8px;background:oklch(from var(--paper) calc(l + 0.055) max(0, calc(c - 0.018)) calc(h + 0.0));cursor:pointer;display:flex;flex-direction:column;gap:6px}
 dialog.welcome .wopts button:first-child{background:oklch(from var(--ok) calc(l - 0.002) max(0, calc(c + 0.009)) calc(h - 5.6));border-color:oklch(from var(--ok) calc(l - 0.002) max(0, calc(c + 0.009)) calc(h - 5.6));color:#fff}
 dialog.welcome .wopts b{font-size:16px}dialog.welcome .wopts span{font-size:13px;line-height:1.6;opacity:.9}
 dialog.welcome .wopts button:hover{box-shadow:0 2px 10px rgba(0,0,0,.18)}
+.exgal{margin:18px 0 0;padding-top:14px;border-top:1px solid var(--line)}
+.exgal h4{margin:0 0 8px;font-size:14px;color:var(--muted);font-weight:600}
+.exgal .exrow{display:grid;grid-template-columns:1fr 1fr 1.6fr;gap:10px;align-items:start}
+.exgal figure{margin:0;cursor:zoom-in}
+.exgal img{width:100%;height:120px;object-fit:cover;object-position:top left;border:1px solid var(--line);border-radius:6px;display:block;background:var(--paper)}
+.exgal figcaption{font-size:12px;margin-top:4px;color:var(--muted)}
+.exgal .exnote{font-size:11.5px;color:var(--muted);margin:8px 0 0}
+#exZoom{position:fixed;inset:0;z-index:400;background:rgba(20,14,8,.82);display:flex;align-items:center;justify-content:center;cursor:zoom-out;padding:3vh 3vw}
+#exZoom img{max-width:100%;max-height:100%;border-radius:6px;box-shadow:0 6px 30px rgba(0,0,0,.5);background:#faf5ea}
 @media(max-width:600px){dialog.welcome .wopts{grid-template-columns:1fr}.guide{flex-wrap:wrap}}
 dialog.cddlg{border:2px solid var(--accent);border-radius:10px;padding:18px 20px;background:oklch(from var(--paper) calc(l + 0.035) max(0, calc(c - 0.010)) calc(h + 0.0));max-width:460px;font-size:14px;color:oklch(from var(--bar) calc(l + 0.001) max(0, calc(c + 0.001)) calc(h - 2.2))}
 dialog.cddlg::backdrop{background:oklch(from var(--ink) calc(l - 0.023) max(0, calc(c - 0.005)) calc(h + 0.0) / .55)}
@@ -669,11 +678,12 @@ body.tx-washi,body.tx-washi header{background-color:oklch(from var(--paper) calc
  </div>
 </header>
 
-<div style="padding:8px 22px;display:flex;gap:8px;align-items:center;background:var(--bar);border-bottom:1px solid oklch(from var(--accent) calc(l - 0.048) max(0, calc(c - 0.075)) calc(h + 30.8));flex-wrap:wrap">
+<div id="projBar" style="padding:8px 22px;display:flex;gap:8px;align-items:center;background:var(--bar);border-bottom:1px solid oklch(from var(--accent) calc(l - 0.048) max(0, calc(c - 0.075)) calc(h + 30.8));flex-wrap:wrap">
  <b style="color:var(--gold);font-size:13px;letter-spacing:.06em">專案</b>
  <select id="projSel" title="切換不同文本的對勘專案（每個專案各有自己的底本、版本與頁圖）" style="font-family:inherit;font-size:14px;padding:4px 10px;border-radius:5px;background:oklch(from var(--paper) calc(l + 0.035) max(0, calc(c - 0.010)) calc(h + 0.0));border:1px solid var(--accent);min-width:140px"></select>
  <button class="btn" id="newProjBtn" title="新增一個對勘專案（另一個文本）">＋ 新專案</button>
  <button class="btn" id="renProjBtn" title="替目前專案改名">改名</button>
+ <button class="btn" id="dupProjBtn" title="複製目前專案（含版本、頁圖、字框與校勘記），另存成新專案">複製</button>
  <button class="btn" id="delProjBtn" title="刪除目前專案">刪除專案</button>
  <span style="width:1px;height:22px;background:oklch(from var(--accent) calc(l - 0.001) max(0, calc(c - 0.070)) calc(h + 26.4));margin:0 4px"></span>
  <button class="btn go" id="nextSegBtn" hidden title="這一段校完後，用同一組版本設定開新專案接著校下一段；可先備份這一段，並帶入各版本最後一頁超出本段的字框">⏭ 續校下一段</button>
@@ -767,7 +777,7 @@ body.tx-washi,body.tx-washi header{background-color:oklch(from var(--paper) calc
  </details>
  <details class="sbg" data-g="help"><summary>查詢與說明</summary>
  <button class="btn" id="charBtn">🔍 字搜尋（各版畫廊）</button>
- <button class="btn" id="demoBtn" title="建立一個示範專案：兩個版本、十四個字，已切好字框並對齊">開啟示範</button>
+ <button class="btn" id="demoBtn" title="開啟示範專案：《釋迦方志》序，各版書影已切好字框並對齊">開啟示範</button>
 <button class="btn" id="tourBtn" hidden title="逐步聚光介紹各功能（快速鍵 ?）">✨ 導覽</button>
  </details>
 </div>
@@ -2400,7 +2410,7 @@ const HELP_STEPS=[
  ["對齊字序","選本段第一個字的框，按「★ 設為段落起點」。中間若錯位，選那個框指定「此框＝第 N 字」（錨點），之後自動順延。"],
  ["逐字標注","點字框打開放大鏡，填「實際字」，選類型：異文、異體字、訛字、脫字、衍字、不確定，或自訂類型。"],
  ["產生對照表","按「對照表 ▶」：底本逐字為列、各版為欄，每格是字圖＋實際字。在「校勘記」欄修改草稿。"],
- ["匯出成果","對照表上方「⬇ 匯出」→ Word、講義、PDF；「校勘記」→ 匯出校勘記。「🌿 分支圖」可下載 SVG／PNG。"],
+ ["匯出成果","對照表上方「⬇ 匯出」→ Word、PDF；「校勘記」→ 匯出校勘記。「🌿 分支圖」可下載 SVG／PNG。"],
  ["續校下一段","一段校完，按側欄「⏭ 續校下一段」：沿用版本設定開新專案，並帶入各版最後一頁超出本段的字框。"],
  ["保住資料","資料只存在這個瀏覽器裡。請定期按「💾 備份全部專案」，把檔案放到雲端硬碟；換電腦或換瀏覽器時，用「匯入專案」選備份檔即可還原。"]];
 function citeText(kind){const a=ABOUT;const v=APP_VERSION;const d=new Date();
@@ -2419,7 +2429,7 @@ function openHelp(tab){let d=document.getElementById("helpDlg");if(d)d.remove();
  <section data-p="about">${HL?HL.about+`<p class="hnote">v${APP_VERSION}・${esc(a.authorEn)}（${esc(a.author)}）</p></section><section data-p="aboutzh" hidden>`:""}<h3>對勘室｜CollateDesk</h3><p class="hsub">字級書影對勘工作臺 — <i>Character-Level Textual Collation with Source Images</i></p>
   <p>對勘室把多個版本（寫本、刻本、校注本）的書頁影像，依底本正文逐字對齊，讓研究者在同一列上直接比較每個字的字形，並把判斷寫成對照表與校勘記。</p>
   <p><b>它看的是影像，不是轉錄後的文字。</b>每一個字框就是一張單字切圖：異體、補刻、刻工換手，這些在編碼裡消失的訊息，都留在圖上。工具只負責把形放到眼前；異文、異體、要不要出校，判斷留給讀的人。</p>
-  <h4>主要功能</h4><ul><li>書影自動切字（區塊→行→字），可逐框修正</li><li>依閱讀順序與錨點，把字框對齊到底本字序</li><li>逐字標注異文、異體、訛字、脫字、衍字與自訂類型</li><li>對照表、校勘記草稿、異文分支圖；匯出 Word、講義、PDF、SVG</li><li>版本屬性（年代、類型、館藏地…）、續校下一段、完整備份</li></ul>
+  <h4>主要功能</h4><ul><li>書影自動切字（區塊→行→字），可逐框修正</li><li>依閱讀順序與錨點，把字框對齊到底本字序</li><li>逐字標注異文、異體、訛字、脫字、衍字與自訂類型</li><li>對照表、校勘記草稿、異文分支圖；匯出 Word、PDF、SVG</li><li>版本屬性（年代、類型、館藏地…）、續校下一段、完整備份</li></ul>
   <h4>資料在哪裡</h4><p>所有專案、書影與校勘都只存在使用者自己的瀏覽器裡，不會上傳到任何伺服器。請定期「💾 備份全部專案」。對勘功能可離線使用；「查詢網站」按鈕需要連網。</p>
   <h4>建議環境</h4><p>桌上型或筆記型電腦，Chrome 或 Edge，畫面寬度 1280px 以上。Safari、Firefox 可以使用，但不支援「自動存到電腦檔案」，且 Safari 可能在網站 7 天未使用後清除資料。</p>
   <p class="hnote">版本 ${APP_VERSION}・作者 ${esc(a.author)}（${esc(a.authorEn)}）</p></section>
@@ -2448,6 +2458,7 @@ v0.9.0・資料只存在本機|v0.9.0・データはこの端末にのみ保存|
 地圖|地図|Map|Karte|Carte
 專案|プロジェクト|Project|Projekt|Projet
 切換不同文本的對勘專案|対勘プロジェクトを切り替え|Switch collation project|Kollationsprojekt wechseln|Changer de projet de collation
+複製|複製|Duplicate|Duplizieren|Dupliquer
 ＋ 新專案|＋ 新規プロジェクト|＋ New project|＋ Neues Projekt|＋ Nouveau projet
 新增一個對勘專案（另一個文本）|新しい対勘プロジェクト（別の本文）を作成|Create a new collation project (another text)|Neues Kollationsprojekt anlegen (anderer Text)|Créer un nouveau projet de collation (autre texte)
 改名|名前を変更|Rename|Umbenennen|Renommer
@@ -2672,7 +2683,7 @@ Word 輸出縮放|Word 出力の倍率|Word export scale|Maßstab für Word-Expo
 圖大小|画像サイズ|Image size|Bildgröße|Taille des images
 搜尋|検索|Search|Suchen|Chercher
 校勘記|校勘記|Notes|Apparat|Apparat
-講義格式草稿|講義形式の下書き|Handout-style draft|Entwurf im Handout-Stil|Brouillon façon polycopié
+校勘記格式草稿|校勘記形式の下書き|Apparatus draft|Apparat-Entwurf|Brouillon d'apparat
 清楚版|清書版|Clean version|Bereinigte Fassung|Version épurée
 下載 .txt|.txt をダウンロード|Download .txt|.txt herunterladen|Télécharger le .txt
 全部版本圖版 · 直式並排對勘|全版本の画像 · 縦に並べて対勘|All versions · side by side|Alle Versionen · nebeneinander|Toutes les versions · côte à côte
@@ -2720,7 +2731,7 @@ Word 輸出縮放|Word 出力の倍率|Word export scale|Maßstab für Word-Expo
 分支|分岐|Branch|Verzweigung|Branche
 大正校勘|大正校勘|Taishō|Taishō|Taishō
 音讀|音読|Reading|Lesung|Lecture
-校勘記（可改）|校勘記（講義形式・編集可）|Notes (handout style, editable)|Apparat (Handout-Stil, bearbeitbar)|Apparat (façon polycopié, modifiable)
+校勘記（可改）|校勘記（編集可）|Notes (editable)|Apparat (bearbeitbar)|Apparat (modifiable)
 引用與連結|引用とリンク|Cite & links|Zitieren & Links|Citation et liens
 引用對勘室|対勘室の引用|Citing CollateDesk|CollateDesk zitieren|Citer CollateDesk
 在論文或報告中使用對勘室時，請引用：|論文や報告で対勘室を使った場合は、次のように引用してください：|If you use CollateDesk in a paper or report, please cite:|Wenn Sie CollateDesk in einem Aufsatz oder Bericht verwenden, zitieren Sie bitte:|Si vous utilisez CollateDesk dans un article ou un rapport, merci de citer :
@@ -2761,14 +2772,14 @@ const HELP_I18N={
  ["字順を揃える","この段の1字目の枠を選び「★ 段落の始点にする」。途中でずれたら、その枠を選んで「この枠＝N字目」（アンカー）を指定すると、以降は自動で順送りされます。"],
  ["一字ずつ標記する","字枠をクリックして拡大鏡を開き、「実際の字」を入力し、種類（異文・異体字・訛字・脱字・衍字・不確定・独自の種類）を選びます。"],
  ["対照表を作る","「対照表を作成 ▶」：底本の字が行、各版本が列になり、各セルに字の画像と実際の字が入ります。「校勘記」列で下書きを直します。"],
- ["書き出す","対照表の「⬇ 書き出し」→ Word・講義資料・PDF。「校勘記 ▾」→ 校勘記を書き出し。「🌿 分岐図」は SVG／PNG で保存できます。"],
+ ["書き出す","対照表の「⬇ 書き出し」→ Word・PDF。「校勘記 ▾」→ 校勘記を書き出し。「🌿 分岐図」は SVG／PNG で保存できます。"],
  ["次の段へ続ける","一段終わったら、サイドバー「⏭ 次の段へ続ける」：同じ版本設定で新しいプロジェクトを作り、各版の最終ページのうち本段を超える字枠を引き継ぎます。"],
  ["データを守る","データはこのブラウザにのみ保存されます。定期的に「💾 全プロジェクトをバックアップ」し、ファイルをクラウドなどに置いてください。別の端末やブラウザでは「プロジェクトを読み込み」でバックアップを選べば復元できます。"]],
  tour:"各機能が画面のどこにあるかは、サイドバー「検索とヘルプ」→「✨ ガイドツアー」で確認できます。",
  about:`<h3>対勘室｜CollateDesk</h3><p class="hsub">字単位書影対勘ワークベンチ — <i>Character-Level Textual Collation with Source Images</i></p>
  <p>対勘室は、複数の版本（写本・刊本・校注本）のページ画像を底本の本文に一字ずつ揃え、各字の字形を同じ行で直接見比べ、判断を対照表と校勘記にまとめるためのツールです。</p>
  <p><b>見るのは画像であって、翻字したテキストではありません。</b>一つ一つの字枠がそのまま一字の切り出し画像です。異体、補刻、刻工の交替といった、符号化で失われる情報は画像に残ります。ツールは字形を目の前に並べるだけで、異文か異体か、出校するかどうかの判断は読む人に委ねます。</p>
- <h4>主な機能</h4><ul><li>書影の自動字切り（ブロック→行→字）、枠ごとの修正</li><li>読み順とアンカーによる底本字順への対応づけ</li><li>異文・異体字・訛字・脱字・衍字・独自の種類の標記</li><li>対照表、校勘記の下書き、異文分岐図。Word・講義資料・PDF・SVG に書き出し</li><li>版本情報（年代・種別・所蔵…）、次の段へ続ける、完全バックアップ</li></ul>
+ <h4>主な機能</h4><ul><li>書影の自動字切り（ブロック→行→字）、枠ごとの修正</li><li>読み順とアンカーによる底本字順への対応づけ</li><li>異文・異体字・訛字・脱字・衍字・独自の種類の標記</li><li>対照表、校勘記の下書き、異文分岐図。Word・PDF・SVG に書き出し</li><li>版本情報（年代・種別・所蔵…）、次の段へ続ける、完全バックアップ</li></ul>
  <h4>データの保存場所</h4><p>プロジェクト・書影・校勘はすべて利用者自身のブラウザに保存され、どのサーバーにも送信されません。定期的に「💾 全プロジェクトをバックアップ」してください。対勘機能はオフラインで使えます。検索サイトのボタンはネット接続が必要です。</p>
  <h4>推奨環境</h4><p>デスクトップまたはノートパソコン、Chrome か Edge、画面幅 1280px 以上。Safari・Firefox でも使えますが「自動保存ファイルに接続」は使えず、Safari はサイトを 7 日間使わないとデータを消すことがあります。</p>`},
  en:{steps:[
@@ -2780,14 +2791,14 @@ const HELP_I18N={
  ["Align to the text","Select the box of this section's first character and press \"★ Set as section start\". Where things drift, select a box and pin it to character N (anchor); the rest follow."],
  ["Mark each character","Click a box to open the magnifier, enter the actual character and choose a type: variant reading, variant form, error, omission, addition, uncertain, or a custom type."],
  ["Build the table","\"Build table ▶\": base characters as rows, versions as columns, each cell a glyph image plus the actual character. Edit the drafts in the notes column."],
- ["Export","Table toolbar \"⬇ Export\" → Word, handout, PDF; \"Notes ▾\" → export notes. \"🌿 Branch graph\" saves SVG / PNG."],
+ ["Export","Table toolbar \"⬇ Export\" → Word, PDF; \"Notes ▾\" → export notes. \"🌿 Branch graph\" saves SVG / PNG."],
  ["Continue to the next section","When a section is done, sidebar \"⏭ Continue to next section\" opens a new project with the same versions and carries over boxes on each version's last page beyond this section."],
  ["Keep your data safe","Data lives only in this browser. Regularly use \"💾 Back up all projects\" and keep the file in cloud storage; on another computer or browser, \"Import project\" restores it."]],
  tour:"To see where each feature sits on screen, use sidebar \"Search & help\" → \"✨ Tour\".",
  about:`<h3>CollateDesk (對勘室)</h3><p class="hsub"><i>Character-Level Textual Collation with Source Images</i></p>
  <p>CollateDesk aligns page images of several versions (manuscripts, woodblock prints, critical editions) to a base text character by character, so you can compare each glyph side by side on one row and record your judgements as a comparison table and collation notes.</p>
  <p><b>It works on images, not transcriptions.</b> Every box is a cut-out of a single character: variant forms, recut blocks, a change of carver — what encoding throws away stays visible in the image. The tool only puts the forms in front of you; whether a difference is a variant reading or a variant form, and whether to report it, is left to the reader.</p>
- <h4>Main features</h4><ul><li>Automatic character cutting (block → line → character) with box-by-box correction</li><li>Alignment to the base text by reading order and anchors</li><li>Marking variant readings, variant forms, errors, omissions, additions and custom types</li><li>Comparison table, draft notes, variant branch graph; export to Word, handout, PDF, SVG</li><li>Version info (date, type, holding…), continue to next section, full backup</li></ul>
+ <h4>Main features</h4><ul><li>Automatic character cutting (block → line → character) with box-by-box correction</li><li>Alignment to the base text by reading order and anchors</li><li>Marking variant readings, variant forms, errors, omissions, additions and custom types</li><li>Comparison table, draft notes, variant branch graph; export to Word, PDF, SVG</li><li>Version info (date, type, holding…), continue to next section, full backup</li></ul>
  <h4>Where your data lives</h4><p>All projects, images and notes stay in your own browser and are never uploaded. Back up all projects regularly. Collation works offline; the lookup-site buttons need a connection.</p>
  <h4>Recommended setup</h4><p>A desktop or laptop with Chrome or Edge, screen width 1280px or more. Safari and Firefox work but cannot link an auto-save file, and Safari may clear site data after 7 days without use.</p>`},
  de:{steps:[
@@ -2799,14 +2810,14 @@ const HELP_I18N={
  ["Am Text ausrichten","Den Rahmen des ersten Zeichens dieses Abschnitts wählen und „★ Als Abschnittsbeginn setzen“ drücken. Wo es sich verschiebt, einen Rahmen wählen und an Zeichen N anheften (Anker); die übrigen folgen."],
  ["Jedes Zeichen markieren","Rahmen anklicken, um die Lupe zu öffnen, das tatsächliche Zeichen eingeben und einen Typ wählen: Variante, Schreibvariante, Fehler, Auslassung, Zusatz, unsicher oder einen eigenen Typ."],
  ["Tabelle erstellen","„Tabelle ▶“: Grundtextzeichen als Zeilen, Versionen als Spalten, jede Zelle ein Glyphenbild mit dem tatsächlichen Zeichen. Die Entwürfe in der Apparatspalte bearbeiten."],
- ["Exportieren","Tabellenleiste „⬇ Export“ → Word, Handout, PDF; „Apparat ▾“ → Apparat exportieren. Das „🌿 Verzweigungsdiagramm“ lässt sich als SVG / PNG speichern."],
+ ["Exportieren","Tabellenleiste „⬇ Export“ → Word, PDF; „Apparat ▾“ → Apparat exportieren. Das „🌿 Verzweigungsdiagramm“ lässt sich als SVG / PNG speichern."],
  ["Weiter zum nächsten Abschnitt","Ist ein Abschnitt fertig, öffnet „⏭ Weiter zum nächsten Abschnitt“ in der Seitenleiste ein neues Projekt mit denselben Versionen und übernimmt die Rahmen auf der letzten Seite jeder Version, die über den Abschnitt hinausreichen."],
  ["Daten sichern","Die Daten liegen nur in diesem Browser. Regelmäßig „💾 Alle Projekte sichern“ nutzen und die Datei in einem Cloudspeicher ablegen; auf einem anderen Computer oder Browser stellt „Projekt importieren“ sie wieder her."]],
  tour:"Wo jede Funktion auf dem Bildschirm liegt, zeigt Seitenleiste „Suche & Hilfe“ → „✨ Rundgang“.",
  about:`<h3>CollateDesk (對勘室)</h3><p class="hsub"><i>Character-Level Textual Collation with Source Images</i></p>
  <p>CollateDesk richtet Seitenbilder mehrerer Versionen (Handschriften, Blockdrucke, kritische Ausgaben) Zeichen für Zeichen an einem Grundtext aus, sodass sich jede Glyphe in einer Zeile nebeneinander vergleichen lässt und Ihre Entscheidungen als Vergleichstabelle und Apparat festgehalten werden.</p>
  <p><b>Es arbeitet mit Bildern, nicht mit Transkriptionen.</b> Jeder Rahmen ist der Ausschnitt eines einzelnen Zeichens: Schreibvarianten, nachgeschnittene Druckstöcke, ein Wechsel des Schneiders – was bei der Kodierung verloren geht, bleibt im Bild sichtbar. Das Werkzeug legt nur die Formen vor; ob ein Unterschied eine Lesart oder eine Schreibvariante ist und ob er verzeichnet wird, entscheiden Sie.</p>
- <h4>Hauptfunktionen</h4><ul><li>Automatischer Zeichenschnitt (Block → Zeile → Zeichen) mit Korrektur Rahmen für Rahmen</li><li>Ausrichtung am Grundtext über Lesereihenfolge und Anker</li><li>Markierung von Lesarten, Schreibvarianten, Fehlern, Auslassungen, Zusätzen und eigenen Typen</li><li>Vergleichstabelle, Apparatentwürfe, Verzweigungsdiagramm; Export nach Word, Handout, PDF, SVG</li><li>Versionsangaben (Datierung, Typ, Standort …), Weiter zum nächsten Abschnitt, vollständige Sicherung</li></ul>
+ <h4>Hauptfunktionen</h4><ul><li>Automatischer Zeichenschnitt (Block → Zeile → Zeichen) mit Korrektur Rahmen für Rahmen</li><li>Ausrichtung am Grundtext über Lesereihenfolge und Anker</li><li>Markierung von Lesarten, Schreibvarianten, Fehlern, Auslassungen, Zusätzen und eigenen Typen</li><li>Vergleichstabelle, Apparatentwürfe, Verzweigungsdiagramm; Export nach Word, PDF, SVG</li><li>Versionsangaben (Datierung, Typ, Standort …), Weiter zum nächsten Abschnitt, vollständige Sicherung</li></ul>
  <h4>Wo Ihre Daten liegen</h4><p>Alle Projekte, Bilder und Notizen bleiben in Ihrem eigenen Browser und werden nie hochgeladen. Sichern Sie regelmäßig alle Projekte. Die Kollation funktioniert offline; die Schaltflächen für Nachschlagewerke brauchen eine Verbindung.</p>
  <h4>Empfohlene Umgebung</h4><p>Desktop oder Laptop mit Chrome oder Edge, Bildschirmbreite ab 1280 px. Safari und Firefox funktionieren, können aber nicht automatisch in eine Datei speichern, und Safari löscht Websitedaten unter Umständen nach 7 Tagen ohne Nutzung.</p>`},
  fr:{steps:[
@@ -2818,14 +2829,14 @@ const HELP_I18N={
  ["Aligner sur le texte","Sélectionnez le cadre du premier caractère de la section et appuyez sur « ★ Définir comme début de section ». Là où cela dérive, sélectionnez un cadre et épinglez-le au caractère N (ancre) ; le reste suit."],
  ["Marquer chaque caractère","Cliquez sur un cadre pour ouvrir la loupe, saisissez le caractère réel et choisissez un type : variante, forme variante, faute, omission, ajout, incertain, ou un type personnalisé."],
  ["Créer le tableau","« Tableau ▶ » : caractères du texte de base en lignes, versions en colonnes, chaque cellule une image du glyphe avec le caractère réel. Modifiez les brouillons dans la colonne de l'apparat."],
- ["Exporter","Barre du tableau « ⬇ Exporter » → Word, polycopié, PDF ; « Apparat ▾ » → exporter l'apparat. Le « 🌿 Graphe des branches » s'enregistre en SVG / PNG."],
+ ["Exporter","Barre du tableau « ⬇ Exporter » → Word, PDF ; « Apparat ▾ » → exporter l'apparat. Le « 🌿 Graphe des branches » s'enregistre en SVG / PNG."],
  ["Passer à la section suivante","Une section terminée, « ⏭ Passer à la section suivante » dans la barre latérale ouvre un nouveau projet avec les mêmes versions et reprend les cadres de la dernière page de chaque version qui dépassent la section."],
  ["Protéger vos données","Les données ne vivent que dans ce navigateur. Utilisez régulièrement « 💾 Sauvegarder tous les projets » et gardez le fichier dans un stockage en ligne ; sur un autre ordinateur ou navigateur, « Importer un projet » le restaure."]],
  tour:"Pour voir où se trouve chaque fonction à l'écran, utilisez dans la barre latérale « Recherche et aide » → « ✨ Visite guidée ».",
  about:`<h3>CollateDesk (對勘室)</h3><p class="hsub"><i>Character-Level Textual Collation with Source Images</i></p>
  <p>CollateDesk aligne caractère par caractère sur un texte de base les images de page de plusieurs versions (manuscrits, xylographies, éditions critiques), afin de comparer chaque glyphe côte à côte sur une même ligne et de consigner vos choix dans un tableau comparatif et un apparat.</p>
  <p><b>Il travaille sur les images, non sur des transcriptions.</b> Chaque cadre est la découpe d'un seul caractère : formes variantes, planches regravées, changement de graveur — ce que l'encodage efface reste visible dans l'image. L'outil se contente de mettre les formes sous vos yeux ; décider si une différence est une variante ou une forme variante, et s'il faut la relever, revient au lecteur.</p>
- <h4>Fonctions principales</h4><ul><li>Découpage automatique des caractères (bloc → ligne → caractère) avec correction cadre par cadre</li><li>Alignement sur le texte de base par ordre de lecture et ancres</li><li>Marquage des variantes, formes variantes, fautes, omissions, ajouts et types personnalisés</li><li>Tableau comparatif, brouillons d'apparat, graphe des branches ; export vers Word, polycopié, PDF, SVG</li><li>Fiche des versions (date, type, lieu de conservation…), passage à la section suivante, sauvegarde complète</li></ul>
+ <h4>Fonctions principales</h4><ul><li>Découpage automatique des caractères (bloc → ligne → caractère) avec correction cadre par cadre</li><li>Alignement sur le texte de base par ordre de lecture et ancres</li><li>Marquage des variantes, formes variantes, fautes, omissions, ajouts et types personnalisés</li><li>Tableau comparatif, brouillons d'apparat, graphe des branches ; export vers Word, PDF, SVG</li><li>Fiche des versions (date, type, lieu de conservation…), passage à la section suivante, sauvegarde complète</li></ul>
  <h4>Où sont vos données</h4><p>Tous les projets, images et notes restent dans votre propre navigateur et ne sont jamais envoyés en ligne. Sauvegardez régulièrement tous les projets. La collation fonctionne hors ligne ; les boutons des sites de référence demandent une connexion.</p>
  <h4>Configuration recommandée</h4><p>Ordinateur de bureau ou portable avec Chrome ou Edge, largeur d'écran d'au moins 1280 px. Safari et Firefox fonctionnent mais ne peuvent pas enregistrer automatiquement dans un fichier, et Safari peut effacer les données du site après 7 jours sans utilisation.</p>`}};
 const ICO_P={copy:'<rect x="9" y="9" width="11" height="11" rx="1.5"/><path d="M5 15V5.5A1.5 1.5 0 0 1 6.5 4H15"/>',
@@ -2887,19 +2898,19 @@ new MutationObserver(ms=>{if(_i18nBusy||LANG==="zh")return;for(const m of ms){if
 function setLang(l){LANG=l;try{localStorage.setItem("bikan_lang",l);}catch(e){}document.documentElement.lang=l==="zh"?"zh-Hant":l;i18nApply(document.body);try{updateGuide();}catch(e){}const s=document.getElementById("langSel");if(s)s.value=l;
  const h=document.getElementById("helpDlg");if(h&&h.open){const t=(h.querySelector(".hdtabs .on")||{}).dataset;h.close();openHelp(t&&t.t);}}
 {const s=document.getElementById("langSel");if(s){s.value=LANG;s.onchange=()=>setLang(s.value);}if(LANG!=="zh")setTimeout(()=>setLang(LANG),0);}
-const GT={zh:{w1:"把同一段文字在不同版本中的書影逐字排在一起，看看各版有什麼不同。",demo:"開啟示範",own:"建立自己的專案",demoD:"直接看兩個版本、十四個字的對照表，找出哪一個字不同。",ownD:"準備一小段要比對的文字，以及同一段文字在各版本中的書影。第一次可以先用兩個版本、每版一頁。",
+const GT={zh:{w1:"把同一段文字在不同版本中的書影逐字排在一起，看看各版有什麼不同。",demo:"開啟示範",own:"建立自己的專案",demoD:"直接看《釋迦方志》序各版本的對照表，找出哪些字不同。",ownD:"準備一小段要比對的文字，以及同一段文字在各版本中的書影。第一次可以先用兩個版本、每版一頁。",
   s1:"貼上這次要比對的文字。系統會用這段文字的字序，把各版書影排成對照表。",b1:"到校定本文",s2:n=>`選好版本分頁，加入「${n}」的書影：按 Ctrl＋V 貼上，或點下方虛線框選檔。`,s3:n=>`書影已加入。接著讓系統找出每一個字。`,b3:n=>`自動切分第 ${n} 頁`,
   s4:c=>`點書影中與校定本文第一字「${c}」相同的字，再按右邊的按鈕。這一版缺開頭時，改選第一個能確認的字，在側欄「選取框」指定它是第幾字。`,b4:"對齊到本文第 1 字",s4n:"請先在書影上點一個字框",
   s5:t=>`已對齊。請核對前幾格是否順著排對：${t}。沒問題就開啟對照表。`,b5:"開啟對照表",hide:"隱藏提示",show:"顯示下一步提示",next:"下一步",
   pz:n=>`加入「${n}」的書影：`,cut:(l,b)=>`已找到 ${l} 行、${b} 個字框。請看第一個框有沒有圈到要比對的字。`,cmp:"每列是同一個字位，每欄是一個版本。點字圖可以回查原頁。",
   demoName:"示範：兩個版本",demoTip:"示範任務：找出兩個版本在哪一個字不同，點那一格的字圖，看它在原頁哪裡。",demoBtn:"開啟示範",demoMark:"示範用・非真實書影",va:"示範甲本",vb:"示範乙本"},
- ja:{w1:"同じ本文の、版本ごとの書影を一字ずつ並べて、どこが違うかを見ます。",demo:"デモを開く",own:"自分のプロジェクトを作る",demoD:"二つの版本・十四字の対照表をすぐに見て、どの字が違うかを探します。",ownD:"比べたい短い本文と、その本文の各版本の書影を用意します。初回は二つの版本・各一ページで十分です。",
+ ja:{w1:"同じ本文の、版本ごとの書影を一字ずつ並べて、どこが違うかを見ます。",demo:"デモを開く",own:"自分のプロジェクトを作る",demoD:"『釋迦方志』序の各版本の対照表をすぐに見て、どの字が違うかを探します。",ownD:"比べたい短い本文と、その本文の各版本の書影を用意します。初回は二つの版本・各一ページで十分です。",
   s1:"比べたい本文を貼り付けます。この本文の字順に沿って、各版の書影を対照表に並べます。",b1:"校定本文へ",s2:n=>`版本タブを選び、「${n}」の書影を追加します：Ctrl＋V で貼り付けるか、下の破線枠をクリック。`,s3:n=>`書影を追加しました。次に一字ずつ検出します。`,b3:n=>`${n} ページ目を自動分割`,
   s4:c=>`書影の中で、校定本文の1字目「${c}」と同じ字をクリックし、右のボタンを押します。冒頭が欠けている版本は、確認できる最初の字を選び、サイドバー「選択中の枠」で何字目かを指定します。`,b4:"本文の1字目に揃える",s4n:"先に書影の字枠をクリックしてください",
   s5:t=>`揃いました。最初の数字が順に合っているか確認してください：${t}。問題なければ対照表を開きます。`,b5:"対照表を開く",hide:"ヒントを隠す",show:"次の手順を表示",next:"次の手順",
   pz:n=>`「${n}」の書影を追加：`,cut:(l,b)=>`${l} 行・${b} 個の字枠を検出しました。最初の枠が比べたい字を囲んでいるか確認してください。`,cmp:"各行は同じ字位、各列は一つの版本です。字の画像をクリックすると元のページを確認できます。",
   demoName:"デモ：二つの版本",demoTip:"デモの課題：二つの版本でどの字が違うかを探し、その字の画像をクリックして元のページで確かめます。",demoBtn:"デモを開く",demoMark:"デモ用・実在の書影ではありません",va:"デモ甲本",vb:"デモ乙本"},
- en:{w1:"Line up page images of the same passage from different versions, character by character, and see where they differ.",demo:"Open the demo",own:"Start my own project",demoD:"See a finished table of two versions and fourteen characters, and find the one that differs.",ownD:"Have a short passage ready, plus page images of that passage in each version. Two versions with one page each is enough for a first try.",
+ en:{w1:"Line up page images of the same passage from different versions, character by character, and see where they differ.",demo:"Open the demo",own:"Start my own project",demoD:"See a finished table for the preface of the Shijia fangzhi across its versions, and find where they differ.",ownD:"Have a short passage ready, plus page images of that passage in each version. Two versions with one page each is enough for a first try.",
   s1:"Paste the passage you want to compare. Its character order is used to line up every version's page images.",b1:"Go to base text",s2:n=>`Pick a version tab and add the page image for “${n}”: press Ctrl+V, or click the dashed box below.`,s3:n=>`Page image added. Next, let the tool find each character.`,b3:n=>`Cut page ${n} automatically`,
   s4:c=>`Click the character on the page that matches the first character of the base text, “${c}”, then press the button. If this version lacks the opening, pick the first character you can confirm and set its number under “Selected box” in the sidebar.`,b4:"Align to character 1",s4n:"Click a box on the page first",
   s5:t=>`Aligned. Check that the first few boxes follow in order: ${t}. If so, open the table.`,b5:"Open the table",hide:"Hide tips",show:"Show next-step tips",next:"Next",
@@ -2957,10 +2968,19 @@ async function createDemo(){const T=gt();const base="若夫孝始孝終治家治
  const id="p"+Date.now();projMeta.push({id,name:T.demoName});curProj=id;history.length=0;fileHandle=null;setFileStat("未連結");
  applyState(st);active=SIGS[0][0];try{await idbSet("proj_"+id,state);await idbSet("projMeta",projMeta);await idbSet("curProj",id);}catch(e){}
  refreshAll();document.getElementById("genCmp").click();setTimeout(()=>cdToast(T.demoTip),900);}
+function exGallery(){return `<div class="exgal"><h4>做出來是這樣：《釋迦方志》序</h4><div class="exrow">
+<figure data-ex="img/ex_boxes.webp"><img src="img/ex_boxes.webp" alt="字框工具：頁圖上逐字切框、放大鏡核對" loading="lazy" onerror="this.closest('.exgal').remove()"><figcaption>逐字切框</figcaption></figure>
+<figure data-ex="img/ex_table.webp"><img src="img/ex_table.webp" alt="對照表：各版切圖並排，標出異文與異體" loading="lazy"><figcaption>對照表</figcaption></figure>
+<figure data-ex="img/ex_branch.webp"><img src="img/ex_branch.webp" alt="分支圖：各版相同處合股，異文處分岔" loading="lazy"><figcaption>分支圖</figcaption></figure>
+</div><p class="exnote">截圖僅供說明功能；書影各屬原收藏機構。點圖放大。</p></div>`;}
+function exZoom(src){const z=document.createElement("div");z.id="exZoom";z.innerHTML=`<img src="${src}" alt="">`;z.onclick=()=>z.remove();
+ document.addEventListener("keydown",function k(e){if(e.key==="Escape"){z.remove();document.removeEventListener("keydown",k);}});
+ (document.querySelector("dialog[open]")||document.body).appendChild(z);}
+document.addEventListener("click",e=>{const f=e.target.closest&&e.target.closest(".exgal figure[data-ex]");if(f){e.preventDefault();e.stopPropagation();exZoom(f.dataset.ex);}},true);
 function openWelcome(){const T=gt();const d=document.createElement("dialog");d.className="cddlg welcome";
- d.innerHTML=`<h3>對勘室｜CollateDesk</h3><p class="wlead">${T.w1}</p><div class="wopts"><button data-w="demo"><b>${T.demo}</b><span>${T.demoD}</span></button><button data-w="own"><b>${T.own}</b><span>${T.ownD}</span></button></div>`;
+ d.innerHTML=`<h3>對勘室｜CollateDesk</h3><p class="wlead">${T.w1}</p><div class="wopts"><button data-w="own"><b>${T.own}</b><span>${T.ownD}</span></button></div>${exGallery()}`;
  document.body.appendChild(d);d.addEventListener("click",e=>{const b=e.target.closest("[data-w]");if(!b)return;d.close();d.remove();try{localStorage.setItem("bikan_seenHelp","1");}catch(e){}
-  if(b.dataset.w==="demo")createDemo();else{try{localStorage.setItem("bikan_guideOff","0");}catch(e){}updateGuide();document.getElementById("guide").scrollIntoView({block:"center"});}});
+  if(b.dataset.w==="demo")openDemo();else{try{localStorage.setItem("bikan_guideOff","0");}catch(e){}updateGuide();document.getElementById("guide").scrollIntoView({block:"center"});}});
  d.addEventListener("close",()=>{try{localStorage.setItem("bikan_seenHelp","1");}catch(e){}d.remove();});d.showModal();}
 const DEMO_SHIJIA_NAME="示範：釋迦方志";
 function loadDemoData(){return new Promise(res=>{if(window.CD_DEMO_SHIJIA)return res(window.CD_DEMO_SHIJIA);
@@ -2975,8 +2995,8 @@ async function openDemo(){
  const id="p"+Date.now();projMeta.push({id,name:DEMO_SHIJIA_NAME});curProj=id;history.length=0;fileHandle=null;setFileStat("未連結");
  applyState(st);active=SIGS[0][0];try{await idbSet("proj_"+id,state);await idbSet("projMeta",projMeta);await idbSet("curProj",id);}catch(e){}
  refreshAll();document.getElementById("genCmp").click();
- setTimeout(()=>cdToast("示範：《釋迦方志》序，十一個版本。每列是同一個字位，點字圖可以回查原頁。"),900);}
-document.getElementById("demoBtn").onclick=createDemo;
+ setTimeout(()=>cdToast(`示範：《釋迦方志》序，${SIGS.length} 個版本。每列是同一個字位，點字圖可以回查原頁。`),900);}
+document.getElementById("demoBtn").onclick=openDemo;
 document.querySelectorAll('#compare [data-cm]').forEach(b=>b.addEventListener('click',e=>{e.stopPropagation();const body=document.getElementById('cm_'+b.dataset.cm);const was=body.classList.contains('open');document.querySelectorAll('#compare .cmbody.open').forEach(x=>x.classList.remove('open'));if(!was)body.classList.add('open');}));
 document.addEventListener('click',e=>{if(!e.target.closest('#compare .cmbody'))document.querySelectorAll('#compare .cmbody.open').forEach(x=>x.classList.remove('open'));});
 (function(){document.querySelectorAll('#sidebar details.sbg').forEach(d=>{const k='bikan_sbg_'+d.dataset.g;try{const v=localStorage.getItem(k);if(v==='1')d.open=true;else if(v==='0')d.open=false;}catch(e){}
@@ -3004,6 +3024,14 @@ async function switchProject(id){
  try{await idbSet("curProj",curProj);}catch(e){}
  refreshAll();await tryRestoreHandle();refreshAll();
 }
+async function duplicateProject(){
+ const m=projMeta.find(p=>p.id===curProj);const nm=(prompt("複製後的專案名稱：",(m?m.name:"專案")+"（副本）")||"").trim();if(!nm)return;
+ try{await idbSet("proj_"+curProj,state);}catch(e){}
+ const copy=JSON.parse(JSON.stringify(state));const id="p"+Date.now();
+ try{await idbSet("proj_"+id,copy);}catch(e){alert("複製失敗："+e);return;}
+ projMeta.push({id,name:nm});await idbSet("projMeta",projMeta);
+ await switchProject(id);cdToast("已複製為「"+nm+"」");
+}
 function renameProject(){const m=projMeta.find(p=>p.id===curProj);if(!m)return;const nm=(prompt("專案改名：",m.name)||"").trim();if(nm){m.name=nm;idbSet("projMeta",projMeta);renderProjSel();}}
 function deleteProject(){
  if(projMeta.length<=1){alert("至少要保留一個專案");return;}
@@ -3016,6 +3044,7 @@ function deleteProject(){
 document.getElementById("projSel").onchange=e=>switchProject(e.target.value);
 document.getElementById("newProjBtn").onclick=newProject;
 document.getElementById("renProjBtn").onclick=renameProject;
+document.getElementById("dupProjBtn").onclick=duplicateProject;
 document.getElementById("delProjBtn").onclick=deleteProject;
 (document.getElementById("resetPsg")||{}).onclick=()=>{if(!confirm("要把目前的校定本文換成內建的《彥琮傳》範例底本嗎？\n目前的本文會被取代，無法還原。"))return;state.passage=DEFAULT_PASSAGE;state.passageVer=PASSAGE_VER;document.getElementById("passage").value=DEFAULT_PASSAGE;save();renderPages();};
 document.getElementById("linkFile").onclick=linkFile;
@@ -3079,7 +3108,7 @@ const KD_STRIP=/[。，、；：？！「」『』（）()\[\]《》〈〉…—
 const KD_SEED=null;
 const KD_SITES_DEFAULT=[
  {n:"CBETA",u:"https://cbetaonline.dila.edu.tw/search/?q={q}"},
- {n:"漢語大詞典",u:"COPY http://www.kaom.net/book_hanyudacidian.php"},{n:"漢語大字典",u:""},{n:"識典古籍",u:"https://www.shidianguji.com/zh/search/{q}?type=all"},
+{n:"漢語大字典",u:""},{n:"識典古籍",u:"https://www.shidianguji.com/zh/search/{q}?type=all"},
  {n:"漢典",u:"https://www.zdic.net/hans/{q}"},
  {n:"異體字字典",u:"https://dict.variants.moe.edu.tw/search.jsp?QTP=0&WORD={q}"},
  {n:"字統",u:"https://zi.tools/zi/{q}"},
@@ -4008,6 +4037,8 @@ function hoDlg(){let d=document.getElementById("hoDlg");
  *   before(ctx) = 顯示該步之前要做的準備（可選）
  */
 const TOUR_STEPS=[
+ {el:"#projBar",title:"專案",
+  text:"一個文本一個專案：底本、版本、頁圖、字框和校勘記都存在專案裡。可以<b>新增、改名、複製、刪除</b>，也可以匯出成檔案備份或交給別人匯入。資料只存在你的電腦。"},
  {el:"#tabs",title:"版本分頁",
   text:"每個版本一個分頁：寫本、刻本都可以。這裡是「多個版本並排」的起點；版本可自由增刪。"},
  {el:"#pz",title:"貼上頁圖",
@@ -4031,10 +4062,8 @@ const TOUR_STEPS=[
   text:"依併用順序自動生成草稿（採用組在前，組間「；」），可逐條手改。每條差異都對應著切圖——校勘記附<b>圖證</b>，讀者看到的是形，不是轉述。"},
  {el:"#vgBtn",need:"compare",title:"異文分支圖",
   text:"各版相同處合成一股，異文處分岔；一條線＝一個版本。可只畫有出校的條目，也可逐字動畫展開。"},
- {el:"#hoBtn",need:"compare",title:"匯出講義／Word",
-  text:"一鍵輸出原文、訓讀、譯、語釋、校勘腳註與字形對照表，<b>字圖一起帶走</b>，離線可用。"},
  {el:null,title:"還復如故",
-  text:"導覽結束。對勘室只提供視野：切圖、並排、粒度開關；判斷留給讀的人。關掉工具，世界還復如故——要看哪一層，得自己記得。"}
+  text:"導覽結束。對勘室只提供視野：切圖、並排、粒度開關；判斷留給讀的人。關掉工具，世界還復如故——要看哪一層，得自己記得。"+exGallery()}
 ];
 
 (function(){
