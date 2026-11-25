@@ -681,8 +681,8 @@ body.tx-washi,body.tx-washi header{background-color:oklch(from var(--paper) calc
  <button class="btn" id="expProj">匯出專案</button>
  <button class="btn" id="backupAllBtn" title="把所有專案（含頁圖、字框、校勘）存成一個備份檔；換電腦或換瀏覽器時用「匯入專案」還原">💾 備份全部專案</button>
  <span id="backupStat" hidden></span><span style="flex:1 1 0"></span>
- <button class="btn" id="genVg" style="flex:none" title="直接打開異文分支圖（會先整理對照表）">分支圖</button>
- <button class="btn go" id="genCmp" style="flex:none" title="把所有版本依底本字序排成對照表">產生對照表 ▶</button>
+ <button class="btn go" id="genVg" style="flex:none" title="直接打開異文分支圖（會先整理對照表）">🌿 分支圖</button>
+ <button class="btn go" id="genCmp" style="flex:none" title="把所有版本依底本字序排成對照表">對照表 ▶</button>
 </div>
 
 <div id="guide" class="guide" style="display:none!important"></div>
@@ -2398,7 +2398,7 @@ const HELP_STEPS=[
  ["切字","側欄「版面切分」→「一鍵 1→2→3」，依序找出正文區塊、行、字框。不準的框用「字框工具」新增、刪除、拖移或拉角縮放。"],
  ["對齊字序","選本段第一個字的框，按「★ 設為段落起點」。中間若錯位，選那個框指定「此框＝第 N 字」（錨點），之後自動順延。"],
  ["逐字標注","點字框打開放大鏡，填「實際字」，選類型：異文、異體字、訛字、脫字、衍字、不確定，或自訂類型。"],
- ["產生對照表","按「產生對照表 ▶」：底本逐字為列、各版為欄，每格是字圖＋實際字。在「校勘記」欄修改草稿。"],
+ ["產生對照表","按「對照表 ▶」：底本逐字為列、各版為欄，每格是字圖＋實際字。在「校勘記」欄修改草稿。"],
  ["匯出成果","對照表上方「⬇ 匯出」→ Word、講義、PDF；「校勘記」→ 匯出校勘記。「🌿 分支圖」可下載 SVG／PNG。"],
  ["續校下一段","一段校完，按側欄「⏭ 續校下一段」：沿用版本設定開新專案，並帶入各版最後一頁超出本段的字框。"],
  ["保住資料","資料只存在這個瀏覽器裡。請定期按「💾 備份全部專案」，把檔案放到雲端硬碟；換電腦或換瀏覽器時，用「匯入專案」選備份檔即可還原。"]];
@@ -2470,6 +2470,7 @@ v0.9.0・資料只存在本機|v0.9.0・データはこの端末にのみ保存|
 版本一覽|版本一覧|All versions
 各版本第一頁書影、系統與大約時代，整頁並列（Esc 關閉）|各版本の第1ページ・系統・おおよその年代を一覧（Esc で閉じる）|First page, lineage and approximate date of every version side by side (Esc to close)
 產生對照表 ▶|対照表を作成 ▶|Build table ▶
+對照表 ▶|対照表 ▶|Table ▶
 把所有版本依底本字序排成對照表|全版本を底本の字順に並べて対照表にする|Arrange all versions by base-text order into a comparison table
 提示：選取字框後，可拖|ヒント：字枠を選択したら|Tip: after selecting a box, drag 
 任一角|四隅のどれか| any corner 
