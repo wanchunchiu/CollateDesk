@@ -769,7 +769,6 @@ body.tx-washi,body.tx-washi header{background-color:oklch(from var(--paper) calc
  <button class="btn" id="boxPlus" title="所有框上下左右各外擴 2px">全框＋</button>
  <button class="btn" id="boxMinus" title="所有框各內縮 2px">全框－</button>
  <label>對齊起點字# <input type="number" id="startIdx" value="1" min="1"></label>
- <label title="底圖黑白加強：0＝原圖；往右越黑白分明（只影響畫面顯示，不改原圖、不影響切字）"><span class="lbi"><svg class="ic" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 3.5v17a8.5 8.5 0 0 0 0-17z" fill="currentColor"/></svg>黑白加強</span><input type="range" id="imgCon" min="0" max="100" step="5" value="0" style="width:96px"></label>
  <label title="快速鍵 B"><input type="checkbox" id="showBox" checked><span class="lbi"><svg class="ic" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="1.5" stroke-dasharray="3 2"/><path d="M8 8h3v3H8zM13 13h3v3h-3z"/></svg>顯示字框</span></label>
  <label><input type="checkbox" id="showRef" checked>顯示基準字</label>
  <label><input type="checkbox" id="showIdx" checked>顯示編號</label>
@@ -804,7 +803,7 @@ body.tx-washi,body.tx-washi header{background-color:oklch(from var(--paper) calc
 <div style="padding:6px 22px" id="psgHead"><b>校定本文（底本）</b> <button class="btn" id="psgFold" title="收合／展開校定本文（開始校對後可收起來，騰出空間看書影）">收合</button> <span id="psgPeek" hidden></span><div class="psgNote" hidden style="font-size:13px;color:oklch(from var(--muted) calc(l - 0.046) max(0, calc(c - 0.009)) calc(h - 3.6));margin-top:3px">全段字序以這裡為準，各版本都依此逐字對齊。先貼入底本（如《大正藏》）正文，校勘完成後再改為最後採用的文字。標點不影響對齊。</div></div>
 <textarea id="passage" placeholder="貼上底本正文（例如《大正藏》）。全段字序以這裡為準，各版本依此逐字對齊；標點不影響對齊。" style="width:calc(100% - 44px);margin:0 22px 6px;height:70px;font-family:inherit;font-size:15px;border:1px solid var(--line);border-radius:6px;padding:8px"></textarea>
 
-<div class="dwrow" style="display:flex;align-items:center;gap:8px;padding:4px 22px;font-size:13px;color:oklch(from var(--accent) calc(l - 0.030) max(0, calc(c - 0.087)) calc(h + 34.6))"><label for="dw">大圖顯示高度（各頁等高・放大；Ctrl＋滾輪縮放）：</label><input type="range" id="dw" min="300" max="3000" value="900" style="width:220px"> <span id="dwv">900px</span><button class="btn" id="addPg" style="margin-left:auto" title="為目前版本新增一頁（選圖／貼圖也可）">＋ 新增頁</button><button class="btn" id="delPg" title="刪除目前版本的最後一頁（可從右欄『↩ 復原刪頁』救回）">－ 刪除末頁</button><button class="btn" id="saveImgs" title="另存原始頁圖為 PNG（備份用，非存進度）">匯出原圖（PNG）</button></div>
+<div class="dwrow" style="white-space:nowrap;display:flex;align-items:center;gap:8px;padding:4px 22px;font-size:13px;color:oklch(from var(--accent) calc(l - 0.030) max(0, calc(c - 0.087)) calc(h + 34.6))"><label for="dw" title="各頁等高顯示；Ctrl＋滾輪也可縮放" style="white-space:nowrap">大圖高度</label><input type="range" id="dw" min="300" max="3000" value="900" style="width:220px"> <span id="dwv">900px</span><span style="width:14px"></span><label style="display:flex;align-items:center;gap:6px" title="底圖黑白加強：0＝原圖；往右越黑白分明（只影響畫面顯示，不改原圖、不影響切字）"><span class="lbi"><svg class="ic" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 3.5v17a8.5 8.5 0 0 0 0-17z" fill="currentColor"/></svg>黑白加強</span><input type="range" id="imgCon" min="0" max="100" step="5" value="0" style="width:96px"></label><button class="btn" id="addPg" style="margin-left:auto" title="為目前版本新增一頁（選圖／貼圖也可）">＋ 新增頁</button><button class="btn" id="delPg" title="刪除目前版本的最後一頁（可從右欄『↩ 復原刪頁』救回）">－ 刪除末頁</button><button class="btn" id="saveImgs" title="另存原始頁圖為 PNG（備份用，非存進度）">匯出原圖（PNG）</button></div>
 <div class="pages" id="pages"></div>
 
 <div id="vpassage" style="position:fixed;top:0;right:246px;height:100vh;width:0;overflow:auto;background:oklch(from var(--paper) l c h / .97);border-left:3px solid var(--accent);z-index:40;transition:width .15s"></div>
@@ -1781,7 +1780,7 @@ function updateMagRef(){const el=document.getElementById("magRef");if(!el)return
  const ac=(document.getElementById("actualChar").value||"").trim();const pidx=computeMap(active).piByKey[sel.pi+"_"+sel.bi];
  const ch=[...(ac||passageChars()[pidx]||"")][0]||"";if(!ch){el.innerHTML="";return;}
  const u=(base,c)=>base?base+encodeURIComponent(c):"https://glyphwiki.org/wiki/u"+c.codePointAt(0).toString(16);
- el.innerHTML=`<span>查</span><b>${ch}</b><a href="#" data-mdxq="${ch}" style="background:#1f4b78;color:#fff">辭典</a>`+kdSites().filter(s=>s.u).map(s=>kdLink(s,ch)).join("");}
+ el.innerHTML=`<span>查</span><b>${ch}</b>`+kdSites().filter(s=>s.u).map(s=>kdLink(s,ch)).join("");}
 function nudgeSel(d){const sel=findSel();if(!sel)return;pushHist();const pg=state.versions[active].pages[sel.pi],b=sel.box,W=pg.w||1e9,H=pg.h||1e9;
  const x=Math.max(0,b.x-d),y=Math.max(0,b.y-d);b.w=Math.max(4,Math.min(W,b.x+b.w+d)-x);b.h=Math.max(4,Math.min(H,b.y+b.h+d)-y);b.x=x;b.y=y;save();renderPagesLight();drawMagOverlay();} // 放大窗的圖不動，只重畫框，才看得出框在變大變小
 document.getElementById("magGrow").onclick=()=>nudgeSel(2);
@@ -2452,7 +2451,8 @@ v0.9.0・資料只存在本機|v0.9.0・データはこの端末にのみ保存|
 資料只存在這個瀏覽器裡；請定期備份全部專案|データはこのブラウザにのみ保存されます。定期的に全プロジェクトをバックアップしてください|Data is stored only in this browser. Back up all projects regularly.|Die Daten liegen nur in diesem Browser. Sichern Sie regelmäßig alle Projekte.|Les données ne sont stockées que dans ce navigateur. Sauvegardez régulièrement tous les projets.
 點下方版本分頁，直接|下の版本タブを選び、|Pick a version tab below, then|Wählen Sie unten einen Versionsreiter und drücken Sie|Choisissez un onglet de version ci-dessous, puis appuyez sur
 貼上該版的書頁大圖（或拖放／選檔）。逐頁自動切字、可手動修框，再對齊到校定本文，最後一鍵排成對照表。|でその版の書影を貼り付けます（ドラッグ＆ドロップ／ファイル選択も可）。ページごとに自動で字を切り出し、枠を手直しして校定本文に揃え、最後に対照表を作ります。|to paste that version's page image (or drag & drop / choose a file). Characters are cut automatically page by page; adjust boxes, align them to the base text, then build the comparison table.|um das Seitenbild dieser Version einzufügen (oder Datei ziehen / auswählen). Die Zeichen werden seitenweise automatisch geschnitten; Rahmen anpassen, am Grundtext ausrichten und dann die Vergleichstabelle erstellen.|pour coller l'image de page de cette version (ou glisser-déposer / choisir un fichier). Les caractères sont découpés automatiquement page par page ; ajustez les cadres, alignez-les sur le texte de base, puis créez le tableau comparatif.
-大圖顯示高度（各頁等高・放大；Ctrl＋滾輪縮放）：|画像の高さ（Ctrl＋ホイールで拡大）：|Image height (Ctrl+wheel zooms):|Bildhöhe (Strg+Mausrad zoomt):|Hauteur d'image (Ctrl+molette pour zoomer) :
+大圖高度|画像の高さ|Image height|Bildhöhe|Hauteur d'image
+各頁等高顯示；Ctrl＋滾輪也可縮放|各ページ同じ高さで表示。Ctrl＋ホイールでも拡大縮小|All pages shown at the same height; Ctrl+wheel also zooms|Alle Seiten gleich hoch; Strg+Mausrad zoomt ebenfalls|Toutes les pages à la même hauteur ; Ctrl+molette zoome aussi
 對勘|対勘|Collate|Kollation|Collation
 訓讀|訓読|Kundoku|Kundoku|Kundoku
 地圖|地図|Map|Karte|Carte
@@ -3108,6 +3108,8 @@ const KD_STRIP=/[。，、；：？！「」『』（）()\[\]《》〈〉…—
 const KD_SEED=null;
 const KD_SITES_DEFAULT=[
  {n:"CBETA",u:"https://cbetaonline.dila.edu.tw/search/?q={q}"},
+ {n:"SAT",u:"https://21dzk.l.u-tokyo.ac.jp/SAT/ddb-sat2.php?key={q}"},
+ {n:"漢籍リポジトリ",u:"https://www.kanripo.org/search?query={q}"},
 {n:"漢語大字典",u:""},{n:"識典古籍",u:"https://www.shidianguji.com/zh/search/{q}?type=all"},
  {n:"漢典",u:"https://www.zdic.net/hans/{q}"},
  {n:"異體字字典",u:"https://dict.variants.moe.edu.tw/search.jsp?QTP=0&WORD={q}"},
@@ -3115,7 +3117,7 @@ const KD_SITES_DEFAULT=[
  {n:"GlyphWiki",u:"https://glyphwiki.org/wiki/{u}"}];
 let kdOn=false,kdCur=0,kdHist=[],kdNoteSel=null;
 const esc=s=>String(s==null?"":s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
-function kdSites(){try{const v=JSON.parse(localStorage.getItem("bikan_sites")||"null");if(Array.isArray(v)&&v.length){v.forEach(x=>{const d=KD_SITES_DEFAULT.find(y=>y.n===x.n);if(d&&d.u&&(!x.u||/kaom\.net\/book_hanyudacidian8/.test(x.u)))x.u=d.u;});return v;}}catch(e){}return KD_SITES_DEFAULT.map(x=>({...x}));}   // 已存的清單裡空白的網址，用新的預設值補上
+function kdSites(){try{const v=JSON.parse(localStorage.getItem("bikan_sites")||"null");if(Array.isArray(v)&&v.length){if(!localStorage.getItem("bikan_sites_v2")){["漢籍リポジトリ","SAT"].forEach(n=>{if(!v.some(x=>x.n===n)){const d=KD_SITES_DEFAULT.find(y=>y.n===n);v.splice(1,0,{...d});}});localStorage.setItem("bikan_sites",JSON.stringify(v));localStorage.setItem("bikan_sites_v2","1");}v.forEach(x=>{const d=KD_SITES_DEFAULT.find(y=>y.n===x.n);if(d&&d.u&&(!x.u||/kaom\.net\/book_hanyudacidian8/.test(x.u)))x.u=d.u;});return v;}}catch(e){}return KD_SITES_DEFAULT.map(x=>({...x}));}   // 已存的清單裡空白的網址，用新的預設值補上
 function kdSaveSites(v){try{localStorage.setItem("bikan_sites",JSON.stringify(v));}catch(e){}}
 function kdIsPost(site){return /^POST\s/i.test(site.u||"");}
 function kdIsCopy(site){return /^COPY\s/i.test(site.u||"");}
@@ -3321,7 +3323,7 @@ document.addEventListener("copy",e=>{const sel=getSelection();if(!sel||sel.isCol
  const html=div.innerHTML;const c=div.cloneNode(true);c.querySelectorAll("ruby").forEach(rb=>{const rt=[...rb.querySelectorAll("rt")].map(x=>x.textContent).join("");rb.querySelectorAll("rt").forEach(x=>x.remove());rb.replaceWith(document.createTextNode(rb.textContent+(rt?"（"+rt+"）":"")));});
  c.querySelectorAll("br").forEach(b=>b.replaceWith("\n"));c.querySelectorAll("sup").forEach(x=>x.remove());
  e.clipboardData.setData("text/plain",c.textContent);e.clipboardData.setData("text/html",html);e.preventDefault();});
-function kdChips(q){if(!q)return "";return `<a class="kchip kdict" href="#" data-mdxq="${esc(q)}" title="查本機辭典（MDX）">辭典</a>`+kdSites().map(s=>s.u?kdLink(s,q,"kchip"):`<a class="kchip off" data-setup="1" title="還沒設定網址：按這裡設定">${esc(s.n)}</a>`).join("");}
+function kdChips(q){if(!q)return "";return kdSites().map(s=>s.u?kdLink(s,q,"kchip"):`<a class="kchip off" data-setup="1" title="還沒設定網址：按這裡設定">${esc(s.n)}</a>`).join("");}
 function kdGrow(t){t.style.height="auto";t.style.height=(t.scrollHeight+2)+"px";}
 function kdFindNote(id){for(const sg of state.kd.segs){const o=sg.notes.find(x=>x.id===id);if(o)return {sg,o};}return null;}
 function kdBind(root){
