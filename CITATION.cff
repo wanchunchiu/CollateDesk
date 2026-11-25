@@ -6,6 +6,7 @@ authors:
   - family-names: "Chiu"
     given-names: "Wan-chun"
     alias: "邱琬淳"
+license: MIT
 version: "0.9.0"
 date-released: "2026-11-24"
 repository-code: "https://github.com/wanchunchiu/CollateDesk"
