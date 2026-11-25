@@ -18,7 +18,7 @@ header .sub{font-size:12.5px;color:oklch(from var(--accent) calc(l + 0.027) max(
 .tabs .tab .nm{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0}
 .tabs .tab .ct{flex:none}
 .tabs .tab.tabtg{justify-content:center}
-.tabs.short{grid-template-columns:repeat(auto-fill,minmax(74px,1fr));gap:4px}.tabs.short .tab{padding:4px 7px}
+.tabs.short{grid-template-columns:repeat(auto-fill,minmax(86px,1fr));gap:4px}.tabs.short .tab{padding:4px 7px}
 .tab{cursor:pointer;border:1px solid oklch(from var(--gold) calc(l - 0.018) max(0, calc(c - 0.037)) calc(h + 7.7));background:oklch(from var(--paper) calc(l + 0.041) max(0, calc(c - 0.010)) calc(h + 0.0));border-radius:6px;padding:5px 10px;
  display:flex;justify-content:space-between;align-items:center;gap:7px;transition:.12s}
 .tab:hover{border-color:var(--accent2)}
@@ -690,7 +690,8 @@ body.tx-washi,body.tx-washi header{background-color:oklch(from var(--paper) calc
  <button class="btn" id="verMetaBtn" title="各版本的全名、類型（寫本／刻本／抄本…）、系統、年代、出土地、館藏地、編號、筆記；可從 CSV 或其他專案匯入"><svg class="ic" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="5" width="17" height="14" rx="1.5"/><circle cx="8.5" cy="10.5" r="2"/><path d="M5.8 15.8c.6-1.4 1.6-2 2.7-2s2.1.6 2.7 2M13.5 9.5h4.5M13.5 12.5h4.5M13.5 15.5h3"/></svg>版本屬性</button>
  <button class="btn" id="addVer" title="新增一個版本（自訂略號與名稱）">＋ 新增版本</button>
  <button class="btn" id="delVer" title="刪除目前選中的版本及其所有頁面">－ 刪除此版本</button>
- <button class="btn" id="galBtn" style="margin-left:auto;font-size:14px" title="各版本第一頁書影、系統與大約時代，整頁並列（Esc 關閉）" onclick="vgGallery()"><svg class="ic" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8.5 6.5V4.5A1.5 1.5 0 0 1 10 3h8A1.5 1.5 0 0 1 19.5 4.5v11A1.5 1.5 0 0 1 18 17h-2.5"/><rect x="4.5" y="6.5" width="11" height="14.5" rx="1.5"/><path d="M7.5 11h5M7.5 14h5M7.5 17h3"/></svg>版本一覽</button>
+ <button class="btn" id="tabShortBtn" style="margin-left:auto" title="切換版本分頁的顯示方式：只顯示略號，或顯示全名">只顯示略號</button>
+ <button class="btn" id="galBtn" style="font-size:14px" title="各版本第一頁書影、系統與大約時代，整頁並列（Esc 關閉）" onclick="vgGallery()"><svg class="ic" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8.5 6.5V4.5A1.5 1.5 0 0 1 10 3h8A1.5 1.5 0 0 1 19.5 4.5v11A1.5 1.5 0 0 1 18 17h-2.5"/><rect x="4.5" y="6.5" width="11" height="14.5" rx="1.5"/><path d="M7.5 11h5M7.5 14h5M7.5 17h3"/></svg>版本一覽</button>
 </div>
 <div class="tabs" id="tabs"></div>
 <div id="newVerModal" style="display:none;position:fixed;inset:0;background:oklch(from var(--ink) calc(l - 0.023) max(0, calc(c - 0.005)) calc(h + 0.0) / .6);z-index:80;align-items:center;justify-content:center">
@@ -1454,8 +1455,8 @@ function renderTabs(){punctFixShijia();sigOrderFix();try{if(typeof rebaseRepair=
  SIGS.forEach(([s,nm],vi)=>{const v=state.versions[s];const d=document.createElement("div");
   d.className="tab"+(s===active?" on":"");d.title=`${vi+1}. ${s}（${nm}）`;d.innerHTML=`<span class="nm">${tabShort?`${vi+1}. ${s}`:`${vi+1}. ${s}（${nm}）`}</span><span class="ct" title="${v.pages.length} 頁">${v.pages.length}</span>`;
   d.onclick=()=>{active=s;document.getElementById("startIdx").value=v.start||1;renderTabs();renderPages();updateBar();};t.appendChild(d);});
- const tg=document.createElement("div");tg.className="tab tabtg";tg.textContent=tabShort?"顯示全名":"只顯示略號";tg.title="切換版本分頁的顯示方式";
- tg.onclick=()=>{tabShort=!tabShort;try{localStorage.setItem("bikan_tabShort",tabShort?"1":"0");}catch(e){}renderTabs();};t.appendChild(tg);}
+ const tg=document.getElementById("tabShortBtn");if(tg){const lb=tabShort?"顯示全名":"只顯示略號";if(tg.dataset.lb!==lb){tg.dataset.lb=lb;tg.textContent=lb;}
+  tg.onclick=()=>{tabShort=!tabShort;try{localStorage.setItem("bikan_tabShort",tabShort?"1":"0");}catch(e){}renderTabs();};}}
 function updateBar(){const nm=SIGS.find(x=>x[0]===active)[1];document.getElementById("curName").textContent=`${active}(${nm})`;}
 
 function renderPages(){const host=document.getElementById("pages");
